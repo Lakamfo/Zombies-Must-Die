@@ -1,0 +1,16 @@
+[gd_resource type="QuadMesh" format=3 uid="uid://c3qhijxr7e7n"]
+
+[ext_resource type="Texture2D" uid="uid://3x1jlpmq1f0j" path="res://textures/particles/dirt_spash_game.png" id="1_hhnak"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cyy2l"]
+transparency = 3
+alpha_hash_scale = 1.0
+alpha_antialiasing_mode = 0
+shading_mode = 2
+albedo_texture = ExtResource("1_hhnak")
+billboard_mode = 1
+grow_amount = 0.533
+
+[resource]
+material = SubResource("StandardMaterial3D_cyy2l")
+size = Vector2(0.1, 0.1)

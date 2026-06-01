@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://moo1pemlgn4r"]
+
+[ext_resource type="Script" uid="uid://bvmetr5f7mnfu" path="res://classes/camera_indoor_checker/is_camera_indoors.gd" id="1_t7qh1"]
+
+[node name="is_camera_indoors" type="Node3D" unique_id=913025004]
+script = ExtResource("1_t7qh1")
+
+[node name="ray_cast_3d" type="RayCast3D" parent="." unique_id=213485188]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 10, 0)
+target_position = Vector3(0, -10, 0)

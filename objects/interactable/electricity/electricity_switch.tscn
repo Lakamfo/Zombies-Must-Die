@@ -1,0 +1,38 @@
+[gd_scene format=3 uid="uid://dto7by2l8v1u6"]
+
+[ext_resource type="Script" uid="uid://bj10wrvvwydt" path="res://objects/interactable/electricity/electricity_switch.gd" id="1_14mdf"]
+[ext_resource type="PackedScene" uid="uid://cnd4scloxbgrg" path="res://objects/interactable/electricity/model/scene.gltf" id="2_p2h67"]
+[ext_resource type="AudioStream" uid="uid://bv0o8u275y77e" path="res://objects/interactable/electricity/sounds/switch.wav" id="3_wnfql"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_xw6ti"]
+size = Vector3(0.9086914, 1.2519531, 0.390625)
+
+[node name="electricity_switch" type="StaticBody3D" unique_id=1763206657 node_paths=PackedStringArray("audio_stream_player")]
+collision_layer = 9
+collision_mask = 9
+script = ExtResource("1_14mdf")
+audio_stream_player = NodePath("audio_stream_player_3d")
+metadata/material = "METAL"
+
+[node name="collision_shape_3d" type="CollisionShape3D" parent="." unique_id=1631615253]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.03149414, 0.62402344, 0.1953125)
+shape = SubResource("BoxShape3D_xw6ti")
+
+[node name="Sketchfab_Scene" parent="." unique_id=1034154081 instance=ExtResource("2_p2h67")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.028090999, 0.0126632005, 0.18268257)
+
+[node name="spot_light_3d2" type="SpotLight3D" parent="." unique_id=683121264]
+transform = Transform3D(1, -2.980232e-08, -2.220446e-15, -7.713407e-09, -0.25881907, 0.9659258, -2.878683e-08, -0.9659259, -0.25881907, 3.0398369e-06, 4, 0.6)
+light_color = Color(1, 1, 0.827451, 1)
+light_energy = 3.0
+spot_range = 7.0
+spot_angle = 22.703806
+
+[node name="audio_stream_player_3d" type="AudioStreamPlayer3D" parent="." unique_id=1356863028]
+stream = ExtResource("3_wnfql")
+volume_db = -7.0
+unit_size = 5.0
+max_distance = 5.0
+bus = &"sfx"
+
+[editable path="Sketchfab_Scene"]

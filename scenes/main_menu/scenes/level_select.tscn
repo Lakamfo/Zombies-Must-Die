@@ -1,0 +1,82 @@
+[gd_scene format=3 uid="uid://divxx2ap1xp0j"]
+
+[ext_resource type="Material" uid="uid://bnpldw81w3n46" path="res://shaders/mixed_blur_bg.tres" id="1_dueq8"]
+[ext_resource type="Script" uid="uid://3of7oml2h2si" path="res://scenes/main_menu/scripts/level_select.gd" id="2_kmpa5"]
+[ext_resource type="Script" uid="uid://cv6dj0vc4rrlj" path="res://scenes/settings/utils/mouse_scroll_container.gd" id="3_hustq"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_e8ig5"]
+
+[node name="level_selection" type="Panel" unique_id=2007535892]
+material = ExtResource("1_dueq8")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_e8ig5")
+script = ExtResource("2_kmpa5")
+
+[node name="v_box_container" type="VBoxContainer" parent="." unique_id=1319482336]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 8.0
+offset_top = 8.0
+offset_right = -8.0
+offset_bottom = -8.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="margin_container" type="MarginContainer" parent="v_box_container" unique_id=1678877839]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 1.25
+
+[node name="scroll_container" type="ScrollContainer" parent="v_box_container/margin_container" unique_id=1694245341]
+layout_mode = 2
+script = ExtResource("3_hustq")
+
+[node name="flex_container" type="FlowContainer" parent="v_box_container/margin_container/scroll_container" unique_id=711258616]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+alignment = 1
+
+[node name="h_separator" type="HSeparator" parent="v_box_container" unique_id=1844687159]
+layout_mode = 2
+
+[node name="m_label" type="Label" parent="v_box_container" unique_id=131488915]
+layout_mode = 2
+text = "Modifiers"
+horizontal_alignment = 1
+vertical_alignment = 2
+autowrap_mode = 2
+
+[node name="modifers_scroll_container" type="ScrollContainer" parent="v_box_container" unique_id=1489910298]
+layout_mode = 2
+size_flags_vertical = 3
+script = ExtResource("3_hustq")
+
+[node name="modifiers_flex_container" type="FlowContainer" parent="v_box_container/modifers_scroll_container" unique_id=1047560185]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+alignment = 1
+
+[node name="h_separator2" type="HSeparator" parent="v_box_container" unique_id=1373665202]
+layout_mode = 2
+
+[node name="bt_play" type="Button" parent="v_box_container" unique_id=1894600690]
+layout_mode = 2
+disabled = true
+text = "KEY_PLAY_BT"
+
+[node name="label_max_score" type="Label" parent="v_box_container" unique_id=13739577]
+layout_mode = 2
+text = "KEY_MAX_SCORE"
+horizontal_alignment = 1
+vertical_alignment = 2
+autowrap_mode = 2
+
+[connection signal="pressed" from="v_box_container/bt_play" to="." method="_on_bt_play_pressed"]

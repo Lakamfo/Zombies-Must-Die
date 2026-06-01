@@ -1,0 +1,99 @@
+[gd_scene format=3 uid="uid://cp1jn2kbl863c"]
+
+[ext_resource type="Script" uid="uid://dl7u5g75uk3dm" path="res://tools/textures_2_array_packer/textures_2_array_packer.gd" id="1_36pmf"]
+[ext_resource type="Script" uid="uid://cv6dj0vc4rrlj" path="res://scenes/settings/utils/mouse_scroll_container.gd" id="2_j38ag"]
+
+[node name="tool_ui" type="Control" unique_id=372676142]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_36pmf")
+
+[node name="panel" type="PanelContainer" parent="." unique_id=1533774013]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 514.0
+offset_right = -514.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="open_file_dialog" type="FileDialog" parent="panel" unique_id=1951313260]
+unique_name_in_owner = true
+oversampling_override = 1.0
+title = "Open File(s)"
+file_mode = 1
+root_subfolder = "res://"
+filters = PackedStringArray("*.png", "*.jpg", "*.jpeg")
+use_native_dialog = true
+
+[node name="save_file_dialog" type="FileDialog" parent="panel" unique_id=359302476]
+unique_name_in_owner = true
+oversampling_override = 1.0
+root_subfolder = "res://"
+filters = PackedStringArray("*.res")
+use_native_dialog = true
+
+[node name="open_preset_dialog" type="FileDialog" parent="panel" unique_id=1969802863]
+unique_name_in_owner = true
+oversampling_override = 1.0
+title = "Open a File"
+file_mode = 0
+root_subfolder = "res://"
+filters = PackedStringArray("*.tres")
+use_native_dialog = true
+
+[node name="save_preset_dialog" type="FileDialog" parent="panel" unique_id=33204085]
+oversampling_override = 1.0
+root_subfolder = "res://"
+filters = PackedStringArray("*.tres")
+use_native_dialog = true
+
+[node name="v_box_container" type="VBoxContainer" parent="panel" unique_id=2108311643]
+layout_mode = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="scroll_container_mouse" type="ScrollContainer" parent="panel/v_box_container" unique_id=40947323]
+custom_minimum_size = Vector2(380, 152.26)
+layout_mode = 2
+size_flags_vertical = 3
+script = ExtResource("2_j38ag")
+metadata/_custom_type_script = "uid://cv6dj0vc4rrlj"
+
+[node name="v_box_container" type="VBoxContainer" parent="panel/v_box_container/scroll_container_mouse" unique_id=973740018]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="label" type="Label" parent="panel/v_box_container" unique_id=180775196]
+layout_mode = 2
+text = "⚠️ All textures must have the exact same resolution (e.g. all 512×512). Mixing different sizes will cause an error at runtime. Resize them before importing if needed."
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="button_open" type="Button" parent="panel/v_box_container" unique_id=502006923]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Add Texture"
+
+[node name="button_save" type="Button" parent="panel/v_box_container" unique_id=1943359319]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Pack Textures"
+
+[node name="h_separator" type="HSeparator" parent="panel/v_box_container" unique_id=1181751108]
+layout_mode = 2
+
+[node name="button_open_preset" type="Button" parent="panel/v_box_container" unique_id=369324490]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Load Preset"
+
+[node name="button_save_preset" type="Button" parent="panel/v_box_container" unique_id=1055676362]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Save Preset"

@@ -1,0 +1,146 @@
+Wood Break.boaay by BOAAY -- https://freesound.org/s/520720/ -- License: Creative Commons 0
+Wooden Box Breaking Sound Effects.wav by gronnie -- https://freesound.org/s/563175/ -- License: Attribution 4.0
+FlashLight On/Off Clicks by mshahen -- https://freesound.org/s/271109/ -- License: Attribution 4.0
+Cotton Canvas Fabric Rustline by boo_kai -- https://freesound.org/s/486992/ -- License: Attribution 3.0
+Heart beat 2.Calm rhythm.Blood Flows In The veins(6lrs).wav (heart_beat) by newlocknew -- https://freesound.org/s/612642/ -- License: Attribution NonCommercial 4.0
+(ambient_void1) Null-1 Remastered by Lamp_ -- https://freesound.org/s/712818/ -- License: Attribution NonCommercial 4.0
+
+Some svg icons taken from lucide.dev (settings, main menu)
+
+Car_Brother_Concept - by garn47 - music in main menu 
+Guiding Lights - by LSPLASH - CC BY-SA 3.0 - https://soundcloud.com/lightningsplash/doors-ost-guiding-light
+
+"Rusty Kerosene Lamp" (https://sketchfab.com/3d-models/rusty-kerosene-lamp-7f0097337ac3499a8ecfede6dd48549f) by wittyaresh (https://sketchfab.com/wittyaresh) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+"Teddybear" (https://sketchfab.com/3d-models/teddybear-23d22ba864ab495f82ea6efba5d3d1ee) by MrPuppet (https://sketchfab.com/MrPuppet) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+
+"Remington 870" (https://skfb.ly/ox7DD) by Ecler is licensed under Creative Commons Attribution (http://creativecommons.org/licenses/by/4.0/).
+"Low-Poly HK MP5SD" (https://skfb.ly/6RqYD) by TastyTony is licensed under Creative Commons Attribution (http://creativecommons.org/licenses/by/4.0/).
+"Low-Poly Mk14 EBR" (https://skfb.ly/6vpVG) by TastyTony is licensed under Creative Commons Attribution (http://creativecommons.org/licenses/by/4.0/).
+"Low-Poly Sig SG552 Commando" (https://skfb.ly/69AWB) by TastyTony is licensed under Creative Commons Attribution (http://creativecommons.org/licenses/by/4.0/). Modified scope and grip
+12 Gauge Shell drop by rammbostein -- https://freesound.org/s/436070/ -- License: Creative Commons 0
+"Knife" (https://skfb.ly/6sTpM) by Slayer4Demons is licensed under Creative Commons Attribution (http://creativecommons.org/licenses/by/4.0/).
+
+"Juggernog Machine - World at War" (https://skfb.ly/NCMp) by Harry T is licensed under Creative Commons Attribution (http://creativecommons.org/licenses/by/4.0/).
+"Quick Revive Machine - World at War" (https://skfb.ly/NJNp) by Harry T is licensed under Creative Commons Attribution (http://creativecommons.org/licenses/by/4.0/).
+"Double Tap Machine - World at War" (https://skfb.ly/NSFQ) by Harry T is licensed under Creative Commons Attribution (http://creativecommons.org/licenses/by/4.0/).
+"Speed Cola Machine - World at War" (https://skfb.ly/Oq7G) by Harry T is licensed under Creative Commons Attribution (http://creativecommons.org/licenses/by/4.0/).
+
+"Electrical cabinet" (objects/interactable/electricity/model) (https://skfb.ly/6WM6E) by pinokio21 is licensed under Creative Commons Attribution (http://creativecommons.org/licenses/by/4.0/).
+"Lever Power Switch" (https://skfb.ly/6ToKu) by Sam Feng is licensed under Creative Commons Attribution (http://creativecommons.org/licenses/by/4.0/).
+"Christmas Hat Low Poly" (https://skfb.ly/oAzJR) by Poyo20 is licensed under Creative Commons Attribution (http://creativecommons.org/licenses/by/4.0/).
+
+Footsteps and other impact sounds from CSGO 
+Zombie attack sound from Half-Life
+Zombie screaming from COD : Zombies
+platzender Kopf_nachSchlag.wav by huluvu42 -- https://freesound.org/s/87572/ -- License: Creative Commons 0
+Blood spritesheets by Sinestesia - https://opengameart.org/content/animations-blood-hit-and-both-d
+
+"Low Poly Light Bulb" (https://skfb.ly/6VnSG) by AleixoAlonso is licensed under Creative Commons Attribution (http://creativecommons.org/licenses/by/4.0/).
+
+Copyright (c) 2010-2014 by tyPoland Lukasz Dziedzic (team@latofonts.com) with Reserved Font Name "Lato"
+
+This Font Software is licensed under the SIL Open Font License, Version 1.1.
+This license is copied below, and is also available with a FAQ at:
+http://scripts.sil.org/OFL
+
+	Prototype Textures 1.0
+	Created/distributed by Kenney (www.kenney.nl)
+	Creation date: 08-04-2020
+			------------------------------
+	License: (Creative Commons Zero, CC0)
+	http://creativecommons.org/publicdomain/zero/1.0/
+	This content is free to use in personal, educational and commercial projects.
+	Support us by crediting Kenney or www.kenney.nl (this is not mandatory)
+
+Godot Jolt incorporates third-party material from the projects listed below.
+
+Godot Engine (https://github.com/godotengine/godot)
+
+	Copyright (c) 2014-present Godot Engine contributors (see AUTHORS.md).
+	Copyright (c) 2007-2014 Juan Linietsky, Ariel Manzur.
+
+	Permission is hereby granted, free of charge, to any person obtaining a copy
+	of this software and associated documentation files (the "Software"), to
+	deal in the Software without restriction, including without limitation the
+	rights to use, copy, modify, merge, publish, distribute, sublicense, and/or
+	sell copies of the Software, and to permit persons to whom the Software is
+	furnished to do so, subject to the following conditions:
+
+	The above copyright notice and this permission notice shall be included in
+	all copies or substantial portions of the Software.
+
+	THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+	IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+	FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+	AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+	LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+	FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
+	IN THE SOFTWARE.
+
+godot-cpp (https://github.com/godot-jolt/godot-cpp)
+
+	Copyright (c) 2017-present Godot Engine contributors.
+	Copyright (c) 2022-present Mikael Hermansson.
+
+	Permission is hereby granted, free of charge, to any person obtaining a copy
+	of this software and associated documentation files (the "Software"), to
+	deal in the Software without restriction, including without limitation the
+	rights to use, copy, modify, merge, publish, distribute, sublicense, and/or
+	sell copies of the Software, and to permit persons to whom the Software is
+	furnished to do so, subject to the following conditions:
+
+	The above copyright notice and this permission notice shall be included in
+	all copies or substantial portions of the Software.
+
+	THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+	IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+	FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+	AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+	LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+	FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
+	IN THE SOFTWARE.
+
+Jolt Physics (https://github.com/godot-jolt/jolt)
+
+	Copyright (c) 2021 Jorrit Rouwe.
+
+	Permission is hereby granted, free of charge, to any person obtaining a copy
+	of this software and associated documentation files (the "Software"), to
+	deal in the Software without restriction, including without limitation the
+	rights to use, copy, modify, merge, publish, distribute, sublicense, and/or
+	sell copies of the Software, and to permit persons to whom the Software is
+	furnished to do so, subject to the following conditions:
+
+	The above copyright notice and this permission notice shall be included in
+	all copies or substantial portions of the Software.
+
+	THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+	IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+	FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+	AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+	LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+	FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
+	IN THE SOFTWARE.
+
+mimalloc (https://github.com/godot-jolt/mimalloc)
+
+
+	Copyright (c) 2018-2021 Microsoft Corporation, Daan Leijen.
+
+	Permission is hereby granted, free of charge, to any person obtaining a copy
+	of this software and associated documentation files (the "Software"), to
+	deal in the Software without restriction, including without limitation the
+	rights to use, copy, modify, merge, publish, distribute, sublicense, and/or
+	sell copies of the Software, and to permit persons to whom the Software is
+	furnished to do so, subject to the following conditions:
+
+	The above copyright notice and this permission notice shall be included in
+	all copies or substantial portions of the Software.
+
+	THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+	IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+	FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+	AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+	LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+	FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
+	IN THE SOFTWARE.

@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://b65eb1qa3hqeb"]
+
+[ext_resource type="Script" uid="uid://dyl386ixuupc1" path="res://objects/lamp/lamp_script.gd" id="1_23fk0"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_4eweo"]
+size = Vector3(1, 0.261719, 1)
+
+[node name="light_int_logic" type="StaticBody3D"]
+script = ExtResource("1_23fk0")
+enabled = false
+
+[node name="collision_shape_3d" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.12207, 0)
+shape = SubResource("BoxShape3D_4eweo")

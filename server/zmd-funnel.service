@@ -1,0 +1,12 @@
+[Unit]
+Description=ZMD Funnel
+After=tailscaled.service
+Requires=tailscaled.service
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/tailscale funnel --yes 5000
+RemainAfterExit=true
+
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,199 @@
+[gd_resource type="VisualShader" load_steps=17 format=3 uid="uid://bmpxgb8hasvxv"]
+
+[sub_resource type="VisualShaderNodeVectorOp" id="VisualShaderNodeVectorOp_dakm3"]
+operator = 2
+
+[sub_resource type="VisualShaderNodeInput" id="VisualShaderNodeInput_dakm3"]
+input_name = "time"
+
+[sub_resource type="VisualShaderNodeFloatFunc" id="VisualShaderNodeFloatFunc_qiqar"]
+function = 1
+
+[sub_resource type="VisualShaderNodeFloatOp" id="VisualShaderNodeFloatOp_x8gn7"]
+operator = 6
+
+[sub_resource type="VisualShaderNodeFloatParameter" id="VisualShaderNodeFloatParameter_dakm3"]
+parameter_name = "flash_speed"
+hint = 1
+max = 2.0
+default_value_enabled = true
+default_value = 1.0
+
+[sub_resource type="VisualShaderNodeFloatOp" id="VisualShaderNodeFloatOp_qiqar"]
+operator = 2
+
+[sub_resource type="VisualShaderNodeTexture2DParameter" id="VisualShaderNodeTexture2DParameter_x8gn7"]
+parameter_name = "icon"
+
+[sub_resource type="VisualShaderNodeTexture" id="VisualShaderNodeTexture_dakm3"]
+source = 5
+
+[sub_resource type="VisualShaderNodeExpression" id="VisualShaderNodeExpression_x8gn7"]
+size = Vector2(472, 220)
+expression = "alpha = decompose_alpha.w;"
+
+[sub_resource type="VisualShaderNodeInput" id="VisualShaderNodeInput_qiqar"]
+input_name = "uv"
+
+[sub_resource type="VisualShaderNodeFloatOp" id="VisualShaderNodeFloatOp_kjfxh"]
+operator = 2
+
+[sub_resource type="VisualShaderNodeRotationByAxis" id="VisualShaderNodeRotationByAxis_gi5bu"]
+default_input_values = [0, Vector3(0, 0, 0), 1, 0.0, 2, Vector3(0, 0, 1)]
+
+[sub_resource type="VisualShaderNodeFloatFunc" id="VisualShaderNodeFloatFunc_38ysf"]
+
+[sub_resource type="VisualShaderNodeFloatOp" id="VisualShaderNodeFloatOp_k6vft"]
+operator = 2
+
+[sub_resource type="VisualShaderNodeFloatParameter" id="VisualShaderNodeFloatParameter_av16u"]
+parameter_name = "flash_angle"
+hint = 1
+min = -5.0
+max = 5.0
+default_value_enabled = true
+default_value = 5.0
+
+[sub_resource type="VisualShaderNodeVec3Parameter" id="VisualShaderNodeVec3Parameter_1613e"]
+parameter_name = "flash_direction"
+default_value_enabled = true
+default_value = Vector3(0, 0, 1)
+
+[resource]
+code = "shader_type spatial;
+render_mode blend_mix, depth_draw_opaque, cull_disabled, diffuse_lambert, specular_disabled;
+
+uniform sampler2D icon;
+uniform float flash_speed : hint_range(0.0, 2.0) = 1.0;
+uniform float flash_angle : hint_range(-5.0, 5.0) = 5.0;
+uniform vec3 flash_direction = vec3(0.000000, 0.000000, 1.000000);
+
+
+
+void fragment() {
+	vec4 n_out24p0;
+// Texture2D:24
+	n_out24p0 = texture(icon, UV);
+
+
+	float n_out25p0;
+// Expression:25
+	n_out25p0 = 0.0;
+	{
+		n_out25p0 = n_out24p0.w;
+	}
+
+
+// Input:15
+	float n_out15p0 = TIME;
+
+
+// FloatParameter:20
+	float n_out20p0 = flash_speed;
+
+
+// FloatOp:22
+	float n_out22p0 = n_out15p0 * n_out20p0;
+
+
+// FloatFunc:17
+	float n_out17p0 = cos(n_out22p0);
+
+
+// FloatOp:19
+	float n_in19p1 = 0.00000;
+	float n_out19p0 = max(n_out17p0, n_in19p1);
+
+
+// Input:26
+	vec2 n_out26p0 = UV;
+
+
+// FloatFunc:31
+	float n_out31p0 = sign(n_out17p0);
+
+
+// FloatParameter:33
+	float n_out33p0 = flash_angle;
+
+
+// FloatOp:32
+	float n_out32p0 = n_out31p0 * n_out33p0;
+
+
+// Vector3Parameter:34
+	vec3 n_out34p0 = flash_direction;
+
+
+	vec3 n_out28p0;
+	mat4 n_out28p1;
+// RotationByAxis:28
+	{
+		float __angle = n_out32p0;
+		vec3 __axis = normalize(n_out34p0);
+		mat3 __rot_matrix = mat3(
+			vec3( cos(__angle)+__axis.x*__axis.x*(1.0 - cos(__angle)), __axis.x*__axis.y*(1.0-cos(__angle))-__axis.z*sin(__angle), __axis.x*__axis.z*(1.0-cos(__angle))+__axis.y*sin(__angle) ),
+			vec3( __axis.y*__axis.x*(1.0-cos(__angle))+__axis.z*sin(__angle), cos(__angle)+__axis.y*__axis.y*(1.0-cos(__angle)), __axis.y*__axis.z*(1.0-cos(__angle))-__axis.x*sin(__angle) ),
+			vec3( __axis.z*__axis.x*(1.0-cos(__angle))-__axis.y*sin(__angle), __axis.z*__axis.y*(1.0-cos(__angle))+__axis.x*sin(__angle), cos(__angle)+__axis.z*__axis.z*(1.0-cos(__angle)) )
+		);
+		n_out28p0 = vec3(n_out26p0, 0.0) * __rot_matrix;
+	}
+
+
+// FloatOp:27
+	float n_out27p0 = n_out19p0 * n_out28p0.x;
+
+
+// VectorOp:13
+	vec3 n_out13p0 = vec3(n_out25p0) * vec3(n_out27p0);
+
+
+// Output:0
+	ALBEDO = n_out13p0;
+	ALPHA = n_out25p0;
+	EMISSION = n_out13p0;
+
+
+}
+"
+graph_offset = Vector2(-206.216, -159.3)
+modes/cull = 2
+modes/specular = 2
+nodes/fragment/0/position = Vector2(1260, -80)
+nodes/fragment/13/node = SubResource("VisualShaderNodeVectorOp_dakm3")
+nodes/fragment/13/position = Vector2(940, 60)
+nodes/fragment/15/node = SubResource("VisualShaderNodeInput_dakm3")
+nodes/fragment/15/position = Vector2(-440, 300)
+nodes/fragment/17/node = SubResource("VisualShaderNodeFloatFunc_qiqar")
+nodes/fragment/17/position = Vector2(220, 300)
+nodes/fragment/19/node = SubResource("VisualShaderNodeFloatOp_x8gn7")
+nodes/fragment/19/position = Vector2(520, 280)
+nodes/fragment/20/node = SubResource("VisualShaderNodeFloatParameter_dakm3")
+nodes/fragment/20/position = Vector2(-440, 400)
+nodes/fragment/22/node = SubResource("VisualShaderNodeFloatOp_qiqar")
+nodes/fragment/22/position = Vector2(20, 280)
+nodes/fragment/23/node = SubResource("VisualShaderNodeTexture2DParameter_x8gn7")
+nodes/fragment/23/position = Vector2(-440, -40)
+nodes/fragment/24/node = SubResource("VisualShaderNodeTexture_dakm3")
+nodes/fragment/24/position = Vector2(0, -80)
+nodes/fragment/25/node = SubResource("VisualShaderNodeExpression_x8gn7")
+nodes/fragment/25/position = Vector2(300, -80)
+nodes/fragment/25/size = Vector2(472, 220)
+nodes/fragment/25/input_ports = "0,5,decompose_alpha;"
+nodes/fragment/25/output_ports = "0,0,alpha;"
+nodes/fragment/25/expression = "alpha = decompose_alpha.w;"
+nodes/fragment/26/node = SubResource("VisualShaderNodeInput_qiqar")
+nodes/fragment/26/position = Vector2(440, 460)
+nodes/fragment/27/node = SubResource("VisualShaderNodeFloatOp_kjfxh")
+nodes/fragment/27/position = Vector2(980, 340)
+nodes/fragment/28/node = SubResource("VisualShaderNodeRotationByAxis_gi5bu")
+nodes/fragment/28/position = Vector2(900, 560)
+nodes/fragment/31/node = SubResource("VisualShaderNodeFloatFunc_38ysf")
+nodes/fragment/31/position = Vector2(240, 640)
+nodes/fragment/32/node = SubResource("VisualShaderNodeFloatOp_k6vft")
+nodes/fragment/32/position = Vector2(580, 680)
+nodes/fragment/33/node = SubResource("VisualShaderNodeFloatParameter_av16u")
+nodes/fragment/33/position = Vector2(200, 760)
+nodes/fragment/34/node = SubResource("VisualShaderNodeVec3Parameter_1613e")
+nodes/fragment/34/position = Vector2(200, 1080)
+nodes/fragment/connections = PackedInt32Array(15, 0, 22, 0, 20, 0, 22, 1, 22, 0, 17, 0, 13, 0, 0, 5, 23, 0, 24, 2, 24, 0, 25, 0, 25, 0, 13, 0, 19, 0, 27, 0, 27, 0, 13, 1, 26, 0, 28, 0, 28, 0, 27, 1, 31, 0, 32, 0, 17, 0, 31, 0, 32, 0, 28, 1, 33, 0, 32, 1, 34, 0, 28, 2, 17, 0, 19, 0, 25, 0, 0, 1, 13, 0, 0, 0)

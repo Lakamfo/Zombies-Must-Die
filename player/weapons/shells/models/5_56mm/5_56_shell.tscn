@@ -1,0 +1,56 @@
+[gd_scene format=3 uid="uid://ceq287l60s7va"]
+
+[ext_resource type="Script" uid="uid://blgr3p0grx23c" path="res://player/weapons/shells/shell_script.gd" id="1_o8k3o"]
+[ext_resource type="AudioStream" uid="uid://c0ikbci2me8ra" path="res://player/weapons/sounds/9mm/9mm_shell_drop.mp3" id="2_kvdo2"]
+[ext_resource type="PackedScene" uid="uid://4lquqqs2cis5" path="res://player/weapons/shells/models/5_56mm/source/5_56_shell.blend" id="3_myn4k"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_bq8ga"]
+bounce = 0.5
+
+[sub_resource type="Animation" id="Animation_lk4as"]
+length = 0.001
+
+[sub_resource type="Animation" id="Animation_7ejmt"]
+resource_name = "fade"
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_4qdf6"]
+_data = {
+&"RESET": SubResource("Animation_lk4as"),
+&"fade": SubResource("Animation_7ejmt")
+}
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_34qox"]
+height = 0.18008623
+radius = 0.0179758
+
+[node name="5_56_shell" type="RigidBody3D" unique_id=1382105544]
+transform = Transform3D(-1, -8.742278e-08, -3.8213718e-15, 0, -4.37114e-08, 1, -8.742278e-08, 1, 4.37114e-08, 0, 0, 0)
+collision_layer = 0
+input_ray_pickable = false
+mass = 0.1
+physics_material_override = SubResource("PhysicsMaterial_bq8ga")
+continuous_cd = true
+contact_monitor = true
+max_contacts_reported = 1
+script = ExtResource("1_o8k3o")
+
+[node name="animation" type="AnimationPlayer" parent="." unique_id=1249375733]
+libraries/ = SubResource("AnimationLibrary_4qdf6")
+
+[node name="collision_shape_3d" type="CollisionShape3D" parent="." unique_id=931285461]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.009956885, 2.7755576e-17)
+shape = SubResource("CylinderShape3D_34qox")
+
+[node name="audio_stream_player_3d" type="AudioStreamPlayer3D" parent="." unique_id=622608975]
+stream = ExtResource("2_kvdo2")
+volume_db = -10.0
+max_db = -5.0
+
+[node name="5_56_shell" parent="." unique_id=497335559 instance=ExtResource("3_myn4k")]
+transform = Transform3D(2, 0, 0, 0, -8.742278e-08, 2, 0, -2, -8.742278e-08, -0.003741026, -0.017302409, -7.563125e-10)
+
+[node name="Cylinder_034_Material_002_0_003" parent="5_56_shell" index="0" unique_id=1063937300]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 6.375287e-05, -0.04656909, 0.0104450025)
+layers = 2
+
+[editable path="5_56_shell"]

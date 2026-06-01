@@ -1,0 +1,41 @@
+[gd_scene format=3 uid="uid://dqow3dyd4qrgh"]
+
+[ext_resource type="Texture2D" uid="uid://6ro40a8p0r1g" path="res://textures/bullet_hole/bullet_hole_new_color.png" id="1_b58o2"]
+[ext_resource type="Texture2D" uid="uid://npewabag6irs" path="res://textures/bullet_hole/bullet_hole_new_normal_opengl.png" id="2_6h218"]
+[ext_resource type="Script" uid="uid://ckpgsrpvo5l63" path="res://player/weapons/bullet_hole/bullet_hole.gd" id="2_es1wf"]
+[ext_resource type="Material" uid="uid://cejwllmdbg772" path="res://player/weapons/bullet_hole/flesh/flesh.tres" id="4_6h218"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_6h218"]
+radius = 5.0
+
+[node name="bullet_hole" type="Decal" unique_id=1800803386 node_paths=PackedStringArray("area")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0433105, 0)
+size = Vector3(0.1, 0.1, 0.1)
+texture_albedo = ExtResource("1_b58o2")
+texture_normal = ExtResource("2_6h218")
+distance_fade_enabled = true
+script = ExtResource("2_es1wf")
+area = NodePath("area_3d")
+
+[node name="audio_stream_player_3d" type="AudioStreamPlayer3D" parent="." unique_id=1070120493]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0674613, 0)
+unit_size = 20.0
+max_distance = 15.0
+bus = &"weapon"
+
+[node name="gpu_particles_3d" type="GPUParticles3D" parent="." unique_id=1678081320]
+transform = Transform3D(1, 3.72529e-08, 0, -3.72529e-08, 1, 0, 0, 0, 1, 0, 0.0674613, 0)
+emitting = false
+amount = 16
+lifetime = 0.5
+one_shot = true
+explosiveness = 1.0
+randomness = 1.0
+visibility_aabb = AABB(-0.559699, 0.217806, -0.532628, 1.11744, 1.19574, 1.09239)
+transform_align = 3
+process_material = ExtResource("4_6h218")
+
+[node name="area_3d" type="Area3D" parent="." unique_id=1191277633]
+
+[node name="collision_shape_3d" type="CollisionShape3D" parent="area_3d" unique_id=174352833]
+shape = SubResource("SphereShape3D_6h218")

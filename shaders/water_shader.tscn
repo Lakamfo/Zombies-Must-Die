@@ -1,0 +1,39 @@
+[gd_scene format=3 uid="uid://hshatbhl2uog"]
+
+[ext_resource type="Shader" uid="uid://crq22rvnvro7v" path="res://shaders/rain_puddle_shader.gdshader" id="1_jp13o"]
+[ext_resource type="Script" uid="uid://dnvemunkwnhrq" path="res://shaders/scripts/water_shader.gd" id="2_v8a2e"]
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_uw77l"]
+_surfaces = [{
+"aabb": AABB(-1, -1, 0, 4, 4, 1e-05),
+"format": 34359738369,
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 3,
+"vertex_data": PackedByteArray(0, 0, 128, 191, 0, 0, 128, 191, 0, 0, 0, 0, 0, 0, 64, 64, 0, 0, 128, 191, 0, 0, 0, 0, 0, 0, 128, 191, 0, 0, 64, 64, 0, 0, 0, 0)
+}]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_rptt4"]
+render_priority = 0
+shader = ExtResource("1_jp13o")
+shader_parameter/effect_strength = 1.0
+shader_parameter/puddle_color = Color(0.29411766, 0.29411766, 0.34117648, 0.7019608)
+shader_parameter/puddle_reflectivness = 2.0
+shader_parameter/puddle_micro_mask_size = 5.0
+shader_parameter/puddle_macro_mask_size = 25.0
+shader_parameter/puddle_mask_threshold = 0.33
+shader_parameter/ssr_resolution = 5.000000074506
+shader_parameter/ssr_max_travel = 15.000000223518
+shader_parameter/ssr_max_diff = 4.0
+shader_parameter/ssr_screen_border_fadeout = 0.3
+shader_parameter/ripple_max_radius = 1.0
+shader_parameter/ripple_scale = 1.0
+shader_parameter/ripple_speed = 0.99999998137332
+
+[node name="water_shader" type="MeshInstance3D" unique_id=1554290178]
+cast_shadow = 0
+extra_cull_margin = 16384.0
+gi_mode = 0
+mesh = SubResource("ArrayMesh_uw77l")
+surface_material_override/0 = SubResource("ShaderMaterial_rptt4")
+script = ExtResource("2_v8a2e")

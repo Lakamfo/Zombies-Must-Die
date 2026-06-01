@@ -1,0 +1,264 @@
+[gd_scene format=3 uid="uid://tcyec1ncd3ep"]
+
+[ext_resource type="Shader" uid="uid://bxcwptmsghj6p" path="res://shaders/static.gdshader" id="1_4iqn7"]
+[ext_resource type="Script" uid="uid://crstb205ncful" path="res://ui/death_screen/death_screen.gd" id="1_jdr65"]
+[ext_resource type="Shader" uid="uid://bqe8llxuyi8ln" path="res://shaders/reveal_from_side.gdshader" id="2_lmqk2"]
+[ext_resource type="Texture2D" uid="uid://i0584j5f25f8" path="res://ui/death_screen/textures/scull.png" id="2_t6qdb"]
+[ext_resource type="AudioStream" uid="uid://ynnkwknjkr1" path="res://ui/death_screen/d_death_sound.mp3" id="3_2da1i"]
+[ext_resource type="Texture2D" uid="uid://8n3opvvc0byy" path="res://ui/death_screen/textures/scull_blood.png" id="4_lmqk2"]
+[ext_resource type="AudioStream" uid="uid://c7iue3d4jy8ou" path="res://ui/death_screen/music/lspslash_guilding_lights.mp3" id="7_2da1i"]
+[ext_resource type="Shader" uid="uid://daqaedd6be5x" path="res://shaders/mixed_blur.gdshader" id="8_2da1i"]
+[ext_resource type="Script" uid="uid://b8yrrblqu32qa" path="res://classes/ui_sounds.gd" id="9_yvlic"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_7pweg"]
+shader = ExtResource("8_2da1i")
+shader_parameter/blur_amount = 1.0
+shader_parameter/mix_amount = 0.5
+shader_parameter/color_over = Color(0, 0, 0, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_g3utg"]
+shader = ExtResource("1_4iqn7")
+shader_parameter/UPDATE_INTERVAL = 0.05
+shader_parameter/STATIC_GRANULARITY = 0.005
+shader_parameter/EDGE_BLUR = 0.5
+shader_parameter/BORDER_SIZE = 0.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_jdr65"]
+shader = ExtResource("2_lmqk2")
+shader_parameter/alpha_treshold = 0.0
+shader_parameter/visibility = -1.0
+
+[sub_resource type="LabelSettings" id="LabelSettings_jpji7"]
+font_size = 32
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_yvlic"]
+shader = ExtResource("8_2da1i")
+shader_parameter/blur_amount = 1.0
+shader_parameter/mix_amount = 0.1
+shader_parameter/color_over = Color(1, 1, 1, 1)
+
+[node name="death_screen" type="CanvasLayer"]
+process_mode = 3
+script = ExtResource("1_jdr65")
+
+[node name="audio_stream_player" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+process_mode = 3
+stream = ExtResource("3_2da1i")
+bus = &"sfx"
+
+[node name="lspslash_guilding_lights" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+process_mode = 3
+stream = ExtResource("7_2da1i")
+bus = &"music"
+parameters/looping = true
+
+[node name="bg_color_rect" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_7pweg")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.105882, 0.105882, 0.121569, 1)
+
+[node name="static_shader" type="ColorRect" parent="."]
+unique_name_in_owner = true
+material = SubResource("ShaderMaterial_g3utg")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="elements_control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 2.2409
+offset_top = 0.398884
+offset_right = 2.24072
+offset_bottom = 0.398865
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="scull_center" type="Control" parent="elements_control"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="color_rect" type="ColorRect" parent="elements_control/scull_center"]
+layout_mode = 0
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+
+[node name="scull_init" type="Control" parent="elements_control"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchor_left = 0.5
+anchor_top = 0.616
+anchor_right = 0.5
+anchor_bottom = 0.616
+offset_top = 287.6
+offset_bottom = 287.6
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="color_rect" type="ColorRect" parent="elements_control/scull_init"]
+layout_mode = 0
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+
+[node name="scull_upper" type="Control" parent="elements_control"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchor_left = 0.5
+anchor_top = 0.367
+anchor_right = 0.5
+anchor_bottom = 0.367
+offset_top = -0.300018
+offset_bottom = -0.300018
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="color_rect" type="ColorRect" parent="elements_control/scull_upper"]
+layout_mode = 0
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+
+[node name="scull_pivot" type="Control" parent="elements_control"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="sway_pivot" type="Control" parent="elements_control/scull_pivot"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="scull_texture_rect" type="TextureRect" parent="elements_control/scull_pivot/sway_pivot"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -192.0
+offset_top = -192.0
+offset_right = 192.0
+offset_bottom = 192.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(192, 192)
+texture = ExtResource("2_t6qdb")
+expand_mode = 1
+
+[node name="blood_texture_rect" type="TextureRect" parent="elements_control/scull_pivot/sway_pivot/scull_texture_rect"]
+unique_name_in_owner = true
+material = SubResource("ShaderMaterial_jdr65")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_lmqk2")
+expand_mode = 1
+
+[node name="label_stats" type="Label" parent="elements_control"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -2.2409
+offset_top = -101.399
+offset_right = -2.24072
+offset_bottom = -35.3989
+grow_horizontal = 2
+grow_vertical = 0
+text = "LOCATION : PLACEHOLDER | SCORE : 0 | LIFETIME : 0 | KILLS : 0 | WAVE : 0 "
+label_settings = SubResource("LabelSettings_jpji7")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="panel" type="Panel" parent="elements_control"]
+unique_name_in_owner = true
+material = SubResource("ShaderMaterial_yvlic")
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -253.0
+offset_top = -179.0
+offset_right = 256.0
+offset_bottom = -141.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="h_box_container" type="HBoxContainer" parent="elements_control/panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="exit_menu" type="Button" parent="elements_control/panel/h_box_container"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+text = "KEY_EXIT_MENU"
+
+[node name="restart" type="Button" parent="elements_control/panel/h_box_container"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+text = "KEY_RESTART"
+
+[node name="exit_desktop" type="Button" parent="elements_control/panel/h_box_container"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+text = "KEY_EXIT_DESKTOP"
+
+[node name="ui_sounds" type="Node" parent="."]
+script = ExtResource("9_yvlic")
+metadata/_custom_type_script = "uid://b8yrrblqu32qa"

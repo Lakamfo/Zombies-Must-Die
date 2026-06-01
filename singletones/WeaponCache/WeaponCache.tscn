@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://67xodw1b6gpi"]
+
+[ext_resource type="Script" uid="uid://jiw3w7se6lw7" path="res://singletones/WeaponCache/WeaponCache.gd" id="1_l7aty"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_l7aty"]
+font_size = 8
+
+[node name="weapon_cache" type="Control" unique_id=766686457]
+z_index = -1
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_l7aty")
+label_settings = SubResource("LabelSettings_l7aty")
+
+[node name="v_box_container" type="VBoxContainer" parent="." unique_id=1353146946]
+z_index = 2
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 0.044
+offset_bottom = 0.399998
+mouse_filter = 2
+alignment = 2

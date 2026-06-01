@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="BonusDefinition" format=3 uid="uid://bbmq1mds11w0k"]
+
+[ext_resource type="Script" uid="uid://cdy0t3gfdm8i1" path="res://classes/bonuses/bonus_definition.gd" id="1_v3a81"]
+[ext_resource type="Texture2D" uid="uid://cwr6gfp3qisa5" path="res://objects/interactable/pickup/images/repair.png" id="1_xnh2b"]
+[ext_resource type="ArrayMesh" uid="uid://cgfk5jd76fyux" path="res://objects/interactable/pickup/models/meshes/pickups_repair.res" id="2_d58o3"]
+
+[resource]
+script = ExtResource("1_v3a81")
+id = &"full_repair"
+label = "KEY_BONUS_FULL_REPAIR"
+duration = 1.5
+icon = ExtResource("1_xnh2b")
+mesh = ExtResource("2_d58o3")
+metadata/_custom_type_script = "uid://cdy0t3gfdm8i1"

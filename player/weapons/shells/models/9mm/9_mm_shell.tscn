@@ -1,0 +1,81 @@
+[gd_scene load_steps=9 format=3 uid="uid://bfk3chyu8r00p"]
+
+[ext_resource type="Script" uid="uid://blgr3p0grx23c" path="res://player/weapons/shells/shell_script.gd" id="1_dn8k0"]
+[ext_resource type="ArrayMesh" uid="uid://bkea4f3b14c51" path="res://player/weapons/shells/models/9mm/9_mm_shell.tres" id="2_174g3"]
+[ext_resource type="AudioStream" uid="uid://c0ikbci2me8ra" path="res://player/weapons/sounds/9mm/9mm_shell_drop.mp3" id="4_oe636"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_2uca8"]
+bounce = 0.3
+
+[sub_resource type="Animation" id="Animation_lk4as"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Casing_LOD1:transparency")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_7ejmt"]
+resource_name = "fade"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Casing_LOD1:transparency")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_4qdf6"]
+_data = {
+&"RESET": SubResource("Animation_lk4as"),
+&"fade": SubResource("Animation_7ejmt")
+}
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ugwhs"]
+radius = 0.0231873
+height = 0.111105
+
+[node name="9mm_shell" type="RigidBody3D"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0)
+collision_layer = 0
+input_ray_pickable = false
+mass = 0.1
+physics_material_override = SubResource("PhysicsMaterial_2uca8")
+continuous_cd = true
+contact_monitor = true
+max_contacts_reported = 1
+script = ExtResource("1_dn8k0")
+
+[node name="Casing_LOD1" type="MeshInstance3D" parent="."]
+transform = Transform3D(-6.55671e-08, 1.5, 6.55671e-08, -1.5, -6.55671e-08, -6.55671e-08, -6.55671e-08, -6.55671e-08, 1.5, 0, 0, 0)
+cast_shadow = 0
+visibility_range_end = 3.0
+visibility_range_end_margin = 0.1
+visibility_range_fade_mode = 1
+mesh = ExtResource("2_174g3")
+skeleton = NodePath("")
+
+[node name="animation" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_4qdf6")
+}
+
+[node name="collision_shape_3d" type="CollisionShape3D" parent="."]
+shape = SubResource("CapsuleShape3D_ugwhs")
+
+[node name="audio_stream_player_3d" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("4_oe636")
+volume_db = -10.0
+max_db = -5.0

@@ -1,0 +1,431 @@
+[gd_scene format=3 uid="uid://i21n6eshktur"]
+
+[ext_resource type="Script" uid="uid://ecgmiohr4k1b" path="res://player/scripts/player_script_FSM.gd" id="1_h68s0"]
+[ext_resource type="PackedScene" uid="uid://dqlia6vigvknf" path="res://player/ui/gui.tscn" id="2_hxwlc"]
+[ext_resource type="Script" uid="uid://cteseok4v6how" path="res://player/scripts/hand_script.gd" id="2_kxvbg"]
+[ext_resource type="Script" uid="uid://b5db50malwbyn" path="res://classes/components/interact_module.gd" id="2_n28np"]
+[ext_resource type="Script" uid="uid://del1puop34tia" path="res://player/weapon_logic/camera_recoil.gd" id="3_hw5df"]
+[ext_resource type="Script" uid="uid://c8x01etng2u64" path="res://classes/status_system/status_manager.gd" id="3_knn7v"]
+[ext_resource type="Script" uid="uid://dtwgwcua4gw87" path="res://player/weapon_logic/weapon_manager.gd" id="5_njbxx"]
+[ext_resource type="Script" uid="uid://bb0i7h8u4x216" path="res://classes/components/footsteps_module.gd" id="5_o38hl"]
+[ext_resource type="PackedScene" uid="uid://ddijebq1lunjy" path="res://player/weapons/in_game/knife_1/knife.tscn" id="6_5t8vg"]
+[ext_resource type="Script" uid="uid://xh7jov45fiy4" path="res://player/scripts/state_machine/crouching_player_state.gd" id="6_t5koi"]
+[ext_resource type="Script" uid="uid://ch2e1gyrr1jmw" path="res://player/scripts/state_machine/jumping_player_state.gd" id="8_0pefq"]
+[ext_resource type="AudioStream" uid="uid://cthwnmg5buxeq" path="res://sounds/sfx/crouch_in.mp3" id="8_s7qer"]
+[ext_resource type="Script" uid="uid://c7qmb162ip4xj" path="res://player/scripts/state_machine/lying_down_player_state.gd" id="9_2nuv4"]
+[ext_resource type="Script" uid="uid://by7468dq3pmf6" path="res://classes/state_machine/state_machine.gd" id="9_hi1ll"]
+[ext_resource type="Script" uid="uid://4nyys861eun" path="res://player/scripts/state_machine/walking_player_state.gd" id="10_8lqhu"]
+[ext_resource type="Script" uid="uid://wmvubu0ft5w0" path="res://player/scripts/state_machine/falling_player_state.gd" id="11_kxoyj"]
+[ext_resource type="Script" uid="uid://cfdhrjum8yigx" path="res://player/scripts/state_machine/running_player_state.gd" id="11_x56e8"]
+[ext_resource type="AudioStream" uid="uid://b7x66ynhc6aux" path="res://sounds/bone_breaking/bone_breaking_rand.tres" id="12_tmyon"]
+[ext_resource type="Script" uid="uid://cp7fp3dkqmqw1" path="res://player/scripts/state_machine/idle_player_state.gd" id="12_yg8jv"]
+[ext_resource type="Script" uid="uid://duk0t2s0gts32" path="res://player/scripts/state_machine/ui_player_state.gd" id="14_r7pn3"]
+[ext_resource type="Script" uid="uid://c5ild5ieunvt7" path="res://classes/components/stamina_component.gd" id="14_uw77l"]
+[ext_resource type="Texture2D" uid="uid://dmww5pemy0xm5" path="res://player/resources/flashlight_texture.tres" id="16_1xnjw"]
+[ext_resource type="Script" uid="uid://cg3un7ju0rhlt" path="res://player/scripts/flashlight.gd" id="16_orqjq"]
+[ext_resource type="PackedScene" uid="uid://cvpvjymelc7vw" path="res://player/weapons/can/can_animated.tscn" id="19_vk4b7"]
+[ext_resource type="AudioStream" uid="uid://byrqiou4p6n7b" path="res://player/weapons/sounds/scope_in.mp3" id="20_s7qer"]
+[ext_resource type="Script" uid="uid://bm0iui35e4bfm" path="res://player/weapons/granades/granade.gd" id="21_uw77l"]
+[ext_resource type="PackedScene" uid="uid://rfblmjfjxv28" path="res://player/weapons/granades/granade_projectile.tscn" id="22_rptt4"]
+[ext_resource type="Script" uid="uid://b28cxfew2laip" path="res://player/scripts/death_camera_spring.gd" id="24_g4c7l"]
+[ext_resource type="Script" uid="uid://dbvpgbmbsnp2h" path="res://player/scripts/environment_sensor_area_3d.gd" id="25_knn7v"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_snp8g"]
+
+[sub_resource type="Animation" id="Animation_wf2h7"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("collision_shape_3d:shape:height")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [2.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("neck:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0.7, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("neck/camera_recoil/state_animations/camera_body/camera_weapon_animation/camera_3d:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("neck/camera_recoil/state_animations:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("neck/camera_recoil/state_animations:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_p5yjb"]
+resource_name = "crouch"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("collision_shape_3d:shape:height")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [2.0, 1.5]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("neck:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0.7, 0), Vector3(0, 0.45, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_e3pyg"]
+resource_name = "lay_down"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("neck:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0.7, 0), Vector3(0, 0.45, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("collision_shape_3d:shape:height")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [2.0, 1.2]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("neck/camera_recoil/state_animations:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(0.5, 0.5),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(-0.00179098, -0.0712568, -0.0910423)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_dk43x"]
+_data = {
+&"RESET": SubResource("Animation_wf2h7"),
+&"crouch": SubResource("Animation_p5yjb"),
+&"lay_down": SubResource("Animation_e3pyg")
+}
+
+[sub_resource type="Curve" id="Curve_topma"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.49813432, 0.49779242), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_5jt3j"]
+size = Vector3(1.8, 2.2, 1.6)
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_pciu0"]
+radius = 0.4
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_s7qer"]
+radius = 2.0
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_g4c7l"]
+radius = 4.0
+
+[node name="player" type="CharacterBody3D" unique_id=123616838 node_paths=PackedStringArray("animation_player", "status_manager", "stamina_component")]
+collision_layer = 17
+collision_mask = 17
+script = ExtResource("1_h68s0")
+animation_player = NodePath("animation_player")
+status_manager = NodePath("status_manager")
+stamina_component = NodePath("stamina_component")
+bob_range = 0.05000000000000004
+aim_bob_factor = 10.0
+bob_range_cam = 0.16000000000000003
+metadata/material = &"FLESH"
+
+[node name="collision_shape_3d" type="CollisionShape3D" parent="." unique_id=173342020]
+shape = SubResource("CapsuleShape3D_snp8g")
+
+[node name="gui" parent="." unique_id=1346630806 instance=ExtResource("2_hxwlc")]
+
+[node name="animation_player" type="AnimationPlayer" parent="." unique_id=56008014]
+deterministic = true
+libraries/ = SubResource("AnimationLibrary_dk43x")
+
+[node name="status_manager" type="Node" parent="." unique_id=1014617976]
+script = ExtResource("3_knn7v")
+
+[node name="state_machine" type="Node" parent="." unique_id=1602514875 node_paths=PackedStringArray("CURRENT_STATE")]
+script = ExtResource("9_hi1ll")
+CURRENT_STATE = NodePath("idle_player_state")
+
+[node name="walking_player_state" type="Node" parent="state_machine" unique_id=1534486328]
+script = ExtResource("10_8lqhu")
+
+[node name="running_player_state" type="Node" parent="state_machine" unique_id=477535785]
+script = ExtResource("11_x56e8")
+
+[node name="idle_player_state" type="Node" parent="state_machine" unique_id=515068670]
+script = ExtResource("12_yg8jv")
+
+[node name="crouching_player_state" type="Node" parent="state_machine" unique_id=629154023 node_paths=PackedStringArray("crouch_sfx")]
+script = ExtResource("6_t5koi")
+crouch_sfx = NodePath("../../sfx/crouch_sfx")
+
+[node name="jumping_player_state" type="Node" parent="state_machine" unique_id=1341441966]
+script = ExtResource("8_0pefq")
+
+[node name="falling_player_state" type="Node" parent="state_machine" unique_id=1046051520 node_paths=PackedStringArray("fall_damage_sfx")]
+script = ExtResource("11_kxoyj")
+fall_damage_curve = SubResource("Curve_topma")
+fall_damage_sfx = NodePath("../../sfx/fall_damage_sfx")
+
+[node name="lying_down_player_state" type="Node" parent="state_machine" unique_id=1561888664]
+script = ExtResource("9_2nuv4")
+
+[node name="ui_player_state" type="Node" parent="state_machine" unique_id=1659054164]
+script = ExtResource("14_r7pn3")
+
+[node name="stamina_component" type="Node" parent="." unique_id=614433174]
+script = ExtResource("14_uw77l")
+
+[node name="interact_component" type="Node" parent="." unique_id=46339188 node_paths=PackedStringArray("interact_raycast")]
+script = ExtResource("2_n28np")
+interact_raycast = NodePath("../neck/camera_recoil/interact_raycast")
+
+[node name="neck" type="Node3D" parent="." unique_id=1671439329]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.7, 0)
+
+[node name="camera_recoil" type="Node3D" parent="neck" unique_id=1922876042]
+script = ExtResource("3_hw5df")
+
+[node name="weapon_ray_cast_3d" type="RayCast3D" parent="neck/camera_recoil" unique_id=1881345454]
+unique_name_in_owner = true
+target_position = Vector3(0, 0, -10)
+collision_mask = 3
+hit_back_faces = false
+debug_shape_custom_color = Color(1, 0.294118, 0.14902, 0.164706)
+
+[node name="interact_raycast" type="RayCast3D" parent="neck/camera_recoil" unique_id=1859130074]
+unique_name_in_owner = true
+target_position = Vector3(0, 0, -2)
+collision_mask = 9
+debug_shape_custom_color = Color(0.168627, 0.32549, 0.431373, 0.576471)
+
+[node name="weapon_bobbing" type="Node3D" parent="neck/camera_recoil" unique_id=1788251654]
+unique_name_in_owner = true
+
+[node name="hand" type="Node3D" parent="neck/camera_recoil/weapon_bobbing" unique_id=1182760314 node_paths=PackedStringArray("player", "sway_origin")]
+unique_name_in_owner = true
+script = ExtResource("2_kxvbg")
+player = NodePath("../../../..")
+sway_origin = NodePath("sway_origin")
+
+[node name="sway_origin" type="Node3D" parent="neck/camera_recoil/weapon_bobbing/hand" unique_id=1320973353]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.49418938, -0.9605546)
+
+[node name="weapon_manager" type="Node3D" parent="neck/camera_recoil/weapon_bobbing/hand/sway_origin" unique_id=1438047349 node_paths=PackedStringArray("scope_audio_stream_player")]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.49418938, 0.9605546)
+script = ExtResource("5_njbxx")
+scope_audio_stream_player = NodePath("scope_sounds")
+melee_cooldown = 1.2
+
+[node name="can_animated" parent="neck/camera_recoil/weapon_bobbing/hand/sway_origin/weapon_manager" unique_id=1633938758 instance=ExtResource("19_vk4b7")]
+visible = false
+
+[node name="Skeleton3D" parent="neck/camera_recoil/weapon_bobbing/hand/sway_origin/weapon_manager/can_animated/Bones" parent_id_path=PackedInt32Array(1633938758, 325638169) index="0" unique_id=146705034]
+bones/0/position = Vector3(5.459313e-10, -1.1046376, 6.557194e-09)
+bones/2/rotation = Quaternion(1.4188587e-20, -1.1911538e-10, -1.1912007e-10, 1)
+bones/3/position = Vector3(-1.5, 0.5798049, 1.9609388e-08)
+bones/6/position = Vector3(1.5, 0.5798049, 1.959495e-08)
+bones/6/rotation = Quaternion(-0.70710677, 0, 0.70710677, 6.1817204e-08)
+bones/10/position = Vector3(-0.03442821, -7.6206923, 1.046226)
+bones/10/rotation = Quaternion(0, 0, 0, 1)
+
+[node name="head_animation" parent="neck/camera_recoil/weapon_bobbing/hand/sway_origin/weapon_manager/can_animated/Bones/Skeleton3D" index="3"]
+transform = Transform3D(1, 1.3520844e-29, 0, 1.3346637e-29, 1, -7.312535e-22, 0, 7.3125997e-22, 1, 1.4038776e-09, 0.8051567, 4.7779416e-09)
+
+[node name="granade" type="Node3D" parent="neck/camera_recoil/weapon_bobbing/hand/sway_origin/weapon_manager" unique_id=898620693 node_paths=PackedStringArray("projectile_spawn_point")]
+visible = false
+script = ExtResource("21_uw77l")
+projectile_scene = ExtResource("22_rptt4")
+projectile_spawn_point = NodePath("marker_3d")
+
+[node name="marker_3d" type="Marker3D" parent="neck/camera_recoil/weapon_bobbing/hand/sway_origin/weapon_manager/granade" unique_id=1921690569]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.3, 0, -0.7)
+
+[node name="knife" parent="neck/camera_recoil/weapon_bobbing/hand/sway_origin/weapon_manager" unique_id=774804928 instance=ExtResource("6_5t8vg")]
+visible = false
+animations_strings = "attack_1"
+
+[node name="melee_zone" type="Area3D" parent="neck/camera_recoil/weapon_bobbing/hand/sway_origin/weapon_manager" unique_id=306119001]
+collision_layer = 0
+collision_mask = 2
+
+[node name="collision_shape_3d" type="CollisionShape3D" parent="neck/camera_recoil/weapon_bobbing/hand/sway_origin/weapon_manager/melee_zone" unique_id=871686113]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.96046e-08, -0.6, -1.3)
+shape = SubResource("BoxShape3D_5jt3j")
+
+[node name="scope_sounds" type="AudioStreamPlayer3D" parent="neck/camera_recoil/weapon_bobbing/hand/sway_origin/weapon_manager" unique_id=1070196428]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.4)
+stream = ExtResource("20_s7qer")
+
+[node name="flashlight" type="SpotLight3D" parent="neck/camera_recoil/weapon_bobbing/hand" unique_id=858753045]
+visible = false
+layers = 3
+light_projector = ExtResource("16_1xnjw")
+shadow_enabled = true
+spot_range = 15.0
+spot_attenuation = 0.757858
+spot_angle = 35.0
+spot_angle_attenuation = 1.7411
+script = ExtResource("16_orqjq")
+
+[node name="state_animations" type="Node3D" parent="neck/camera_recoil" unique_id=943215597]
+
+[node name="camera_body" type="Node3D" parent="neck/camera_recoil/state_animations" unique_id=92002341]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
+
+[node name="camera_weapon_animation" type="Node3D" parent="neck/camera_recoil/state_animations/camera_body" unique_id=1762358460]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+
+[node name="camera_3d" type="Camera3D" parent="neck/camera_recoil/state_animations/camera_body/camera_weapon_animation" unique_id=1533163388]
+unique_name_in_owner = true
+cull_mask = 1048573
+fov = 37.849285
+
+[node name="vp_remote_transform" type="RemoteTransform3D" parent="neck/camera_recoil/state_animations/camera_body/camera_weapon_animation/camera_3d" unique_id=181626663]
+remote_path = NodePath("../../../../../../../viewmodel_viewport_container/sub_viewport/viewmodel_camera_3d")
+
+[node name="viewmodel_viewport_container" type="SubViewportContainer" parent="." unique_id=151830083]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+stretch = true
+
+[node name="sub_viewport" type="SubViewport" parent="viewmodel_viewport_container" unique_id=1801741262]
+transparent_bg = true
+handle_input_locally = false
+msaa_3d = 1
+screen_space_aa = 1
+gui_disable_input = true
+size = Vector2i(1600, 900)
+render_target_update_mode = 4
+
+[node name="viewmodel_camera_3d" type="Camera3D" parent="viewmodel_viewport_container/sub_viewport" unique_id=1631581225]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.7, 0)
+cull_mask = 1048574
+
+[node name="stair_check" type="RayCast3D" parent="." unique_id=1640284535]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.01, -0.5)
+debug_shape_custom_color = Color(1, 1, 0, 1)
+
+[node name="celling_check_shape_cast_3d" type="ShapeCast3D" parent="." unique_id=11479848]
+unique_name_in_owner = true
+shape = SubResource("SphereShape3D_pciu0")
+target_position = Vector3(0, 0.55, 0)
+
+[node name="spring_arm_3d" type="SpringArm3D" parent="." unique_id=758885524]
+process_mode = 4
+transform = Transform3D(1, 0, 0, 0, 0.866025, 0.5, 0, -0.5, 0.866025, 0, 0, 0)
+visible = false
+shape = SubResource("SphereShape3D_s7qer")
+spring_length = 3.0
+script = ExtResource("24_g4c7l")
+
+[node name="camera_3d" type="Camera3D" parent="spring_arm_3d" unique_id=562930460]
+
+[node name="environment_sensor_area_3d" type="Area3D" parent="." unique_id=660720275]
+collision_mask = 5
+script = ExtResource("25_knn7v")
+stress_per_shot = 0.1
+stress_attenuation = 1.0
+
+[node name="collision_shape_3d" type="CollisionShape3D" parent="environment_sensor_area_3d" unique_id=1483334462]
+shape = SubResource("SphereShape3D_g4c7l")
+
+[node name="sfx" type="Node3D" parent="." unique_id=759543856]
+
+[node name="footsteps_module" type="AudioStreamPlayer3D" parent="sfx" unique_id=510580621 node_paths=PackedStringArray("character_body")]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0.5)
+script = ExtResource("5_o38hl")
+character_body = NodePath("../..")
+
+[node name="ray_cast_3d" type="RayCast3D" parent="sfx/footsteps_module" unique_id=549089457]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, -0.5)
+target_position = Vector3(0, -1.1, 0)
+hit_back_faces = false
+
+[node name="crouch_sfx" type="AudioStreamPlayer3D" parent="sfx" unique_id=309949443]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0.5)
+stream = ExtResource("8_s7qer")
+bus = &"sfx"
+
+[node name="fall_damage_sfx" type="AudioStreamPlayer3D" parent="sfx" unique_id=2026928145]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.688119, -0.384734)
+stream = ExtResource("12_tmyon")
+volume_db = 6.0
+max_db = 6.0
+bus = &"sfx"
+
+[editable path="neck/camera_recoil/weapon_bobbing/hand/sway_origin/weapon_manager/can_animated"]

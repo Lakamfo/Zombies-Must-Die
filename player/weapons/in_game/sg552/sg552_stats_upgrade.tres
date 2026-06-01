@@ -1,0 +1,49 @@
+[gd_resource type="Resource" script_class="WeaponStats" format=3 uid="uid://bemdhxcg1vade"]
+
+[ext_resource type="Curve" uid="uid://0jmxmttgqmun" path="res://player/weapon_logic/damage_curve.tres" id="1_5s3d3"]
+[ext_resource type="Texture2D" uid="uid://c7xcakq5bje75" path="res://player/weapons/in_game/sg552/icon_ao.png" id="2_5txtd"]
+[ext_resource type="Script" uid="uid://coggxpmikyxx2" path="res://classes/weapon_stats.gd" id="3_vgi8o"]
+[ext_resource type="Shader" uid="uid://cdoorwsuceclb" path="res://player/weapons/shaders/upgrade_lines.gdshader" id="4_5txtd"]
+[ext_resource type="Resource" uid="uid://cqqvy7lyeyu68" path="res://player/weapons/in_game/sg552/sg552_stats_upgrade_two.tres" id="5_vgi8o"]
+
+[resource]
+script = ExtResource("3_vgi8o")
+upgrade_level = 1
+weapon_stats_upgrade = ExtResource("5_vgi8o")
+fire_rate = 600
+fire_distance = 100.0
+bullet_rigid_impact_power = 3.0
+bullet_impact_power = 3.0
+max_penetration_count = 5
+aim_camera_zoom = 1.2
+clip_size = 50
+magazine_size = 600
+damage = 60.0
+head_mult = 2.5
+torso_mult = 1.5
+limbs_mult = 1.5
+max_hip_camera_kick = Vector3(2, 1.5, 1)
+min_hip_camera_kick = Vector3(1.5, 1.5, 0.5)
+max_aim_camera_kick = Vector3(0, 1.5, 0.5)
+min_aim_camera_kick = Vector3(1, 1, 0.5)
+snappinnes = 12
+return_speed = 12
+aim_position = Vector3(-0.132, 0.008, 0)
+aim_rotation = Vector3(0, 0, -8)
+aim_speed = 0.2
+sway_amplitude_in_scope = 0.5
+weapon_recoil_pos_y = 0.02
+shell_type = 2
+min_impulse = Vector3(0.2, 0.3, 0)
+max_impulse = Vector3(0.3, 0.5, -0.3)
+idle_animation = "idle_pose,idle_pose_2"
+aim_idle_animation = "aim_idle"
+take_out_animation = "take_out"
+fire_animation = "shoot_1,shoot_2"
+aim_fire_animation = "shoot_1,shoot_2"
+tactical_reload_animation = "reload_fast"
+reload_animation = "reload_long"
+inspect_with_ammo = "inspect_animation"
+inspect_without_ammo = "inspect_animation"
+pitch_min = 1.0
+icon = ExtResource("2_5txtd")

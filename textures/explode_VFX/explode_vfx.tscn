@@ -1,0 +1,103 @@
+[gd_scene load_steps=14 format=3 uid="uid://bxd6x7qkhec12"]
+
+[ext_resource type="Texture2D" uid="uid://cilj0hk0oddc2" path="res://textures/explode_VFX/Flare00.PNG" id="1_cbglq"]
+
+[sub_resource type="Gradient" id="Gradient_cbglq"]
+colors = PackedColorArray(17.00142, 8.667688, 0, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_ctfif"]
+gradient = SubResource("Gradient_cbglq")
+
+[sub_resource type="Curve" id="Curve_ctfif"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), -2.00068, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_yjcay"]
+curve = SubResource("Curve_ctfif")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_2h5rl"]
+lifetime_randomness = 0.5
+emission_shape = 1
+emission_sphere_radius = 0.4
+spread = 180.0
+initial_velocity_min = 0.5
+initial_velocity_max = 1.0
+gravity = Vector3(0, 0, 0)
+scale_min = 3.0
+scale_max = 5.0
+scale_curve = SubResource("CurveTexture_yjcay")
+color = Color(0, 0, 0, 1)
+color_ramp = SubResource("GradientTexture1D_ctfif")
+sub_emitter_mode = 4
+sub_emitter_amount_at_start = 1
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_26jm1"]
+transparency = 3
+alpha_hash_scale = 1.0
+alpha_antialiasing_mode = 0
+shading_mode = 2
+albedo_color = Color(0.0885599, 0.0885599, 0.0885599, 1)
+albedo_texture = ExtResource("1_cbglq")
+billboard_mode = 3
+billboard_keep_scale = true
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="QuadMesh" id="QuadMesh_544ec"]
+material = SubResource("StandardMaterial3D_26jm1")
+
+[sub_resource type="Curve" id="Curve_yjcay"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), -2.00068, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_2h5rl"]
+curve = SubResource("Curve_yjcay")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_26jm1"]
+lifetime_randomness = 1.0
+emission_shape = 1
+emission_sphere_radius = 0.4
+spread = 180.0
+initial_velocity_min = 0.5
+initial_velocity_max = 1.0
+gravity = Vector3(0, -2, 0)
+scale_max = 2.0
+scale_curve = SubResource("CurveTexture_2h5rl")
+color = Color(0, 0, 0, 1)
+sub_emitter_mode = 4
+sub_emitter_amount_at_start = 1
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_544ec"]
+transparency = 3
+alpha_hash_scale = 1.0
+alpha_antialiasing_mode = 0
+shading_mode = 2
+albedo_color = Color(5.008, 1.008, 1.008, 1)
+albedo_texture = ExtResource("1_cbglq")
+billboard_mode = 3
+billboard_keep_scale = true
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="QuadMesh" id="QuadMesh_rbuel"]
+material = SubResource("StandardMaterial3D_544ec")
+
+[node name="explode_vfx" type="GPUParticles3D"]
+emitting = false
+amount = 10
+sub_emitter = NodePath("gpu_particles_3d")
+lifetime = 0.8
+one_shot = true
+explosiveness = 1.0
+visibility_aabb = AABB(-1, -1, -1, 2, 2, 2)
+process_material = SubResource("ParticleProcessMaterial_2h5rl")
+draw_pass_1 = SubResource("QuadMesh_544ec")
+
+[node name="gpu_particles_3d" type="GPUParticles3D" parent="."]
+emitting = false
+one_shot = true
+explosiveness = 1.0
+process_material = SubResource("ParticleProcessMaterial_26jm1")
+draw_pass_1 = SubResource("QuadMesh_rbuel")

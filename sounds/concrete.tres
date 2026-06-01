@@ -1,0 +1,29 @@
+[gd_resource type="AudioStreamRandomizer" format=3 uid="uid://tb562kt6qp8n"]
+
+[ext_resource type="AudioStream" uid="uid://druxcijems83h" path="res://sounds/concrete_footsteps/concrete-01.wav" id="1_ihs73"]
+[ext_resource type="AudioStream" uid="uid://b05x0my3847u5" path="res://sounds/concrete_footsteps/concrete-02.wav" id="2_gavc7"]
+[ext_resource type="AudioStream" uid="uid://b3jyktsgspkxb" path="res://sounds/concrete_footsteps/concrete-03.wav" id="3_oxid3"]
+[ext_resource type="AudioStream" uid="uid://bhu1pwoxv2tdf" path="res://sounds/concrete_footsteps/concrete-04.wav" id="4_ag5ww"]
+[ext_resource type="AudioStream" uid="uid://c8ipysptffygx" path="res://sounds/concrete_footsteps/concrete-05.wav" id="5_kj4ct"]
+[ext_resource type="AudioStream" uid="uid://cmabwwufstobr" path="res://sounds/concrete_footsteps/concrete-06.wav" id="6_ai20c"]
+[ext_resource type="AudioStream" uid="uid://nqrd2hj3mdny" path="res://sounds/concrete_footsteps/concrete-07.wav" id="7_o2clk"]
+[ext_resource type="AudioStream" uid="uid://daa2jei3ro52v" path="res://sounds/concrete_footsteps/concrete-08.wav" id="8_w5nh2"]
+
+[resource]
+streams_count = 8
+stream_0/stream = ExtResource("1_ihs73")
+stream_0/weight = 1.0
+stream_1/stream = ExtResource("2_gavc7")
+stream_1/weight = 1.0
+stream_2/stream = ExtResource("3_oxid3")
+stream_2/weight = 1.0
+stream_3/stream = ExtResource("4_ag5ww")
+stream_3/weight = 1.0
+stream_4/stream = ExtResource("5_kj4ct")
+stream_4/weight = 1.0
+stream_5/stream = ExtResource("6_ai20c")
+stream_5/weight = 1.0
+stream_6/stream = ExtResource("7_o2clk")
+stream_6/weight = 1.0
+stream_7/stream = ExtResource("8_w5nh2")
+stream_7/weight = 1.0

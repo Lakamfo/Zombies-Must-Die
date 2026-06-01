@@ -1,0 +1,11 @@
+[gd_resource type="ShaderMaterial" load_steps=3 format=3 uid="uid://dsh6owcbn1xtg"]
+
+[ext_resource type="Shader" path="res://player/weapons/holographic_dot.gdshader" id="1_pxkvy"]
+[ext_resource type="Texture2D" uid="uid://chumsgsg0unss" path="res://player/weapons/in_game/m4a1/textures/red_dot_hd.png" id="2_xe6mc"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_pxkvy")
+shader_parameter/reticle_color = Color(1, 0, 0, 1)
+shader_parameter/reticle_size = 0.35
+shader_parameter/reticle = ExtResource("2_xe6mc")

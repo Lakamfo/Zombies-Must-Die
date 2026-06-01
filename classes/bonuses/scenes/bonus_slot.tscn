@@ -1,0 +1,92 @@
+[gd_scene format=3 uid="uid://dfcjvnew7vpdj"]
+
+[ext_resource type="Script" uid="uid://dee6ml3m3hosx" path="res://classes/bonuses/scenes/bonus_slot.gd" id="1_0kdcc"]
+[ext_resource type="Shader" uid="uid://daqaedd6be5x" path="res://shaders/mixed_blur.gdshader" id="1_ec504"]
+[ext_resource type="Texture2D" uid="uid://b8sjur71neo3s" path="res://player/ui/pictures/bonus_icon_bg.png" id="3_btwlo"]
+[ext_resource type="Texture2D" uid="uid://dnyan1els06k2" path="res://player/ui/pictures/bonus_icon_fg.png" id="4_leghc"]
+[ext_resource type="Texture2D" uid="uid://bclgmp5uqsdad" path="res://player/ui/pictures/bonus_icon_border.png" id="5_pgful"]
+[ext_resource type="Texture2D" uid="uid://djlwxxcgfskgj" path="res://objects/interactable/pickup/images/double_points.png" id="6_btwlo"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ma6q2"]
+shader = ExtResource("1_ec504")
+shader_parameter/blur_amount = 1.0
+shader_parameter/mix_amount = 0.30000001425
+shader_parameter/color_over = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_0bgai"]
+font_size = 64
+
+[node name="bonus" type="Control" unique_id=1652645898]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 3
+anchor_right = 0.04
+anchor_bottom = 0.07111111
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset_ratio = Vector2(0.5, 0.5)
+size_flags_horizontal = 4
+size_flags_vertical = 4
+script = ExtResource("1_0kdcc")
+metadata/_edit_use_anchors_ = true
+
+[node name="texture_rect_bg" type="TextureRect" parent="." unique_id=1851999207]
+material = SubResource("ShaderMaterial_ma6q2")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_btwlo")
+expand_mode = 1
+
+[node name="texture_rect_glow" type="TextureRect" parent="." unique_id=1038265861]
+modulate = Color(0.99607843, 0.9254902, 0.003921569, 0.49803922)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_leghc")
+expand_mode = 1
+
+[node name="texture_rect_fg" type="TextureRect" parent="." unique_id=1707531417]
+modulate = Color(0.99607843, 0.9254902, 0.003921569, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("5_pgful")
+expand_mode = 1
+
+[node name="label" type="Label" parent="." unique_id=826308941]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -42.5
+offset_top = -39.0
+offset_right = 42.5
+offset_bottom = 39.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "30"
+label_settings = SubResource("LabelSettings_0bgai")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="texture_rect_icon" type="TextureRect" parent="." unique_id=279718748]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("6_btwlo")
+expand_mode = 2

@@ -1,0 +1,10 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://1ofdoj1vnq7l"]
+
+[ext_resource type="Texture2D" uid="uid://bukdngki2neuo" path="res://player/weapons/in_game/fsp45/fsp45_idle_FSP_45_mat_baseColor.png" id="1_7b0qb"]
+
+[resource]
+resource_name = "FSP_45_mat1"
+cull_mode = 2
+albedo_texture = ExtResource("1_7b0qb")
+metallic = 0.5
+roughness = 0.272059

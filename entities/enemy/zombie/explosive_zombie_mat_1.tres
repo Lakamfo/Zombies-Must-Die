@@ -1,0 +1,7 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://dyplkedslcmcr"]
+
+[ext_resource type="Texture2D" uid="uid://d12wsof301g6q" path="res://entities/enemy/zombie/explosive_zombie_texture.png" id="1_fdymq"]
+
+[resource]
+resource_name = "Rig Texture"
+albedo_texture = ExtResource("1_fdymq")

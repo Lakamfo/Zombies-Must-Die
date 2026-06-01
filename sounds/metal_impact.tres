@@ -1,0 +1,11 @@
+[gd_resource type="AudioStreamRandomizer" format=3 uid="uid://cf0tamul1u5f8"]
+
+[ext_resource type="AudioStream" uid="uid://duf8gm8gtilbd" path="res://sounds/metal_impact/metal_impact1.wav" id="1_tip51"]
+[ext_resource type="AudioStream" uid="uid://edvu6jwoprse" path="res://sounds/metal_impact/metal_impact2.wav" id="2_m06t6"]
+[ext_resource type="AudioStream" uid="uid://cvos1mrl43trv" path="res://sounds/metal_impact/metal_impact3.wav" id="3_8r0uo"]
+
+[resource]
+streams_count = 3
+stream_0/stream = ExtResource("1_tip51")
+stream_1/stream = ExtResource("2_m06t6")
+stream_2/stream = ExtResource("3_8r0uo")

@@ -1,0 +1,35 @@
+[gd_scene format=3 uid="uid://bgjlyro6htpq5"]
+
+[ext_resource type="Texture2D" uid="uid://b88x64e8n8wbg" path="res://assets/icon/game_icon.png" id="1_q01fr"]
+
+[sub_resource type="ButtonGroup" id="ButtonGroup_2rmnk"]
+allow_unpress = true
+
+[node name="button" type="Button" unique_id=1289356321]
+custom_minimum_size = Vector2(128, 128)
+toggle_mode = true
+button_group = SubResource("ButtonGroup_2rmnk")
+
+[node name="texture_rect" type="TextureRect" parent="." unique_id=1201851037]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 8.0
+offset_top = 8.0
+offset_right = -8.0
+offset_bottom = -8.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("1_q01fr")
+expand_mode = 1
+
+[node name="label" type="Label" parent="." unique_id=2106105636]
+layout_mode = 0
+offset_right = 128.0
+offset_bottom = 128.0
+text = "LOCATION"
+horizontal_alignment = 1
+vertical_alignment = 2
+autowrap_mode = 2

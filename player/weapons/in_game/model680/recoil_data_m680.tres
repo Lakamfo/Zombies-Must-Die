@@ -1,0 +1,26 @@
+[gd_resource type="Resource" script_class="RecoilData" load_steps=2 format=3 uid="uid://c5k8tv5dytg8y"]
+
+[ext_resource type="Script" uid="uid://btob25331871x" path="res://player/weapon_logic/RecoilData.gd" id="1_ydf4v"]
+
+[resource]
+script = ExtResource("1_ydf4v")
+hip_camera_max_recoil_data = Array[Vector3]([Vector3(16, 6, 6), Vector3(10, 4, 2)])
+hip_camera_min_recoil_data = Array[Vector3]([Vector3(10, 4, 3), Vector3(16, 2, 2)])
+hip_camera_recoil_snappines = Array[Vector3]([Vector3(48, 48, 48), Vector3(48, 48, 48)])
+hip_camera_recoil_return_speed = Array[Vector3]([Vector3(6, 6, 6), Vector3(6, 6, 6)])
+hip_camera_recoil_delay = Array[float]([0.0, 0.2])
+hip_body_max_recoil_data = Array[Vector3]([Vector3(19.91, 16.39, 12.7), Vector3(40, 20, 17.025)])
+hip_body_min_recoil_data = Array[Vector3]([Vector3(17, 9, 10), Vector3(40, 10.72, 9.225)])
+hip_body_recoil_snappines = Array[Vector3]([Vector3(10.8, 3.81, 5.82), Vector3(10, 4.195, 4.735)])
+hip_body_recoil_return_speed = Array[Vector3]([Vector3(4, 4, 0)])
+hip_body_recoil_delay = Array[float]([0.0, 0.1])
+aim_camera_max_recoil_data = Array[Vector3]([Vector3(12, 2, 6), Vector3(7, 2, 6)])
+aim_camera_min_recoil_data = Array[Vector3]([Vector3(6, 6, 6), Vector3(6, 6, 6)])
+aim_camera_recoil_snappines = Array[Vector3]([Vector3(36, 12, 6), Vector3(8, 8, 6)])
+aim_camera_recoil_return_speed = Array[Vector3]([Vector3(8, 8, 8), Vector3(40, 40, 40)])
+aim_camera_recoil_delay = Array[float]([0.0, 0.2])
+aim_body_max_recoil_data = Array[Vector3]([Vector3(12, 36, 36), Vector3(36, 36, 36)])
+aim_body_min_recoil_data = Array[Vector3]([Vector3(12, 36, 36), Vector3(36, 46, 3636)])
+aim_body_recoil_snappines = Array[Vector3]([Vector3(24, 24, 24), Vector3(24, 24, 24)])
+aim_body_recoil_return_speed = Array[Vector3]([Vector3(6, 6, 6)])
+aim_body_recoil_delay = Array[float]([])

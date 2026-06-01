@@ -1,0 +1,81 @@
+[gd_scene load_steps=8 format=3 uid="uid://b03laxtxlkxtl"]
+
+[ext_resource type="PackedScene" uid="uid://b8ufwh2xwrf8d" path="res://map/dungeon/objects/door/gen_door.tscn" id="1_kfv74"]
+[ext_resource type="Script" uid="uid://cb5qu8y0iiw75" path="res://classes/map_gen/RoomsTrigger.gd" id="1_qs7ha"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_7w8m7"]
+size = Vector2(5, 5)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_xqvx7"]
+size = Vector3(15, 0.1, 5)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ag8pj"]
+size = Vector3(5, 0.1, 5)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_kfv74"]
+size = Vector3(5, 3, 4.5)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ybmpk"]
+size = Vector3(10, 3, 5)
+
+[node name="c_r_room" type="StaticBody3D"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, 0)
+
+[node name="mesh_instance_3d" type="MeshInstance3D" parent="."]
+mesh = SubResource("PlaneMesh_7w8m7")
+
+[node name="mesh_instance_3d2" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.18557e-07, 0, -5)
+mesh = SubResource("PlaneMesh_7w8m7")
+
+[node name="mesh_instance_3d3" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, -5)
+mesh = SubResource("PlaneMesh_7w8m7")
+
+[node name="collision_shape_3d2" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, -0.1, -5)
+shape = SubResource("BoxShape3D_xqvx7")
+
+[node name="collision_shape_3d" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_ag8pj")
+
+[node name="exit" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 1.74846e-07, 0, 1, 0, -1.74846e-07, 0, 1, 5, 0, -7.5)
+
+[node name="entrance" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 1.74846e-07, 0, 1, 0, -1.74846e-07, 0, 1, 0, 0, 2.5)
+
+[node name="gen_door" parent="entrance" instance=ExtResource("1_kfv74")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, 0)
+
+[node name="label_3d" type="Label3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+pixel_size = 0.01
+billboard = 1
+text = "C R ROOM"
+font_size = 128
+outline_size = 32
+
+[node name="room_trigger" type="Area3D" parent="."]
+script = ExtResource("1_qs7ha")
+metadata/_custom_type_script = "uid://cb5qu8y0iiw75"
+
+[node name="collision_shape_3d" type="CollisionShape3D" parent="room_trigger"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.4, -0.25)
+shape = SubResource("BoxShape3D_kfv74")
+
+[node name="collision_shape_3d2" type="CollisionShape3D" parent="room_trigger"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 1.4, -5)
+shape = SubResource("BoxShape3D_ybmpk")
+
+[node name="spawn_position_1" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.4, 1.2, -6.1196e-08)
+
+[node name="spawn_position_2" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.6, 1.2, 6.99382e-08)
+
+[node name="spawn_position_3" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.4, 1.2, -5)
+
+[node name="spawn_position_4" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.4, 1.2, -5)

@@ -1,0 +1,41 @@
+[gd_resource type="AudioStreamRandomizer" format=3 uid="uid://bi7e20v6yu70r"]
+
+[ext_resource type="AudioStream" uid="uid://dp03h0y5likxk" path="res://sounds/sand_footsteps/sand-01.wav" id="1_ngnbl"]
+[ext_resource type="AudioStream" uid="uid://dq68dt0wrrfk" path="res://sounds/sand_footsteps/sand-02.wav" id="2_0he7n"]
+[ext_resource type="AudioStream" uid="uid://ca6pjcai5f21i" path="res://sounds/sand_footsteps/sand-11.wav" id="3_8e5e5"]
+[ext_resource type="AudioStream" uid="uid://dxbyesof5bg3n" path="res://sounds/sand_footsteps/sand-12.wav" id="4_g22us"]
+[ext_resource type="AudioStream" uid="uid://vhwp5ovm1p4t" path="res://sounds/sand_footsteps/sand-03.wav" id="5_q58w8"]
+[ext_resource type="AudioStream" uid="uid://ds7oju5sbad6r" path="res://sounds/sand_footsteps/sand-04.wav" id="6_5l5si"]
+[ext_resource type="AudioStream" uid="uid://chwepm70178gx" path="res://sounds/sand_footsteps/sand-05.wav" id="7_3mujf"]
+[ext_resource type="AudioStream" uid="uid://bdxr0bmjkdms6" path="res://sounds/sand_footsteps/sand-06.wav" id="8_gepo5"]
+[ext_resource type="AudioStream" uid="uid://cgx1px34q5bn0" path="res://sounds/sand_footsteps/sand-07.wav" id="9_dpytq"]
+[ext_resource type="AudioStream" uid="uid://gjow8xpqsi42" path="res://sounds/sand_footsteps/sand-08.wav" id="10_h5n8s"]
+[ext_resource type="AudioStream" uid="uid://bxyu7jpoaevyq" path="res://sounds/sand_footsteps/sand-09.wav" id="11_u8yfs"]
+[ext_resource type="AudioStream" uid="uid://babkekb7oaqwy" path="res://sounds/sand_footsteps/sand-10.wav" id="12_8cgpx"]
+
+[resource]
+streams_count = 12
+stream_0/stream = ExtResource("1_ngnbl")
+stream_0/weight = 1.0
+stream_1/stream = ExtResource("2_0he7n")
+stream_1/weight = 1.0
+stream_2/stream = ExtResource("5_q58w8")
+stream_2/weight = 1.0
+stream_3/stream = ExtResource("6_5l5si")
+stream_3/weight = 1.0
+stream_4/stream = ExtResource("7_3mujf")
+stream_4/weight = 1.0
+stream_5/stream = ExtResource("8_gepo5")
+stream_5/weight = 1.0
+stream_6/stream = ExtResource("9_dpytq")
+stream_6/weight = 1.0
+stream_7/stream = ExtResource("10_h5n8s")
+stream_7/weight = 1.0
+stream_8/stream = ExtResource("11_u8yfs")
+stream_8/weight = 1.0
+stream_9/stream = ExtResource("12_8cgpx")
+stream_9/weight = 1.0
+stream_10/stream = ExtResource("3_8e5e5")
+stream_10/weight = 1.0
+stream_11/stream = ExtResource("4_g22us")
+stream_11/weight = 1.0

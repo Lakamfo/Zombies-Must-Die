@@ -1,0 +1,1000 @@
+[gd_scene format=3 uid="uid://ceqe34e8nj27e"]
+
+[ext_resource type="Script" uid="uid://b3xrmk6a6s2x5" path="res://scenes/settings/scripts/settings_main.gd" id="1_llv1k"]
+[ext_resource type="Script" uid="uid://cbvqfilhumnx6" path="res://scenes/settings/utils/delayed_saver_manager.gd" id="2_cqmh0"]
+[ext_resource type="Script" uid="uid://cdiucmplo3ww4" path="res://scenes/settings/utils/config_file_handler.gd" id="3_vmy5t"]
+[ext_resource type="Script" uid="uid://csvhstd2dtjyo" path="res://scenes/settings/scripts/settings_display.gd" id="4_2xsx4"]
+[ext_resource type="Texture2D" uid="uid://bbmhsno73xlkm" path="res://scenes/settings/resources/monitor-cog.svg" id="4_15jx7"]
+[ext_resource type="Material" uid="uid://bnpldw81w3n46" path="res://shaders/mixed_blur_bg.tres" id="4_m1yla"]
+[ext_resource type="Texture2D" uid="uid://da8xqi7rma8vx" path="res://scenes/settings/resources/gpu.svg" id="5_bqt2g"]
+[ext_resource type="Texture2D" uid="uid://ca80i710mk2w5" path="res://scenes/settings/resources/sliders-horizontal.svg" id="5_e5ur0"]
+[ext_resource type="Script" uid="uid://cfcn4b6aojemi" path="res://scenes/settings/scripts/settings_graphics.gd" id="5_wrru7"]
+[ext_resource type="Resource" uid="uid://dv28uqogop5gd" path="res://scenes/settings/presets/medium.tres" id="6_aj7k6"]
+[ext_resource type="Texture2D" uid="uid://c1khwq5grqhq1" path="res://scenes/settings/resources/keyboard.svg" id="6_bqt2g"]
+[ext_resource type="Script" uid="uid://cnrnifjrybncx" path="res://scenes/settings/utils/graphics_preset.gd" id="6_wrru7"]
+[ext_resource type="Script" uid="uid://cl2pk4mddm4mq" path="res://scenes/settings/utils/slider_accept_event.gd" id="7_7hpl2"]
+[ext_resource type="Resource" uid="uid://bdh315fdpun2g" path="res://scenes/settings/presets/ultra_low.tres" id="7_aj7k6"]
+[ext_resource type="Resource" uid="uid://dxwwjt75x1xws" path="res://scenes/settings/presets/low.tres" id="8_7hpl2"]
+[ext_resource type="Script" uid="uid://s07n3exw1psg" path="res://scenes/settings/scripts/settings_sounds.gd" id="8_ayxi6"]
+[ext_resource type="Texture2D" uid="uid://j554s1cgj1b5" path="res://scenes/settings/resources/wrench.svg" id="8_m1yla"]
+[ext_resource type="Script" uid="uid://do4xkluuximc5" path="res://scenes/settings/scripts/settings_input.gd" id="9_mytdd"]
+[ext_resource type="Resource" uid="uid://cghb7n40fehwc" path="res://scenes/settings/presets/high.tres" id="10_ayxi6"]
+[ext_resource type="Script" uid="uid://dk45ehwrb8k7c" path="res://scenes/settings/scripts/settings_other.gd" id="10_yrusv"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_m1yla"]
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ds1x1"]
+
+[node name="SettingsMain" type="Control" unique_id=2039282732]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+script = ExtResource("1_llv1k")
+
+[node name="DelayedSaverManager" type="Node" parent="." unique_id=302089470]
+unique_name_in_owner = true
+script = ExtResource("2_cqmh0")
+metadata/_custom_type_script = "uid://cbvqfilhumnx6"
+
+[node name="ConfigFileHandler" type="Node" parent="." unique_id=2144814304]
+unique_name_in_owner = true
+script = ExtResource("3_vmy5t")
+
+[node name="panel" type="Panel" parent="." unique_id=1400055530]
+material = ExtResource("4_m1yla")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 32.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_m1yla")
+
+[node name="TabContainer" type="TabContainer" parent="." unique_id=2136007256]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_ds1x1")
+tab_alignment = 1
+current_tab = 0
+tab_1/icon = ExtResource("4_15jx7")
+tab_2/icon = ExtResource("5_bqt2g")
+tab_3/icon = ExtResource("5_e5ur0")
+tab_4/icon = ExtResource("6_bqt2g")
+tab_5/icon = ExtResource("8_m1yla")
+
+[node name="×" type="Control" parent="TabContainer" unique_id=56017362]
+layout_mode = 2
+metadata/_tab_index = 0
+
+[node name="display" type="ScrollContainer" parent="TabContainer" unique_id=454141786 node_paths=PackedStringArray("config_file_handler", "delayed_saver_manager")]
+visible = false
+layout_mode = 2
+script = ExtResource("4_2xsx4")
+config_file_handler = NodePath("../../ConfigFileHandler")
+delayed_saver_manager = NodePath("../../DelayedSaverManager")
+metadata/_tab_index = 1
+
+[node name="margin_container" type="MarginContainer" parent="TabContainer/display" unique_id=1582958383]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="v_box_container" type="VBoxContainer" parent="TabContainer/display/margin_container" unique_id=374176067]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 8
+
+[node name="h_separator" type="HSeparator" parent="TabContainer/display/margin_container/v_box_container" unique_id=856158281]
+custom_minimum_size = Vector2(0, 15)
+layout_mode = 2
+
+[node name="display_mode_container" type="HBoxContainer" parent="TabContainer/display/margin_container/v_box_container" unique_id=1999267078]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 28)
+layout_mode = 2
+
+[node name="display_mode" type="Label" parent="TabContainer/display/margin_container/v_box_container/display_mode_container" unique_id=1726610264]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 1
+text = "KEY_SETTING_DISPLAY_MODE"
+
+[node name="display_mode_option_button" type="OptionButton" parent="TabContainer/display/margin_container/v_box_container/display_mode_container" unique_id=1535312651]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 1
+clip_text = true
+selected = 2
+fit_to_longest_item = false
+item_count = 3
+popup/item_0/text = "Fullscreen"
+popup/item_0/id = 0
+popup/item_1/text = "Exclusive Fullscreen"
+popup/item_1/id = 1
+popup/item_2/text = "Windowed"
+popup/item_2/id = 2
+
+[node name="display_monitor_container" type="HBoxContainer" parent="TabContainer/display/margin_container/v_box_container" unique_id=1737759862]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 28)
+layout_mode = 2
+
+[node name="display_monitor_label" type="Label" parent="TabContainer/display/margin_container/v_box_container/display_monitor_container" unique_id=897470581]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 1
+text = "KEY_SETTING_DISPLAY_MONITOR"
+
+[node name="display_monitor_option" type="OptionButton" parent="TabContainer/display/margin_container/v_box_container/display_monitor_container" unique_id=10347476]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 1
+clip_text = true
+fit_to_longest_item = false
+
+[node name="custom_framecap_container" type="HBoxContainer" parent="TabContainer/display/margin_container/v_box_container" unique_id=796938702]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 28)
+layout_mode = 2
+
+[node name="frame_cap_label" type="Label" parent="TabContainer/display/margin_container/v_box_container/custom_framecap_container" unique_id=1528119257]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 1
+text = "KEY_SETTING_FRAMECAP"
+
+[node name="framecap_slider" type="HSlider" parent="TabContainer/display/margin_container/v_box_container/custom_framecap_container" unique_id=1743074233 groups=["scroll_block"]]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 1
+max_value = 200.0
+step = 5.0
+allow_greater = true
+tick_count = 20
+ticks_on_borders = true
+
+[node name="interface_scale_factor_container" type="HBoxContainer" parent="TabContainer/display/margin_container/v_box_container" unique_id=1946862247]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 28)
+layout_mode = 2
+
+[node name="interface_scale_label" type="Label" parent="TabContainer/display/margin_container/v_box_container/interface_scale_factor_container" unique_id=1268153050]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 1
+text = "KEY_SETTING_INTERFACE_SCALE"
+
+[node name="interface_scale_slider" type="HSlider" parent="TabContainer/display/margin_container/v_box_container/interface_scale_factor_container" unique_id=1876874607 groups=["scroll_block"]]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 1
+min_value = 0.5
+max_value = 2.0
+step = 0.25
+value = 1.0
+tick_count = 8
+ticks_on_borders = true
+
+[node name="vsync_container" type="HBoxContainer" parent="TabContainer/display/margin_container/v_box_container" unique_id=1973701229]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 28)
+layout_mode = 2
+
+[node name="vsync_label" type="Label" parent="TabContainer/display/margin_container/v_box_container/vsync_container" unique_id=1483307295]
+unique_name_in_owner = true
+layout_mode = 2
+mouse_filter = 1
+text = "KEY_SETTING_VSYNC"
+
+[node name="vsync_button" type="CheckButton" parent="TabContainer/display/margin_container/v_box_container/vsync_container" unique_id=1344547588]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 28)
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 1
+button_pressed = true
+
+[node name="graphics" type="ScrollContainer" parent="TabContainer" unique_id=1575832588 node_paths=PackedStringArray("delayed_saver_manager", "config_file_handler")]
+visible = false
+layout_mode = 2
+script = ExtResource("5_wrru7")
+delayed_saver_manager = NodePath("../../DelayedSaverManager")
+config_file_handler = NodePath("../../ConfigFileHandler")
+graphics_presets = Array[ExtResource("6_wrru7")]([ExtResource("7_aj7k6"), ExtResource("8_7hpl2"), ExtResource("6_aj7k6"), ExtResource("10_ayxi6")])
+default_config = ExtResource("6_aj7k6")
+metadata/_tab_index = 2
+
+[node name="margin_container" type="MarginContainer" parent="TabContainer/graphics" unique_id=696693938]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="v_box_container" type="VBoxContainer" parent="TabContainer/graphics/margin_container" unique_id=304963093]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 2.18
+theme_override_constants/separation = 8
+
+[node name="h_separator" type="HSeparator" parent="TabContainer/graphics/margin_container/v_box_container" unique_id=1436506763]
+custom_minimum_size = Vector2(0, 15)
+layout_mode = 2
+
+[node name="graphics_preset_container" type="HBoxContainer" parent="TabContainer/graphics/margin_container/v_box_container" unique_id=1844262110]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 28)
+layout_mode = 2
+
+[node name="graphics_preset_label" type="Label" parent="TabContainer/graphics/margin_container/v_box_container/graphics_preset_container" unique_id=1506195314]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 1
+text = "KEY_SETTING_GRAPHIC_PRESET"
+
+[node name="graphic_preset_option" type="OptionButton" parent="TabContainer/graphics/margin_container/v_box_container/graphics_preset_container" unique_id=115056677]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 1
+clip_text = true
+selected = 2
+fit_to_longest_item = false
+item_count = 5
+popup/item_0/text = "KEY_SETTINGS_ULTRA_LOW"
+popup/item_0/id = 0
+popup/item_1/text = "KEY_SETTINGS_LOW"
+popup/item_1/id = 1
+popup/item_2/text = "KEY_SETTINGS_MEDIUM"
+popup/item_2/id = 2
+popup/item_3/text = "KEY_SETTINGS_HIGH"
+popup/item_3/id = 3
+popup/item_4/text = "KEY_SETTINGS_CUSTOM"
+popup/item_4/id = 4
+
+[node name="scaling_method_container" type="HBoxContainer" parent="TabContainer/graphics/margin_container/v_box_container" unique_id=174750496]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 28)
+layout_mode = 2
+
+[node name="scaling_label" type="Label" parent="TabContainer/graphics/margin_container/v_box_container/scaling_method_container" unique_id=1708683222]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 1
+text = "KEY_SETTING_SCALING_MODE"
+
+[node name="option_scaling_method" type="OptionButton" parent="TabContainer/graphics/margin_container/v_box_container/scaling_method_container" unique_id=1535996502]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 1
+clip_text = true
+selected = 0
+fit_to_longest_item = false
+item_count = 3
+popup/item_0/text = "Bilinear (Fastest)"
+popup/item_0/id = 0
+popup/item_1/text = "FSR 1.0 (Fast)"
+popup/item_1/id = 1
+popup/item_2/text = "FSR 2.2 (Slow)"
+popup/item_2/id = 2
+
+[node name="render_resolution_container" type="HBoxContainer" parent="TabContainer/graphics/margin_container/v_box_container" unique_id=1631986961]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 28)
+layout_mode = 2
+tooltip_text = "When using FSR upscaling, AMD recommends exposing the following values as preset options to users \"Ultra Quality: 77%\", \"Quality: 67%\", \"Balanced: 59%\", \"Performance: 50%\"."
+
+[node name="render_resolution_label" type="Label" parent="TabContainer/graphics/margin_container/v_box_container/render_resolution_container" unique_id=544588562]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 1
+text = "KEY_SETTING_RENDER_RESOLUTION"
+
+[node name="render_resolution_slider" type="HSlider" parent="TabContainer/graphics/margin_container/v_box_container/render_resolution_container" unique_id=1596268793 groups=["scroll_block"]]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 1
+min_value = 10.0
+max_value = 200.0
+step = 5.0
+value = 100.0
+allow_greater = true
+tick_count = 19
+ticks_on_borders = true
+script = ExtResource("7_7hpl2")
+
+[node name="fsr_sharpness_container" type="HBoxContainer" parent="TabContainer/graphics/margin_container/v_box_container" unique_id=2139424689]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 28)
+layout_mode = 2
+tooltip_text = "The lower the value, the sharper the image"
+
+[node name="fsr_sharpness_label" type="Label" parent="TabContainer/graphics/margin_container/v_box_container/fsr_sharpness_container" unique_id=1368324390]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 1
+text = "KEY_SETTING_FSR_SHARPNESS"
+
+[node name="fsr_sharpness_slider" type="HSlider" parent="TabContainer/graphics/margin_container/v_box_container/fsr_sharpness_container" unique_id=607957688 groups=["scroll_block"]]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 1
+max_value = 2.0
+step = 0.1
+value = 0.2
+tick_count = 20
+ticks_on_borders = true
+script = ExtResource("7_7hpl2")
+
+[node name="ssao_preset_container" type="HBoxContainer" parent="TabContainer/graphics/margin_container/v_box_container" unique_id=181474177]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 28)
+layout_mode = 2
+
+[node name="ssao_preset_label" type="Label" parent="TabContainer/graphics/margin_container/v_box_container/ssao_preset_container" unique_id=420680454]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 1
+text = "KEY_SETTING_SSAO"
+
+[node name="ssao_preset_option" type="OptionButton" parent="TabContainer/graphics/margin_container/v_box_container/ssao_preset_container" unique_id=1331941332]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 1
+clip_text = true
+selected = 2
+fit_to_longest_item = false
+item_count = 4
+popup/item_0/text = "KEY_SETTINGS_DISABLED"
+popup/item_0/id = 0
+popup/item_1/text = "KEY_SETTINGS_LOW"
+popup/item_1/id = 1
+popup/item_2/text = "KEY_SETTINGS_MEDIUM"
+popup/item_2/id = 2
+popup/item_3/text = "KEY_SETTINGS_HIGH"
+popup/item_3/id = 3
+
+[node name="msaa_preset_container" type="HBoxContainer" parent="TabContainer/graphics/margin_container/v_box_container" unique_id=1403284247]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 28)
+layout_mode = 2
+
+[node name="msaa_label" type="Label" parent="TabContainer/graphics/margin_container/v_box_container/msaa_preset_container" unique_id=1507260989]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 1
+text = "KEY_SETTING_MSAA"
+
+[node name="msaa_option" type="OptionButton" parent="TabContainer/graphics/margin_container/v_box_container/msaa_preset_container" unique_id=2000862011]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 1
+clip_text = true
+item_count = 4
+popup/item_0/text = "KEY_SETTINGS_DISABLED"
+popup/item_0/id = 0
+popup/item_1/text = "2x"
+popup/item_1/id = 1
+popup/item_2/text = "4x"
+popup/item_2/id = 2
+popup/item_3/text = "8x"
+popup/item_3/id = 3
+
+[node name="shadow_quality_container" type="HBoxContainer" parent="TabContainer/graphics/margin_container/v_box_container" unique_id=531309444]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 28)
+layout_mode = 2
+
+[node name="shadow_qual_label" type="Label" parent="TabContainer/graphics/margin_container/v_box_container/shadow_quality_container" unique_id=368424423]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 1
+text = "KEY_SETTING_SHADOWS_QUALITY"
+
+[node name="shadows_option" type="OptionButton" parent="TabContainer/graphics/margin_container/v_box_container/shadow_quality_container" unique_id=530796397]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 1
+clip_text = true
+selected = 1
+item_count = 3
+popup/item_0/text = "KEY_SETTINGS_LOW"
+popup/item_0/id = 0
+popup/item_1/text = "KEY_SETTINGS_MEDIUM"
+popup/item_1/id = 1
+popup/item_2/text = "KEY_SETTINGS_HIGH"
+popup/item_2/id = 2
+
+[node name="shaders_quality_container" type="HBoxContainer" parent="TabContainer/graphics/margin_container/v_box_container" unique_id=148527996]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 28)
+layout_mode = 2
+
+[node name="shaders_qual_label" type="Label" parent="TabContainer/graphics/margin_container/v_box_container/shaders_quality_container" unique_id=1409572313]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 1
+text = "KEY_SETTING_SHADERS_QUALITY"
+
+[node name="shaders_option" type="OptionButton" parent="TabContainer/graphics/margin_container/v_box_container/shaders_quality_container" unique_id=1091568664]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 1
+clip_text = true
+selected = 1
+item_count = 3
+popup/item_0/text = "KEY_SETTINGS_LOW"
+popup/item_0/id = 0
+popup/item_1/text = "KEY_SETTINGS_MEDIUM"
+popup/item_1/id = 1
+popup/item_2/text = "KEY_SETTINGS_HIGH"
+popup/item_2/id = 2
+
+[node name="main_camera_fov_container" type="HBoxContainer" parent="TabContainer/graphics/margin_container/v_box_container" unique_id=28957223]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 28)
+layout_mode = 2
+
+[node name="camera_fov_label" type="Label" parent="TabContainer/graphics/margin_container/v_box_container/main_camera_fov_container" unique_id=1790605263]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 1
+text = "KEY_SETTING_CAMERA_FOV"
+
+[node name="camera_fov_slider" type="HSlider" parent="TabContainer/graphics/margin_container/v_box_container/main_camera_fov_container" unique_id=1348788751 groups=["scroll_block"]]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 1
+min_value = 70.0
+max_value = 120.0
+value = 90.0
+tick_count = 8
+ticks_on_borders = true
+script = ExtResource("7_7hpl2")
+
+[node name="weapon_camera_fov_container" type="HBoxContainer" parent="TabContainer/graphics/margin_container/v_box_container" unique_id=714896404]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 28)
+layout_mode = 2
+
+[node name="weapon_camera_fov_label" type="Label" parent="TabContainer/graphics/margin_container/v_box_container/weapon_camera_fov_container" unique_id=1952781167]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 1
+text = "KEY_SETTING_WEAPON_CAMERA_FOV"
+
+[node name="weapon_camera_fov_slider" type="HSlider" parent="TabContainer/graphics/margin_container/v_box_container/weapon_camera_fov_container" unique_id=1298776624 groups=["scroll_block"]]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 1
+min_value = 70.0
+max_value = 120.0
+value = 75.0
+tick_count = 8
+ticks_on_borders = true
+script = ExtResource("7_7hpl2")
+
+[node name="shadows_container" type="HBoxContainer" parent="TabContainer/graphics/margin_container/v_box_container" unique_id=95967332]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 28)
+layout_mode = 2
+
+[node name="shadows_label" type="Label" parent="TabContainer/graphics/margin_container/v_box_container/shadows_container" unique_id=734862745]
+unique_name_in_owner = true
+layout_mode = 2
+mouse_filter = 1
+text = "KEY_SETTING_SHADOW"
+
+[node name="shadows_button" type="CheckButton" parent="TabContainer/graphics/margin_container/v_box_container/shadows_container" unique_id=428457492]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 1
+
+[node name="fxaa_container" type="HBoxContainer" parent="TabContainer/graphics/margin_container/v_box_container" unique_id=672051508]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 28)
+layout_mode = 2
+
+[node name="fxaa_label" type="Label" parent="TabContainer/graphics/margin_container/v_box_container/fxaa_container" unique_id=1590097333]
+unique_name_in_owner = true
+layout_mode = 2
+mouse_filter = 1
+text = "KEY_SETTING_FXAA"
+
+[node name="fxaa_button" type="CheckButton" parent="TabContainer/graphics/margin_container/v_box_container/fxaa_container" unique_id=1966351258]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 1
+
+[node name="taa_container" type="HBoxContainer" parent="TabContainer/graphics/margin_container/v_box_container" unique_id=1864041838]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 28)
+layout_mode = 2
+
+[node name="taa_label" type="Label" parent="TabContainer/graphics/margin_container/v_box_container/taa_container" unique_id=309869091]
+unique_name_in_owner = true
+layout_mode = 2
+mouse_filter = 1
+text = "KEY_SETTING_TAA"
+
+[node name="taa_button" type="CheckButton" parent="TabContainer/graphics/margin_container/v_box_container/taa_container" unique_id=1246020399]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 1
+
+[node name="glow_container" type="HBoxContainer" parent="TabContainer/graphics/margin_container/v_box_container" unique_id=585285905]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 28)
+layout_mode = 2
+
+[node name="glow_label" type="Label" parent="TabContainer/graphics/margin_container/v_box_container/glow_container" unique_id=2118817156]
+unique_name_in_owner = true
+layout_mode = 2
+mouse_filter = 1
+text = "KEY_SETTING_GLOW"
+
+[node name="glow_button" type="CheckButton" parent="TabContainer/graphics/margin_container/v_box_container/glow_container" unique_id=646434311]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 1
+
+[node name="sdfgi_container" type="HBoxContainer" parent="TabContainer/graphics/margin_container/v_box_container" unique_id=1485142855]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 28)
+layout_mode = 2
+
+[node name="sdfgi_label" type="Label" parent="TabContainer/graphics/margin_container/v_box_container/sdfgi_container" unique_id=1156224971]
+unique_name_in_owner = true
+layout_mode = 2
+mouse_filter = 1
+text = "KEY_SETTING_SDFGI"
+
+[node name="sdfgi_button" type="CheckButton" parent="TabContainer/graphics/margin_container/v_box_container/sdfgi_container" unique_id=389489267]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+tooltip_text = "Made HUGE performance impact with minimal graphic benefits"
+mouse_filter = 1
+
+[node name="ssil_container" type="HBoxContainer" parent="TabContainer/graphics/margin_container/v_box_container" unique_id=1027664699]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 28)
+layout_mode = 2
+
+[node name="ssil_label" type="Label" parent="TabContainer/graphics/margin_container/v_box_container/ssil_container" unique_id=1036431907]
+unique_name_in_owner = true
+layout_mode = 2
+mouse_filter = 1
+text = "KEY_SETTING_SSIL"
+
+[node name="ssil_button" type="CheckButton" parent="TabContainer/graphics/margin_container/v_box_container/ssil_container" unique_id=1790617551]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 1
+
+[node name="volumetric_fog_container" type="HBoxContainer" parent="TabContainer/graphics/margin_container/v_box_container" unique_id=1860753143]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 28)
+layout_mode = 2
+
+[node name="volumetric_fog_label" type="Label" parent="TabContainer/graphics/margin_container/v_box_container/volumetric_fog_container" unique_id=1188139221]
+unique_name_in_owner = true
+layout_mode = 2
+mouse_filter = 1
+text = "KEY_SETTING_VOLUMETRIC_FOG"
+
+[node name="volumetric_fog_button" type="CheckButton" parent="TabContainer/graphics/margin_container/v_box_container/volumetric_fog_container" unique_id=1281374113]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 1
+
+[node name="ssr_container" type="HBoxContainer" parent="TabContainer/graphics/margin_container/v_box_container" unique_id=132174518]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 28)
+layout_mode = 2
+
+[node name="ssr_label" type="Label" parent="TabContainer/graphics/margin_container/v_box_container/ssr_container" unique_id=425101608]
+unique_name_in_owner = true
+layout_mode = 2
+mouse_filter = 1
+text = "KEY_SETTING_SSR"
+
+[node name="ssr_button" type="CheckButton" parent="TabContainer/graphics/margin_container/v_box_container/ssr_container" unique_id=84916736]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+tooltip_text = "KEY_SETTING_SSR_TOOLTIP"
+mouse_filter = 1
+
+[node name="vfx_container" type="HBoxContainer" parent="TabContainer/graphics/margin_container/v_box_container" unique_id=609065837]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 28)
+layout_mode = 2
+
+[node name="vfx_label" type="Label" parent="TabContainer/graphics/margin_container/v_box_container/vfx_container" unique_id=516947819]
+unique_name_in_owner = true
+layout_mode = 2
+mouse_filter = 1
+text = "KEY_SETTING_DECALS"
+
+[node name="vfx_button" type="CheckButton" parent="TabContainer/graphics/margin_container/v_box_container/vfx_container" unique_id=1227017523]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 1
+
+[node name="vegetation_container" type="HBoxContainer" parent="TabContainer/graphics/margin_container/v_box_container" unique_id=725022393]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 28)
+layout_mode = 2
+
+[node name="veg_label" type="Label" parent="TabContainer/graphics/margin_container/v_box_container/vegetation_container" unique_id=1886646662]
+unique_name_in_owner = true
+layout_mode = 2
+mouse_filter = 1
+text = "KEY_SETTINGS_GRASS_RENDER"
+
+[node name="veg_button" type="CheckButton" parent="TabContainer/graphics/margin_container/v_box_container/vegetation_container" unique_id=448065613]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 1
+
+[node name="water_container" type="HBoxContainer" parent="TabContainer/graphics/margin_container/v_box_container" unique_id=45819280]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 28)
+layout_mode = 2
+
+[node name="water_label" type="Label" parent="TabContainer/graphics/margin_container/v_box_container/water_container" unique_id=1300796817]
+unique_name_in_owner = true
+layout_mode = 2
+mouse_filter = 1
+text = "KEY_SETTINGS_WATER_RENDER"
+
+[node name="water_button" type="CheckButton" parent="TabContainer/graphics/margin_container/v_box_container/water_container" unique_id=1252605342]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 1
+
+[node name="single_layer_render_container" type="HBoxContainer" parent="TabContainer/graphics/margin_container/v_box_container" unique_id=424146711]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 28)
+layout_mode = 2
+
+[node name="single_layer_render_label" type="Label" parent="TabContainer/graphics/margin_container/v_box_container/single_layer_render_container" unique_id=446490093]
+unique_name_in_owner = true
+layout_mode = 2
+mouse_filter = 1
+text = "KEY_SETTINGS_SINGLE_LAYER_RENDER"
+
+[node name="single_layer_render_button" type="CheckButton" parent="TabContainer/graphics/margin_container/v_box_container/single_layer_render_container" unique_id=1389319178]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+tooltip_text = "KEY_SETTINGS_SINGLE_LAYER_RENDER_HINT"
+mouse_filter = 1
+
+[node name="sounds" type="ScrollContainer" parent="TabContainer" unique_id=1983650323 node_paths=PackedStringArray("config_file_handler")]
+visible = false
+layout_mode = 2
+script = ExtResource("8_ayxi6")
+config_file_handler = NodePath("../../ConfigFileHandler")
+metadata/_tab_index = 3
+
+[node name="margin_container" type="MarginContainer" parent="TabContainer/sounds" unique_id=1919432306]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="v_box_container" type="VBoxContainer" parent="TabContainer/sounds/margin_container" unique_id=925149186]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 8
+
+[node name="h_separator" type="HSeparator" parent="TabContainer/sounds/margin_container/v_box_container" unique_id=878598592]
+custom_minimum_size = Vector2(0, 15)
+layout_mode = 2
+
+[node name="master_volume" type="HBoxContainer" parent="TabContainer/sounds/margin_container/v_box_container" unique_id=1766106387]
+custom_minimum_size = Vector2(0, 28)
+layout_mode = 2
+
+[node name="master_label" type="Label" parent="TabContainer/sounds/margin_container/v_box_container/master_volume" unique_id=1277191869]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 1
+text = "KEY_SETTING_MASTER_VOLUME"
+
+[node name="master_volume_slider" type="HSlider" parent="TabContainer/sounds/margin_container/v_box_container/master_volume" unique_id=218728996 groups=["scroll_block"]]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 1
+max_value = 1.0
+step = 0.01
+value = 1.0
+tick_count = 10
+ticks_on_borders = true
+script = ExtResource("7_7hpl2")
+
+[node name="weapon_volume" type="HBoxContainer" parent="TabContainer/sounds/margin_container/v_box_container" unique_id=219547052]
+custom_minimum_size = Vector2(0, 28)
+layout_mode = 2
+
+[node name="weapon_label" type="Label" parent="TabContainer/sounds/margin_container/v_box_container/weapon_volume" unique_id=1595545129]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 1
+text = "KEY_SETTING_WEAPON_VOLUME"
+
+[node name="weapon_volume_slider" type="HSlider" parent="TabContainer/sounds/margin_container/v_box_container/weapon_volume" unique_id=2144941747 groups=["scroll_block"]]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 1
+max_value = 1.0
+step = 0.01
+value = 1.0
+tick_count = 10
+ticks_on_borders = true
+script = ExtResource("7_7hpl2")
+
+[node name="music_volume" type="HBoxContainer" parent="TabContainer/sounds/margin_container/v_box_container" unique_id=1855125662]
+custom_minimum_size = Vector2(0, 28)
+layout_mode = 2
+
+[node name="music_label" type="Label" parent="TabContainer/sounds/margin_container/v_box_container/music_volume" unique_id=791639082]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 1
+text = "KEY_SETTING_MUSIC_VOLUME"
+
+[node name="music_volume_slider" type="HSlider" parent="TabContainer/sounds/margin_container/v_box_container/music_volume" unique_id=1389453208 groups=["scroll_block"]]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 1
+max_value = 1.0
+step = 0.01
+value = 1.0
+tick_count = 10
+ticks_on_borders = true
+script = ExtResource("7_7hpl2")
+
+[node name="sfx_volume" type="HBoxContainer" parent="TabContainer/sounds/margin_container/v_box_container" unique_id=1821780384]
+custom_minimum_size = Vector2(0, 28)
+layout_mode = 2
+
+[node name="sfx_label" type="Label" parent="TabContainer/sounds/margin_container/v_box_container/sfx_volume" unique_id=1494091459]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 1
+text = "KEY_SETTING_SFX_VOLUME"
+
+[node name="sfx_volume_slider" type="HSlider" parent="TabContainer/sounds/margin_container/v_box_container/sfx_volume" unique_id=1153235380 groups=["scroll_block"]]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 1
+max_value = 1.0
+step = 0.01
+value = 1.0
+tick_count = 10
+ticks_on_borders = true
+script = ExtResource("7_7hpl2")
+
+[node name="input" type="ScrollContainer" parent="TabContainer" unique_id=561227248 node_paths=PackedStringArray("config_file_handler")]
+visible = false
+layout_mode = 2
+script = ExtResource("9_mytdd")
+config_file_handler = NodePath("../../ConfigFileHandler")
+metadata/_tab_index = 4
+
+[node name="margin_container" type="MarginContainer" parent="TabContainer/input" unique_id=1743564174]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="v_box_container" type="VBoxContainer" parent="TabContainer/input/margin_container" unique_id=2058737796]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 8
+
+[node name="h_separator3" type="HSeparator" parent="TabContainer/input/margin_container/v_box_container" unique_id=847867665]
+custom_minimum_size = Vector2(0, 15)
+layout_mode = 2
+mouse_filter = 1
+
+[node name="title_mouse_settings" type="Label" parent="TabContainer/input/margin_container/v_box_container" unique_id=500167683]
+layout_mode = 2
+mouse_filter = 1
+text = "KEY_SETTINGS_MOUSE"
+horizontal_alignment = 1
+
+[node name="mouse_sensitivity" type="HBoxContainer" parent="TabContainer/input/margin_container/v_box_container" unique_id=92331868]
+custom_minimum_size = Vector2(0, 28)
+layout_mode = 2
+
+[node name="mouse_sensitivity_label" type="Label" parent="TabContainer/input/margin_container/v_box_container/mouse_sensitivity" unique_id=1823458380]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 1
+text = "KEY_SETTING_MOUSE_SENSITIVITY"
+
+[node name="mouse_sensitivity_slider" type="HSlider" parent="TabContainer/input/margin_container/v_box_container/mouse_sensitivity" unique_id=1271251116 groups=["scroll_block"]]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 1
+min_value = 0.0001
+max_value = 0.02
+step = 0.0001
+value = 0.005
+tick_count = 10
+ticks_on_borders = true
+
+[node name="h_separator4" type="HSeparator" parent="TabContainer/input/margin_container/v_box_container" unique_id=1031254522]
+layout_mode = 2
+mouse_filter = 1
+
+[node name="title_joy_settings" type="Label" parent="TabContainer/input/margin_container/v_box_container" unique_id=1898632205]
+layout_mode = 2
+mouse_filter = 1
+text = "KEY_SETTINGS_JOY"
+horizontal_alignment = 1
+
+[node name="joy_vibration" type="HBoxContainer" parent="TabContainer/input/margin_container/v_box_container" unique_id=205314271]
+custom_minimum_size = Vector2(0, 28)
+layout_mode = 2
+
+[node name="joy_vibration_label" type="Label" parent="TabContainer/input/margin_container/v_box_container/joy_vibration" unique_id=1433450476]
+layout_mode = 2
+text = "KEY_SETTINGS_JOY_VIBRATION"
+
+[node name="joy_vibration_button" type="CheckButton" parent="TabContainer/input/margin_container/v_box_container/joy_vibration" unique_id=792645]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="h_separator2" type="HSeparator" parent="TabContainer/input/margin_container/v_box_container" unique_id=99739480]
+layout_mode = 2
+mouse_filter = 1
+
+[node name="title_key_binding" type="Label" parent="TabContainer/input/margin_container/v_box_container" unique_id=1196760034]
+layout_mode = 2
+mouse_filter = 1
+text = "KEY_SETTINGS_KEY_BINDING"
+horizontal_alignment = 1
+
+[node name="reset_actions_bt" type="Button" parent="TabContainer/input/margin_container/v_box_container" unique_id=951216990]
+unique_name_in_owner = true
+layout_mode = 2
+text = "KEY_SETTINGS_RESET_ACTIONS"
+
+[node name="input_action_list" type="VBoxContainer" parent="TabContainer/input/margin_container/v_box_container" unique_id=777725580]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="other" type="ScrollContainer" parent="TabContainer" unique_id=724295312 node_paths=PackedStringArray("config_file_handler")]
+visible = false
+layout_mode = 2
+script = ExtResource("10_yrusv")
+config_file_handler = NodePath("../../ConfigFileHandler")
+metadata/_tab_index = 5
+
+[node name="margin_container" type="MarginContainer" parent="TabContainer/other" unique_id=8858099]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="v_box_container" type="VBoxContainer" parent="TabContainer/other/margin_container" unique_id=952739907]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 8
+
+[node name="h_separator" type="HSeparator" parent="TabContainer/other/margin_container/v_box_container" unique_id=696238567]
+custom_minimum_size = Vector2(0, 15)
+layout_mode = 2
+
+[node name="language" type="HBoxContainer" parent="TabContainer/other/margin_container/v_box_container" unique_id=1657394858]
+custom_minimum_size = Vector2(0, 28)
+layout_mode = 2
+tooltip_text = "KET_SETTING_LANGUAGE_TOOLTIP"
+
+[node name="language_label" type="Label" parent="TabContainer/other/margin_container/v_box_container/language" unique_id=1002968995]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "KEY_SETTING_LANGUAGE_SELECTOR"
+
+[node name="language_option_button" type="OptionButton" parent="TabContainer/other/margin_container/v_box_container/language" unique_id=583663331]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+clip_text = true
+fit_to_longest_item = false
+
+[node name="weapons_cache" type="HBoxContainer" parent="TabContainer/other/margin_container/v_box_container" unique_id=1808142355]
+custom_minimum_size = Vector2(0, 28)
+layout_mode = 2
+tooltip_text = "KEY_SETTINGS_PRELOAD_WEAPONS_SCENES_TOOLTIP"
+
+[node name="preload_weapon_label" type="Label" parent="TabContainer/other/margin_container/v_box_container/weapons_cache" unique_id=1434542657]
+layout_mode = 2
+text = "KEY_SETTINGS_PRELOAD_WEAPONS_SCENES"
+
+[node name="preload_weapon_button" type="CheckButton" parent="TabContainer/other/margin_container/v_box_container/weapons_cache" unique_id=892954906]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+tooltip_text = "KEY_SETTINGS_PRELOAD_WEAPONS_SCENES_TOOLTIP"

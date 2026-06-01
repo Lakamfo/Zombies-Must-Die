@@ -1,0 +1,5 @@
+[gd_scene format=3 uid="uid://b6a7nyo5kojl"]
+
+[ext_resource type="PackedScene" uid="uid://bfwf5msk3fjlv" path="res://objects/interactable/vending_machine/models/glb/double_tap.glb" id="1_xd4ld"]
+
+[node name="double_tap" instance=ExtResource("1_xd4ld")]

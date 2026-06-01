@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="WaveLogicEnemy" format=3 uid="uid://v3fv4pfr5r8y"]
+
+[ext_resource type="PackedScene" uid="uid://dcbi2aef0hsft" path="res://entities/enemy/explodive_zombie/enemy_zombie_explosive.tscn" id="1_4ryl7"]
+[ext_resource type="Script" uid="uid://bklirhnj77l8i" path="res://classes/wave_logic/wave_logic_enemy.gd" id="2_17qx2"]
+
+[resource]
+script = ExtResource("2_17qx2")
+spawn_weight = 0.25
+scene = ExtResource("1_4ryl7")
+wave_min = 5

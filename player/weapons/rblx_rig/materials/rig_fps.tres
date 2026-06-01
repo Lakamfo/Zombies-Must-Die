@@ -1,0 +1,8 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://dmp4wq61m0ian"]
+
+[ext_resource type="Texture2D" uid="uid://cbqd02jvecpng" path="res://player/weapons/rblx_rig/textures/fps_rig_Rig Texture.png" id="1_coqhd"]
+
+[resource]
+resource_name = "fps_hands"
+albedo_texture = ExtResource("1_coqhd")
+z_clip_scale = 0.2

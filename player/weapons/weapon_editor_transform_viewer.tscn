@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://bslx05asou4i7"]
+
+[node name="weapon_editor_transform_viewer" type="SubViewportContainer" unique_id=170067793]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="sub_viewport" type="SubViewport" parent="." unique_id=165518798]
+handle_input_locally = false
+size = Vector2i(1600, 900)
+size_2d_override_stretch = true
+render_target_update_mode = 0
+
+[node name="camera_3d" type="Camera3D" parent="sub_viewport" unique_id=473754156]
+top_level = true
+
+[node name="color_rect" type="ColorRect" parent="." unique_id=1955751702]
+layout_mode = 2

@@ -1,0 +1,6 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://66yoluibvpqh"]
+
+[ext_resource type="Texture2D" uid="uid://ctx16w6hynisc" path="res://textures/other/sand_meshki.png" id="1_7l030"]
+
+[resource]
+albedo_texture = ExtResource("1_7l030")

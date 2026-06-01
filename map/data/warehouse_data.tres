@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="LocationData" format=3 uid="uid://d4jme73o740xp"]
+
+[ext_resource type="Texture2D" uid="uid://q21s14m27yx3" path="res://map/icons/warehouse.png" id="1_vvfuw"]
+[ext_resource type="Script" uid="uid://d1ru5h6prvuxx" path="res://classes/location_data.gd" id="2_b2mce"]
+
+[resource]
+script = ExtResource("2_b2mce")
+name = "Warehouse"
+icon = ExtResource("1_vvfuw")
+scene_path = "uid://bln444t4thli5"
+location_modifiers = Dictionary[int, bool]({
+1: true,
+2: true,
+3: true
+})

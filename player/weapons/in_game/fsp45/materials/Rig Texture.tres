@@ -1,0 +1,8 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://kkwbsd75ao0r"]
+
+[ext_resource type="Texture2D" uid="uid://hei7lpenaol6" path="res://player/weapons/in_game/fsp45/fsp45_idle_Rig Texture.png" id="1_tgrny"]
+
+[resource]
+resource_name = "Rig Texture"
+cull_mode = 2
+albedo_texture = ExtResource("1_tgrny")

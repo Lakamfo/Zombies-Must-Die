@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://vlrt2craq5r8"]
+
+[ext_resource type="Material" uid="uid://bnpldw81w3n46" path="res://shaders/mixed_blur_bg.tres" id="1_wekwj"]
+[ext_resource type="Script" uid="uid://c68p6yweyk1g2" path="res://scenes/main_menu/scripts/credits_screen.gd" id="2_hkwp1"]
+
+[node name="credits" type="Panel"]
+material = ExtResource("1_wekwj")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("2_hkwp1")
+
+[node name="text_edit" type="TextEdit" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 16.0
+offset_top = 16.0
+offset_right = -16.0
+offset_bottom = -16.0
+grow_horizontal = 2
+grow_vertical = 2
+editable = false
+wrap_mode = 1

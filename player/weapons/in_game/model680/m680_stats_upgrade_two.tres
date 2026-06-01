@@ -1,0 +1,57 @@
+[gd_resource type="Resource" script_class="WeaponStats" format=3 uid="uid://b2iivo2worq0u"]
+
+[ext_resource type="PackedScene" uid="uid://k40yqqmwshea" path="res://player/weapons/shells/models/12gauge/gauge.tscn" id="1_w4j7c"]
+[ext_resource type="Texture2D" uid="uid://caujd61phcktg" path="res://player/weapons/in_game/model680/gui_picture.png" id="2_te28s"]
+[ext_resource type="Resource" uid="uid://b0si3eeunpp5b" path="res://player/weapons/in_game/model680/recoil_data_m680_upgrade.tres" id="3_uk701"]
+[ext_resource type="Script" uid="uid://coggxpmikyxx2" path="res://classes/weapon_stats.gd" id="4_354px"]
+[ext_resource type="Shader" uid="uid://cdoorwsuceclb" path="res://player/weapons/shaders/upgrade_lines.gdshader" id="5_f31bo"]
+
+[sub_resource type="Curve" id="Curve_leya4"]
+_data = [Vector2(0, 1), 0.0, 0.643898, 0, 0, Vector2(0.750656, 0.507078), 0.0, 0.0, 0, 0, Vector2(1, 0.270475), -0.163307, 0.0, 0, 0]
+point_count = 3
+
+[resource]
+script = ExtResource("4_354px")
+upgrade_level = 2
+weapon_upgrade_name = "Haymaker"
+fire_rate = 300
+fire_range_damage = SubResource("Curve_leya4")
+bullet_rigid_impact_power = 2.5
+bullet_impact_power = 0.1
+aim_camera_zoom = 1.2
+clip_size = 21
+magazine_size = 486
+bullet_in_chamber = false
+buckshot_size = 16
+buckshot_spread_max_angle = 3
+damage = 200.0
+torso_mult = 1.5
+limbs_mult = 1.5
+max_hip_camera_kick = Vector3(25, 25, 5)
+min_hip_camera_kick = Vector3(18, 18, 5)
+max_aim_camera_kick = Vector3(15, 15, 3)
+min_aim_camera_kick = Vector3(8, 8, 2)
+snappinnes = 32
+return_speed = 6
+layered_recoil_enabled = true
+layered_recoil = ExtResource("3_uk701")
+non_stop_increase = 0.2
+standart_position = Vector3(0, 0.15, 0)
+aim_position = Vector3(-0.174, 0.187, 0.21)
+aim_rotation = Vector3(2.4, 0, 5.5)
+aim_speed = 0.2
+weapon_recoil_pos_y = 0.01
+manual_shell_eject = true
+min_impulse = Vector3(0.2, 0.3, 0)
+max_impulse = Vector3(0.4, 0.5, -0.3)
+custom_model = ExtResource("1_w4j7c")
+single_loading = true
+idle_animation = "idle"
+aim_idle_animation = "idle_aim"
+take_out_animation = "take_out"
+fire_animation = "fire_1,fire_2"
+aim_fire_animation = "fire_1,fire_2"
+tactical_reload_animation = "reload_start,reload_cycle,reload_end"
+reload_animation = "reload_start,reload_cycle,reload_end"
+icon = ExtResource("2_te28s")
+hit_marker_critical_color = Color(0.724285, 0.144795, 0.222028, 1)

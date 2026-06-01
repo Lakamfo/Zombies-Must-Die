@@ -1,0 +1,40 @@
+[gd_scene load_steps=4 format=3 uid="uid://c58meu2vy2vdx"]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_bdnce"]
+particle_flag_align_y = true
+emission_shape_scale = Vector3(0.5, 0.5, 0.5)
+angular_velocity_min = -1.60933e-05
+angular_velocity_max = -1.60933e-05
+radial_velocity_min = 1.99998
+radial_velocity_max = 4.99998
+radial_accel_min = -2.23517e-06
+radial_accel_max = -2.23517e-06
+tangential_accel_min = -2.23517e-06
+tangential_accel_max = -2.23517e-06
+collision_mode = 1
+collision_friction = 0.2
+collision_bounce = 0.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_u85jy"]
+albedo_color = Color(0.776471, 0.239216, 0.239216, 1)
+use_particle_trails = true
+
+[sub_resource type="RibbonTrailMesh" id="RibbonTrailMesh_nyhyr"]
+material = SubResource("StandardMaterial3D_u85jy")
+shape = 0
+size = 0.1
+section_length = 0.1
+
+[node name="GPUParticles3D" type="GPUParticles3D"]
+emitting = false
+lifetime = 3.0
+one_shot = true
+speed_scale = 2.0
+explosiveness = 1.0
+randomness = 0.5
+fixed_fps = 60
+transform_align = 3
+trail_enabled = true
+trail_lifetime = 0.5
+process_material = SubResource("ParticleProcessMaterial_bdnce")
+draw_pass_1 = SubResource("RibbonTrailMesh_nyhyr")

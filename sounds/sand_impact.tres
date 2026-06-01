@@ -1,0 +1,13 @@
+[gd_resource type="AudioStreamRandomizer" format=3 uid="uid://b1bi3qm6om32b"]
+
+[ext_resource type="AudioStream" uid="uid://br2u7u507gnfn" path="res://sounds/sand_impact/sand_impact1.wav" id="1_0kttl"]
+[ext_resource type="AudioStream" uid="uid://df81l1dfsl0b1" path="res://sounds/sand_impact/sand_impact2.wav" id="2_vxxo6"]
+[ext_resource type="AudioStream" uid="uid://nuoi4uohexoc" path="res://sounds/sand_impact/sand_impact3.wav" id="3_0eo26"]
+[ext_resource type="AudioStream" uid="uid://c6rc5lx8fbcnu" path="res://sounds/sand_impact/sand_impact4.wav" id="4_rb25t"]
+
+[resource]
+streams_count = 4
+stream_0/stream = ExtResource("1_0kttl")
+stream_1/stream = ExtResource("2_vxxo6")
+stream_2/stream = ExtResource("3_0eo26")
+stream_3/stream = ExtResource("4_rb25t")

@@ -1,0 +1,35 @@
+[gd_resource type="AudioStreamRandomizer" format=3 uid="uid://cfrs7b02s20xe"]
+
+[ext_resource type="AudioStream" uid="uid://b5ffafv5tku7j" path="res://sounds/ladder_footsteps/ladder-01.wav" id="1_ydt6o"]
+[ext_resource type="AudioStream" uid="uid://bpiwlwd5j3y6e" path="res://sounds/ladder_footsteps/ladder-02.wav" id="2_pbdhq"]
+[ext_resource type="AudioStream" uid="uid://cgsysp6myiqhf" path="res://sounds/ladder_footsteps/ladder-03.wav" id="3_j0ch1"]
+[ext_resource type="AudioStream" uid="uid://o4jy15hwliru" path="res://sounds/ladder_footsteps/ladder-04.wav" id="4_b1wux"]
+[ext_resource type="AudioStream" uid="uid://cbaplupsj133h" path="res://sounds/ladder_footsteps/ladder-05.wav" id="5_6uu6d"]
+[ext_resource type="AudioStream" uid="uid://dm8nkcptb2hy1" path="res://sounds/ladder_footsteps/ladder-06.wav" id="6_h8p4n"]
+[ext_resource type="AudioStream" uid="uid://b5yd8lxq6qamn" path="res://sounds/ladder_footsteps/ladder-07.wav" id="7_gob6m"]
+[ext_resource type="AudioStream" uid="uid://dsy4d8vj0iqn5" path="res://sounds/ladder_footsteps/ladder-08.wav" id="8_mvu7o"]
+[ext_resource type="AudioStream" uid="uid://rr8n37swom7i" path="res://sounds/ladder_footsteps/ladder-09.wav" id="9_1ajci"]
+[ext_resource type="AudioStream" uid="uid://hnr501uurwpu" path="res://sounds/ladder_footsteps/ladder-10.wav" id="10_b7x2q"]
+
+[resource]
+streams_count = 10
+stream_0/stream = ExtResource("1_ydt6o")
+stream_0/weight = 1.0
+stream_1/stream = ExtResource("2_pbdhq")
+stream_1/weight = 1.0
+stream_2/stream = ExtResource("3_j0ch1")
+stream_2/weight = 1.0
+stream_3/stream = ExtResource("4_b1wux")
+stream_3/weight = 1.0
+stream_4/stream = ExtResource("5_6uu6d")
+stream_4/weight = 1.0
+stream_5/stream = ExtResource("6_h8p4n")
+stream_5/weight = 1.0
+stream_6/stream = ExtResource("7_gob6m")
+stream_6/weight = 1.0
+stream_7/stream = ExtResource("8_mvu7o")
+stream_7/weight = 1.0
+stream_8/stream = ExtResource("9_1ajci")
+stream_8/weight = 1.0
+stream_9/stream = ExtResource("10_b7x2q")
+stream_9/weight = 1.0

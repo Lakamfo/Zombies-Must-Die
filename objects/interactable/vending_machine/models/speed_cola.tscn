@@ -1,0 +1,5 @@
+[gd_scene format=3 uid="uid://d224twfwo26xd"]
+
+[ext_resource type="PackedScene" uid="uid://br0374fptikxj" path="res://objects/interactable/vending_machine/models/glb/speed_cola.glb" id="1_gnaao"]
+
+[node name="speed_cola" instance=ExtResource("1_gnaao")]

@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="GraphicsPreset" format=3 uid="uid://dv28uqogop5gd"]
+
+[ext_resource type="Script" uid="uid://cnrnifjrybncx" path="res://scenes/settings/utils/graphics_preset.gd" id="1_cnifc"]
+
+[resource]
+script = ExtResource("1_cnifc")
+preset_string = "KEY_SETTINGS_MEDIUM"
+graphics_preset = 2
+shadow_quality = 1
+shaders_quality = 2
+shadows = false
+glow = false
+water_puddles = false
+metadata/_custom_type_script = "uid://cnrnifjrybncx"

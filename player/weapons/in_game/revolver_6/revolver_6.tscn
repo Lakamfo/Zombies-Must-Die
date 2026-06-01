@@ -1,0 +1,306 @@
+[gd_scene format=3 uid="uid://bsphxssr11hpo"]
+
+[ext_resource type="Script" uid="uid://c2b766xn7leku" path="res://player/weapon_logic/weapon.gd" id="1_gefus"]
+[ext_resource type="Resource" uid="uid://ckv5t2jfny4hq" path="res://player/weapons/in_game/revolver_6/revolver_6_stats.tres" id="2_1fbs3"]
+[ext_resource type="AudioStream" uid="uid://d1rosdewtxs4g" path="res://player/weapons/in_game/revolver_6/sounds/revolver_6_fire_sound.mp3" id="4_0qxga"]
+[ext_resource type="Material" uid="uid://dmp4wq61m0ian" path="res://player/weapons/rblx_rig/materials/rig_fps.tres" id="5_gwsu1"]
+[ext_resource type="Animation" uid="uid://me3hpj1xb7ry" path="res://player/weapons/in_game/revolver_6/animations/fire_1.res" id="5_ixpuk"]
+[ext_resource type="ArrayMesh" uid="uid://bcplol0ea13ul" path="res://player/weapons/in_game/revolver_6/mesh/revolver_Imandite7_001.res" id="6_kg3tj"]
+[ext_resource type="Texture2D" uid="uid://b1hkmegtemb4d" path="res://textures/muzzle_flashes/muzzle_flash_1/MuzzleFlashMultipleSide1_0000.png" id="6_lifny"]
+[ext_resource type="Animation" uid="uid://jhj52fncf4as" path="res://player/weapons/in_game/revolver_6/animations/fire_aim.res" id="6_w0a5c"]
+[ext_resource type="Animation" uid="uid://coaawhdjvcnix" path="res://player/weapons/in_game/revolver_6/animations/idle.res" id="7_8d15c"]
+[ext_resource type="ArrayMesh" uid="uid://c4eguog80hh46" path="res://player/weapons/in_game/revolver_6/mesh/revolver_Imandite7.res" id="7_80nyx"]
+[ext_resource type="Texture2D" uid="uid://ph5bdr0elclf" path="res://textures/muzzle_flashes/muzzle_flash_1/MuzzleFlashMultipleSide1_0001.png" id="7_dtyca"]
+[ext_resource type="Texture2D" uid="uid://mq1txye4oqh1" path="res://textures/muzzle_flashes/muzzle_flash_1/MuzzleFlashMultipleSide1_0002.png" id="8_3s3x6"]
+[ext_resource type="Animation" uid="uid://dy8ndemfgk5p" path="res://player/weapons/in_game/revolver_6/animations/reload.res" id="8_4o3td"]
+[ext_resource type="ArrayMesh" uid="uid://btg08vrxvrmuo" path="res://player/weapons/in_game/revolver_6/mesh/revolver_Cylinder.res" id="8_t22xg"]
+[ext_resource type="Animation" uid="uid://bvysfwk8e61a8" path="res://player/weapons/in_game/revolver_6/animations/standart_pose.res" id="9_2j6is"]
+[ext_resource type="Texture2D" uid="uid://cn4fp3owx7m0x" path="res://textures/muzzle_flashes/muzzle_flash_1/MuzzleFlashMultipleSide1_0003.png" id="9_c21rk"]
+[ext_resource type="Texture2D" uid="uid://b8stnseqcaq7w" path="res://textures/muzzle_flashes/muzzle_flash_1/MuzzleFlashMultipleSide1_0004.png" id="10_1weqj"]
+[ext_resource type="Texture2D" uid="uid://dg0iexchxaj63" path="res://textures/muzzle_flashes/muzzle_flash_1/MuzzleFlashMultipleSide1_0005.png" id="11_5cbpa"]
+[ext_resource type="Texture2D" uid="uid://cwkbyk0qexhl4" path="res://textures/muzzle_flashes/muzzle_flash_1/MuzzleFlashMultipleSide1_0006.png" id="12_0ev0f"]
+[ext_resource type="Texture2D" uid="uid://cuimo8yho0dak" path="res://textures/muzzle_flashes/muzzle_flash_1/MuzzleFlashMultipleSide1_0007.png" id="13_t1kml"]
+[ext_resource type="Texture2D" uid="uid://ddh3i832tm6sv" path="res://player/weapons/muzzle_flash.png" id="14_cd0yj"]
+[ext_resource type="Animation" uid="uid://c8fbahao8yr2e" path="res://player/weapons/in_game/revolver_6/animations/take_out.res" id="23_lxcmk"]
+
+[sub_resource type="Skin" id="Skin_kxhhr"]
+resource_name = "Skin"
+bind_count = 14
+bind/0/name = &"Bottom Torso"
+bind/0/bone = -1
+bind/0/pose = Transform3D(2, 7.63925e-11, -1.30344e-06, -7.63925e-11, 2, 4.97866e-17, 1.30344e-06, 2.91829e-21, 2, -0.0272112, -5.19458, -0.0591847)
+bind/1/name = &"Upper torso"
+bind/1/bone = -1
+bind/1/pose = Transform3D(2, 4.7648e-10, -1.30384e-06, -4.7648e-10, 2, 3.10517e-16, 1.30384e-06, 1.13502e-19, 2, -0.0272112, -6.07236, -0.0591847)
+bind/2/name = &"Head"
+bind/2/bone = -1
+bind/2/pose = Transform3D(2, -2.70442e-29, -1.30337e-06, 1.87522e-27, 2, 2.91793e-21, 1.30337e-06, -1.29247e-26, 2, -0.0272112, -7.10438, -0.0591847)
+bind/3/name = &"R shoulder"
+bind/3/bone = -1
+bind/3/pose = Transform3D(-1.21642e-06, 1.74845e-07, -2, -1.74369e-07, -2, -1.74845e-07, -2, 1.74369e-07, 1.21642e-06, 0.0591842, 6.65216, -1.47279)
+bind/4/name = &"R elbow"
+bind/4/bone = -1
+bind/4/pose = Transform3D(-1.15237e-06, 1.26034e-08, -2, -2.14728e-14, -2, -1.26034e-08, -2, -1.32593e-14, 1.15237e-06, 0.0591847, 6.15454, -1.47279)
+bind/5/name = &"L shoulder"
+bind/5/bone = -1
+bind/5/pose = Transform3D(-1.21642e-06, 1.74845e-07, -2, -1.74369e-07, -2, -1.74845e-07, -2, 1.74369e-07, 1.21642e-06, 0.059184, 6.65216, 1.52721)
+bind/6/name = &"L elbow"
+bind/6/bone = -1
+bind/6/pose = Transform3D(-1.15237e-06, 1.26034e-08, -2, -2.14728e-14, -2, -1.26034e-08, -2, -1.32593e-14, 1.15237e-06, 0.0591845, 6.15454, 1.52721)
+bind/7/name = &"body"
+bind/7/bone = -1
+bind/7/pose = Transform3D(2, 7.78829e-07, 6.33786e-07, -6.33786e-07, -3.77177e-13, 2, 7.78829e-07, -2, -1.30372e-13, 0.00763503, -1.79603, -0.220353)
+bind/8/name = &"cylinder"
+bind/8/bone = -1
+bind/8/pose = Transform3D(2, 1.25567e-06, 4.62546e-09, -4.62546e-09, -1.32173e-13, 2, 1.25567e-06, -2, -1.29269e-13, -0.0114543, -1.82829, 0.0931783)
+bind/9/name = &"trig"
+bind/9/bone = -1
+bind/9/pose = Transform3D(1.99679, 0.107981, -0.0342808, 0.110655, -1.98869, 0.181271, -0.0243, -0.182877, -1.99147, 0.0414204, -0.266893, 1.92944)
+bind/10/name = &"hammer"
+bind/10/bone = -1
+bind/10/pose = Transform3D(2, -1.4859e-06, -1.201e-06, 6.67615e-07, 1.72148, -1.01809, 1.79014e-06, 1.01809, 1.72148, -0.0035334, 0.834416, -1.575)
+bind/11/name = &"bullets_revolver"
+bind/11/bone = -1
+bind/11/pose = Transform3D(2, 1.34731e-06, -6.99605e-08, 7.13253e-08, -0.00202599, 2, 1.34723e-06, -2, -0.00202599, -3.56705e-06, -1.90893, 0.0895702)
+bind/12/name = &"speedloader"
+bind/12/bone = -1
+bind/12/pose = Transform3D(2, 1.25567e-06, 7.74009e-06, -7.74009e-06, -2.83889e-12, 2, 1.25567e-06, -2, 2.0206e-12, -0.426207, -1.51935, 0.00468418)
+bind/13/name = &"bullets_speedloader"
+bind/13/bone = -1
+bind/13/pose = Transform3D(2, 7.78829e-07, -1.10952e-07, 1.10952e-07, 2.09026e-12, 2, 7.78829e-07, -2, 2.04705e-12, -0.419938, -1.80547, 0.00470574)
+
+[sub_resource type="AnimatedTexture" id="AnimatedTexture_qhcmb"]
+frames = 8
+speed_scale = 4.0
+frame_0/texture = ExtResource("6_lifny")
+frame_0/duration = 0.1
+frame_1/texture = ExtResource("7_dtyca")
+frame_1/duration = 0.1
+frame_2/texture = ExtResource("8_3s3x6")
+frame_2/duration = 0.1
+frame_3/texture = ExtResource("9_c21rk")
+frame_3/duration = 0.1
+frame_4/texture = ExtResource("10_1weqj")
+frame_4/duration = 0.1
+frame_5/texture = ExtResource("11_5cbpa")
+frame_5/duration = 0.1
+frame_6/texture = ExtResource("12_0ev0f")
+frame_6/duration = 0.1
+frame_7/texture = ExtResource("13_t1kml")
+frame_7/duration = 0.1
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_i5f1x"]
+_data = {
+&"fire_1": ExtResource("5_ixpuk"),
+&"fire_aim": ExtResource("6_w0a5c"),
+&"idle": ExtResource("7_8d15c"),
+&"reload": ExtResource("8_4o3td"),
+&"standart_pose": ExtResource("9_2j6is"),
+&"take_out": ExtResource("23_lxcmk")
+}
+
+[node name="revolver_6" type="Node3D" unique_id=1339965741 node_paths=PackedStringArray("muzzle_fire", "camera_animation", "bullet_pos")]
+script = ExtResource("1_gefus")
+weapon_name = "revolver_6"
+weapon_stats = ExtResource("2_1fbs3")
+animation_player = NodePath("revolver/AnimationPlayer")
+audio_stream_player = NodePath("revolver/Bones/Skeleton3D/body_attachment/audio_stream_player_3d")
+omni_light = NodePath("revolver/Bones/Skeleton3D/body_attachment/omni_light_3d")
+muzzle_fire = NodePath("revolver/Bones/Skeleton3D/body_attachment/omni_light_3d/sprite_3d3")
+camera_animation = NodePath("revolver/Bones/Skeleton3D/camera_attachment")
+bullet_pos = NodePath("revolver/Bones/Skeleton3D/body_attachment/marker_3d")
+
+[node name="revolver" type="Node3D" parent="." unique_id=687982571]
+transform = Transform3D(-0.75, 0, -6.55671e-08, 0, 0.75, 0, 6.55671e-08, 0, -0.75, 0, -0.55, 0)
+
+[node name="Bones" type="Node3D" parent="revolver" unique_id=968754286]
+transform = Transform3D(0.5, 0, 3.25841e-07, 0, 0.5, 0, -3.25841e-07, 0, 0.5, 0.0136056, 3.14961, 0.0295923)
+
+[node name="Skeleton3D" type="Skeleton3D" parent="revolver/Bones" unique_id=1079417843]
+bones/0/name = "Bottom Torso"
+bones/0/parent = -1
+bones/0/rest = Transform3D(1, -3.81963e-11, 3.81988e-11, 3.81963e-11, 1, 7.29525e-22, -3.81988e-11, 7.29525e-22, 1, 5.45931e-10, -1.10464, 6.55719e-09)
+bones/0/enabled = true
+bones/0/position = Vector3(2.793968e-10, -7.3046374, 7.043042e-09)
+bones/0/rotation = Quaternion(-7.0681937e-28, 1.90994e-11, 1.909815e-11, 1)
+bones/0/scale = Vector3(1, 1, 1)
+bones/1/name = "Upper torso"
+bones/1/parent = 0
+bones/1/rest = Transform3D(1, -2.00044e-10, 2.00032e-10, 2.00044e-10, 1, 4.7654e-20, -2.00032e-10, -7.63881e-21, 1, 7.75609e-10, 0.877772, -8.92348e-10)
+bones/1/enabled = true
+bones/1/position = Vector3(7.75609e-10, 0.877772, -8.92348e-10)
+bones/1/rotation = Quaternion(-1.38232e-20, 1.00016e-10, 1.00022e-10, 1)
+bones/1/scale = Vector3(1, 1, 1)
+bones/2/name = "Head"
+bones/2/parent = 1
+bones/2/rest = Transform3D(1, 2.3824e-10, -2.38231e-10, -2.3824e-10, 1, 8.91804e-25, 2.38231e-10, 5.67552e-20, 1, 3.61734e-10, 1.03202, -8.86905e-10)
+bones/2/enabled = true
+bones/2/position = Vector3(3.61734e-10, 1.03202, -8.86905e-10)
+bones/2/rotation = Quaternion(1.4189594e-20, -1.1912007e-10, -1.1912007e-10, 1)
+bones/2/scale = Vector3(1, 1, 1)
+bones/3/name = "R shoulder"
+bones/3/parent = 1
+bones/3/rest = Transform3D(0, -8.74227e-08, -1, 8.74227e-08, -1, 8.74227e-08, -1, -8.74227e-08, 0, -1.5, 0.579805, 1.96094e-08)
+bones/3/enabled = true
+bones/3/position = Vector3(-0.6622562, 0.4148792, -0.32765168)
+bones/3/rotation = Quaternion(-0.4503386, 0.5068665, 0.51382565, -0.52560884)
+bones/3/scale = Vector3(1, 1, 1)
+bones/4/name = "R elbow"
+bones/4/parent = 3
+bones/4/rest = Transform3D(1, -8.1121e-08, 3.20247e-08, 8.1121e-08, 1, 8.71845e-08, -3.20247e-08, -8.71845e-08, 1, 3.29948e-09, 0.49762, -2.34686e-08)
+bones/4/enabled = true
+bones/4/position = Vector3(3.29948e-09, 0.49762, -2.34686e-08)
+bones/4/rotation = Quaternion(-4.35922e-08, 1.60124e-08, 4.05605e-08, 1)
+bones/4/scale = Vector3(1, 1, 1)
+bones/5/name = "Left hand Attachment_noimp"
+bones/5/parent = 4
+bones/5/rest = Transform3D(0.192762, 5.10581e-11, 3.48664e-08, 5.20921e-10, -0.0188936, 9.26414e-09, 3.48664e-08, -9.08023e-10, -0.192762, 2.14758e-07, 0.920061, 3.41017e-08)
+bones/5/enabled = true
+bones/5/position = Vector3(2.14758e-07, 0.920061, 3.41017e-08)
+bones/5/rotation = Quaternion(1, 1.3512e-09, 9.04388e-08, -2.403e-08)
+bones/5/scale = Vector3(0.192762, 0.0188936, 0.192762)
+bones/6/name = "L shoulder"
+bones/6/parent = 1
+bones/6/rest = Transform3D(0, -8.74227e-08, -1, 8.74227e-08, -1, 8.74227e-08, -1, -8.74227e-08, 0, 1.5, 0.579805, 1.95949e-08)
+bones/6/enabled = true
+bones/6/position = Vector3(0.2643739, 0.24570435, -0.31774116)
+bones/6/rotation = Quaternion(-0.5571489, 0.5823651, 0.38209122, -0.452153)
+bones/6/scale = Vector3(1, 1, 1)
+bones/7/name = "L elbow"
+bones/7/parent = 6
+bones/7/rest = Transform3D(1, -8.1121e-08, 3.20247e-08, 8.1121e-08, 1, 8.71845e-08, -3.20247e-08, -8.71845e-08, 1, -3.38758e-09, 0.49762, -2.34698e-08)
+bones/7/enabled = true
+bones/7/position = Vector3(-3.38758e-09, 0.49762, -2.34698e-08)
+bones/7/rotation = Quaternion(-4.35922e-08, 1.60124e-08, 4.05605e-08, 1)
+bones/7/scale = Vector3(1, 1, 1)
+bones/8/name = "Right hand Attachment_noimp"
+bones/8/parent = 7
+bones/8/rest = Transform3D(0.192762, 2.16654e-11, 3.58559e-08, 2.21041e-10, -0.0188936, 5.23869e-09, 3.58559e-08, -5.13469e-10, -0.192762, -1.65242e-07, 0.920061, 3.41008e-08)
+bones/8/enabled = true
+bones/8/position = Vector3(-1.65242e-07, 0.920061, 3.41008e-08)
+bones/8/rotation = Quaternion(1, -1.89054e-08, 8.33426e-08, -2.02356e-08)
+bones/8/scale = Vector3(0.192762, 0.0188936, 0.192762)
+bones/9/name = "Torso Attachment_noimp"
+bones/9/parent = 1
+bones/9/rest = Transform3D(0.3, -6.2094e-16, 1.16448e-17, -3.1047e-15, -0.06, 9.77524e-08, 1.16438e-17, -1.95505e-08, -0.3, 3.61734e-10, 1.03202, -8.86905e-10)
+bones/9/enabled = true
+bones/9/position = Vector3(3.61734e-10, 1.03202, -8.86905e-10)
+bones/9/rotation = Quaternion(1, -5.1745e-15, 1.94071e-17, -1.62921e-07)
+bones/9/scale = Vector3(0.3, 0.06, 0.3)
+bones/10/name = "body"
+bones/10/parent = -1
+bones/10/rest = Transform3D(1, -9.68576e-07, 3.89415e-07, 3.89415e-07, 0, -1, 9.68576e-07, 1, 0, -0.0348478, -6.51958, 1.73684)
+bones/10/enabled = true
+bones/10/position = Vector3(-0.41337797, -5.721357, 1.2612798)
+bones/10/rotation = Quaternion(0.7057877, -0.018510928, -0.043168243, 0.70686454)
+bones/10/scale = Vector3(1, 1, 1)
+bones/11/name = "cylinder"
+bones/11/parent = 10
+bones/11/rest = Transform3D(1, 3.1458e-07, 2.38419e-07, -3.1458e-07, 1, -7.50017e-14, -2.38419e-07, 0, 1, 0.0190898, 0.0322597, -0.313531)
+bones/11/enabled = true
+bones/11/position = Vector3(0.019089818, 0.0322598, -0.313532)
+bones/11/rotation = Quaternion(-5.4174255e-11, 1.1893644e-07, -1.5609999e-07, 1)
+bones/11/scale = Vector3(1, 1, 1)
+bones/12/name = "trig"
+bones/12/parent = 10
+bones/12/rest = Transform3D(0.998394, 0.0553274, -0.0121503, -0.0171407, 0.0906356, -0.995737, -0.0539902, 0.994346, 0.0914384, 0.00449094, 0.150085, -0.129158)
+bones/12/enabled = true
+bones/12/position = Vector3(0.00449094, 0.150085, -0.129158)
+bones/12/rotation = Quaternion(0.673855, 0.0141673, -0.0245382, 0.73832)
+bones/12/scale = Vector3(1, 1, 1)
+bones/13/name = "hammer"
+bones/13/parent = 10
+bones/13/rest = Transform3D(1, 5.07679e-07, 1.36606e-06, -9.17391e-07, -0.509045, 0.86074, 1.13237e-06, -0.86074, -0.509046, 0.0111702, -0.015606, -0.303885)
+bones/13/enabled = true
+bones/13/position = Vector3(0.0111702, -0.015606, -0.303885)
+bones/13/rotation = Quaternion(0.8672698, -7.6151615e-08, 9.372234e-07, -0.49783832)
+bones/13/scale = Vector3(1, 1, 1)
+bones/14/name = "bullets_revolver"
+bones/14/parent = 10
+bones/14/rest = Transform3D(1, 3.52161e-07, 2.83882e-07, -3.51873e-07, 0.999999, -0.00101299, -2.84239e-07, 0.00101299, 0.999999, 0.00763924, 0.112992, -0.30799)
+bones/14/enabled = true
+bones/14/position = Vector3(0.007639243, 0.11299227, -0.3079902)
+bones/14/rotation = Quaternion(0.000506497, 1.4175724e-07, -1.7575216e-07, 0.9999999)
+bones/14/scale = Vector3(1, 1, 1)
+bones/15/name = "speedloader"
+bones/15/parent = -1
+bones/15/rest = Transform3D(1, -4.52173e-06, 6.27833e-07, 6.27833e-07, 0, -1, 4.52173e-06, 1, 0, 0.398989, -6.29454, 1.46016)
+bones/15/enabled = true
+bones/15/position = Vector3(0.39899048, -8.294538, -0.5398376)
+bones/15/rotation = Quaternion(0.7071068, -1.3767009e-06, 1.8206458e-06, 0.7071068)
+bones/15/scale = Vector3(1, 1, 1)
+bones/16/name = "bullets_speedloader"
+bones/16/parent = 15
+bones/16/rest = Transform3D(1, 3.92552e-06, -2.38419e-07, -3.92552e-06, 1, 9.35918e-13, 2.38419e-07, 0, 1, -0.00626223, 0.286127, -2.14618e-05)
+bones/16/enabled = true
+bones/16/position = Vector3(-0.0062622163, 0.28612733, -2.1535006e-05)
+bones/16/rotation = Quaternion(-2.33979e-13, -1.19209e-07, -1.96276e-06, 1)
+bones/16/scale = Vector3(1, 1, 1)
+
+[node name="L arm" type="MeshInstance3D" parent="revolver/Bones/Skeleton3D" unique_id=186628595]
+layers = 2
+material_override = ExtResource("5_gwsu1")
+mesh = ExtResource("6_kg3tj")
+skin = SubResource("Skin_kxhhr")
+
+[node name="L arm_001" type="MeshInstance3D" parent="revolver/Bones/Skeleton3D" unique_id=2006966641]
+layers = 2
+material_override = ExtResource("5_gwsu1")
+mesh = ExtResource("7_80nyx")
+skin = SubResource("Skin_kxhhr")
+
+[node name="Cylinder" type="MeshInstance3D" parent="revolver/Bones/Skeleton3D" unique_id=1266244986]
+layers = 2
+mesh = ExtResource("8_t22xg")
+skin = SubResource("Skin_kxhhr")
+
+[node name="camera_attachment" type="BoneAttachment3D" parent="revolver/Bones/Skeleton3D" unique_id=494471840]
+transform = Transform3D(1, -1.3877788e-16, -9.353629e-15, 1.3877788e-16, 1, -7.3440067e-22, 9.353629e-15, 7.343942e-22, 1, 1.1373436e-09, -5.3948455, 5.2637894e-09)
+bone_name = "Head"
+bone_idx = 2
+
+[node name="body_attachment" type="BoneAttachment3D" parent="revolver/Bones/Skeleton3D" unique_id=1039431575]
+transform = Transform3D(0.9955877, 0.03489863, -0.08710467, -0.08715777, 3.5762787e-07, -0.9961944, -0.034765795, 0.9993908, 0.0030420423, -0.41337797, -5.721357, 1.2612798)
+bone_name = "body"
+bone_idx = 10
+
+[node name="omni_light_3d" type="OmniLight3D" parent="revolver/Bones/Skeleton3D/body_attachment" unique_id=368587531]
+transform = Transform3D(2.66253, 0.0333066, 0.144623, 0.144592, 0.00334701, -2.66274, -0.0334391, 2.66646, 0.00153587, 0.276128, 1.7251, -0.375541)
+visible = false
+layers = 3
+light_color = Color(1, 1, 0.643137, 1)
+light_energy = 1.292
+omni_range = 4.37309
+
+[node name="sprite_3d3" type="Sprite3D" parent="revolver/Bones/Skeleton3D/body_attachment/omni_light_3d" unique_id=685206891]
+transform = Transform3D(-8.03848e-08, 1, -5.58794e-09, -1, -3.13958e-08, -2.32831e-10, -1.16415e-09, 5.58794e-09, 1, -0.0896111, -0.0274305, 0.0186584)
+layers = 2
+modulate = Color(2, 2, 2, 0.470588)
+pixel_size = 0.001
+texture = ExtResource("14_cd0yj")
+
+[node name="sprite_3d" type="Sprite3D" parent="revolver/Bones/Skeleton3D/body_attachment/omni_light_3d/sprite_3d3" unique_id=118889157]
+transform = Transform3D(-4.37114e-08, -1, -4.37114e-08, 0, -4.37114e-08, 1, -1, 4.37114e-08, 1.91069e-15, -0.00219621, -0.0151349, -0.200326)
+layers = 2
+modulate = Color(2, 2, 2, 1)
+pixel_size = 0.001
+texture = SubResource("AnimatedTexture_qhcmb")
+
+[node name="sprite_3d2" type="Sprite3D" parent="revolver/Bones/Skeleton3D/body_attachment/omni_light_3d/sprite_3d3" unique_id=2052918083]
+transform = Transform3D(-4.37114e-08, -8.05521e-08, 1, -5.58794e-09, 1, 8.05521e-08, -1, -5.58793e-09, -4.37114e-08, -0.00219621, -0.0151349, -0.200326)
+layers = 2
+modulate = Color(2, 2, 2, 1)
+pixel_size = 0.001
+texture = SubResource("AnimatedTexture_qhcmb")
+
+[node name="audio_stream_player_3d" type="AudioStreamPlayer3D" parent="revolver/Bones/Skeleton3D/body_attachment" unique_id=2101245341]
+stream = ExtResource("4_0qxga")
+volume_db = 15.0
+max_polyphony = 20
+bus = &"weapon"
+
+[node name="marker_3d" type="Marker3D" parent="revolver/Bones/Skeleton3D/body_attachment" unique_id=127358497]
+transform = Transform3D(1, 7.45058e-09, -8.05594e-08, 0, 1, 1.39698e-09, 1.41154e-09, 2.79397e-09, 0.999999, 0.00484863, 1.65979, -0.383159)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="revolver" unique_id=1416117921]
+libraries/ = SubResource("AnimationLibrary_i5f1x")

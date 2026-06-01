@@ -1,0 +1,173 @@
+[gd_scene format=3 uid="uid://d1mpmosytqneb"]
+
+[ext_resource type="Script" uid="uid://xa031x8ap2a7" path="res://scenes/main_menu/scripts/menu_button.gd" id="1_1jblp"]
+[ext_resource type="Texture2D" uid="uid://bhaxcyyk247fs" path="res://scenes/main_menu/resources/arrow.png" id="1_e5xj4"]
+[ext_resource type="Texture2D" uid="uid://cufwfa6wjnryg" path="res://scenes/main_menu/resources/locate-fixed.svg" id="2_e0d8q"]
+[ext_resource type="Shader" uid="uid://daqaedd6be5x" path="res://shaders/mixed_blur.gdshader" id="3_6018i"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_e0d8q"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_6018i"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_00f1i"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ciag2"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_o5w12"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_sej8m"]
+shader = ExtResource("3_6018i")
+shader_parameter/blur_amount = 1.0000001424999998
+shader_parameter/mix_amount = 0.0
+shader_parameter/color_over = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ciag2"]
+bg_color = Color(0.101960786, 0.101960786, 0.101960786, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+corner_detail = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_e0d8q"]
+bg_color = Color(0, 0, 0, 0.5)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.8001019, 0.13335153, 0.13335153, 0)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+corner_detail = 6
+shadow_color = Color(0.8, 0, 0, 0.12941177)
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_e0d8q"]
+content_margin_left = 2.0
+content_margin_top = 4.0
+content_margin_right = 0.0
+content_margin_bottom = 4.0
+color = Color(0.5, 0.5, 0.5, 1)
+grow_begin = -8.0
+grow_end = -8.0
+thickness = 2
+vertical = true
+
+[node name="button" type="Button" unique_id=1132224889]
+custom_minimum_size = Vector2(256, 75)
+anchors_preset = -1
+anchor_right = 0.16
+anchor_bottom = 0.083333336
+theme_override_styles/normal = SubResource("StyleBoxEmpty_e0d8q")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_6018i")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_00f1i")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_6018i")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_ciag2")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_6018i")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_6018i")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_6018i")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_6018i")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_6018i")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_o5w12")
+script = ExtResource("1_1jblp")
+is_primary = true
+icon_texture = ExtResource("2_e0d8q")
+metadata/_edit_use_anchors_ = true
+
+[node name="panel2" type="Panel" parent="." unique_id=235533417]
+material = SubResource("ShaderMaterial_sej8m")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_ciag2")
+
+[node name="panel" type="Panel" parent="." unique_id=872765688]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_e0d8q")
+
+[node name="h_box_container" type="HBoxContainer" parent="." unique_id=345030699]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="control" type="Control" parent="h_box_container" unique_id=1963137840]
+custom_minimum_size = Vector2(64, 72)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+mouse_filter = 2
+
+[node name="texture_rect" type="TextureRect" parent="h_box_container/control" unique_id=641672067]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.03125
+anchor_top = 0.15277778
+anchor_right = 1.078125
+anchor_bottom = 0.8472222
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+size_flags_stretch_ratio = 0.5
+mouse_filter = 2
+texture = ExtResource("2_e0d8q")
+expand_mode = 3
+stretch_mode = 5
+metadata/_edit_use_anchors_ = true
+
+[node name="v_separator" type="VSeparator" parent="h_box_container" unique_id=1636286088]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/separation = 4
+theme_override_styles/separator = SubResource("StyleBoxLine_e0d8q")
+
+[node name="v_box_container" type="VBoxContainer" parent="h_box_container" unique_id=1286320427]
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 2
+alignment = 1
+
+[node name="title" type="Label" parent="h_box_container/v_box_container" unique_id=712998752]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 22
+text = "ИГРАТЬ"
+autowrap_mode = 2
+
+[node name="subtitle" type="Label" parent="h_box_container/v_box_container" unique_id=1157931927]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0.6, 0.6, 0.6, 1)
+theme_override_font_sizes/font_size = 13
+text = "Быстрый старт"
+autowrap_mode = 2
+
+[node name="arrow" type="TextureRect" parent="h_box_container" unique_id=305729802]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+mouse_filter = 2
+texture = ExtResource("1_e5xj4")
+expand_mode = 5
+stretch_mode = 5

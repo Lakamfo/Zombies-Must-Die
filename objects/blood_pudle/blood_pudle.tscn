@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://mv16j7krrd8u"]
+
+[ext_resource type="Texture2D" uid="uid://caigvmv3eexer" path="res://objects/blood_pudle/textures/blood_stylized.png" id="1_3mmo0"]
+[ext_resource type="Texture2D" uid="uid://dhuihy6s3nxyq" path="res://objects/blood_pudle/textures/blood_stylized_normal.png" id="2_cuqhj"]
+
+[node name="blood_pudle" type="Decal" unique_id=1242321691]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.013330078, 0)
+size = Vector3(2, 0.127, 2)
+texture_albedo = ExtResource("1_3mmo0")
+texture_normal = ExtResource("2_cuqhj")
+distance_fade_enabled = true

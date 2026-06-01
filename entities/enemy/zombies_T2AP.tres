@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="T2AP_Preset" format=3 uid="uid://d33s4ypvsmt8p"]
+
+[ext_resource type="Script" uid="uid://dnpc2fdl1fud3" path="res://tools/textures_2_array_packer/t2ap_preset.gd" id="1_g8030"]
+
+[resource]
+script = ExtResource("1_g8030")
+textures = Array[String](["res://entities/enemy/zombie/explosive_zombie_texture.png", "res://entities/enemy/zombie/zombie_texture.png", "res://entities/enemy/zombie/zombie_texture_variant2.png"])

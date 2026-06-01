@@ -1,0 +1,55 @@
+[gd_scene format=3 uid="uid://cxmxwpei3svf"]
+
+[ext_resource type="Material" uid="uid://bnpldw81w3n46" path="res://shaders/mixed_blur_bg.tres" id="1_x876d"]
+[ext_resource type="Script" uid="uid://csrndttj32gfn" path="res://scenes/main_menu/scripts/leadearboard_screen.gd" id="2_3bqfp"]
+[ext_resource type="PackedScene" uid="uid://c5mogkio0hycl" path="res://scenes/main_menu/scenes/record_container.tscn" id="2_eexw5"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fdnom"]
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+
+[node name="leadearboard_screen" type="Panel" unique_id=1435781447]
+material = ExtResource("1_x876d")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_fdnom")
+script = ExtResource("2_3bqfp")
+
+[node name="margin_container" type="MarginContainer" parent="." unique_id=967568954]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 16.0
+offset_top = 16.0
+offset_right = -16.0
+offset_bottom = -16.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="scroll_container" type="ScrollContainer" parent="margin_container" unique_id=714539731]
+layout_mode = 2
+
+[node name="h_box_container" type="VBoxContainer" parent="margin_container/scroll_container" unique_id=373010296]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="label" type="Label" parent="margin_container/scroll_container/h_box_container" unique_id=1235725101]
+layout_mode = 2
+text = "KEY_LEADEARBOARD_HINT"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="h_separator" type="HSeparator" parent="margin_container/scroll_container/h_box_container" unique_id=952197791]
+layout_mode = 2
+
+[node name="leadearboard_container" parent="margin_container/scroll_container/h_box_container" unique_id=183858282 instance=ExtResource("2_eexw5")]
+layout_mode = 2
+
+[editable path="margin_container/scroll_container/h_box_container/leadearboard_container"]

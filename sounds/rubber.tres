@@ -1,0 +1,29 @@
+[gd_resource type="AudioStreamRandomizer" format=3 uid="uid://cgkv4r6vg1cxy"]
+
+[ext_resource type="AudioStream" uid="uid://born0cfvalfw2" path="res://sounds/rubber_footsteps/rubber-01.wav" id="1_76n1e"]
+[ext_resource type="AudioStream" uid="uid://dlwjemisbtn83" path="res://sounds/rubber_footsteps/rubber-02.wav" id="2_qu2n3"]
+[ext_resource type="AudioStream" uid="uid://dh0t3stf4e7m7" path="res://sounds/rubber_footsteps/rubber-03.wav" id="3_oqwgp"]
+[ext_resource type="AudioStream" uid="uid://chl1nijpeu3f1" path="res://sounds/rubber_footsteps/rubber-04.wav" id="4_vobws"]
+[ext_resource type="AudioStream" uid="uid://dtid21hb1u1x6" path="res://sounds/rubber_footsteps/rubber-05.wav" id="5_4xyda"]
+[ext_resource type="AudioStream" uid="uid://doq0p2nrytbpv" path="res://sounds/rubber_footsteps/rubber-06.wav" id="6_8l43h"]
+[ext_resource type="AudioStream" uid="uid://3ja253dc8cfs" path="res://sounds/rubber_footsteps/rubber-07.wav" id="7_2pre6"]
+[ext_resource type="AudioStream" uid="uid://bqxpvjucgk4hr" path="res://sounds/rubber_footsteps/rubber-08.wav" id="8_vet6x"]
+
+[resource]
+streams_count = 8
+stream_0/stream = ExtResource("1_76n1e")
+stream_0/weight = 1.0
+stream_1/stream = ExtResource("2_qu2n3")
+stream_1/weight = 1.0
+stream_2/stream = ExtResource("3_oqwgp")
+stream_2/weight = 1.0
+stream_3/stream = ExtResource("4_vobws")
+stream_3/weight = 1.0
+stream_4/stream = ExtResource("5_4xyda")
+stream_4/weight = 1.0
+stream_5/stream = ExtResource("6_8l43h")
+stream_5/weight = 1.0
+stream_6/stream = ExtResource("7_2pre6")
+stream_6/weight = 1.0
+stream_7/stream = ExtResource("8_vet6x")
+stream_7/weight = 1.0

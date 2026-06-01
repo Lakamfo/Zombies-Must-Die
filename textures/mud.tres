@@ -1,0 +1,19 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://xqbjbghaoqdi"]
+
+[ext_resource type="Texture2D" uid="uid://brhfma8atvj3j" path="res://textures/grass/diffuse.dds" id="1_rlbsb"]
+[ext_resource type="Texture2D" uid="uid://h0extaahtkls" path="res://textures/grass/normal.png" id="2_l2xg7"]
+[ext_resource type="Texture2D" uid="uid://i0mcwk2q4yt4" path="res://textures/grass/reflection.dds" id="3_jf3jg"]
+
+[resource]
+resource_name = "MUD"
+albedo_color = Color(0.216, 0.157, 0.098, 1)
+albedo_texture = ExtResource("1_rlbsb")
+roughness = 0.6
+roughness_texture = ExtResource("3_jf3jg")
+roughness_texture_channel = 1
+normal_enabled = true
+normal_texture = ExtResource("2_l2xg7")
+bent_normal_enabled = true
+uv1_scale = Vector3(0.2, 0.2, 0.2)
+uv1_triplanar = true
+texture_filter = 5

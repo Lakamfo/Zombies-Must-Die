@@ -1,0 +1,58 @@
+[gd_scene format=3 uid="uid://d1rwe5lbt0y0x"]
+
+[ext_resource type="Texture2D" uid="uid://d12wsof301g6q" path="res://entities/enemy/zombie/explosive_zombie_texture.png" id="1_ar5ow"]
+
+[node name="texture" type="Control" unique_id=568584092]
+custom_minimum_size = Vector2(379, 94)
+layout_mode = 3
+anchor_right = 0.236875
+anchor_bottom = 0.104444444
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="panel" type="Panel" parent="." unique_id=1685245905]
+custom_minimum_size = Vector2(379, 94)
+layout_mode = 0
+anchor_right = 0.236875
+anchor_bottom = 0.104444444
+metadata/_edit_use_anchors_ = true
+
+[node name="h_box_container" type="HBoxContainer" parent="panel" unique_id=276007958]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="texture_rect" type="TextureRect" parent="panel/h_box_container" unique_id=710108979]
+unique_name_in_owner = true
+clip_contents = true
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+texture = ExtResource("1_ar5ow")
+expand_mode = 3
+
+[node name="button" type="Button" parent="panel/h_box_container" unique_id=299808582]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 10
+size_flags_vertical = 4
+text = "Remove"
+
+[node name="label" type="Label" parent="panel" unique_id=1500918662]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+text = "Texture: res
+Resolution: 512x512"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2

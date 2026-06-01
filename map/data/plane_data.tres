@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="LocationData" format=3 uid="uid://dah7rd77ie4sa"]
+
+[ext_resource type="Texture2D" uid="uid://b4u2vmmqr2cna" path="res://map/icons/green_place.png" id="1_nursv"]
+[ext_resource type="Script" uid="uid://d1ru5h6prvuxx" path="res://classes/location_data.gd" id="2_yl5kn"]
+
+[resource]
+script = ExtResource("2_yl5kn")
+name = "Plane"
+icon = ExtResource("1_nursv")
+scene_path = "res://map/scene.tscn"
+debug_only = true

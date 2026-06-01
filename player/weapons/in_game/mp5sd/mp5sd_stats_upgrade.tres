@@ -1,0 +1,48 @@
+[gd_resource type="Resource" script_class="WeaponStats" format=3 uid="uid://cwaajjjy4nfs"]
+
+[ext_resource type="Curve" uid="uid://0jmxmttgqmun" path="res://player/weapon_logic/damage_curve.tres" id="1_237as"]
+[ext_resource type="Texture2D" uid="uid://belwlrig60w5" path="res://player/weapons/in_game/mp5sd/mp5sd_game_icon.png" id="2_rt7pg"]
+[ext_resource type="Script" uid="uid://coggxpmikyxx2" path="res://classes/weapon_stats.gd" id="3_uipf3"]
+[ext_resource type="Shader" uid="uid://cdoorwsuceclb" path="res://player/weapons/shaders/upgrade_lines.gdshader" id="4_2n40m"]
+[ext_resource type="Resource" uid="uid://584jkoeglio5" path="res://player/weapons/in_game/mp5sd/mp5sd_stats_upgrade_two.tres" id="5_rt7pg"]
+
+[resource]
+script = ExtResource("3_uipf3")
+upgrade_level = 1
+weapon_upgrade_name = "WHISPER"
+weapon_stats_upgrade = ExtResource("5_rt7pg")
+fire_rate = 1000
+bullet_rigid_impact_power = 2.0
+bullet_impact_power = 1.8
+max_penetration_count = 4
+aim_camera_zoom = 1.12
+clip_size = 60
+magazine_size = 900
+damage = 36.0
+max_hip_camera_kick = Vector3(3, 3, 2.5)
+min_hip_camera_kick = Vector3(2, 2, 1)
+max_aim_camera_kick = Vector3(2.5, 2.5, 1.5)
+min_aim_camera_kick = Vector3(2, 2, -0.001)
+snappinnes = 8
+return_speed = 8
+max_non_stop_mult = 2.0
+non_stop_increase = 0.01
+standart_position = Vector3(-0.15, 0, 0.1)
+standart_rotation = Vector3(0, 0, 5)
+aim_position = Vector3(-0.305, 0.082, 0.2)
+aim_rotation = Vector3(1.3, 0, 0)
+aim_speed = 0.2
+weapon_recoil_pos_y = 0.01
+min_impulse = Vector3(0.2, 0.3, 0)
+max_impulse = Vector3(0.3, 0.5, -0.3)
+idle_animation = "idle"
+aim_idle_animation = "idle"
+take_out_animation = "take_out_001"
+fire_animation = "fire_1,fire_2"
+aim_fire_animation = "fire_aim_1,fire_aim_2"
+tactical_reload_animation = "reload_fast"
+reload_animation = "reload_full"
+inspect_with_ammo = "inspect_ammo"
+inspect_without_ammo = "inspect_noammo"
+icon = ExtResource("2_rt7pg")
+hit_marker_critical_color = Color(0.724285, 0.144795, 0.222028, 1)

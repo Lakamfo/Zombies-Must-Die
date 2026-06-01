@@ -1,0 +1,223 @@
+[gd_scene format=3 uid="uid://b7yafw4j81hb5"]
+
+[ext_resource type="Script" uid="uid://dxknghidtpxii" path="res://player/ui/item_slot.gd" id="1_p0y2q"]
+[ext_resource type="Material" uid="uid://bnpldw81w3n46" path="res://shaders/mixed_blur_bg.tres" id="2_n2xl7"]
+[ext_resource type="StyleBox" uid="uid://wubim2k6ypnb" path="res://ui/resources/panel_bg_blured_style.tres" id="3_n2xl7"]
+[ext_resource type="Texture2D" uid="uid://c7xcakq5bje75" path="res://player/weapons/in_game/sg552/icon_ao.png" id="4_1y05l"]
+[ext_resource type="Texture2D" uid="uid://1wfwgkw1n6nq" path="res://player/ui/pictures/weapon_number_slot.png" id="5_1y05l"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_7ds31"]
+
+[sub_resource type="Animation" id="Animation_4265v"]
+length = 0.001
+
+[sub_resource type="Animation" id="Animation_kvnst"]
+resource_name = "fade_in"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(-0.5),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(-0.5, -0.5),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_1hul0"]
+resource_name = "fade_out"
+length = 1.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 1.5),
+"transitions": PackedFloat32Array(-2, -2, -2),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1.5),
+"transitions": PackedFloat32Array(-2, -2),
+"update": 1,
+"values": [true, false]
+}
+
+[sub_resource type="Animation" id="Animation_6rfp0"]
+resource_name = "pop"
+length = 2.0
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_pp2wb"]
+_data = {
+&"RESET": SubResource("Animation_4265v"),
+&"fade_in": SubResource("Animation_kvnst"),
+&"fade_out": SubResource("Animation_1hul0"),
+&"pop": SubResource("Animation_6rfp0")
+}
+
+[sub_resource type="LabelSettings" id="LabelSettings_hahnd"]
+
+[node name="Control" type="Control" unique_id=296561001]
+clip_contents = true
+custom_minimum_size = Vector2(214, 77)
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -1296.0
+offset_bottom = -793.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_p0y2q")
+ammo_template = "[font_size=32][color=#ffffff]%s[/color][/font_size][color=#8a8a8a]│[/color][font_size=18][color=#8a8a8a]%s[/color][/font_size]
+"
+metadata/_edit_horizontal_guides_ = [121.0]
+metadata/_edit_vertical_guides_ = [440.0]
+
+[node name="panel_bg" type="Panel" parent="." unique_id=505719765]
+material = ExtResource("2_n2xl7")
+custom_minimum_size = Vector2(0, 77)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = ExtResource("3_n2xl7")
+
+[node name="texture_rect" type="TextureRect" parent="." unique_id=1774610847]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.049342107
+anchor_top = 0.08411215
+anchor_right = 0.47368422
+anchor_bottom = 0.69158876
+texture = ExtResource("4_1y05l")
+expand_mode = 5
+stretch_mode = 5
+
+[node name="weapon_index_label" type="Label" parent="." unique_id=1588166732]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -39.0
+offset_top = -2.0
+offset_right = 2.0
+offset_bottom = 37.0
+grow_horizontal = 0
+text = "1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ammunition_label" type="RichTextLabel" parent="." unique_id=351957392]
+unique_name_in_owner = true
+material = SubResource("CanvasItemMaterial_7ds31")
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.53289473
+anchor_top = 0.06818182
+anchor_right = 0.95394737
+anchor_bottom = 0.69158876
+grow_horizontal = 0
+bbcode_enabled = true
+text = "[font_size=48][color=#ffffff]04[/color][/font_size][color=red]│[/color][font_size=32][color=#8a8a8a]036[/color][/font_size]"
+fit_content = true
+horizontal_alignment = 1
+vertical_alignment = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="animation_player" type="AnimationPlayer" parent="." unique_id=188677141]
+libraries/ = SubResource("AnimationLibrary_pp2wb")
+
+[node name="fire_mode" type="Label" parent="." unique_id=223021098]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.53289473
+anchor_top = 0.7196262
+anchor_right = 0.95394737
+anchor_bottom = 0.97196263
+grow_horizontal = 0
+grow_vertical = 0
+text = "FIRE_MODE"
+label_settings = SubResource("LabelSettings_hahnd")
+horizontal_alignment = 2
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="weapon_name" type="Label" parent="." unique_id=370950177]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.049342107
+anchor_top = 0.7196262
+anchor_right = 0.37828946
+anchor_bottom = 0.97196263
+grow_vertical = 0
+text = "NAME"
+label_settings = SubResource("LabelSettings_hahnd")
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="h_line_1" type="HSeparator" parent="." unique_id=656737651]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.53289473
+anchor_top = 0.6666667
+anchor_right = 0.95394737
+anchor_bottom = 0.6969697
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="h_line_2" type="HSeparator" parent="." unique_id=112862835]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.049342107
+anchor_top = 0.6631266
+anchor_right = 0.47368422
+anchor_bottom = 0.7196262
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="weapon_index_texture" type="TextureRect" parent="." unique_id=451806727]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -35.995483
+offset_top = 3.1523323
+offset_right = -5.0
+offset_bottom = 31.0
+grow_horizontal = 0
+texture = ExtResource("5_1y05l")
+expand_mode = 5
+stretch_mode = 5
+metadata/_edit_use_anchors_ = true

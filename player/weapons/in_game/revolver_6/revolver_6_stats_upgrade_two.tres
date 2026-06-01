@@ -1,0 +1,76 @@
+[gd_resource type="Resource" script_class="WeaponStats" format=3 uid="uid://d2nx6o31u0pj5"]
+
+[ext_resource type="Texture2D" uid="uid://bx71x3lui5i2y" path="res://player/weapons/in_game/revolver_6/revolver_game_image.png" id="1_he16i"]
+[ext_resource type="Script" uid="uid://btob25331871x" path="res://player/weapon_logic/RecoilData.gd" id="2_cbwkv"]
+[ext_resource type="Script" uid="uid://coggxpmikyxx2" path="res://classes/weapon_stats.gd" id="3_dcjaa"]
+[ext_resource type="Shader" uid="uid://cdoorwsuceclb" path="res://player/weapons/shaders/upgrade_lines.gdshader" id="4_4oag1"]
+
+[sub_resource type="Curve" id="Curve_0iwj6"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 1, Vector2(0.497059, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.496328), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="Resource" id="Resource_0gn8f"]
+script = ExtResource("2_cbwkv")
+hip_camera_max_recoil_data = Array[Vector3]([Vector3(16, 6, 6), Vector3(8, 2, 2)])
+hip_camera_min_recoil_data = Array[Vector3]([Vector3(5, 4, 3), Vector3(5, 4, 3)])
+hip_camera_recoil_snappines = Array[Vector3]([Vector3(32, 5, 32), Vector3(5, 7, 2)])
+hip_camera_recoil_return_speed = Array[Vector3]([Vector3(8, 8, 8), Vector3(16, 6, 4)])
+hip_camera_recoil_delay = Array[float]([0.0, 0.1])
+hip_body_max_recoil_data = Array[Vector3]([Vector3(3, 4, 1), Vector3(40, 20, 0)])
+hip_body_min_recoil_data = Array[Vector3]([Vector3(2, 2, 2), Vector3(40, 7, 7)])
+hip_body_recoil_snappines = Array[Vector3]([Vector3(5, 1, 1), Vector3(10, 1, 1)])
+hip_body_recoil_return_speed = Array[Vector3]([Vector3(8, 8, 8)])
+hip_body_recoil_delay = Array[float]([0.0, 0.2])
+aim_camera_max_recoil_data = Array[Vector3]([Vector3(12, 2, 6), Vector3(7, 2, 6)])
+aim_camera_min_recoil_data = Array[Vector3]([Vector3(6, 6, 6), Vector3(6, 6, 6)])
+aim_camera_recoil_snappines = Array[Vector3]([Vector3(36, 12, 6), Vector3(8, 8, 6)])
+aim_camera_recoil_return_speed = Array[Vector3]([Vector3(8, 8, 8), Vector3(40, 40, 40)])
+aim_camera_recoil_delay = Array[float]([0.0, 0.2])
+aim_body_max_recoil_data = Array[Vector3]([Vector3(12, 36, 36), Vector3(36, 36, 36)])
+aim_body_min_recoil_data = Array[Vector3]([Vector3(12, 36, 36), Vector3(36, 46, 3636)])
+aim_body_recoil_snappines = Array[Vector3]([Vector3(24, 24, 24), Vector3(24, 24, 24)])
+aim_body_recoil_return_speed = Array[Vector3]([Vector3(6, 6, 6)])
+
+[resource]
+script = ExtResource("3_dcjaa")
+upgrade_level = 2
+weapon_upgrade_name = "JUSTICE"
+fire_mode = 0
+available_shooting_modes = 1
+fire_distance = 100.0
+fire_range_damage = SubResource("Curve_0iwj6")
+bullet_rigid_impact_power = 2.0
+bullet_impact_power = 3.0
+max_penetration_count = 4
+clip_size = 14
+magazine_size = 162
+bullet_in_chamber = false
+buckshot_size = 4
+buckshot_spread_max_angle = 1
+reload_penalty = true
+trigger_delay_enabled = true
+trigger_delay = 0.2
+damage = 180.0
+torso_mult = 1.6
+limbs_mult = 1.5
+max_hip_camera_kick = Vector3(16, 6, 6)
+min_hip_camera_kick = Vector3(5, 4, 3)
+max_aim_camera_kick = Vector3(8, 3, 3)
+min_aim_camera_kick = Vector3(3, 2, 2)
+snappinnes = 24
+return_speed = 6
+layered_recoil_enabled = true
+layered_recoil = SubResource("Resource_0gn8f")
+non_stop_increase = 0.1
+aim_position = Vector3(-0.13, 0.145, 0)
+aim_rotation = Vector3(0, -2, -4.5)
+aim_speed = 0.3
+weapon_recoil_pos_y = 0.025
+idle_animation = "idle"
+take_out_animation = "take_out"
+fire_animation = "fire_1"
+aim_fire_animation = "fire_aim"
+tactical_reload_animation = "reload"
+reload_animation = "reload"
+icon = ExtResource("1_he16i")
+hit_marker_critical_color = Color(0.724285, 0.144795, 0.222028, 1)

@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://cuo3n8kpofigd"]
+
+[ext_resource type="PackedScene" uid="uid://c7jmfl7vae2l8" path="res://objects/interactable/vending_machine/models/glb/quick_revive.glb" id="1_2rpat"]
+
+[node name="quick_revive" instance=ExtResource("1_2rpat")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, 0)

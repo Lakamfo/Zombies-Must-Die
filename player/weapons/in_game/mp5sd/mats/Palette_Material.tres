@@ -1,0 +1,16 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://c2idnil2g52y4"]
+
+[ext_resource type="Texture2D" uid="uid://h6efamqrtkmq" path="res://player/weapons/in_game/mp5sd/textures/ColorPalette.png" id="1_kjqff"]
+[ext_resource type="Texture2D" uid="uid://cpojb6gawpggr" path="res://player/weapons/in_game/mp5sd/textures/RoughnessPalette.png" id="2_s8r5p"]
+
+[resource]
+resource_name = "Palette_Material"
+transparency = 4
+cull_mode = 2
+albedo_texture = ExtResource("1_kjqff")
+metallic = 1.0
+metallic_texture = ExtResource("2_s8r5p")
+metallic_texture_channel = 2
+roughness_texture = ExtResource("2_s8r5p")
+roughness_texture_channel = 1
+texture_filter = 2

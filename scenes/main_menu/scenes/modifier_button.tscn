@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://tfcdslo6vvpj"]
+
+[ext_resource type="PackedScene" uid="uid://bgjlyro6htpq5" path="res://scenes/main_menu/scenes/level_button.tscn" id="1_s61ap"]
+
+[sub_resource type="ButtonGroup" id="ButtonGroup_iehd6"]
+allow_unpress = true
+
+[node name="button" instance=ExtResource("1_s61ap")]
+button_group = SubResource("ButtonGroup_iehd6")
+
+[node name="label" parent="." index="1"]
+text = "MODIFIER"

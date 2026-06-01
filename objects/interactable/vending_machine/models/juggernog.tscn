@@ -1,0 +1,5 @@
+[gd_scene format=3 uid="uid://dw0m8kkrrs0w1"]
+
+[ext_resource type="PackedScene" uid="uid://ccosrhvfk57mk" path="res://objects/interactable/vending_machine/models/glb/juggernog.glb" id="1_sa7kj"]
+
+[node name="juggernog" instance=ExtResource("1_sa7kj")]

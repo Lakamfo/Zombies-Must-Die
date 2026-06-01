@@ -1,0 +1,47 @@
+[gd_resource type="AudioStreamRandomizer" format=3 uid="uid://cj507wptgid58"]
+
+[ext_resource type="AudioStream" uid="uid://clwqh8jb6hvni" path="res://sounds/tile_footsteps/tile-01.wav" id="1_lr10j"]
+[ext_resource type="AudioStream" uid="uid://duaog4cx5lfod" path="res://sounds/tile_footsteps/tile-02.wav" id="2_cjdv1"]
+[ext_resource type="AudioStream" uid="uid://dsbwuaky03l24" path="res://sounds/tile_footsteps/tile-11.wav" id="3_44knh"]
+[ext_resource type="AudioStream" uid="uid://ogev4l5elm65" path="res://sounds/tile_footsteps/tile-12.wav" id="4_23q12"]
+[ext_resource type="AudioStream" uid="uid://dtph62d5wc7yu" path="res://sounds/tile_footsteps/tile-13.wav" id="5_y2j4i"]
+[ext_resource type="AudioStream" uid="uid://ce04xi1sweygm" path="res://sounds/tile_footsteps/tile-14.wav" id="6_prpwk"]
+[ext_resource type="AudioStream" uid="uid://bwfo1rtj5okaa" path="res://sounds/tile_footsteps/tile-03.wav" id="7_ky0sy"]
+[ext_resource type="AudioStream" uid="uid://c5jhwkrd51o0x" path="res://sounds/tile_footsteps/tile-04.wav" id="8_w0a0v"]
+[ext_resource type="AudioStream" uid="uid://dcocn0ptdedr" path="res://sounds/tile_footsteps/tile-05.wav" id="9_wxmsg"]
+[ext_resource type="AudioStream" uid="uid://do7ghabyu1qo7" path="res://sounds/tile_footsteps/tile-06.wav" id="10_wt4xd"]
+[ext_resource type="AudioStream" uid="uid://eexb8k22tnfu" path="res://sounds/tile_footsteps/tile-07.wav" id="11_7tj0f"]
+[ext_resource type="AudioStream" uid="uid://bi6ftboaualq5" path="res://sounds/tile_footsteps/tile-08.wav" id="12_xdd4n"]
+[ext_resource type="AudioStream" uid="uid://dwrbf2byeejt6" path="res://sounds/tile_footsteps/tile-09.wav" id="13_ou3rl"]
+[ext_resource type="AudioStream" uid="uid://dg71c1d7b58mx" path="res://sounds/tile_footsteps/tile-10.wav" id="14_6bsvc"]
+
+[resource]
+streams_count = 14
+stream_0/stream = ExtResource("1_lr10j")
+stream_0/weight = 1.0
+stream_1/stream = ExtResource("2_cjdv1")
+stream_1/weight = 1.0
+stream_2/stream = ExtResource("7_ky0sy")
+stream_2/weight = 1.0
+stream_3/stream = ExtResource("8_w0a0v")
+stream_3/weight = 1.0
+stream_4/stream = ExtResource("9_wxmsg")
+stream_4/weight = 1.0
+stream_5/stream = ExtResource("10_wt4xd")
+stream_5/weight = 1.0
+stream_6/stream = ExtResource("11_7tj0f")
+stream_6/weight = 1.0
+stream_7/stream = ExtResource("12_xdd4n")
+stream_7/weight = 1.0
+stream_8/stream = ExtResource("13_ou3rl")
+stream_8/weight = 1.0
+stream_9/stream = ExtResource("14_6bsvc")
+stream_9/weight = 1.0
+stream_10/stream = ExtResource("3_44knh")
+stream_10/weight = 1.0
+stream_11/stream = ExtResource("4_23q12")
+stream_11/weight = 1.0
+stream_12/stream = ExtResource("5_y2j4i")
+stream_12/weight = 1.0
+stream_13/stream = ExtResource("6_prpwk")
+stream_13/weight = 1.0

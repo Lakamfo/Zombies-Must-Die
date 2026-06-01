@@ -1,0 +1,43 @@
+[gd_resource type="Resource" script_class="WeaponStats" format=3 uid="uid://pe0tcrhdegb7"]
+
+[ext_resource type="Curve" uid="uid://0jmxmttgqmun" path="res://player/weapon_logic/damage_curve.tres" id="1_qpobb"]
+[ext_resource type="Texture2D" uid="uid://dobavyey68f3g" path="res://player/weapons/in_game/m4a1/m4a1_icon.png" id="2_tl62o"]
+[ext_resource type="Script" uid="uid://coggxpmikyxx2" path="res://classes/weapon_stats.gd" id="3_i4jb3"]
+[ext_resource type="Shader" uid="uid://cdoorwsuceclb" path="res://player/weapons/shaders/upgrade_lines.gdshader" id="4_h50fl"]
+
+[resource]
+script = ExtResource("3_i4jb3")
+upgrade_level = 2
+weapon_upgrade_name = "Hellfire"
+fire_rate = 1000
+fire_distance = 100.0
+bullet_rigid_impact_power = 2.0
+bullet_impact_power = 2.0
+aim_camera_zoom = 1.05
+clip_size = 90
+magazine_size = 1350
+damage = 100.0
+head_mult = 2.2
+torso_mult = 1.5
+limbs_mult = 1.5
+max_hip_camera_kick = Vector3(2, 1.5, 1)
+min_hip_camera_kick = Vector3(1.5, 1.5, 0.5)
+max_aim_camera_kick = Vector3(0, 1.5, 0.5)
+min_aim_camera_kick = Vector3(1, 1, 0.5)
+snappinnes = 12
+return_speed = 12
+standart_position = Vector3(-0.02, 0.05, 0.05)
+standart_rotation = Vector3(0, 0, 5)
+aim_position = Vector3(-0.175, 0.121, 0.3)
+aim_speed = 0.3
+weapon_recoil_pos_y = 0.015
+min_impulse = Vector3(0.2, 0.3, 0)
+max_impulse = Vector3(0.3, 0.5, -0.3)
+idle_animation = "idle"
+take_out_animation = "take"
+fire_animation = "fire,fire_2"
+aim_fire_animation = "aim_fire_1,aim_fire_2"
+tactical_reload_animation = "reload_fast"
+reload_animation = "reload_long"
+icon = ExtResource("2_tl62o")
+hit_marker_critical_color = Color(0.724285, 0.144795, 0.222028, 1)

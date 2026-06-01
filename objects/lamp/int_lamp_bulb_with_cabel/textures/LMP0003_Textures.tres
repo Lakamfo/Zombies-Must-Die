@@ -1,0 +1,23 @@
+[gd_resource type="StandardMaterial3D" load_steps=5 format=3 uid="uid://bj3vhljgsaylo"]
+
+[ext_resource type="Texture2D" uid="uid://dmf4ltc2ku06v" path="res://objects/lamp/textures/Image_0.png" id="1_r60gn"]
+[ext_resource type="Texture2D" uid="uid://c7ywwmhrttyki" path="res://objects/lamp/textures/Image_2.png" id="2_7hls0"]
+[ext_resource type="Texture2D" uid="uid://b3t56g4ul08rp" path="res://objects/lamp/textures/Image_1.png" id="3_x5wo3"]
+[ext_resource type="Texture2D" uid="uid://bnhwe28haqex3" path="res://objects/lamp/textures/Image_3.png" id="4_vy1xx"]
+
+[resource]
+resource_name = "LMP0003_Textures"
+cull_mode = 2
+albedo_texture = ExtResource("1_r60gn")
+metallic = 1.0
+metallic_texture = ExtResource("3_x5wo3")
+metallic_texture_channel = 2
+roughness_texture = ExtResource("3_x5wo3")
+roughness_texture_channel = 1
+emission_enabled = true
+emission = Color(1, 1, 1, 1)
+emission_energy_multiplier = 64.0
+emission_texture = ExtResource("2_7hls0")
+normal_enabled = true
+normal_texture = ExtResource("4_vy1xx")
+disable_receive_shadows = true

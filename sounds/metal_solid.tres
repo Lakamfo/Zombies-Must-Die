@@ -1,0 +1,35 @@
+[gd_resource type="AudioStreamRandomizer" format=3 uid="uid://crg6jb8d5evhn"]
+
+[ext_resource type="AudioStream" uid="uid://cy4rd0dklnk0" path="res://sounds/metal_solid_footsteps/metal_solid-01.wav" id="1_243cs"]
+[ext_resource type="AudioStream" uid="uid://c7ufvg47h48yo" path="res://sounds/metal_solid_footsteps/metal_solid-02.wav" id="2_vsiir"]
+[ext_resource type="AudioStream" uid="uid://wwmyosivb1lv" path="res://sounds/metal_solid_footsteps/metal_solid-03.wav" id="3_m6ef6"]
+[ext_resource type="AudioStream" uid="uid://u8k1o1utkc3" path="res://sounds/metal_solid_footsteps/metal_solid-04.wav" id="4_ohedy"]
+[ext_resource type="AudioStream" uid="uid://dncpxrwjno0tp" path="res://sounds/metal_solid_footsteps/metal_solid-05.wav" id="5_gp1sx"]
+[ext_resource type="AudioStream" uid="uid://t7ywayo83854" path="res://sounds/metal_solid_footsteps/metal_solid-06.wav" id="6_psinh"]
+[ext_resource type="AudioStream" uid="uid://bp7ai8lyyveuo" path="res://sounds/metal_solid_footsteps/metal_solid-07.wav" id="7_o2a4b"]
+[ext_resource type="AudioStream" uid="uid://hfidekqjc75l" path="res://sounds/metal_solid_footsteps/metal_solid-08.wav" id="8_ibx7g"]
+[ext_resource type="AudioStream" uid="uid://b6f68g3kifxv" path="res://sounds/metal_solid_footsteps/metal_solid-09.wav" id="9_uaim8"]
+[ext_resource type="AudioStream" uid="uid://bqjjhejvhyga3" path="res://sounds/metal_solid_footsteps/metal_solid-10.wav" id="10_0emfm"]
+
+[resource]
+streams_count = 10
+stream_0/stream = ExtResource("1_243cs")
+stream_0/weight = 1.0
+stream_1/stream = ExtResource("2_vsiir")
+stream_1/weight = 1.0
+stream_2/stream = ExtResource("3_m6ef6")
+stream_2/weight = 1.0
+stream_3/stream = ExtResource("4_ohedy")
+stream_3/weight = 1.0
+stream_4/stream = ExtResource("5_gp1sx")
+stream_4/weight = 1.0
+stream_5/stream = ExtResource("6_psinh")
+stream_5/weight = 1.0
+stream_6/stream = ExtResource("7_o2a4b")
+stream_6/weight = 1.0
+stream_7/stream = ExtResource("8_ibx7g")
+stream_7/weight = 1.0
+stream_8/stream = ExtResource("9_uaim8")
+stream_8/weight = 1.0
+stream_9/stream = ExtResource("10_0emfm")
+stream_9/weight = 1.0

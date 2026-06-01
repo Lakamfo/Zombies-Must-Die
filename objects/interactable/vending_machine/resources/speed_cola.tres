@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="BonusDefinition" format=3 uid="uid://cgbw28l2bp1xb"]
+
+[ext_resource type="Script" uid="uid://cdy0t3gfdm8i1" path="res://classes/bonuses/bonus_definition.gd" id="1_lb7kj"]
+[ext_resource type="Texture2D" uid="uid://wcfhaohur0l7" path="res://player/ui/perks/speed_cola_icon.png" id="1_lk7cm"]
+
+[resource]
+script = ExtResource("1_lb7kj")
+id = &"speed_cola"
+label = "KEY_OBJECT_SPEED_COLA"
+source = 1
+endless = true
+price = 500
+color = Color(0, 0.9843137, 0.12941177, 1)
+icon = ExtResource("1_lk7cm")
+metadata/_custom_type_script = "uid://cdy0t3gfdm8i1"

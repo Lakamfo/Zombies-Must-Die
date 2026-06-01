@@ -1,0 +1,76 @@
+[gd_scene format=3 uid="uid://bshjml8ep3vf6"]
+
+[ext_resource type="Script" uid="uid://c3xwh7njoy4b0" path="res://objects/interactable/pickup/pickup.gd" id="1_pft1v"]
+[ext_resource type="ArrayMesh" uid="uid://ca80r6tfdvudh" path="res://objects/interactable/pickup/models/meshes/pickups_instant_kill.res" id="2_52chy"]
+[ext_resource type="AudioStream" uid="uid://d4i4e4bys7rid" path="res://objects/interactable/pickup/sounds/loop.mp3" id="3_uxv6u"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_wmftc"]
+size = Vector3(2, 2, 2)
+
+[sub_resource type="Gradient" id="Gradient_cob5d"]
+offsets = PackedFloat32Array(0, 0.48375452, 0.64620936)
+colors = PackedColorArray(1, 0.92941177, 0, 0.50980395, 1, 0.98039216, 0.7490196, 0, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_vdexg"]
+gradient = SubResource("Gradient_cob5d")
+width = 128
+height = 128
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(1, 1)
+
+[sub_resource type="Animation" id="Animation_xd3bw"]
+length = 0.001
+
+[sub_resource type="Animation" id="Animation_s458p"]
+resource_name = "animation"
+length = 15.0
+tracks/0/type = "method"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(15),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"queue_free"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_6nux8"]
+_data = {
+&"RESET": SubResource("Animation_xd3bw"),
+&"animation": SubResource("Animation_s458p")
+}
+
+[node name="pickup" type="Area3D" unique_id=1048915967]
+collision_layer = 16
+collision_mask = 16
+script = ExtResource("1_pft1v")
+
+[node name="collision_shape_3d" type="CollisionShape3D" parent="." unique_id=1801378314]
+shape = SubResource("BoxShape3D_wmftc")
+
+[node name="sprite_3d" type="Sprite3D" parent="." unique_id=1548013615]
+pixel_size = 0.015
+billboard = 1
+texture = SubResource("GradientTexture2D_vdexg")
+
+[node name="animation_player" type="AnimationPlayer" parent="." unique_id=2063921024]
+libraries/ = SubResource("AnimationLibrary_6nux8")
+
+[node name="mesh_instance_3d" type="MeshInstance3D" parent="." unique_id=68638595]
+mesh = ExtResource("2_52chy")
+
+[node name="loop" type="AudioStreamPlayer3D" parent="." unique_id=302244285]
+stream = ExtResource("3_uxv6u")
+unit_size = 6.0
+autoplay = true
+bus = &"sfx"
+parameters/looping = true
+
+[node name="omni_light_3d" type="OmniLight3D" parent="." unique_id=1090798903]
+light_color = Color(1, 1, 0.5803922, 1)

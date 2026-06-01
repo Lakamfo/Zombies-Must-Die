@@ -1,0 +1,37 @@
+[gd_scene format=3 uid="uid://6es6ga3l8ps1"]
+
+[ext_resource type="Script" uid="uid://dh5muhmka5y5y" path="res://player/weapons/in_game/tracer/bullet_tracer.gd" id="1_1vskg"]
+[ext_resource type="PackedScene" uid="uid://luh8y0cfuigs" path="res://player/weapons/in_game/tracer/components/explode_on_contact_component.tscn" id="2_1vskg"]
+
+[sub_resource type="Gradient" id="Gradient_j3uwq"]
+offsets = PackedFloat32Array(0, 0.189189, 0.837838, 1)
+colors = PackedColorArray(0, 0, 0, 0, 1, 0.698039, 0.262745, 1, 1, 0.905882, 0.470588, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_iic2p"]
+gradient = SubResource("Gradient_j3uwq")
+height = 256
+fill_from = Vector2(0.5, 0)
+fill_to = Vector2(0.5, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6lyqr"]
+transparency = 4
+cull_mode = 2
+shading_mode = 0
+albedo_texture = SubResource("GradientTexture2D_iic2p")
+distance_fade_mode = 3
+distance_fade_min_distance = 1.0
+
+[sub_resource type="RibbonTrailMesh" id="RibbonTrailMesh_ay6o4"]
+material = SubResource("StandardMaterial3D_6lyqr")
+size = 0.026
+section_segments = 1
+
+[node name="bullet_tracer" type="Node3D" unique_id=2120739997]
+script = ExtResource("1_1vskg")
+
+[node name="mesh_instance_3d" type="MeshInstance3D" parent="." unique_id=907262418]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 1.72257e-05, -5.96046e-08, 0.501105)
+layers = 2
+mesh = SubResource("RibbonTrailMesh_ay6o4")
+
+[node name="ExplodeOnContactComponent" parent="." unique_id=1986219191 instance=ExtResource("2_1vskg")]

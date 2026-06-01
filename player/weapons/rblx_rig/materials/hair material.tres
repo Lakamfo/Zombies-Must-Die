@@ -1,0 +1,9 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://bdikbwhg5obvq"]
+
+[ext_resource type="Texture2D" uid="uid://cg0k7mikku6tk" path="res://player/weapons/rblx_rig/textures/Hair texture.png" id="1_rlp0k"]
+
+[resource]
+resource_name = "hair material"
+transparency = 4
+cull_mode = 2
+albedo_texture = ExtResource("1_rlp0k")

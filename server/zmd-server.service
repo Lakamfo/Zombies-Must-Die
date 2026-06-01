@@ -1,0 +1,16 @@
+[Unit]
+Description=Zombies Must Die
+After=network.target tailscaled.service zmd-funnel.service
+Requires=tailscaled.service zmd-funnel.service
+
+[Service]
+User=lakamfo
+WorkingDirectory=/opt/zmd-server
+ExecStart=/opt/zmd-server/venv/bin/python /opt/zmd-server/main.py
+Restart=always
+Environment=PYTHONUNBUFFERED=1
+StandardOutput=append:/opt/zmd-server/logs/log.txt
+StandardError=append:/opt/zmd-server/logs/err.txt
+
+[Install]
+WantedBy=multi-user.target

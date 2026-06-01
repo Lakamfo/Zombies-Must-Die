@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="LocationData" format=3 uid="uid://cphh3v7w2xo2w"]
+
+[ext_resource type="Texture2D" uid="uid://hincv33e3yfh" path="res://map/icons/tutorial.png" id="1_f3rg4"]
+[ext_resource type="Script" uid="uid://d1ru5h6prvuxx" path="res://classes/location_data.gd" id="2_8lnfh"]
+
+[resource]
+script = ExtResource("2_8lnfh")
+name = "Tutorial"
+icon = ExtResource("1_f3rg4")
+scene_path = "uid://ckp7hhuuptdva"
+metadata/_custom_type_script = "uid://d1ru5h6prvuxx"

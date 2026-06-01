@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="BonusDefinition" format=3 uid="uid://crybea31erhta"]
+
+[ext_resource type="Texture2D" uid="uid://dmk3d0ikwqyex" path="res://objects/interactable/pickup/images/ammo.png" id="1_lnbvm"]
+[ext_resource type="Script" uid="uid://cdy0t3gfdm8i1" path="res://classes/bonuses/bonus_definition.gd" id="1_rj3ch"]
+[ext_resource type="ArrayMesh" uid="uid://byei5moc6qg6n" path="res://objects/interactable/pickup/models/meshes/pickups_ammo.res" id="2_jxdmq"]
+
+[resource]
+script = ExtResource("1_rj3ch")
+id = &"max_ammo"
+label = "KEY_BONUS_MAX_AMMO"
+duration = 1.5
+icon = ExtResource("1_lnbvm")
+mesh = ExtResource("2_jxdmq")
+metadata/_custom_type_script = "uid://cdy0t3gfdm8i1"

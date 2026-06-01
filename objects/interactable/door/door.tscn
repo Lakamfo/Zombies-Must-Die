@@ -1,0 +1,158 @@
+[gd_scene format=3 uid="uid://csq8d1c01lmov"]
+
+[ext_resource type="Script" uid="uid://csg5akn7plebf" path="res://objects/interactable/door/door.gd" id="1_ccpio"]
+[ext_resource type="Texture2D" uid="uid://cqac8aird1nh4" path="res://textures/other/metall_door.jpeg" id="2_4ci7o"]
+[ext_resource type="AudioStream" uid="uid://csn1ccgj40sx0" path="res://objects/interactable/sounds/buy_sound.wav" id="2_ls0ai"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_e6q6d"]
+resource_local_to_scene = true
+resource_name = "METAL"
+albedo_texture = ExtResource("2_4ci7o")
+emission_enabled = true
+emission = Color(0.0687983, 0.0687983, 0.0687982, 1)
+emission_energy_multiplier = 0.0
+texture_filter = 4
+
+[sub_resource type="BoxMesh" id="BoxMesh_64rf8"]
+resource_local_to_scene = true
+lightmap_size_hint = Vector2i(37, 73)
+material = SubResource("StandardMaterial3D_e6q6d")
+add_uv2 = true
+size = Vector3(0.2, 3.5, 6.5)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_c03pi"]
+size = Vector3(0.2, 3.5, 6)
+
+[sub_resource type="Animation" id="Animation_qu52w"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("mesh_instance_3d:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("mesh_instance_3d:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("mesh_instance_3d:mesh:material:emission_energy_multiplier")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_bqais"]
+resource_name = "idle_money"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("mesh_instance_3d:mesh:material:emission_energy_multiplier")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 2),
+"transitions": PackedFloat32Array(-2, -2, -2),
+"update": 0,
+"values": [1.3, 0.0, 1.3]
+}
+
+[sub_resource type="Animation" id="Animation_dqirl"]
+resource_name = "open"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("mesh_instance_3d:scale")
+tracks/0/interp = 0
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 1.1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(1, 1, 1), Vector3(1, 1, 1), Vector3(0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("mesh_instance_3d:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1.27456, 1.27456),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 3.7, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_rkj1s"]
+_data = {
+&"RESET": SubResource("Animation_qu52w"),
+&"idle_money": SubResource("Animation_bqais"),
+&"open": SubResource("Animation_dqirl")
+}
+
+[node name="static_body_3d" type="StaticBody3D" unique_id=1525576065]
+collision_layer = 9
+collision_mask = 24
+script = ExtResource("1_ccpio")
+metadata/material = "METAL"
+
+[node name="mesh_instance_3d" type="MeshInstance3D" parent="." unique_id=796925933]
+mesh = SubResource("BoxMesh_64rf8")
+
+[node name="collision_shape_3d" type="CollisionShape3D" parent="." unique_id=1276842772]
+shape = SubResource("BoxShape3D_c03pi")
+
+[node name="animation_player" type="AnimationPlayer" parent="." unique_id=68558347]
+libraries/ = SubResource("AnimationLibrary_rkj1s")
+
+[node name="audio_stream_player_3d" type="AudioStreamPlayer3D" parent="." unique_id=1441121390]
+stream = ExtResource("2_ls0ai")
+bus = &"sfx"

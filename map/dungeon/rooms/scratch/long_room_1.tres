@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="RoomRes" format=3 uid="uid://8j8wnjcts6qw"]
+
+[ext_resource type="PackedScene" uid="uid://dprdp50s4ooji" path="res://map/dungeon/rooms/scratch/long_room_1.tscn" id="1_ysbhv"]
+[ext_resource type="Script" uid="uid://crn26rbrgrlq3" path="res://classes/map_gen/room_template.gd" id="2_df114"]
+
+
+[resource]
+script = ExtResource("2_df114")
+scene = ExtResource("1_ysbhv")
+weight = 2.0
+type = 1
+metadata/_custom_type_script = "uid://crn26rbrgrlq3"

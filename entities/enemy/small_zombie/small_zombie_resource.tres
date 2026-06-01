@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="WaveLogicEnemy" format=3 uid="uid://b57u47r3ihr16"]
+
+[ext_resource type="PackedScene" uid="uid://bdksue47qwfi2" path="res://entities/enemy/small_zombie/enemy_small_zombie.tscn" id="1_x8muv"]
+[ext_resource type="Script" uid="uid://bklirhnj77l8i" path="res://classes/wave_logic/wave_logic_enemy.gd" id="2_ddbwv"]
+
+[resource]
+script = ExtResource("2_ddbwv")
+spawn_weight = 0.15
+scene = ExtResource("1_x8muv")
+wave_min = 5
+is_small = true

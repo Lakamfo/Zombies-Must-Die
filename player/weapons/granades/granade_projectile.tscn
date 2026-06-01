@@ -1,0 +1,59 @@
+[gd_scene format=3 uid="uid://rfblmjfjxv28"]
+
+[ext_resource type="Script" uid="uid://ds6k5r828pegr" path="res://classes/components/explode_component.gd" id="1_1jprk"]
+[ext_resource type="Script" uid="uid://bmka5a13e4vwi" path="res://player/weapons/granades/granade_projectile.gd" id="1_w4k2t"]
+[ext_resource type="AudioStream" uid="uid://ct4si5udk8460" path="res://entities/enemy/explodive_zombie/zombie_explode.mp3" id="2_w3cst"]
+[ext_resource type="PackedScene" uid="uid://bxd6x7qkhec12" path="res://textures/explode_VFX/explode_vfx.tscn" id="3_w4k2t"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_w4k2t"]
+friction = 0.7
+rough = true
+bounce = 0.5
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_g7eq6"]
+radius = 0.1
+
+[sub_resource type="SphereMesh" id="SphereMesh_1jprk"]
+radius = 0.1
+height = 0.2
+radial_segments = 8
+rings = 4
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_7s8va"]
+radius = 5.0
+
+[node name="granade_projectile" type="RigidBody3D" unique_id=1620550021 node_paths=PackedStringArray("explode_component", "mesh")]
+collision_layer = 2
+physics_material_override = SubResource("PhysicsMaterial_w4k2t")
+contact_monitor = true
+max_contacts_reported = 1
+script = ExtResource("1_w4k2t")
+explode_component = NodePath("explode_component")
+mesh = NodePath("mesh_instance_3d")
+
+[node name="collision_shape_3d" type="CollisionShape3D" parent="." unique_id=722680774]
+shape = SubResource("SphereShape3D_g7eq6")
+
+[node name="mesh_instance_3d" type="MeshInstance3D" parent="." unique_id=1372414432]
+mesh = SubResource("SphereMesh_1jprk")
+
+[node name="explode_component" type="Node3D" parent="." unique_id=315889807 node_paths=PackedStringArray("area", "area_collision_shape", "audio_stream_player", "vfx")]
+script = ExtResource("1_1jprk")
+area = NodePath("area_3d")
+area_collision_shape = NodePath("area_3d/collision_shape_3d")
+audio_stream_player = NodePath("audio_stream_player_3d")
+vfx = NodePath("explode_vfx")
+
+[node name="audio_stream_player_3d" type="AudioStreamPlayer3D" parent="explode_component" unique_id=1933908859]
+stream = ExtResource("2_w3cst")
+unit_size = 15.0
+bus = &"sfx"
+
+[node name="area_3d" type="Area3D" parent="explode_component" unique_id=433192365]
+collision_layer = 90
+collision_mask = 90
+
+[node name="collision_shape_3d" type="CollisionShape3D" parent="explode_component/area_3d" unique_id=185237126]
+shape = SubResource("SphereShape3D_7s8va")
+
+[node name="explode_vfx" parent="explode_component" unique_id=150218512 instance=ExtResource("3_w4k2t")]

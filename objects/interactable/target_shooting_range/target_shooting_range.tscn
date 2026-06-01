@@ -1,0 +1,107 @@
+[gd_scene format=3 uid="uid://di8x0fnywuvcb"]
+
+[ext_resource type="Script" uid="uid://561xvitw7d4v" path="res://objects/interactable/target_shooting_range/target_shooting_range.gd" id="1_rq2ol"]
+[ext_resource type="Script" uid="uid://bjfqnou62b6ya" path="res://entities/Hitbox.gd" id="1_xv1wc"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_rmhm6"]
+size = Vector3(0.5, 0.5004883, 0.5)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rq2ol"]
+albedo_color = Color(0.47843137, 0.12156863, 0.12156863, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_rj8ci"]
+material = SubResource("StandardMaterial3D_rq2ol")
+size = Vector3(0.5, 0.5, 0.5)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_vy5fb"]
+size = Vector3(0.7038086, 0.8, 0.3)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_w0nfn"]
+albedo_color = Color(0.76862746, 0.47843137, 0.19607843, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_56d2d"]
+material = SubResource("StandardMaterial3D_w0nfn")
+size = Vector3(0.705, 0.775, 0.3)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_rq2ol"]
+size = Vector3(0.7038086, 0.7, 0.3)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_rj8ci"]
+size = Vector3(0.2992676, 0.7001465, 0.3)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_e6xid"]
+albedo_color = Color(0.72156864, 0.6627451, 0.2901961, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_giff2"]
+material = SubResource("StandardMaterial3D_e6xid")
+size = Vector3(0.3, 0.7, 0.3)
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_dqtlq"]
+radius = 0.01
+
+[node name="target_shooting_range" type="AnimatableBody3D" unique_id=1336276769]
+script = ExtResource("1_rq2ol")
+
+[node name="head" type="AnimatableBody3D" parent="." unique_id=1523426782]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.6, 0)
+script = ExtResource("1_xv1wc")
+set_material = false
+
+[node name="collision_shape_3d" type="CollisionShape3D" parent="head" unique_id=289717069]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0043945313, 0.097607374, 7.450581e-09)
+shape = SubResource("BoxShape3D_rmhm6")
+
+[node name="mesh_instance_3d" type="MeshInstance3D" parent="head" unique_id=770560571]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.100000024, 0)
+mesh = SubResource("BoxMesh_rj8ci")
+
+[node name="body" type="AnimatableBody3D" parent="." unique_id=879271882]
+script = ExtResource("1_xv1wc")
+type = 1
+set_material = false
+
+[node name="collision_shape_3d" type="CollisionShape3D" parent="body" unique_id=1663626911]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.1000001, 0)
+shape = SubResource("BoxShape3D_vy5fb")
+
+[node name="mesh_instance_3d" type="MeshInstance3D" parent="body" unique_id=573841050]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.1, 0)
+mesh = SubResource("BoxMesh_56d2d")
+
+[node name="limbs" type="AnimatableBody3D" parent="." unique_id=1391860749]
+script = ExtResource("1_xv1wc")
+type = 2
+set_material = false
+
+[node name="collision_shape_3d" type="CollisionShape3D" parent="limbs" unique_id=1020662340]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0019043088, 0.35, 3.7252903e-09)
+shape = SubResource("BoxShape3D_rq2ol")
+
+[node name="collision_shape_3d2" type="CollisionShape3D" parent="limbs" unique_id=965865826]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5531982, 1.1001709, 3.7252903e-09)
+shape = SubResource("BoxShape3D_rj8ci")
+
+[node name="collision_shape_3d3" type="CollisionShape3D" parent="limbs" unique_id=2085822648]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5468018, 1.1001709, 3.7252903e-09)
+shape = SubResource("BoxShape3D_rj8ci")
+
+[node name="mesh_instance_3d" type="MeshInstance3D" parent="limbs" unique_id=1376309966]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.55422115, 1.1, 0)
+mesh = SubResource("BoxMesh_giff2")
+
+[node name="mesh_instance_3d2" type="MeshInstance3D" parent="limbs" unique_id=2006354739]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.553496, 1.1, 0)
+mesh = SubResource("BoxMesh_giff2")
+
+[node name="mesh_instance_3d3" type="MeshInstance3D" parent="limbs" unique_id=1660521868]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.19999999, 0.3504528, 0)
+mesh = SubResource("BoxMesh_giff2")
+
+[node name="mesh_instance_3d4" type="MeshInstance3D" parent="limbs" unique_id=1803724849]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.20000002, 0.3504528, 0)
+mesh = SubResource("BoxMesh_giff2")
+
+[node name="collision_shape_3d" type="CollisionShape3D" parent="." unique_id=1532209]
+shape = SubResource("SphereShape3D_dqtlq")
+disabled = true
+debug_fill = false

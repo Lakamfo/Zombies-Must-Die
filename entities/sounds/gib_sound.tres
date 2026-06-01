@@ -1,0 +1,11 @@
+[gd_resource type="AudioStreamRandomizer" load_steps=3 format=3 uid="uid://bfeexeu0fy643"]
+
+[ext_resource type="AudioStream" uid="uid://q6i3jyysbvab" path="res://entities/sounds/gib_sound_1.mp3" id="1_uf264"]
+[ext_resource type="AudioStream" uid="uid://bpje4o0xy3rng" path="res://entities/sounds/gib_sound_2.mp3" id="2_s6fec"]
+
+[resource]
+random_pitch = 1.2
+random_volume_offset_db = 3.0
+streams_count = 2
+stream_0/stream = ExtResource("1_uf264")
+stream_1/stream = ExtResource("2_s6fec")

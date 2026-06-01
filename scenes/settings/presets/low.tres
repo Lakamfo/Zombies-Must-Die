@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="GraphicsPreset" format=3 uid="uid://dxwwjt75x1xws"]
+
+[ext_resource type="Script" uid="uid://cnrnifjrybncx" path="res://scenes/settings/utils/graphics_preset.gd" id="1_1aysp"]
+
+[resource]
+script = ExtResource("1_1aysp")
+preset_string = "KEY_SETTINGS_LOW"
+graphics_preset = 1
+render_resolution = 75.0
+shaders_quality = 1
+shadows = false
+fxaa = false
+glow = false
+volumetric_fog = false
+water_puddles = false
+metadata/_custom_type_script = "uid://cnrnifjrybncx"

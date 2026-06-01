@@ -1,0 +1,7 @@
+[gd_resource type="LabelSettings" format=3 uid="uid://m7xojb3lytar"]
+
+[ext_resource type="FontFile" uid="uid://bvitsbvdwibap" path="res://ui/resources/fonts/lato/Lato-Light.ttf" id="1_70cr3"]
+
+[resource]
+font = ExtResource("1_70cr3")
+font_size = 32

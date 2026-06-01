@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="GraphicsPreset" format=3 uid="uid://bdh315fdpun2g"]
+
+[ext_resource type="Script" uid="uid://cnrnifjrybncx" path="res://scenes/settings/utils/graphics_preset.gd" id="1_wvnum"]
+
+[resource]
+script = ExtResource("1_wvnum")
+render_resolution = 50.0
+shadows = false
+fxaa = false
+glow = false
+volumetric_fog = false
+vfx = false
+vegetation = false
+water_puddles = false
+metadata/_custom_type_script = "uid://cnrnifjrybncx"

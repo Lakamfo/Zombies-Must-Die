@@ -1,0 +1,203 @@
+[gd_scene format=3 uid="uid://dvw4rxql2tkb6"]
+
+[ext_resource type="Script" uid="uid://dp57ya6rx26aa" path="res://objects/interactable/weapon_upgrader/weapon_upgrader.gd" id="1_kbt8e"]
+[ext_resource type="PackedScene" uid="uid://cplesstogj47w" path="res://objects/interactable/weapon_upgrader/resources/model/pack-a-punch_lakamfo.blend" id="2_1ebx3"]
+[ext_resource type="Texture2D" uid="uid://bu5562n4anig" path="res://textures/smoke/Smoke30Frames.png" id="3_s2dsv"]
+[ext_resource type="AudioStream" uid="uid://1il58ept5dq" path="res://objects/interactable/weapon_upgrader/resources/sounds/pack-a-punch_upgrade.mp3" id="4_c7qiv"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_307y0"]
+size = Vector3(1, 2, 2)
+
+[sub_resource type="Curve" id="Curve_c7qiv"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_3814n"]
+width = 64
+curve = SubResource("Curve_c7qiv")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_as4wj"]
+emission_shape_offset = Vector3(-0.39, 0.2, 0)
+emission_shape_scale = Vector3(0.39, 0.275, 0.715)
+emission_shape = 3
+emission_box_extents = Vector3(1, 1, 1)
+gravity = Vector3(0, 0.05, 0)
+scale_max = 4.0099998
+scale_curve = SubResource("CurveTexture_3814n")
+anim_speed_min = 1.0
+anim_speed_max = 1.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1ttim"]
+transparency = 3
+alpha_hash_scale = 1.0
+alpha_antialiasing_mode = 0
+shading_mode = 0
+albedo_color = Color(0.65762776, 1, 1, 1)
+albedo_texture = ExtResource("3_s2dsv")
+billboard_mode = 3
+particles_anim_h_frames = 6
+particles_anim_v_frames = 5
+particles_anim_loop = false
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_0uq1h"]
+material = SubResource("StandardMaterial3D_1ttim")
+size = Vector2(1, 1)
+orientation = 2
+
+[sub_resource type="Animation" id="Animation_s2dsv"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("omni_light_3d:light_energy")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [5.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("omni_light_3d:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("gpu_particles_3d:emitting")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("audio_stream_player_3d:playing")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_c7qiv"]
+resource_name = "use"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("omni_light_3d:light_energy")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 1.6666667, 2.4666667),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [5.0, 8.83, 2.564, 0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("omni_light_3d:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("gpu_particles_3d:emitting")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("audio_stream_player_3d:playing")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_3814n"]
+_data = {
+&"RESET": SubResource("Animation_s2dsv"),
+&"use": SubResource("Animation_c7qiv")
+}
+
+[node name="weapon_upgrader" type="StaticBody3D" unique_id=2068008122 node_paths=PackedStringArray("animation_player")]
+script = ExtResource("1_kbt8e")
+animation_player = NodePath("animation_player")
+interactable_text = "UPGRADE WEAPON 2500"
+metadata/material = &"METAL"
+
+[node name="pack a punch" type="Node" parent="." unique_id=1167244758]
+
+[node name="collision_shape_3d" type="CollisionShape3D" parent="." unique_id=2013584049]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -0.018176854, 0.5, -0.29325378)
+shape = SubResource("BoxShape3D_307y0")
+
+[node name="pack-a-punch_lakamfo" parent="." unique_id=1904081247 instance=ExtResource("2_1ebx3")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0.0046843886, -0.5, -0.29275358)
+
+[node name="omni_light_3d" type="OmniLight3D" parent="." unique_id=979089525]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -0.018176854, 0.5, 0.30674624)
+visible = false
+light_color = Color(0.52912915, 1, 1, 1)
+light_energy = 5.0
+
+[node name="gpu_particles_3d" type="GPUParticles3D" parent="." unique_id=971131097]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -0.018176854, 0.2, 0.2563998)
+emitting = false
+amount = 16
+lifetime = 3.0
+one_shot = true
+explosiveness = 0.17
+process_material = SubResource("ParticleProcessMaterial_as4wj")
+draw_pass_1 = SubResource("PlaneMesh_0uq1h")
+
+[node name="animation_player" type="AnimationPlayer" parent="." unique_id=1147129419]
+libraries/ = SubResource("AnimationLibrary_3814n")
+
+[node name="spot_light_3d2" type="SpotLight3D" parent="." unique_id=2082934837]
+transform = Transform3D(1, -2.9802322e-08, 2.9566717e-17, 7.713409e-09, 0.25881904, 0.9659259, -2.8786832e-08, -0.9659259, 0.25881904, 3.0398369e-06, 3, 1)
+light_color = Color(1, 1, 0.827451, 1)
+light_energy = 3.0
+light_volumetric_fog_energy = 5.0
+spot_range = 10.448122
+spot_angle = 67.19541
+
+[node name="audio_stream_player_3d" type="AudioStreamPlayer3D" parent="." unique_id=392078538]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.3, 0, 0)
+stream = ExtResource("4_c7qiv")
+bus = &"sfx"
+
+[editable path="pack-a-punch_lakamfo"]

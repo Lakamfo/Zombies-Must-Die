@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="BonusDefinition" format=3 uid="uid://ckv44bfsai8m5"]
+
+[ext_resource type="Texture2D" uid="uid://cg78e0f4dilcd" path="res://objects/interactable/pickup/images/nuke.png" id="1_2uv1b"]
+[ext_resource type="Script" uid="uid://cdy0t3gfdm8i1" path="res://classes/bonuses/bonus_definition.gd" id="1_lm4ba"]
+[ext_resource type="ArrayMesh" uid="uid://boelekhr0heyp" path="res://objects/interactable/pickup/models/meshes/pickups_nuke.res" id="2_6itqy"]
+
+[resource]
+script = ExtResource("1_lm4ba")
+id = &"nuke"
+label = "KEY_BONUS_NUKE"
+duration = 1.5
+icon = ExtResource("1_2uv1b")
+mesh = ExtResource("2_6itqy")
+metadata/_custom_type_script = "uid://cdy0t3gfdm8i1"

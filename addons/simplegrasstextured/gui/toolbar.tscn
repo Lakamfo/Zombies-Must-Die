@@ -1,0 +1,301 @@
+[gd_scene format=3 uid="uid://dsim5cbhc6kwm"]
+
+[ext_resource type="Script" uid="uid://usxgr64t746m" path="res://addons/simplegrasstextured/gui/toolbar.gd" id="1_aa1o6"]
+[ext_resource type="Material" uid="uid://c5mtek2re4ahy" path="res://addons/simplegrasstextured/materials/icon.tres" id="2_p7k4b"]
+[ext_resource type="Texture2D" uid="uid://bsmcpupaj02v8" path="res://addons/simplegrasstextured/sgt_icon.svg" id="3_tl64l"]
+[ext_resource type="PackedScene" uid="uid://der2mmxtog2mt" path="res://addons/simplegrasstextured/gui/toolbar_menu.tscn" id="4_1u4kn"]
+[ext_resource type="Texture2D" uid="uid://c2kunxv5wepih" path="res://addons/simplegrasstextured/images/sgt_icon_airbrush.svg" id="4_weijg"]
+[ext_resource type="Texture2D" uid="uid://clm6vd2es8xm7" path="res://addons/simplegrasstextured/images/sgt_icon_radius.svg" id="5_55kgh"]
+[ext_resource type="Texture2D" uid="uid://dtal42g10x1ay" path="res://addons/simplegrasstextured/images/sgt_icon_pen.svg" id="5_itpep"]
+[ext_resource type="Texture2D" uid="uid://bda52g6s88x5d" path="res://addons/simplegrasstextured/images/sgt_icon_arrow_up.svg" id="5_jg7h4"]
+[ext_resource type="Texture2D" uid="uid://brugf6rnck1tk" path="res://addons/simplegrasstextured/images/sgt_icon_eraser.svg" id="6_jg7h4"]
+[ext_resource type="Texture2D" uid="uid://tqiak77omdnr" path="res://addons/simplegrasstextured/images/sgt_icon_density.svg" id="6_wboky"]
+[ext_resource type="Texture2D" uid="uid://24avwtyvf01r" path="res://addons/simplegrasstextured/images/sgt_icon_slope.svg" id="7_4wrj3"]
+[ext_resource type="Texture2D" uid="uid://d28dlfkm62t6e" path="res://addons/simplegrasstextured/images/sgt_icon_distance.svg" id="7_ao3h0"]
+[ext_resource type="PackedScene" uid="uid://r30ih7dtx1uo" path="res://addons/simplegrasstextured/gui/domain_range.tscn" id="8_y7yf0"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_6mh15"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_hc7jq"]
+
+[node name="SGTToolbar" type="HFlowContainer" unique_id=109327931]
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 31.0
+grow_horizontal = 2
+script = ExtResource("1_aa1o6")
+
+[node name="PanelContainer" type="PanelContainer" parent="." unique_id=2100262158]
+custom_minimum_size = Vector2(24, 0)
+layout_mode = 2
+mouse_default_cursor_shape = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_6mh15")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer" unique_id=964833754]
+layout_mode = 2
+mouse_filter = 2
+alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer/VBoxContainer" unique_id=306185988]
+custom_minimum_size = Vector2(24, 0)
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/margin_bottom = 3
+
+[node name="TextureRect" type="TextureRect" parent="PanelContainer/VBoxContainer/MarginContainer" unique_id=1283632166]
+material = ExtResource("2_p7k4b")
+custom_minimum_size = Vector2(24, 0)
+layout_mode = 2
+mouse_filter = 2
+texture = ExtResource("3_tl64l")
+stretch_mode = 3
+
+[node name="LabelVersion" type="Label" parent="PanelContainer" unique_id=707170810]
+unique_name_in_owner = true
+auto_translate_mode = 2
+clip_contents = true
+layout_mode = 2
+size_flags_vertical = 1
+localize_numeral_system = false
+theme_override_font_sizes/font_size = 7
+theme_override_styles/normal = SubResource("StyleBoxEmpty_hc7jq")
+text = "2.0.5"
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="VSeparator" type="VSeparator" parent="." unique_id=601976231]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=1860076581]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="ButtonAirbrush" type="Button" parent="HBoxContainer" unique_id=1497493599]
+unique_name_in_owner = true
+layout_mode = 2
+tooltip_text = "Airdraw tool
+(right button for more options)"
+theme_type_variation = &"FlatButton"
+toggle_mode = true
+icon = ExtResource("4_weijg")
+
+[node name="AirbrushOptions" type="MenuButton" parent="HBoxContainer" unique_id=289266811]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+theme_type_variation = &"FlatMenuButton"
+icon = ExtResource("5_jg7h4")
+flat = false
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="." unique_id=834108873]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="ButtonPencil" type="Button" parent="HBoxContainer2" unique_id=911984950]
+unique_name_in_owner = true
+layout_mode = 2
+tooltip_text = "Pencil tool
+(right button for more options)"
+theme_type_variation = &"FlatButton"
+toggle_mode = true
+icon = ExtResource("5_itpep")
+
+[node name="PencilOptions" type="MenuButton" parent="HBoxContainer2" unique_id=2088239964]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+theme_type_variation = &"FlatMenuButton"
+icon = ExtResource("5_jg7h4")
+flat = false
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="." unique_id=1534341059]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="ButtonEraser" type="Button" parent="HBoxContainer3" unique_id=140844713]
+unique_name_in_owner = true
+layout_mode = 2
+tooltip_text = "Eraser tool
+(right button for more options)"
+theme_type_variation = &"FlatButton"
+toggle_mode = true
+icon = ExtResource("6_jg7h4")
+
+[node name="EraserOptions" type="MenuButton" parent="HBoxContainer3" unique_id=1128471707]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+theme_type_variation = &"FlatMenuButton"
+icon = ExtResource("5_jg7h4")
+flat = false
+
+[node name="ButtonMore" parent="." unique_id=425496203 instance=ExtResource("4_1u4kn")]
+unique_name_in_owner = true
+layout_mode = 2
+theme_type_variation = &"FlatMenuButton"
+flat = false
+switch_on_hover = true
+
+[node name="VSeparator2" type="VSeparator" parent="." unique_id=1040834045]
+layout_mode = 2
+
+[node name="IconRadius" type="Button" parent="." unique_id=166279678]
+unique_name_in_owner = true
+texture_filter = 1
+layout_mode = 2
+tooltip_text = "Radius"
+icon = ExtResource("5_55kgh")
+flat = true
+
+[node name="HSliderRadius" type="HSlider" parent="." unique_id=500378711]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+size_flags_vertical = 1
+tooltip_text = "Radius"
+min_value = 0.1
+max_value = 10.0
+step = 0.1
+value = 1.0
+
+[node name="Label" type="Label" parent="HSliderRadius" unique_id=1018616386]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 2
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Separator" type="Control" parent="." unique_id=1656644365]
+custom_minimum_size = Vector2(15, 0)
+layout_mode = 2
+
+[node name="IconDensity" type="Button" parent="." unique_id=393538138]
+unique_name_in_owner = true
+texture_filter = 1
+layout_mode = 2
+tooltip_text = "Density"
+icon = ExtResource("6_wboky")
+flat = true
+
+[node name="HSliderDensity" type="HSlider" parent="." unique_id=1011750339]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+size_flags_vertical = 1
+tooltip_text = "Density"
+min_value = 1.0
+max_value = 200.0
+value = 1.0
+
+[node name="Label" type="Label" parent="HSliderDensity" unique_id=433660209]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 2
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Separator2" type="Control" parent="." unique_id=1171988811]
+custom_minimum_size = Vector2(15, 0)
+layout_mode = 2
+
+[node name="SlopeCont" type="HBoxContainer" parent="." unique_id=636342438]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="IconSlope" type="Button" parent="SlopeCont" unique_id=1588107911]
+unique_name_in_owner = true
+texture_filter = 1
+layout_mode = 2
+tooltip_text = "Slope"
+icon = ExtResource("7_4wrj3")
+flat = true
+
+[node name="SlopeRange" parent="SlopeCont" unique_id=753189803 instance=ExtResource("8_y7yf0")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="ScaleCont" type="HBoxContainer" parent="." unique_id=933124632]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="IconScale" type="Button" parent="ScaleCont" unique_id=1384459523]
+unique_name_in_owner = true
+texture_filter = 1
+layout_mode = 2
+tooltip_text = "Scale"
+flat = true
+
+[node name="Separator3" type="Control" parent="." unique_id=2010150925]
+custom_minimum_size = Vector2(15, 0)
+layout_mode = 2
+
+[node name="RotationCont" type="HBoxContainer" parent="." unique_id=22499359]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="IconRotation" type="Button" parent="RotationCont" unique_id=1771552649]
+unique_name_in_owner = true
+texture_filter = 1
+layout_mode = 2
+tooltip_text = "Rotation"
+flat = true
+
+[node name="RotationRandCont" type="HBoxContainer" parent="." unique_id=1141419896]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="IconRotationRand" type="Button" parent="RotationRandCont" unique_id=69746472]
+unique_name_in_owner = true
+texture_filter = 1
+layout_mode = 2
+tooltip_text = "Rotation randomizer"
+flat = true
+
+[node name="Separator4" type="Control" parent="." unique_id=1338572850]
+custom_minimum_size = Vector2(15, 0)
+layout_mode = 2
+
+[node name="DistanceCont" type="HBoxContainer" parent="." unique_id=985899305]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="IconDistance" type="Button" parent="DistanceCont" unique_id=459219436]
+unique_name_in_owner = true
+texture_filter = 1
+layout_mode = 2
+tooltip_text = "Minimum distance between grasses"
+icon = ExtResource("7_ao3h0")
+flat = true
+
+[node name="Separator5" type="Control" parent="." unique_id=819343823]
+custom_minimum_size = Vector2(15, 0)
+layout_mode = 2
+
+[node name="LabelStats" type="Label" parent="." unique_id=1749097393]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Count: 0"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="TimerReimportIcons" type="Timer" parent="." unique_id=994675092]
+
+[connection signal="gui_input" from="PanelContainer" to="." method="_on_panel_container_gui_input"]
+[connection signal="pressed" from="IconRadius" to="." method="_on_icon_radius_pressed"]
+[connection signal="value_changed" from="HSliderRadius" to="." method="_on_h_slider_radius_value_changed"]
+[connection signal="pressed" from="IconDensity" to="." method="_on_icon_radius_2_pressed"]
+[connection signal="value_changed" from="HSliderDensity" to="." method="_on_h_slider_density_value_changed"]
+[connection signal="pressed" from="SlopeCont/IconSlope" to="." method="_on_icon_slope_pressed"]
+[connection signal="pressed" from="ScaleCont/IconScale" to="." method="_on_icon_scale_pressed"]
+[connection signal="pressed" from="RotationCont/IconRotation" to="." method="_on_icon_rotation_pressed"]
+[connection signal="pressed" from="RotationRandCont/IconRotationRand" to="." method="_on_icon_rotation_rand_pressed"]
+[connection signal="pressed" from="DistanceCont/IconDistance" to="." method="_on_icon_distance_pressed"]
+[connection signal="timeout" from="TimerReimportIcons" to="." method="_on_timer_reimport_icons_timeout"]

@@ -1,0 +1,13 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://doyi504hq4nd"]
+
+[ext_resource type="Texture2D" uid="uid://bkyym11wo2vdh" path="res://objects/interactable/electricity/model/textures/diffuse.png" id="1_5cgpj"]
+[ext_resource type="Texture2D" uid="uid://6fokwggsnfwt" path="res://objects/interactable/electricity/model/textures/normal.png" id="2_apqoc"]
+
+[resource]
+albedo_texture = ExtResource("1_5cgpj")
+metallic = 0.7
+emission = Color(1, 1, 1, 1)
+emission_operator = 1
+normal_enabled = true
+normal_scale = 2.0
+normal_texture = ExtResource("2_apqoc")

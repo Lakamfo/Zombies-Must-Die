@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://dfatxeh4fv87r"]
+
+[ext_resource type="Script" uid="uid://bydua4odsf7ph" path="res://addons/penetration_system/penetration_system.gd" id="1_66ygx"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_66ygx"]
+
+[node name="penetration_system" type="StaticBody3D" unique_id=1371109524]
+script = ExtResource("1_66ygx")
+_collision_mask = 3
+metadata/_custom_type_script = "uid://bydua4odsf7ph"
+
+[node name="collision_shape_3d" type="CollisionShape3D" parent="." unique_id=99166215]
+shape = SubResource("BoxShape3D_66ygx")
+disabled = true

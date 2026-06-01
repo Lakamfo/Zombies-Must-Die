@@ -1,0 +1,45 @@
+[gd_resource type="Resource" script_class="WeaponStats" format=3 uid="uid://bfrsj8h8yc8dr"]
+
+[ext_resource type="Curve" uid="uid://0jmxmttgqmun" path="res://player/weapon_logic/damage_curve.tres" id="1_qge71"]
+[ext_resource type="Texture2D" uid="uid://c7xcakq5bje75" path="res://player/weapons/in_game/sg552/icon_ao.png" id="2_qge71"]
+[ext_resource type="Script" uid="uid://coggxpmikyxx2" path="res://classes/weapon_stats.gd" id="3_cxfli"]
+[ext_resource type="Resource" uid="uid://bemdhxcg1vade" path="res://player/weapons/in_game/sg552/sg552_stats_upgrade.tres" id="4_v3o1a"]
+
+[resource]
+script = ExtResource("3_cxfli")
+weapon_stats_upgrade = ExtResource("4_v3o1a")
+fire_rate = 550
+fire_distance = 100.0
+bullet_rigid_impact_power = 1.7
+bullet_impact_power = 1.7
+aim_camera_zoom = 1.2
+clip_size = 25
+damage = 36.0
+head_mult = 2.1
+torso_mult = 1.2
+limbs_mult = 0.7
+max_hip_camera_kick = Vector3(4, 3, 2)
+min_hip_camera_kick = Vector3(3, 3, 1)
+max_aim_camera_kick = Vector3(0, 3, 1)
+min_aim_camera_kick = Vector3(2, 2, 1)
+snappinnes = 12
+return_speed = 12
+aim_position = Vector3(-0.132, 0.008, 0)
+aim_rotation = Vector3(0, 0, -8)
+aim_speed = 0.4
+sway_amplitude_in_scope = 0.5
+weapon_recoil_pos_y = 0.02
+shell_type = 2
+min_impulse = Vector3(0.2, 0.3, 0)
+max_impulse = Vector3(0.3, 0.5, -0.3)
+idle_animation = "idle_pose,idle_pose_2"
+aim_idle_animation = "aim_idle"
+take_out_animation = "take_out"
+fire_animation = "shoot_1,shoot_2"
+aim_fire_animation = "shoot_1,shoot_2"
+tactical_reload_animation = "reload_fast"
+reload_animation = "reload_long"
+inspect_with_ammo = "inspect_animation"
+inspect_without_ammo = "inspect_animation"
+pitch_min = 1.0
+icon = ExtResource("2_qge71")

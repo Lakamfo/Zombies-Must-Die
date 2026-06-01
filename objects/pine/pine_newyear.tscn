@@ -1,0 +1,222 @@
+[gd_scene load_steps=10 format=3 uid="uid://hllbgvb6u1ck"]
+
+[ext_resource type="PackedScene" uid="uid://cj5rakh75ojsb" path="res://objects/pine/pine.blend" id="1_h44je"]
+[ext_resource type="PackedScene" uid="uid://dkxe4voxd6bta" path="res://objects/christmas_hat/christmas_hat.blend" id="2_s5oxy"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jv8hk"]
+albedo_color = Color(1, 0, 0, 1)
+emission_enabled = true
+emission = Color(1, 0, 0, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0umjk"]
+albedo_color = Color(0, 1, 0, 1)
+emission_enabled = true
+emission = Color(0, 1, 0, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_t4qu5"]
+albedo_color = Color(0, 0, 1, 1)
+emission_enabled = true
+emission = Color(0, 0, 1, 1)
+
+[sub_resource type="Animation" id="Animation_o6o7x"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("red:material_override:emission_energy_multiplier")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("green:material_override:emission_energy_multiplier")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("blue:material_override:emission_energy_multiplier")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.0]
+}
+
+[sub_resource type="Animation" id="Animation_4vh1r"]
+resource_name = "blink"
+length = 0.9
+loop_mode = 1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("red:material_override:emission_energy_multiplier")
+tracks/0/interp = 0
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [1.0, 0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("green:material_override:emission_energy_multiplier")
+tracks/1/interp = 0
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, 1.0, 0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("blue:material_override:emission_energy_multiplier")
+tracks/2/interp = 0
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.7),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
+
+[sub_resource type="Animation" id="Animation_dj2hc"]
+resource_name = "fade"
+length = 5.0
+loop_mode = 1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("blue:material_override:emission_energy_multiplier")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2.5, 5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [1.0, 0.0, 1.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("green:material_override:emission_energy_multiplier")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 2.5, 5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [1.0, 0.0, 1.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("red:material_override:emission_energy_multiplier")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 2.5, 5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [1.0, 0.0, 1.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_kpou5"]
+_data = {
+"RESET": SubResource("Animation_o6o7x"),
+"blink": SubResource("Animation_4vh1r"),
+"fade": SubResource("Animation_dj2hc")
+}
+
+[node name="pine_newyear" type="Node3D"]
+
+[node name="pine" parent="." instance=ExtResource("1_h44je")]
+
+[node name="christmas_hat" parent="." instance=ExtResource("2_s5oxy")]
+transform = Transform3D(4, 0, 0, 0, 3.50637, -1.92493, 0, 1.92493, 3.50637, 0, 7.30428, 0)
+
+[node name="red" type="CSGCombiner3D" parent="."]
+material_override = SubResource("StandardMaterial3D_jv8hk")
+
+[node name="csg_sphere_3d" type="CSGSphere3D" parent="red"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.973388, 1.68003, 2.5413)
+radius = 0.353582
+radial_segments = 6
+
+[node name="csg_sphere_3d5" type="CSGSphere3D" parent="red"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.27442, 4.64421, -0.478077)
+radius = 0.353582
+radial_segments = 6
+
+[node name="csg_sphere_3d6" type="CSGSphere3D" parent="red"]
+transform = Transform3D(0.999846, 0, 0.0175746, 0, 1, 0, -0.0175746, 0, 0.999846, 0.905818, 4.64421, -1.61678)
+radius = 0.353582
+radial_segments = 6
+
+[node name="green" type="CSGCombiner3D" parent="."]
+material_override = SubResource("StandardMaterial3D_0umjk")
+
+[node name="csg_sphere_3d6" type="CSGSphere3D" parent="green"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.881675, 1.70687, -2.38268)
+radius = 0.353582
+radial_segments = 6
+
+[node name="csg_sphere_3d7" type="CSGSphere3D" parent="green"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.02293, 1.43365, -2.38268)
+radius = 0.353582
+radial_segments = 6
+
+[node name="csg_sphere_3d8" type="CSGSphere3D" parent="green"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.928151, 6.77714, 0.00986886)
+radius = 0.353582
+radial_segments = 6
+
+[node name="csg_sphere_3d9" type="CSGSphere3D" parent="green"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.47625, 2.89745, 1.78914)
+radius = 0.353582
+radial_segments = 6
+
+[node name="blue" type="CSGCombiner3D" parent="."]
+material_override = SubResource("StandardMaterial3D_t4qu5")
+
+[node name="csg_sphere_3d2" type="CSGSphere3D" parent="blue"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.16479, 3.94532, 0.0932832)
+radius = 0.353582
+radial_segments = 6
+
+[node name="csg_sphere_3d3" type="CSGSphere3D" parent="blue"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0262313, 3.94532, 1.96582)
+radius = 0.353582
+radial_segments = 6
+
+[node name="csg_sphere_3d4" type="CSGSphere3D" parent="blue"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.28944, 1.86275, -0.312024)
+radius = 0.353582
+radial_segments = 6
+
+[node name="animation_player" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_kpou5")
+}
+autoplay = "blink"
+next/fade = &"blink"

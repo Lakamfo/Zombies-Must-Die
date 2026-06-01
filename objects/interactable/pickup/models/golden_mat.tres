@@ -1,0 +1,9 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://bu6mlc4bq7i15"]
+
+[resource]
+resource_name = "golden_mat"
+cull_mode = 2
+albedo_color = Color(1, 0.92941236, 0, 1)
+metallic = 1.0
+roughness = 0.2
+stencil_flags = 2

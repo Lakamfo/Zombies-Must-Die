@@ -1,0 +1,100 @@
+[gd_scene load_steps=17 format=3 uid="uid://dgrkgdgji6o63"]
+
+[ext_resource type="Script" uid="uid://civxxgfkdlwyc" path="res://objects/interactable/barrier/barier.gd" id="1_r1o5k"]
+[ext_resource type="AudioStream" uid="uid://bm81e0tl1neu3" path="res://objects/interactable/barrier/barier_sounds/barier_sound_1.wav" id="2_av8ei"]
+[ext_resource type="Material" uid="uid://bbtk6rw1cxiae" path="res://textures/woodplanks_material.tres" id="2_bijvl"]
+[ext_resource type="AudioStream" uid="uid://cepmd6dcgokd6" path="res://objects/interactable/barrier/barier_sounds/barier_sound_2.wav" id="3_to564"]
+[ext_resource type="AudioStream" uid="uid://unmxnx8af5dq" path="res://objects/interactable/barrier/barier_sounds/barier_sound_3.wav" id="4_kb2uv"]
+[ext_resource type="AudioStream" uid="uid://cftpmrtumyo76" path="res://objects/interactable/barrier/barier_sounds/full_repair.wav" id="5_jxg71"]
+[ext_resource type="AudioStream" uid="uid://6420kerw7da1" path="res://objects/interactable/barrier/barier_sounds/wood_breaks_sound/wood_break1.wav" id="6_k8h7d"]
+[ext_resource type="AudioStream" uid="uid://c22dqw5ucxehq" path="res://objects/interactable/barrier/barier_sounds/wood_breaks_sound/wood_break2.wav" id="7_strcj"]
+[ext_resource type="AudioStream" uid="uid://duqd264htjmqm" path="res://objects/interactable/barrier/barier_sounds/wood_breaks_sound/wood_break3.wav" id="8_wie7w"]
+[ext_resource type="AudioStream" uid="uid://srwhadbkklte" path="res://objects/interactable/barrier/barier_sounds/wood_breaks_sound/wood_break4.wav" id="9_3a144"]
+[ext_resource type="AudioStream" uid="uid://bd8rijrt2m1qg" path="res://objects/interactable/barrier/barier_sounds/wooden_box_breaks.wav" id="10_0wofd"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_6hmer"]
+size = Vector3(1.5376, 2.05774, 0.20166)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_83spi"]
+size = Vector3(1.3056, 2, 2)
+
+[sub_resource type="BoxMesh" id="BoxMesh_g0854"]
+size = Vector3(2, 0.2, 0.1)
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_44qf3"]
+streams_count = 3
+stream_0/stream = ExtResource("2_av8ei")
+stream_1/stream = ExtResource("3_to564")
+stream_2/stream = ExtResource("4_kb2uv")
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_dm5ed"]
+streams_count = 4
+stream_0/stream = ExtResource("6_k8h7d")
+stream_1/stream = ExtResource("7_strcj")
+stream_2/stream = ExtResource("8_wie7w")
+stream_3/stream = ExtResource("9_3a144")
+
+[node name="barier" type="StaticBody3D"]
+collision_layer = 28
+collision_mask = 0
+script = ExtResource("1_r1o5k")
+treshold_between_repairs = 1.0
+_area = NodePath("area_3d")
+_visuals_meshs_parent = NodePath("visuals")
+interactable_text = "KEY_OBJECT_BARIER_HINT"
+hold_to_interact = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(0.999942, -0.0107545, 0, 0.0107545, 0.999942, 0, 0, 0, 1, -0.065882, -0.0805609, -0.0329195)
+shape = SubResource("BoxShape3D_6hmer")
+
+[node name="area_3d" type="Area3D" parent="."]
+collision_layer = 5
+collision_mask = 5
+
+[node name="collision_shape_3d" type="CollisionShape3D" parent="area_3d"]
+shape = SubResource("BoxShape3D_83spi")
+
+[node name="visuals" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.5)
+
+[node name="mesh_instance_3d" type="MeshInstance3D" parent="visuals"]
+transform = Transform3D(0.982883, -0.184229, 0, 0.184229, 0.982883, 0, 0, 0, 1, -0.0750859, -0.60956, 0.47056)
+mesh = SubResource("BoxMesh_g0854")
+skeleton = NodePath("../..")
+surface_material_override/0 = ExtResource("2_bijvl")
+
+[node name="mesh_instance_3d2" type="MeshInstance3D" parent="visuals"]
+transform = Transform3D(-0.877073, 0.47557, -0.0676523, -0.479293, -0.875778, 0.0573707, -0.0319646, 0.0827435, 0.996058, -0.0750859, -0.184998, 0.466899)
+material_override = ExtResource("2_bijvl")
+mesh = SubResource("BoxMesh_g0854")
+skeleton = NodePath("../..")
+
+[node name="mesh_instance_3d3" type="MeshInstance3D" parent="visuals"]
+transform = Transform3D(0.904182, 0.41647, -0.0949145, -0.418359, 0.908282, 0, 0.0862092, 0.0397083, 0.995485, -0.0787418, 0.249248, 0.494086)
+material_override = ExtResource("2_bijvl")
+mesh = SubResource("BoxMesh_g0854")
+skeleton = NodePath("../..")
+
+[node name="mesh_instance_3d4" type="MeshInstance3D" parent="visuals"]
+transform = Transform3D(-0.87689, 0.47701, 0.0593743, -0.477853, -0.87844, 1.11022e-16, 0.0521568, -0.0283722, 0.998236, -0.0750859, 0.252211, 0.47056)
+material_override = ExtResource("2_bijvl")
+mesh = SubResource("BoxMesh_g0854")
+skeleton = NodePath("../..")
+
+[node name="repair_sound" type="AudioStreamPlayer3D" parent="."]
+stream = SubResource("AudioStreamRandomizer_44qf3")
+
+[node name="full_repair_sound" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("5_jxg71")
+
+[node name="breaking_sound" type="AudioStreamPlayer3D" parent="."]
+stream = SubResource("AudioStreamRandomizer_dm5ed")
+volume_db = -5.0
+max_db = -8.0
+max_distance = 10.0
+
+[node name="full_broken_sound" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("10_0wofd")
+volume_db = -5.0
+max_distance = 15.0

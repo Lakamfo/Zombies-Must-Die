@@ -1,0 +1,287 @@
+[gd_scene format=3 uid="uid://dfcyybfgwscak"]
+
+[ext_resource type="Script" uid="uid://xaq33wfcalvr" path="res://classes/class_environment.gd" id="1_skiyp"]
+[ext_resource type="Texture2D" uid="uid://v3er25ywp5it" path="res://addons/kenney_prototype_textures/light/texture_07.png" id="2_kxxxw"]
+[ext_resource type="PackedScene" uid="uid://i21n6eshktur" path="res://player/player.tscn" id="4_xnjft"]
+[ext_resource type="Script" uid="uid://dx2ib7tyfuotp" path="res://classes/wave_logic/wave_logic.gd" id="5_m54xi"]
+[ext_resource type="PackedScene" uid="uid://dnlumh0dr5l6j" path="res://objects/interactable/mystery_box/mystery_box.tscn" id="7_74jq1"]
+[ext_resource type="Script" uid="uid://bsxdq6ld6wkj6" path="res://objects/interactable/electric_trap/electric_trap.gd" id="7_mq81i"]
+[ext_resource type="PackedScene" uid="uid://dgrkgdgji6o63" path="res://objects/interactable/barrier/barier.tscn" id="8_htepa"]
+[ext_resource type="Script" uid="uid://4h6rilt22i0l" path="res://objects/interactable/electric_trap/trap_activator.gd" id="8_scxnc"]
+[ext_resource type="PackedScene" uid="uid://dto7by2l8v1u6" path="res://objects/interactable/electricity/electricity_switch.tscn" id="9_gednd"]
+[ext_resource type="PackedScene" uid="uid://bshjml8ep3vf6" path="res://objects/interactable/pickup/pickup.tscn" id="10_xds3k"]
+[ext_resource type="PackedScene" uid="uid://co0v6at1i6dhk" path="res://objects/interactable/electric_trap/trap_activator/scripted_model.tscn" id="11_pw8vl"]
+[ext_resource type="PackedScene" uid="uid://dv01ocj4bq6vh" path="res://objects/interactable/vending_machine/vending_machine.tscn" id="12_a7qcj"]
+[ext_resource type="PackedScene" uid="uid://dvw4rxql2tkb6" path="res://objects/interactable/weapon_upgrader/weapon_upgrader.tscn" id="13_brlfp"]
+[ext_resource type="PackedScene" uid="uid://ole3dr4p1g0x" path="res://objects/interactable/weapon_buy/weapon_buy.tscn" id="14_kgeju"]
+[ext_resource type="PackedScene" uid="uid://dqow3dyd4qrgh" path="res://player/weapons/bullet_hole/bullet_hole.tscn" id="15_fckxe"]
+[ext_resource type="PackedScene" uid="uid://c3so6sm871kk4" path="res://map/dungeon/objects/door/door.blend" id="16_cs8a0"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_r7r5s"]
+sky_top_color = Color(0.909804, 0.901961, 0.898039, 1)
+sky_horizon_color = Color(0.909804, 0.901961, 0.898039, 1)
+sky_cover_modulate = Color(0.909804, 0.901961, 0.898039, 1)
+ground_bottom_color = Color(0.909804, 0.901961, 0.898039, 1)
+ground_horizon_color = Color(0.909804, 0.901961, 0.898039, 1)
+
+[sub_resource type="Sky" id="Sky_08ioy"]
+sky_material = SubResource("ProceduralSkyMaterial_r7r5s")
+
+[sub_resource type="Environment" id="Environment_ghn5q"]
+background_mode = 2
+background_color = Color(0.745098, 0.745098, 0.745098, 1)
+sky = SubResource("Sky_08ioy")
+
+[sub_resource type="NavigationMesh" id="NavigationMesh_sjd51"]
+vertices = PackedVector3Array(1.25, 1, -2.5, 2.25, 1, -2.75, 2.25, 1, -8.25, -1.25, 1, -8.25, -1.25, 1, -2.75, 0, 1, -2.5, -0.5, 1, -1, 1.25, 1, -1.25, 7.25, 1, -1.25, -5.25, 1, 10.25, 7.25, 1, 10.25, -5.25, 1, -1.25, -1.25, 4, -2.25, -1.25, 4, -1.75, -0.75, 4, -1.75, -0.75, 4, -2.25, 1.75, 4, -2.25, 1.75, 4, -1.75, 2.25, 4, -1.75, 2.25, 4, -2.25)
+polygons = [PackedInt32Array(0, 5, 1), PackedInt32Array(1, 5, 4), PackedInt32Array(1, 4, 3), PackedInt32Array(1, 3, 2), PackedInt32Array(0, 7, 5), PackedInt32Array(5, 7, 6), PackedInt32Array(7, 8, 6), PackedInt32Array(6, 8, 10), PackedInt32Array(6, 10, 9), PackedInt32Array(9, 11, 6), PackedInt32Array(15, 14, 12), PackedInt32Array(12, 14, 13), PackedInt32Array(19, 18, 16), PackedInt32Array(16, 18, 17)]
+agent_height = 1.75
+agent_radius = 0.25
+agent_max_climb = 0.5
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_f26xq"]
+resource_name = "CONCRETE"
+albedo_texture = ExtResource("2_kxxxw")
+uv1_triplanar = true
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_uwdm1"]
+size = Vector3(11, 0.205078, 6.7)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_psde2"]
+size = Vector3(0.81311, 1.07031, 0.340332)
+
+[node name="white_box_map" type="Node3D" unique_id=107997476]
+
+[node name="game_environment" type="WorldEnvironment" parent="." unique_id=775898033]
+environment = SubResource("Environment_ghn5q")
+script = ExtResource("1_skiyp")
+
+[node name="navigation_region_3d" type="NavigationRegion3D" parent="." unique_id=1310787577]
+navigation_mesh = SubResource("NavigationMesh_sjd51")
+
+[node name="navigation_link_3d" type="NavigationLink3D" parent="navigation_region_3d" unique_id=971227733]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.192463, 0, -3.26795)
+start_position = Vector3(0.198766, 1.13785, 1.41988)
+
+[node name="csg_combiner_3d" type="CSGCombiner3D" parent="navigation_region_3d" unique_id=999046291]
+material_override = SubResource("StandardMaterial3D_f26xq")
+use_collision = true
+
+[node name="csg_box_3d" type="CSGBox3D" parent="navigation_region_3d/csg_combiner_3d" unique_id=1432831545]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 4.5)
+use_collision = true
+size = Vector3(13, 1, 12)
+
+[node name="csg_box_3d2" type="CSGBox3D" parent="navigation_region_3d/csg_combiner_3d" unique_id=936625306]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, -5)
+use_collision = true
+size = Vector3(4, 1, 7)
+
+[node name="csg_box_3d3" type="CSGBox3D" parent="navigation_region_3d/csg_combiner_3d" unique_id=41170433]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 2, -2)
+use_collision = true
+size = Vector3(1, 3, 1)
+
+[node name="csg_box_3d4" type="CSGBox3D" parent="navigation_region_3d/csg_combiner_3d" unique_id=2044154953]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 2, -2)
+use_collision = true
+size = Vector3(1, 3, 1)
+
+[node name="csg_box_3d5" type="CSGBox3D" parent="navigation_region_3d/csg_combiner_3d" unique_id=1987443410]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 2, 5)
+use_collision = true
+size = Vector3(3, 3, 1)
+
+[node name="csg_box_3d6" type="CSGBox3D" parent="navigation_region_3d/csg_combiner_3d" unique_id=530933916]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.932951, 4, 0)
+use_collision = true
+size = Vector3(3, 3, 1)
+
+[node name="csg_box_3d7" type="CSGBox3D" parent="navigation_region_3d/csg_combiner_3d" unique_id=95550654]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.932951, 3, 8)
+use_collision = true
+size = Vector3(3, 3, 1)
+
+[node name="csg_box_3d8" type="CSGBox3D" parent="navigation_region_3d/csg_combiner_3d" unique_id=1250287985]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -27.932951, 2.5, 4)
+use_collision = true
+size = Vector3(3, 2, 3)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=833494822]
+transform = Transform3D(-0.866025, -0.433013, 0.25, 0, 0.5, 0.866025, -0.5, 0.75, -0.433013, 0, 4, 0)
+visible = false
+light_energy = 0.517
+shadow_enabled = true
+
+[node name="player" parent="." unique_id=522346961 instance=ExtResource("4_xnjft")]
+transform = Transform3D(0, 0, 1.0000001, 0, 1, 0, -1.0000001, 0, 0, 0, 1.5, 8)
+score = 123066
+step_max_height = 0.7
+ray_distant = 0.55
+
+[node name="wave_logic" type="Node" parent="." unique_id=1780606574]
+script = ExtResource("5_m54xi")
+spawn_positions = Array[NodePath]([NodePath("../marker_3d"), NodePath("../marker_3d2"), NodePath("../marker_3d3")])
+
+[node name="marker_3d" type="Marker3D" parent="." unique_id=1643166505]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 1.8, -3.5)
+
+[node name="marker_3d2" type="Marker3D" parent="." unique_id=618218799]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.07664, 1.17772, 0.984092)
+
+[node name="marker_3d3" type="Marker3D" parent="." unique_id=1772857513]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.92336, 1.17772, 0.984092)
+
+[node name="mystery_box" parent="." unique_id=1928684429 instance=ExtResource("7_74jq1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.500649, 0.74999, 4.50119)
+
+[node name="barier" parent="." unique_id=764737897 instance=ExtResource("8_htepa")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.552301, 2.08627, -1.94409)
+
+[node name="area_3d" type="Area3D" parent="." unique_id=1292176753]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.2, 0)
+collision_layer = 5
+collision_mask = 5
+script = ExtResource("7_mq81i")
+
+[node name="collision_shape_3d" type="CollisionShape3D" parent="area_3d" unique_id=668923379]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.397461, 2.15)
+shape = SubResource("BoxShape3D_uwdm1")
+
+[node name="trap_activator" type="StaticBody3D" parent="." unique_id=1674491360 node_paths=PackedStringArray("electric_trap")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.94268, 1.84677, -1.15124)
+collision_layer = 9
+collision_mask = 9
+script = ExtResource("8_scxnc")
+price = 100
+electric_trap = NodePath("../area_3d")
+
+[node name="Sketchfab_Scene" parent="trap_activator" unique_id=391993074 node_paths=PackedStringArray("trap_activator") instance=ExtResource("11_pw8vl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0564234, -0.116895, -0.348757)
+trap_activator = NodePath("..")
+
+[node name="collision_shape_3d" type="CollisionShape3D" parent="trap_activator" unique_id=1585273724]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0656128, -0.0351563, -0.329834)
+shape = SubResource("BoxShape3D_psde2")
+
+[node name="electricity_switch" parent="." unique_id=1965371132 instance=ExtResource("9_gednd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.81368, 1.51082, -0.782534)
+
+[node name="pickup" parent="." unique_id=481315533 instance=ExtResource("10_xds3k")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -4.23858, 1.01935, 9.43224)
+
+[node name="pickup2" parent="." unique_id=806646701 instance=ExtResource("10_xds3k")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -4.23858, 1.01935, 8.43224)
+
+[node name="pickup3" parent="." unique_id=802946016 instance=ExtResource("10_xds3k")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -4.23858, 1.01935, 7.4322395)
+
+[node name="pickup4" parent="." unique_id=559852550 instance=ExtResource("10_xds3k")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -4.23858, 1.01935, 6.4322395)
+
+[node name="pickup5" parent="." unique_id=1161745197 instance=ExtResource("10_xds3k")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -4.23858, 1.01935, 5.4322395)
+
+[node name="wending_machine" parent="." unique_id=147587174 instance=ExtResource("12_a7qcj")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 5.85346, 1.581, 4.91665)
+
+[node name="wending_machine2" parent="." unique_id=1014783722 instance=ExtResource("12_a7qcj")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 5.85346, 1.581, 3.26219)
+bonus_id = &"double_tap"
+
+[node name="wending_machine3" parent="." unique_id=1720822161 instance=ExtResource("12_a7qcj")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 5.85346, 1.581, 1.91665)
+bonus_id = &"juggernog"
+
+[node name="wending_machine4" parent="." unique_id=2071817694 instance=ExtResource("12_a7qcj")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 5.85346, 1.581, 0.416647)
+bonus_id = &"speed_cola"
+
+[node name="weapon_upgrader" parent="." unique_id=880729903 instance=ExtResource("13_brlfp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.9137, 1, 1.61473)
+
+[node name="bullet_hole" parent="." unique_id=539382943 instance=ExtResource("15_fckxe")]
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, -1.50153, 2.51543, -1.84254)
+
+[node name="door2" parent="." unique_id=1444408380 instance=ExtResource("16_cs8a0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.8581, 1.84582, 9.44965)
+
+[node name="WeaponBuy" parent="." unique_id=2109553170 instance=ExtResource("14_kgeju")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.7034903, 0.80909, -1.49714)
+weapon_for_sell = 1
+weapon_id_list = {
+"FSP45": 1,
+"M4A1": 2,
+"M680": 3,
+"MK14": 4,
+"MP5SD": 0,
+"REVOLVER_6": 5,
+"SG552": 6
+}
+
+[node name="WeaponBuy2" parent="." unique_id=1212304435 instance=ExtResource("14_kgeju")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.1034904, 0.80909, -1.49714)
+weapon_for_sell = 2
+weapon_id_list = {
+"FSP45": 1,
+"M4A1": 2,
+"M680": 3,
+"MK14": 4,
+"MP5SD": 0,
+"REVOLVER_6": 5,
+"SG552": 6
+}
+
+[node name="WeaponBuy3" parent="." unique_id=1932188075 instance=ExtResource("14_kgeju")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.7034903, 1.40909, -1.49714)
+weapon_for_sell = 3
+weapon_id_list = {
+"FSP45": 1,
+"M4A1": 2,
+"M680": 3,
+"MK14": 4,
+"MP5SD": 0,
+"REVOLVER_6": 5,
+"SG552": 6
+}
+
+[node name="WeaponBuy4" parent="." unique_id=503468711 instance=ExtResource("14_kgeju")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.1034904, 1.40909, -1.49714)
+weapon_for_sell = 4
+weapon_id_list = {
+"FSP45": 1,
+"M4A1": 2,
+"M680": 3,
+"MK14": 4,
+"MP5SD": 0,
+"REVOLVER_6": 5,
+"SG552": 6
+}
+
+[node name="WeaponBuy5" parent="." unique_id=286384389 instance=ExtResource("14_kgeju")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.7034903, 2.00909, -1.49714)
+weapon_for_sell = 5
+weapon_id_list = {
+"FSP45": 1,
+"M4A1": 2,
+"M680": 3,
+"MK14": 4,
+"MP5SD": 0,
+"REVOLVER_6": 5,
+"SG552": 6
+}
+
+[node name="WeaponBuy6" parent="." unique_id=99774882 instance=ExtResource("14_kgeju")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.1034904, 2.00909, -1.49714)
+weapon_for_sell = 6
+weapon_id_list = {
+"FSP45": 1,
+"M4A1": 2,
+"M680": 3,
+"MK14": 4,
+"MP5SD": 0,
+"REVOLVER_6": 5,
+"SG552": 6
+}
+
+[node name="reflection_probe" type="ReflectionProbe" parent="." unique_id=77164018]

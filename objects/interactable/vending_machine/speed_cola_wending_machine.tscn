@@ -1,0 +1,57 @@
+[gd_scene load_steps=6 format=3 uid="uid://dh24ibk5y4usu"]
+
+[ext_resource type="Texture2D" uid="uid://cwh0k2v05pb03" path="res://textures/other/double_tap_placeholder.png" id="2_vqyfq"]
+
+[sub_resource type="GDScript" id="GDScript_giq3e"]
+script/source = "extends InteractableItems
+
+@onready var mesh_instance_3d: MeshInstance3D = $mesh_instance_3d
+@export var price : int = 500
+
+var is_buyed : bool = false
+
+func _ready():
+	interactable_text = interactable_text %[interact_key.to_upper(), price]
+	
+	await get_tree().physics_frame
+
+func action():
+	if enabled and not is_buyed:
+		var player = Global.player 
+		if player.score >= price:
+			
+			EventBus.bonus_speed.emit()
+			EventBus.emit_signal(\"add_score\",\"Speed Cola (Haste)\", -price)
+			
+			interactable_text = \"Already buyed! (Speed Cola)\"
+			
+			is_buyed = true
+"
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ot0yx"]
+size = Vector3(1.9, 2.3, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_i1bdt"]
+transparency = 1
+albedo_texture = ExtResource("2_vqyfq")
+uv1_scale = Vector3(0.25, 0.35, 0.3284)
+uv1_offset = Vector3(0.5, 0.5, -0.0052)
+uv1_triplanar = true
+
+[sub_resource type="BoxMesh" id="BoxMesh_d48i2"]
+material = SubResource("StandardMaterial3D_i1bdt")
+size = Vector3(2.5, 3, 1)
+
+[node name="wending_machine" type="StaticBody3D"]
+collision_layer = 9
+collision_mask = 9
+script = SubResource("GDScript_giq3e")
+metadata/material = "METAL"
+
+[node name="collision_shape_3d" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.96046e-08, 0.0499998, 0)
+shape = SubResource("BoxShape3D_ot0yx")
+
+[node name="mesh_instance_3d" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.75, 0, 0, 0, 0.75, 0, 0, 0, 0.75, 0, 0, 0)
+mesh = SubResource("BoxMesh_d48i2")

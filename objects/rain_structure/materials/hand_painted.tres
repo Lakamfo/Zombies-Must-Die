@@ -1,0 +1,14 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://b3l7ubqs7co48"]
+
+[ext_resource type="Texture2D" uid="uid://cu8rv2kr564j6" path="res://objects/rain_structure/textures/Gradient Pallete.png" id="1_k4dul"]
+[ext_resource type="Texture2D" uid="uid://c7ssbek1oe5kj" path="res://objects/rain_structure/textures/roughness_map.png" id="2_epbff"]
+
+[resource]
+resource_name = "hand_painted"
+cull_mode = 2
+albedo_texture = ExtResource("1_k4dul")
+metallic = 1.0
+metallic_texture = ExtResource("2_epbff")
+metallic_texture_channel = 2
+roughness_texture = ExtResource("2_epbff")
+roughness_texture_channel = 1

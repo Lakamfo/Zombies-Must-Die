@@ -1,0 +1,91 @@
+[gd_scene format=3 uid="uid://c5mogkio0hycl"]
+
+[node name="record_container" type="Button"]
+custom_minimum_size = Vector2(0, 28)
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 8.0
+grow_horizontal = 2
+focus_mode = 0
+
+[node name="margin_container" type="MarginContainer" parent="."]
+custom_minimum_size = Vector2(0, 28)
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 26.0
+offset_right = -26.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="h_box_container" type="HBoxContainer" parent="margin_container"]
+layout_mode = 2
+alignment = 1
+
+[node name="username" type="Label" parent="margin_container/h_box_container"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+mouse_filter = 1
+text = "KEY_LEADEARBOARD_NICKNAME"
+horizontal_alignment = 1
+vertical_alignment = 1
+text_overrun_behavior = 1
+
+[node name="spacer" type="Control" parent="margin_container/h_box_container"]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 1
+
+[node name="score" type="Label" parent="margin_container/h_box_container"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+mouse_filter = 1
+text = "KEY_LEADEARBOARD_SCORE"
+horizontal_alignment = 1
+vertical_alignment = 1
+text_overrun_behavior = 1
+
+[node name="wave" type="Label" parent="margin_container/h_box_container"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+mouse_filter = 1
+text = "KEY_LEADEARBOARD_WAVE"
+horizontal_alignment = 1
+vertical_alignment = 1
+text_overrun_behavior = 1
+
+[node name="location" type="Label" parent="margin_container/h_box_container"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+mouse_filter = 1
+text = "KEY_LEADEARBOARD_LOCATION"
+horizontal_alignment = 1
+vertical_alignment = 1
+text_overrun_behavior = 1
+
+[node name="duration" type="Label" parent="margin_container/h_box_container"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+mouse_filter = 1
+text = "KEY_LEADEARBOARD_DURATION"
+horizontal_alignment = 1
+vertical_alignment = 1
+text_overrun_behavior = 1
+
+[node name="date" type="Label" parent="margin_container/h_box_container"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+mouse_filter = 1
+text = "KEY_LEADEARBOARD_DATE"
+horizontal_alignment = 1
+vertical_alignment = 1
+text_overrun_behavior = 1

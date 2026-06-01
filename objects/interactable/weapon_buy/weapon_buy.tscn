@@ -1,0 +1,242 @@
+[gd_scene load_steps=23 format=3 uid="uid://ole3dr4p1g0x"]
+
+[ext_resource type="Script" uid="uid://mx5yn3n3vt8f" path="res://objects/interactable/weapon_buy/weapon_buy.gd" id="1_efkc1"]
+[ext_resource type="AudioStream" uid="uid://csn1ccgj40sx0" path="res://objects/interactable/sounds/buy_sound.wav" id="3_ccoo4"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_0je2l"]
+size = Vector3(0.489258, 0.99856, 1.59766)
+
+[sub_resource type="VisualShaderNodeVectorOp" id="VisualShaderNodeVectorOp_2pcnr"]
+operator = 2
+
+[sub_resource type="VisualShaderNodeInput" id="VisualShaderNodeInput_55qmn"]
+input_name = "time"
+
+[sub_resource type="VisualShaderNodeFloatFunc" id="VisualShaderNodeFloatFunc_3n6g6"]
+function = 1
+
+[sub_resource type="VisualShaderNodeFloatOp" id="VisualShaderNodeFloatOp_ialxm"]
+operator = 6
+
+[sub_resource type="VisualShaderNodeFloatParameter" id="VisualShaderNodeFloatParameter_ywisk"]
+parameter_name = "flash_speed"
+hint = 1
+max = 2.0
+default_value_enabled = true
+default_value = 1.0
+
+[sub_resource type="VisualShaderNodeFloatOp" id="VisualShaderNodeFloatOp_jjsc7"]
+operator = 2
+
+[sub_resource type="VisualShaderNodeTexture2DParameter" id="VisualShaderNodeTexture2DParameter_bshl5"]
+parameter_name = "icon"
+
+[sub_resource type="VisualShaderNodeExpression" id="VisualShaderNodeExpression_cec21"]
+size = Vector2(472, 220)
+expression = "alpha = decompose_alpha.w;"
+
+[sub_resource type="VisualShaderNodeInput" id="VisualShaderNodeInput_8rda2"]
+input_name = "uv"
+
+[sub_resource type="VisualShaderNodeFloatOp" id="VisualShaderNodeFloatOp_gktri"]
+operator = 2
+
+[sub_resource type="VisualShaderNodeRotationByAxis" id="VisualShaderNodeRotationByAxis_gjv0b"]
+default_input_values = [0, Vector3(0, 0, 0), 1, 0.0, 2, Vector3(0, 0, 1)]
+
+[sub_resource type="VisualShaderNodeFloatFunc" id="VisualShaderNodeFloatFunc_yl3d8"]
+
+[sub_resource type="VisualShaderNodeFloatOp" id="VisualShaderNodeFloatOp_iotj0"]
+operator = 2
+
+[sub_resource type="VisualShaderNodeFloatParameter" id="VisualShaderNodeFloatParameter_fuq0t"]
+parameter_name = "flash_angle"
+hint = 1
+min = -5.0
+max = 5.0
+default_value_enabled = true
+default_value = 5.0
+
+[sub_resource type="VisualShaderNodeVec3Parameter" id="VisualShaderNodeVec3Parameter_kjpfx"]
+parameter_name = "flash_direction"
+default_value_enabled = true
+default_value = Vector3(0, 0, 1)
+
+[sub_resource type="VisualShaderNodeTexture" id="VisualShaderNodeTexture_7xjj6"]
+source = 5
+
+[sub_resource type="VisualShader" id="VisualShader_44a2j"]
+code = "shader_type spatial;
+render_mode blend_mix, depth_draw_opaque, cull_disabled, diffuse_lambert, specular_disabled;
+
+uniform sampler2D icon;
+uniform float flash_speed : hint_range(0.0, 2.0) = 1.0;
+uniform float flash_angle : hint_range(-5.0, 5.0) = 5.0;
+uniform vec3 flash_direction = vec3(0.000000, 0.000000, 1.000000);
+
+
+
+void fragment() {
+	vec4 n_out35p0;
+// Texture2D:35
+	n_out35p0 = texture(icon, UV);
+
+
+	float n_out25p0;
+// Expression:25
+	n_out25p0 = 0.0;
+	{
+		n_out25p0 = n_out35p0.w;
+	}
+
+
+// Input:15
+	float n_out15p0 = TIME;
+
+
+// FloatParameter:20
+	float n_out20p0 = flash_speed;
+
+
+// FloatOp:22
+	float n_out22p0 = n_out15p0 * n_out20p0;
+
+
+// FloatFunc:17
+	float n_out17p0 = cos(n_out22p0);
+
+
+// FloatOp:19
+	float n_in19p1 = 0.00000;
+	float n_out19p0 = max(n_out17p0, n_in19p1);
+
+
+// Input:26
+	vec2 n_out26p0 = UV;
+
+
+// FloatFunc:31
+	float n_out31p0 = sign(n_out17p0);
+
+
+// FloatParameter:33
+	float n_out33p0 = flash_angle;
+
+
+// FloatOp:32
+	float n_out32p0 = n_out31p0 * n_out33p0;
+
+
+// Vector3Parameter:34
+	vec3 n_out34p0 = flash_direction;
+
+
+	vec3 n_out28p0;
+	mat4 n_out28p1;
+// RotationByAxis:28
+	{
+		float __angle = n_out32p0;
+		vec3 __axis = normalize(n_out34p0);
+		mat3 __rot_matrix = mat3(
+			vec3( cos(__angle)+__axis.x*__axis.x*(1.0 - cos(__angle)), __axis.x*__axis.y*(1.0-cos(__angle))-__axis.z*sin(__angle), __axis.x*__axis.z*(1.0-cos(__angle))+__axis.y*sin(__angle) ),
+			vec3( __axis.y*__axis.x*(1.0-cos(__angle))+__axis.z*sin(__angle), cos(__angle)+__axis.y*__axis.y*(1.0-cos(__angle)), __axis.y*__axis.z*(1.0-cos(__angle))-__axis.x*sin(__angle) ),
+			vec3( __axis.z*__axis.x*(1.0-cos(__angle))-__axis.y*sin(__angle), __axis.z*__axis.y*(1.0-cos(__angle))+__axis.x*sin(__angle), cos(__angle)+__axis.z*__axis.z*(1.0-cos(__angle)) )
+		);
+		n_out28p0 = vec3(n_out26p0, 0.0) * __rot_matrix;
+	}
+
+
+// FloatOp:27
+	float n_out27p0 = n_out19p0 * n_out28p0.x;
+
+
+// VectorOp:13
+	vec3 n_out13p0 = vec3(n_out25p0) * vec3(n_out27p0);
+
+
+// Output:0
+	ALBEDO = n_out13p0;
+	ALPHA = n_out25p0;
+	EMISSION = n_out13p0;
+
+
+}
+"
+graph_offset = Vector2(-710.013, -129.146)
+modes/cull = 2
+modes/specular = 2
+nodes/fragment/0/position = Vector2(1260, -80)
+nodes/fragment/13/node = SubResource("VisualShaderNodeVectorOp_2pcnr")
+nodes/fragment/13/position = Vector2(940, 60)
+nodes/fragment/15/node = SubResource("VisualShaderNodeInput_55qmn")
+nodes/fragment/15/position = Vector2(-440, 300)
+nodes/fragment/17/node = SubResource("VisualShaderNodeFloatFunc_3n6g6")
+nodes/fragment/17/position = Vector2(220, 300)
+nodes/fragment/19/node = SubResource("VisualShaderNodeFloatOp_ialxm")
+nodes/fragment/19/position = Vector2(520, 280)
+nodes/fragment/20/node = SubResource("VisualShaderNodeFloatParameter_ywisk")
+nodes/fragment/20/position = Vector2(-440, 400)
+nodes/fragment/22/node = SubResource("VisualShaderNodeFloatOp_jjsc7")
+nodes/fragment/22/position = Vector2(20, 280)
+nodes/fragment/23/node = SubResource("VisualShaderNodeTexture2DParameter_bshl5")
+nodes/fragment/23/position = Vector2(-540, -160)
+nodes/fragment/25/node = SubResource("VisualShaderNodeExpression_cec21")
+nodes/fragment/25/position = Vector2(300, -80)
+nodes/fragment/25/size = Vector2(472, 220)
+nodes/fragment/25/input_ports = "0,5,decompose_alpha;"
+nodes/fragment/25/output_ports = "0,0,alpha;"
+nodes/fragment/25/expression = "alpha = decompose_alpha.w;"
+nodes/fragment/26/node = SubResource("VisualShaderNodeInput_8rda2")
+nodes/fragment/26/position = Vector2(440, 460)
+nodes/fragment/27/node = SubResource("VisualShaderNodeFloatOp_gktri")
+nodes/fragment/27/position = Vector2(980, 340)
+nodes/fragment/28/node = SubResource("VisualShaderNodeRotationByAxis_gjv0b")
+nodes/fragment/28/position = Vector2(900, 560)
+nodes/fragment/31/node = SubResource("VisualShaderNodeFloatFunc_yl3d8")
+nodes/fragment/31/position = Vector2(240, 640)
+nodes/fragment/32/node = SubResource("VisualShaderNodeFloatOp_iotj0")
+nodes/fragment/32/position = Vector2(580, 680)
+nodes/fragment/33/node = SubResource("VisualShaderNodeFloatParameter_fuq0t")
+nodes/fragment/33/position = Vector2(200, 760)
+nodes/fragment/34/node = SubResource("VisualShaderNodeVec3Parameter_kjpfx")
+nodes/fragment/34/position = Vector2(200, 1080)
+nodes/fragment/35/node = SubResource("VisualShaderNodeTexture_7xjj6")
+nodes/fragment/35/position = Vector2(-40, -40)
+nodes/fragment/connections = PackedInt32Array(15, 0, 22, 0, 20, 0, 22, 1, 22, 0, 17, 0, 13, 0, 0, 5, 25, 0, 13, 0, 19, 0, 27, 0, 27, 0, 13, 1, 26, 0, 28, 0, 28, 0, 27, 1, 31, 0, 32, 0, 17, 0, 31, 0, 32, 0, 28, 1, 33, 0, 32, 1, 34, 0, 28, 2, 17, 0, 19, 0, 25, 0, 0, 1, 13, 0, 0, 0, 23, 0, 35, 2, 35, 0, 25, 0)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_0wwwc"]
+render_priority = 0
+shader = SubResource("VisualShader_44a2j")
+shader_parameter/flash_speed = 1.0
+shader_parameter/flash_angle = 5.0
+shader_parameter/flash_direction = Vector3(0, 0, 1)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_3n6g6"]
+size = Vector2(1.5, 0.5)
+orientation = 2
+
+[node name="WeaponBuy" type="StaticBody3D"]
+collision_layer = 8
+collision_mask = 8
+script = ExtResource("1_efkc1")
+weapon_id_list = {
+"FSP45": 1,
+"M4A1": 2,
+"M680": 3,
+"MK14": 4,
+"MP5SD": 0,
+"REVOLVER6": 5,
+"null": -1
+}
+
+[node name="collision_shape_3d" type="CollisionShape3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -0.000585943, 0.000769142, 6.5311e-09)
+shape = SubResource("BoxShape3D_0je2l")
+
+[node name="audio_stream_player_3d" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("3_ccoo4")
+bus = &"sfx"
+
+[node name="mesh_instance_3d" type="MeshInstance3D" parent="."]
+material_override = SubResource("ShaderMaterial_0wwwc")
+mesh = SubResource("PlaneMesh_3n6g6")

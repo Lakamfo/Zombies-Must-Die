@@ -1,0 +1,8 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://cm116xska8umx"]
+
+[ext_resource type="Texture2D" uid="uid://cbqd02jvecpng" path="res://player/weapons/rblx_rig/textures/fps_rig_Rig Texture.png" id="1_ngou8"]
+
+[resource]
+resource_name = "Rig Texture"
+cull_mode = 2
+albedo_texture = ExtResource("1_ngou8")

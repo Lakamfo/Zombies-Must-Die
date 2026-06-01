@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="BonusDefinition" format=3 uid="uid://coelm8fptcvbm"]
+
+[ext_resource type="Texture2D" uid="uid://djlwxxcgfskgj" path="res://objects/interactable/pickup/images/double_points.png" id="1_hbg3r"]
+[ext_resource type="Script" uid="uid://cdy0t3gfdm8i1" path="res://classes/bonuses/bonus_definition.gd" id="1_te4qb"]
+[ext_resource type="ArrayMesh" uid="uid://c2i2hx47qcflh" path="res://objects/interactable/pickup/models/meshes/pickups_2x.res" id="2_r6f1n"]
+
+[resource]
+script = ExtResource("1_te4qb")
+id = &"double_points"
+label = "2x"
+duration = 30.0
+icon = ExtResource("1_hbg3r")
+mesh = ExtResource("2_r6f1n")
+metadata/_custom_type_script = "uid://cdy0t3gfdm8i1"

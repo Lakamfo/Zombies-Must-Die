@@ -1,0 +1,15 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://dwk7n1nvlc3fa"]
+
+[ext_resource type="Texture2D" uid="uid://ima640c2w3g5" path="res://player/weapons/in_game/sg552/source/textures/sg552_sg552_albedo.jpg" id="1_6txlf"]
+[ext_resource type="Texture2D" uid="uid://unykrx2ptb5l" path="res://player/weapons/in_game/sg552/source/textures/sg552_sg552_metallic.jpg.jpg" id="2_redd3"]
+[ext_resource type="Texture2D" uid="uid://rfchq2vhtjr0" path="res://player/weapons/in_game/sg552/source/textures/sg552_sg552_roughness.jpg" id="3_ktyh8"]
+
+[resource]
+resource_name = "texture_material"
+cull_mode = 2
+albedo_texture = ExtResource("1_6txlf")
+metallic = 1.0
+metallic_texture = ExtResource("2_redd3")
+roughness = 0.5
+roughness_texture = ExtResource("3_ktyh8")
+texture_filter = 0

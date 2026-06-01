@@ -1,0 +1,210 @@
+[gd_scene format=3 uid="uid://tca3as4k8exo"]
+
+[ext_resource type="Script" uid="uid://c2b766xn7leku" path="res://player/weapon_logic/weapon.gd" id="1_lnt8l"]
+[ext_resource type="Resource" uid="uid://bfrsj8h8yc8dr" path="res://player/weapons/in_game/sg552/sg552_stats.tres" id="2_ghtad"]
+[ext_resource type="Texture2D" uid="uid://ddh3i832tm6sv" path="res://player/weapons/muzzle_flash.png" id="3_jkchi"]
+[ext_resource type="PackedScene" uid="uid://d0xehn7i1ueyd" path="res://player/weapons/in_game/sg552/source/sg552.blend" id="4_wcack"]
+[ext_resource type="Texture2D" uid="uid://b1hkmegtemb4d" path="res://textures/muzzle_flashes/muzzle_flash_1/MuzzleFlashMultipleSide1_0000.png" id="8_ay4iy"]
+[ext_resource type="Texture2D" uid="uid://ph5bdr0elclf" path="res://textures/muzzle_flashes/muzzle_flash_1/MuzzleFlashMultipleSide1_0001.png" id="9_k1t4r"]
+[ext_resource type="Texture2D" uid="uid://mq1txye4oqh1" path="res://textures/muzzle_flashes/muzzle_flash_1/MuzzleFlashMultipleSide1_0002.png" id="10_tkhq5"]
+[ext_resource type="Texture2D" uid="uid://cn4fp3owx7m0x" path="res://textures/muzzle_flashes/muzzle_flash_1/MuzzleFlashMultipleSide1_0003.png" id="11_adeim"]
+[ext_resource type="Shader" uid="uid://2xya0tv5wex4" path="res://player/weapons/holographic_dot.gdshader" id="12_6ve66"]
+[ext_resource type="Texture2D" uid="uid://b8stnseqcaq7w" path="res://textures/muzzle_flashes/muzzle_flash_1/MuzzleFlashMultipleSide1_0004.png" id="12_wgo80"]
+[ext_resource type="Texture2D" uid="uid://dg0iexchxaj63" path="res://textures/muzzle_flashes/muzzle_flash_1/MuzzleFlashMultipleSide1_0005.png" id="13_1v2rx"]
+[ext_resource type="Texture2D" uid="uid://chrvv3xyvqbf8" path="res://textures/reticles/holo.png" id="13_6ve66"]
+[ext_resource type="AudioStream" uid="uid://b6c6u20pi8nxh" path="res://player/weapons/in_game/sg552/audio/sg552_fire.mp3" id="14_6ve66"]
+[ext_resource type="AudioStream" uid="uid://ct27ow6ldq2f7" path="res://player/weapons/in_game/sg552/audio/ssg552_deploy.wav" id="14_gcttj"]
+[ext_resource type="AudioStream" uid="uid://ddufk04d6nhk6" path="res://player/weapons/in_game/sg552/audio/ssg552_mag_in.mp3" id="14_jkchi"]
+[ext_resource type="Texture2D" uid="uid://cwkbyk0qexhl4" path="res://textures/muzzle_flashes/muzzle_flash_1/MuzzleFlashMultipleSide1_0006.png" id="14_mlu8g"]
+[ext_resource type="Texture2D" uid="uid://cuimo8yho0dak" path="res://textures/muzzle_flashes/muzzle_flash_1/MuzzleFlashMultipleSide1_0007.png" id="15_8d5q4"]
+[ext_resource type="AudioStream" uid="uid://cmimw5q3vpbds" path="res://player/weapons/sounds/fire_mode_swich_v2.mp3" id="25_o7uds"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qrknu"]
+emission_enabled = true
+emission = Color(0.968627, 0.337255, 0, 1)
+
+[sub_resource type="Curve" id="Curve_87x5q"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_xnilv"]
+curve = SubResource("Curve_87x5q")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_ab3ni"]
+particle_flag_align_y = true
+particle_flag_rotate_y = true
+angle_min = 15.0
+angle_max = 15.0
+direction = Vector3(0, 0, -1)
+initial_velocity_min = 3.0
+initial_velocity_max = 5.0
+angular_velocity_min = -45.0
+angular_velocity_max = 45.0
+radial_velocity_min = 1.0
+radial_velocity_max = 1.0
+scale_min = 0.2
+scale_curve = SubResource("CurveTexture_xnilv")
+sub_emitter_mode = 2
+sub_emitter_amount_at_end = 1
+
+[sub_resource type="BoxMesh" id="BoxMesh_efccm"]
+size = Vector3(0.01, 0.01, 0.01)
+
+[sub_resource type="AnimatedTexture" id="AnimatedTexture_ghtad"]
+frames = 8
+speed_scale = 4.0
+frame_0/texture = ExtResource("8_ay4iy")
+frame_0/duration = 0.1
+frame_1/texture = ExtResource("9_k1t4r")
+frame_1/duration = 0.1
+frame_2/texture = ExtResource("10_tkhq5")
+frame_2/duration = 0.1
+frame_3/texture = ExtResource("11_adeim")
+frame_3/duration = 0.1
+frame_4/texture = ExtResource("12_wgo80")
+frame_4/duration = 0.1
+frame_5/texture = ExtResource("13_1v2rx")
+frame_5/duration = 0.1
+frame_6/texture = ExtResource("14_mlu8g")
+frame_6/duration = 0.1
+frame_7/texture = ExtResource("15_8d5q4")
+frame_7/duration = 0.1
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_71plf"]
+render_priority = 0
+shader = ExtResource("12_6ve66")
+shader_parameter/reticle = ExtResource("13_6ve66")
+shader_parameter/reticle_color = Color(1, 0, 0, 1)
+shader_parameter/reticle_size = 0.08
+
+[sub_resource type="QuadMesh" id="QuadMesh_ghtad"]
+material = SubResource("ShaderMaterial_71plf")
+size = Vector2(0.1, 0.1)
+
+[node name="sg552" type="Node3D" unique_id=1303321468 node_paths=PackedStringArray("muzzle_fire", "camera_animation", "bullet_pos")]
+script = ExtResource("1_lnt8l")
+weapon_name = "sg552"
+weapon_stats = ExtResource("2_ghtad")
+animation_player = NodePath("sg552_model/AnimationPlayer")
+audio_stream_player = NodePath("root_attachment/audio_stream_fire")
+audio_fire_mode_switch_stream_player = NodePath("root_attachment/audio_stream_switch")
+omni_light = NodePath("root_attachment/muzzle_flash")
+shell_position = NodePath("root_attachment/shell_pos")
+gpu_particles = NodePath("root_attachment/sparks_particles")
+muzzle_fire = NodePath("root_attachment/muzzle_fire")
+camera_animation = NodePath("sg552_model/Bones/Skeleton3D/camera_attachment")
+bullet_pos = NodePath("root_attachment/muzzle_pos")
+
+[node name="root_attachment" type="BoneAttachment3D" parent="." unique_id=995975073]
+transform = Transform3D(0.25, -1.5695824e-07, -1.4901163e-07, 1.4901163e-07, 0, 0.25, -1.5695824e-07, -0.25, 9.355441e-14, 0.007312153, -0.22031581, -0.64082694)
+bone_name = "root"
+bone_idx = 7
+use_external_skeleton = true
+external_skeleton = NodePath("../sg552_model/Bones/Skeleton3D")
+
+[node name="shell_pos" type="Marker3D" parent="root_attachment" unique_id=1064071596]
+transform = Transform3D(1, 0, -1.9679105e-14, 0, 1, 0, -1.9956735e-14, 0, 1, 0.08813703, 1.1218803, 0.39144483)
+
+[node name="muzzle_pos" type="Marker3D" parent="root_attachment" unique_id=2019361598]
+transform = Transform3D(1, 0, -1.9679105e-14, 0, 1, 0, -1.9956735e-14, 0, 1, -0.0004594922, 3.0898693, 0.22171554)
+
+[node name="muzzle_flash" type="OmniLight3D" parent="root_attachment" unique_id=1621208660]
+transform = Transform3D(1, 1.5631942e-13, 1.9539925e-14, -1.5631942e-13, 1, 4.2632564e-14, -1.9539925e-14, -4.2632564e-14, 1, -0.0025298, 4.0389385, 0.21776605)
+visible = false
+layers = 2
+light_color = Color(1, 1, 0.78039217, 1)
+light_energy = 3.0
+
+[node name="sparks_particles" type="GPUParticles3D" parent="root_attachment" unique_id=1601271684]
+transform = Transform3D(-1.9857775, 0.22987218, -0.06200688, 0.051961258, -0.08988697, -1.9973032, -0.23234919, -1.9847112, 0.08327554, 0.0008274317, 3.288112, 0.22194248)
+layers = 2
+material_override = SubResource("StandardMaterial3D_qrknu")
+emitting = false
+amount = 32
+lifetime = 0.5
+one_shot = true
+visibility_aabb = AABB(-0.160982, -0.0986687, -0.0952544, 0.208683, 0.197337, 0.197345)
+local_coords = true
+process_material = SubResource("ParticleProcessMaterial_ab3ni")
+draw_pass_1 = SubResource("BoxMesh_efccm")
+
+[node name="muzzle_fire" type="Sprite3D" parent="root_attachment" unique_id=417430556]
+transform = Transform3D(0.71097916, 4.949185, -0.008229678, 0.057902016, -4.3441764e-06, 4.999665, 4.948854, -0.71102667, -0.057314184, -0.021382712, 3.3667436, 0.25850928)
+visible = false
+layers = 2
+cast_shadow = 0
+pixel_size = 0.001
+texture = ExtResource("3_jkchi")
+
+[node name="sprite_3d" type="Sprite3D" parent="root_attachment/muzzle_fire" unique_id=855549551]
+transform = Transform3D(-0.0044153156, -0.9897862, -0.14249216, -0.029866757, 0.14256054, -0.98933536, 0.99954444, -0.000112445094, -0.030191153, 0.014445588, -0.0019478481, 0.07654834)
+layers = 2
+pixel_size = 0.001
+texture = SubResource("AnimatedTexture_ghtad")
+
+[node name="audio_stream_fire" type="AudioStreamPlayer3D" parent="root_attachment" unique_id=2085183334]
+transform = Transform3D(3.9999995, 8.507413e-09, 5.960472e-08, 0, 4, -6.0794036e-10, 7.4903815e-14, -1.4210855e-14, 4, 0.018567264, 1.1999998, 0.8055464)
+stream = ExtResource("14_6ve66")
+volume_db = 15.0
+max_db = 6.0
+max_polyphony = 15
+
+[node name="audio_stream_switch" type="AudioStreamPlayer3D" parent="root_attachment" unique_id=1807851178]
+transform = Transform3D(3.9999995, 8.507413e-09, 5.960472e-08, 0, 4, -6.0794036e-10, 7.4903815e-14, -1.4210855e-14, 4, 0.018567264, 1.1999998, 0.8055464)
+stream = ExtResource("25_o7uds")
+max_db = 6.0
+max_polyphony = 2
+bus = &"weapon"
+
+[node name="audio_stream_reloading" type="AudioStreamPlayer3D" parent="root_attachment" unique_id=1415857195]
+transform = Transform3D(3.9999995, 8.507413e-09, 5.960472e-08, 0, 4, -6.0794036e-10, 7.4903815e-14, -1.4210855e-14, 4, 0.018567264, 1.1999998, 0.8055464)
+stream = ExtResource("14_jkchi")
+volume_db = 15.0
+max_db = 6.0
+max_polyphony = 2
+
+[node name="audio_stream_take_out" type="AudioStreamPlayer3D" parent="root_attachment" unique_id=683688667]
+transform = Transform3D(1.8822726, 2.3157341, -2.6635365, -2.4622557, -1.3011591, -2.8712862, -2.528705, 2.9907126, 0.8131986, 0.66577715, -0.8142828, 1.7612226)
+stream = ExtResource("14_gcttj")
+volume_db = 15.0
+max_db = 6.0
+
+[node name="sg552_model" parent="." unique_id=1857739354 instance=ExtResource("4_wcack")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, -0.226, 0.1)
+
+[node name="Bones" parent="sg552_model" index="0" unique_id=1742587281]
+transform = Transform3D(-0.5, 0, -3.1391647e-07, 0, 0.5, 0, 3.1391647e-07, 0, -0.5, 0, 3.149611, 0)
+
+[node name="camera_attachment" type="BoneAttachment3D" parent="sg552_model/Bones/Skeleton3D" parent_id_path=PackedInt32Array(1857739354, 111087368) index="0" unique_id=437340067]
+transform = Transform3D(1, 1.3520847e-29, 0, 1.3348214e-29, 1, -7.2463607e-22, 0, 7.2464253e-22, 1, 0, 0.8051567, 0)
+bone_name = "Head"
+bone_idx = 2
+use_external_skeleton = true
+external_skeleton = NodePath("..")
+
+[node name="eotech" parent="sg552_model/Bones/Skeleton3D/root" parent_id_path=PackedInt32Array(1857739354, 1610738560) index="0" unique_id=1748969847]
+layers = 2
+
+[node name="reticle" type="MeshInstance3D" parent="sg552_model/Bones/Skeleton3D/root/eotech" index="0" unique_id=576204556]
+transform = Transform3D(-5.798802, 2.9083239e-08, 5.0694746e-07, 4.4631577e-07, 5.798801, -1.1128355e-13, -5.069468e-07, -1.5137356e-13, -5.798803, 0.095720164, 0.4992307, -0.11902428)
+mesh = SubResource("QuadMesh_ghtad")
+skeleton = NodePath("../../scope")
+
+[node name="scope" parent="sg552_model/Bones/Skeleton3D/root" parent_id_path=PackedInt32Array(1857739354, 1610738560) index="1" unique_id=693545860]
+transform = Transform3D(-1.9999996, 1.2218952e-06, 1.3033655e-06, 1.3033651e-06, 1.4210855e-14, 2, 1.2516975e-06, 1.9999996, -7.6028073e-13, -1.302, -1.511, -0.733)
+visible = false
+layers = 2
+
+[node name="vertical_handle" parent="sg552_model/Bones/Skeleton3D/root" parent_id_path=PackedInt32Array(1857739354, 1610738560) index="2" unique_id=871737221]
+layers = 2
+
+[node name="L arm" parent="sg552_model/Bones/Skeleton3D" parent_id_path=PackedInt32Array(1857739354, 111087368) index="5" unique_id=1261858666]
+layers = 2
+
+[node name="L arm_001" parent="sg552_model/Bones/Skeleton3D" parent_id_path=PackedInt32Array(1857739354, 111087368) index="6" unique_id=1959121724]
+layers = 2
+
+[node name="sg552" parent="sg552_model/Bones/Skeleton3D" parent_id_path=PackedInt32Array(1857739354, 111087368) index="7" unique_id=1683098131]
+layers = 2
+
+[editable path="sg552_model"]

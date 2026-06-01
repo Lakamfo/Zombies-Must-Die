@@ -1,0 +1,29 @@
+[gd_resource type="AudioStreamRandomizer" format=3 uid="uid://c7s56ocl7yk1a"]
+
+[ext_resource type="AudioStream" uid="uid://cu43gajuqlbx4" path="res://sounds/metal_chainlink_footsteps/metal_chainlink-01.wav" id="1_rck68"]
+[ext_resource type="AudioStream" uid="uid://berexvd6n64j1" path="res://sounds/metal_chainlink_footsteps/metal_chainlink-02.wav" id="2_5uf51"]
+[ext_resource type="AudioStream" uid="uid://ko5euob22rko" path="res://sounds/metal_chainlink_footsteps/metal_chainlink-03.wav" id="3_3akwn"]
+[ext_resource type="AudioStream" uid="uid://d02aurqvs63kf" path="res://sounds/metal_chainlink_footsteps/metal_chainlink-04.wav" id="4_6n4n0"]
+[ext_resource type="AudioStream" uid="uid://gjbmnv3pjku2" path="res://sounds/metal_chainlink_footsteps/metal_chainlink-05.wav" id="5_0oibm"]
+[ext_resource type="AudioStream" uid="uid://wx2wq1kixlwt" path="res://sounds/metal_chainlink_footsteps/metal_chainlink-06.wav" id="6_hlknn"]
+[ext_resource type="AudioStream" uid="uid://bnc3e0os4n0ua" path="res://sounds/metal_chainlink_footsteps/metal_chainlink-07.wav" id="7_huvh8"]
+[ext_resource type="AudioStream" uid="uid://cnn2pajimhp1v" path="res://sounds/metal_chainlink_footsteps/metal_chainlink-08.wav" id="8_ho6hs"]
+
+[resource]
+streams_count = 8
+stream_0/stream = ExtResource("1_rck68")
+stream_0/weight = 1.0
+stream_1/stream = ExtResource("2_5uf51")
+stream_1/weight = 1.0
+stream_2/stream = ExtResource("3_3akwn")
+stream_2/weight = 1.0
+stream_3/stream = ExtResource("4_6n4n0")
+stream_3/weight = 1.0
+stream_4/stream = ExtResource("5_0oibm")
+stream_4/weight = 1.0
+stream_5/stream = ExtResource("6_hlknn")
+stream_5/weight = 1.0
+stream_6/stream = ExtResource("7_huvh8")
+stream_6/weight = 1.0
+stream_7/stream = ExtResource("8_ho6hs")
+stream_7/weight = 1.0

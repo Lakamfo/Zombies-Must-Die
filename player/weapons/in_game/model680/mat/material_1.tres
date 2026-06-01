@@ -1,0 +1,16 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://badavt14p8srm"]
+
+[ext_resource type="Texture2D" uid="uid://brk1kkar0xfm" path="res://player/weapons/in_game/model680/textures/Image_3.png" id="1_3sgwn"]
+[ext_resource type="Texture2D" uid="uid://dxb26gpccayct" path="res://player/weapons/in_game/model680/textures/Image_5.png" id="2_hd27s"]
+[ext_resource type="Texture2D" uid="uid://bo5yj1fiivvp8" path="res://player/weapons/in_game/model680/textures/Image_4.png" id="3_56lj8"]
+
+[resource]
+resource_name = "material_1"
+cull_mode = 2
+albedo_texture = ExtResource("1_3sgwn")
+metallic = 1.0
+metallic_texture = ExtResource("2_hd27s")
+metallic_texture_channel = 2
+roughness_texture = ExtResource("3_56lj8")
+roughness_texture_channel = 1
+normal_enabled = true

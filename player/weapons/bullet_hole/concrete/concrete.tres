@@ -1,0 +1,23 @@
+[gd_resource type="ParticleProcessMaterial" format=3 uid="uid://wm35d5gf2vrk"]
+
+[sub_resource type="Curve" id="Curve_oivve"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_4dyj2"]
+curve = SubResource("Curve_oivve")
+
+[resource]
+emission_shape_scale = Vector3(0.1, 0.1, 0.1)
+emission_shape = 1
+emission_sphere_radius = 1.0
+angle_max = 90.0
+direction = Vector3(0, 1, 0)
+initial_velocity_min = 1.0
+initial_velocity_max = 5.0
+radial_accel_max = 10.0
+scale_min = 0.0
+scale_curve = SubResource("CurveTexture_4dyj2")
+alpha_curve = SubResource("CurveTexture_4dyj2")
+turbulence_noise_strength = 0.52
+turbulence_noise_scale = 1.0

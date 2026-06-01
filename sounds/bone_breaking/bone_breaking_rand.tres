@@ -1,0 +1,9 @@
+[gd_resource type="AudioStreamRandomizer" format=3 uid="uid://b7x66ynhc6aux"]
+
+[ext_resource type="AudioStream" uid="uid://b3t2q843iuq53" path="res://sounds/bone_breaking/bone_breaking_1.mp3" id="1_2dq42"]
+[ext_resource type="AudioStream" uid="uid://4s0dlphfnlpw" path="res://sounds/bone_breaking/bone_breaking_2.mp3" id="2_ptaii"]
+
+[resource]
+streams_count = 2
+stream_0/stream = ExtResource("1_2dq42")
+stream_1/stream = ExtResource("2_ptaii")

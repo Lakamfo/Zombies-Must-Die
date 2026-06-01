@@ -1,0 +1,78 @@
+[gd_scene format=3 uid="uid://b3prdujjdwqgu"]
+
+[ext_resource type="Script" uid="uid://b0mg6cdqjx05u" path="res://classes/map_gen/map_generator.gd" id="1_y325o"]
+[ext_resource type="Script" uid="uid://dna5tcjdkasen" path="res://classes/map_gen/room_generation_config.gd" id="2_qnof7"]
+[ext_resource type="Resource" uid="uid://dnhut8yvrn87d" path="res://map/dungeon/rooms/scratch/hallway_1.tres" id="3_a6n61"]
+[ext_resource type="Script" uid="uid://crn26rbrgrlq3" path="res://classes/map_gen/room_template.gd" id="3_fl8wo"]
+[ext_resource type="Resource" uid="uid://dit06eyg8w7us" path="res://map/dungeon/rooms/scratch/start_room_1.tres" id="4_2ncem"]
+[ext_resource type="Resource" uid="uid://dxo3gfl1nifvj" path="res://map/dungeon/rooms/scratch/room_1.tres" id="5_on035"]
+[ext_resource type="Resource" uid="uid://dvbp5v32b8gte" path="res://map/dungeon/rooms/scratch/c_l_room.tres" id="6_05hwe"]
+[ext_resource type="Resource" uid="uid://of5t6xvcq6mi" path="res://map/dungeon/rooms/scratch/c_r_room.tres" id="7_xe1dv"]
+[ext_resource type="Resource" uid="uid://8j8wnjcts6qw" path="res://map/dungeon/rooms/scratch/long_room_1.tres" id="8_gypta"]
+[ext_resource type="Resource" uid="uid://gbf0ch5iqnij" path="res://map/dungeon/rooms/scratch/end_1.tres" id="9_ycbbc"]
+[ext_resource type="Resource" uid="uid://bf6hctiepwl37" path="res://map/dungeon/rooms/scratch/shop_1.tres" id="10_ycbbc"]
+[ext_resource type="Script" uid="uid://chbcrqfgrr7mv" path="res://classes/navigation_region_dynamic.gd" id="12_jtayb"]
+[ext_resource type="Script" uid="uid://dx2ib7tyfuotp" path="res://classes/wave_logic/wave_logic.gd" id="14_gypta"]
+[ext_resource type="PackedScene" uid="uid://i21n6eshktur" path="res://player/player.tscn" id="18_ibc0g"]
+
+[sub_resource type="Resource" id="Resource_fl8wo"]
+script = ExtResource("2_qnof7")
+count = 10
+include_hallways = false
+metadata/_custom_type_script = "uid://dna5tcjdkasen"
+
+[sub_resource type="NavigationMesh" id="NavigationMesh_gypta"]
+geometry_collision_mask = 4294967201
+
+[node name="map_generator" type="Node" unique_id=78633911 node_paths=PackedStringArray("gen_root")]
+script = ExtResource("1_y325o")
+config = SubResource("Resource_fl8wo")
+room_templates = Array[ExtResource("3_fl8wo")]([ExtResource("6_05hwe"), ExtResource("7_xe1dv"), ExtResource("9_ycbbc"), ExtResource("3_a6n61"), ExtResource("8_gypta"), ExtResource("5_on035"), ExtResource("10_ycbbc"), ExtResource("4_2ncem")])
+gen_root = NodePath("navigation_region_3d_dynamic")
+metadata/_custom_type_script = "uid://b0mg6cdqjx05u"
+
+[node name="navigation_region_3d_dynamic" type="NavigationRegion3D" parent="." unique_id=1961119407]
+navigation_mesh = SubResource("NavigationMesh_gypta")
+script = ExtResource("12_jtayb")
+metadata/_custom_type_script = "uid://chbcrqfgrr7mv"
+
+[node name="sub_viewport_container" type="SubViewportContainer" parent="." unique_id=1235230877]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -800.0
+offset_bottom = -436.0
+grow_horizontal = 2
+grow_vertical = 2
+stretch = true
+
+[node name="sub_viewport" type="SubViewport" parent="sub_viewport_container" unique_id=837236692]
+transparent_bg = true
+handle_input_locally = false
+size = Vector2i(800, 464)
+render_target_update_mode = 4
+
+[node name="cam_root" type="Node3D" parent="sub_viewport_container/sub_viewport" unique_id=512896595]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+
+[node name="camera_3d" type="Camera3D" parent="sub_viewport_container/sub_viewport/cam_root" unique_id=1903666372]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 26, 0)
+projection = 2
+size = 0.09
+
+[node name="wave_logic" type="Node" parent="." unique_id=1453850292]
+script = ExtResource("14_gypta")
+generate_wave_for_rooms = true
+endless = true
+time_between_waves = 1.0
+time_between_spawns = 1.0
+metadata/_custom_type_script = "uid://dx2ib7tyfuotp"
+
+[node name="player" parent="." unique_id=1901706040 instance=ExtResource("18_ibc0g")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 2, 0)
+can_jump = false
+
+[node name="remote_transform_3d" type="RemoteTransform3D" parent="player" unique_id=1698103618]
+remote_path = NodePath("../../sub_viewport_container/sub_viewport/cam_root")
+update_rotation = false
+update_scale = false

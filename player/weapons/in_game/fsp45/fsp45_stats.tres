@@ -1,0 +1,45 @@
+[gd_resource type="Resource" script_class="WeaponStats" format=3 uid="uid://dtrr7y2vil8fu"]
+
+[ext_resource type="Curve" uid="uid://0jmxmttgqmun" path="res://player/weapon_logic/damage_curve.tres" id="1_sgyvh"]
+[ext_resource type="Texture2D" uid="uid://cnr0iaydlkbp4" path="res://player/weapons/in_game/fsp45/fsp45_game_icon.png" id="2_iw4ix"]
+[ext_resource type="Script" uid="uid://coggxpmikyxx2" path="res://classes/weapon_stats.gd" id="3_aba40"]
+[ext_resource type="Resource" uid="uid://cfxpop3gm2tkf" path="res://player/weapons/in_game/fsp45/fsp45_stats_upgrade.tres" id="4_ymphi"]
+
+[resource]
+script = ExtResource("3_aba40")
+weapon_stats_upgrade = ExtResource("4_ymphi")
+fire_rate = 352
+fire_mode = 0
+available_shooting_modes = 1
+bullet_rigid_impact_power = 2.5
+bullet_impact_power = 1.5
+aim_camera_zoom = 1.05
+clip_size = 15
+magazine_size = 120
+damage = 44.0
+max_hip_camera_kick = Vector3(1, 5, 1)
+min_hip_camera_kick = Vector3(1, 2, 1)
+max_aim_camera_kick = Vector3(1, 4, 1)
+min_aim_camera_kick = Vector3(1, 2, 1)
+snappinnes = 32
+return_speed = 6
+standart_position = Vector3(0, -0.25, -0.05)
+aim_position = Vector3(-0.136, -0.162, -0.05)
+aim_rotation = Vector3(-1, -1, -10)
+aim_speed = 0.2
+bob_range = 0.03
+min_impulse = Vector3(0.3, 0.4, 0)
+max_impulse = Vector3(0.6, 0.7, 0.7)
+idle_animation = "idle"
+aim_idle_animation = "idle_aim"
+take_out_animation = "take"
+fire_animation = "fire"
+aim_fire_animation = "fire_aim"
+last_fire_animation = "fire_last"
+last_aim_fire_animation = "fire_last_aim"
+tactical_reload_animation = "reload_normal"
+reload_animation = "reload_full"
+inspect_with_ammo = "inspect"
+inspect_without_ammo = "inspect"
+icon = ExtResource("2_iw4ix")
+hit_marker_critical_color = Color(0.724285, 0.144795, 0.222028, 1)

@@ -1,0 +1,31 @@
+[gd_scene load_steps=4 format=3 uid="uid://b7mj760rp78jq"]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_28rpt"]
+lifetime_randomness = 1.0
+emission_shape = 3
+emission_box_extents = Vector3(1, 0.1, 1)
+gravity = Vector3(0, 0, 0)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ykpth"]
+shading_mode = 0
+specular_mode = 2
+albedo_color = Color(6.35326e-06, 0.917655, 0.924102, 1)
+billboard_mode = 3
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="QuadMesh" id="QuadMesh_wqxwg"]
+material = SubResource("StandardMaterial3D_ykpth")
+size = Vector2(0.3, 0.1)
+
+[node name="electricity_particles" type="GPUParticles3D"]
+emitting = false
+amount = 32
+lifetime = 0.2
+one_shot = true
+randomness = 1.0
+process_material = SubResource("ParticleProcessMaterial_28rpt")
+draw_pass_1 = SubResource("QuadMesh_wqxwg")
+
+[node name="collision_shape_3d" type="CollisionShape3D" parent="."]

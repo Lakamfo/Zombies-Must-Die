@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="RecoilData" format=3 uid="uid://b0si3eeunpp5b"]
+
+[ext_resource type="Script" uid="uid://btob25331871x" path="res://player/weapon_logic/RecoilData.gd" id="1_ibutr"]
+
+[resource]
+script = ExtResource("1_ibutr")
+hip_camera_max_recoil_data = Array[Vector3]([Vector3(8.333, 8.333, 1.667)])
+hip_camera_min_recoil_data = Array[Vector3]([Vector3(6, 6, 1.667)])
+hip_camera_recoil_snappines = Array[Vector3]([Vector3(32, 32, 32)])
+hip_camera_recoil_return_speed = Array[Vector3]([Vector3(6, 6, 6)])
+aim_camera_max_recoil_data = Array[Vector3]([Vector3(5, 5, 1)])
+aim_camera_min_recoil_data = Array[Vector3]([Vector3(2, 2.667, 0.667)])
+aim_camera_recoil_snappines = Array[Vector3]([Vector3(32, 32, 32)])
+aim_camera_recoil_return_speed = Array[Vector3]([Vector3(6, 6, 6)])
+metadata/_custom_type_script = "uid://btob25331871x"

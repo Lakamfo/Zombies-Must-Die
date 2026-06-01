@@ -1,0 +1,298 @@
+key,en,ru
+KEY_SETTING_FSR_SHARPNESS_TOOLTIP,"The lower the value, the sharper the image","Чем ниже значение, тем выше резкость"
+KEY_SETTING_TAA,TAA,TAA
+KEY_SETTING_MSAA,MSAA,MSAA
+KEY_SETTING_FXAA,FXAA,FXAA
+KEY_SETTING_DISPLAY_MODE,Display Mode,Режим отображения
+KEY_SETTING_SCALING_MODE,Scaling 3D Mode,Режим масштабирование 3D
+KEY_SETTING_RENDER_RESOLUTION,Render Resolution (%d%% - %d x %d),Разрешение отрисовки  (%d%% - %d x %d)
+KEY_SETTING_INTERFACE_SCALE,Interface Scale (%1.2fx),Масштабирование интерфейса (%1.2fx)
+KEY_SETTING_FSR_TOOLTIP,"When using FSR upscaling, AMD recommends this render percentages : Ultra Quality: 77%\"", \""Quality: 67%\"", \""Balanced: 59%\"", Performance: 50%.","При использовании FSR, AMD рекомендует использовать данные значение процента рендера : Ultra Quality: 77%, Quality: 67%, Balanced: 59%, Performance: 50%."
+KEY_SETTING_SDFGI_TOOLTIP,Made HUGE performance impact with minimal graphic benefits,Очень сильно понижает производительность без заметной разницы в графике
+KEY_SETTING_FRAMECAP,Custom Framerate Limit (%d Cap),Ограничение FPS :  (%d FPS)
+KEY_SETTING_DISPLAY_MONITOR,Game Monitor,Монитор игры
+KEY_SETTING_SSAO,Screen Space Ambient Occlusion (SSAO),Затенение в экранном пространстве (SSAO)
+KEY_SETTING_GRAPHIC_PRESET,Graphics Preset,Графическая предустановка
+KEY_SETTING_SHADERS_QUALITY,Shaders Quality,Качество шейдеров
+KEY_SETTING_VSYNC,Sync Every Frame (V-Sync),Вертикальная синхронизация (V-SYNC)
+KEY_SETTING_FSR_SHARPNESS,FSR Sharpness : (%1.1f),FSR Резкость : (%1.1f)
+KEY_SETTING_SDFGI,Signed Distance Field Global Illumination (SDFGI),Глобальное освещение (SDFGI)
+KEY_SETTING_GLOW,Glow Effect,Эффект свечения
+KEY_SETTING_SSIL,Screen Space Indirect Lighting (SSIL),Непрямое освещение экранного пространства (SSIL)
+KEY_SETTING_VOLUMETRIC_FOG,Volumetric FOG,Объемный туман
+KEY_SETTING_SSR_TOOLTIP,Brokes weapon render; Force Disabled,"Ломает отображение оружия, НЕ РАБОТАЕТ"
+KEY_SETTING_SSR,Screen Space Reflections (SSR),Отражение в экранном пространстве (SSR)
+KEY_SETTING_DECALS,Decals & Other,Декали и другое
+KEY_SETTING_MASTER_VOLUME,Master Volume (%d%%),Основной уровень воспроизведения (%d%%)
+KEY_SETTING_WEAPON_VOLUME,Weapon Volume (%d%%,Уровень воспроизведения оружия (%d%%)
+KEY_SETTING_MUSIC_VOLUME,Music Volume (%d%%),Уровень воспроизведения музыки (%d%%)
+KEY_SETTING_SFX_VOLUME,SFX Volume (%d%%),Уровень воспроизведения эффектов (%d%%)
+KEY_SETTING_MOUSE_SENSITIVITY,Mouse Sensitivity (%1.2f),Чувствительность мыши (%1.2f)
+KEY_SETTING_CAMERA_FOV,Camera FOV (%s),Поле зрения (%s)
+KEY_SETTING_WEAPON_CAMERA_FOV,Weapon Camera FOV (%s),Поле зрения оружия (%s)
+KEY_SETTINGS_GRASS_RENDER,Vegetation,Растительность
+KEY_SETTINGS_WATER_RENDER,Water & Puddles,Вода и лужи
+KEY_SETTING_LANGUAGE_SELECTOR,Language,Язык
+KEY_SETTINGS_PRELOAD_WEAPONS_SCENES,Preload Weapons,Предзагрузка оружия
+KEY_SETTINGS_PRELOAD_WEAPONS_SCENES_TOOLTIP,"Increase RAM usage (preload_weapons_scenes), but minimize freeze with weapon instantiate","Увеличивает потребление ОЗУ, но убирает зависания при подборе оружия"
+KET_SETTING_LANGUAGE_TOOLTIP,Restart the game to fully apply the language change,Перезапусти игру для полной смены языка
+KEY_SETTING_SHADOW,Dynamic Shadows,Динамические тени
+KEY_SETTING_SHADOWS_QUALITY,Shadows Quality,Качество теней
+KEY_SETTINGS_DISABLED,Disabled,Отключено
+KEY_SETTINGS_LOW,Low,Низкие
+KEY_SETTINGS_MEDIUM,Medium,Средние
+KEY_SETTINGS_ULTRA_LOW,Ultra Low,Очень низкие
+KEY_SETTINGS_HIGH,High,Высокие
+KEY_SETTINGS_CUSTOM,Custom,Пользовательские
+KEY_SETTINGS_DISPLAY,Display,Отображение
+KEY_SETTINGS_GRAPHICS,Graphics,Графика
+KEY_SETTINGS_SOUNDS,Sounds,Громкость
+KEY_SETTINGS_INPUT,Input,Ввод
+KEY_SETTINGS_OTHER,Other,Остальное
+KEY_SETTINGS_SAVE_SETTINGS,Save Settings,Сохранить настройки
+KEY_SETTINGS_RESET_ACTIONS,Reset To Default,Сбросить к значениям по умолчанию
+KEY_SETTINGS_MOUSE,Mouse Settings,Настройки мыши
+KEY_SETTINGS_PRESS_BUTTON_TO_MAP,Press key to bind...,Нажмите клавишу для привязки
+KEY_SETTINGS_KEY_BINDING,Key Bindings,Привязка клавиш
+KEY_SETTINGS_SINGLE_LAYER_RENDER,Render Weapons and World on one visual layer,Отображение оружия и мира на одном визуальном слою
+KEY_SETTINGS_SINGLE_LAYER_RENDER_HINT,"Allows weapons to interact better with light, but weapons can pass through walls","Позволяет оружию лучше взаимодействовать со светом, но оружие может проходить сквозь стены"
+KEY_SETTINGS_MOVE_FORWARD,Move Forward,Идти вперёд
+KEY_SETTINGS_MOVE_BACKWARD,Move Backward,Идти назад
+KEY_SETTINGS_MOVE_LEFT,Move Left,Идти налево
+KEY_SETTINGS_MOVE_RIGHT,Move Right,Идти направо
+KEY_SETTINGS_MOVE_JUMP,Jump,Прыгнуть
+KEY_SETTINGS_MOVE_CROUCH,Crouch,Присесть
+KEY_SETTINGS_SPRINT,Sprint,Бег
+KEY_SETTINGS_MELEE_ATTACK,Melee Atack,Ближняя атака
+KEY_SETTINGS_RELOAD,Reload,Перезарядка
+KEY_SETTINGS_INTERACT_BUTTON,Interact Button,Кнопка взаимодействия
+KEY_SETTINGS_FLASHLIGHT,Flashlight,Фонарик
+KEY_SETTINGS_INSPECT,Inspect Weapon,Осмотреть оружие
+KEY_SETTINGS_FIRE_MODE,Change Fire Mode,Смена режима стрельбы
+KEY_SETTINGS_PAUSE,Pause,Пауза
+KEY_SETTINGS_OPEN_FILES,Open Game Data Folder,Открыть игровые данные
+KEY_SETTINGS_OPEN_SCREENSHOTS,Open Screenshots folder,Открыть снимики экрана
+KEY_SETTINGS_TAKE_SCREENSHOT,Take Screenshot,Снимок экрана
+KEY_SETTINGS_JOY_VIBRATION,Vibration,Вибрация
+KEY_SETTINGS_JOY,Gamepad,Геймпад
+,,
+KEY_SETTINGS_RELOAD_TO_APPLY,Restart the game to apply the settings.,"Перезапустите игру, чтобы применить настройки."
+KEY_SETTINGS_RELOAD_TO_APPLY_TITLE,Zombies Must Die : Settings Changed,Zombies Must Die : Настройки изменены
+,,
+KEY_STATS_ENEMIES_KILLED,Enemies Killed :,Противников убито :
+KEY_STATS_SCORE_OVERALL,Score Earned Overral :,Заработано очков :
+KET_STATS_GAMES_PLAYED,Game Played : ,Игр сыграно :
+,,
+KEY_ONLINE_TABLE,Online Table,Онлайн таблица
+KEY_LEADEARBOARD,Leadearboard,Лидеры
+KEY_NOT_EMPTY,Can`t be empty,Поле не может быть пустым
+KEY_LOGIN,Login,Имя пользователя
+KEY_LEADEARBOARD_NICKNAME,Nickname,Имя
+KEY_LEADEARBOARD_HINT,Top - 10 player records,Топ - 10 рекордов игроков
+KEY_LEADEARBOARD_WAVE,Wave,Волна
+KEY_LEADEARBOARD_SCORE,Score,Очки
+KEY_LEADEARBOARD_DURATION,Duration,Продолжительность
+KEY_LEADEARBOARD_LOCATION,Location,Локация
+KEY_LEADEARBOARD_DATE,Date,Дата
+KEY_LOGIN_BUTTON,Login,Авторизоваться
+KEY_REG_ERROR,Login OR Password is empty,Имя пользователя или Пароль пустой
+KEY_REG_ERROR_USER_EXISTS,This user already exists!,Этот пользователь уже сущевствует!
+KEY_USER_NOT_FOUND,User didn`t exist,Такой пользователь не сущевствует
+KEY_LOGIN_PASSWORD_OR_LOGIN,Password or login is incorrect,Пароль или логин неправильный!
+KEY_LOGIN_SUC,Successfully logged in %s,"Успешно авторизован, %s"
+KEY_REG_REGEX,The login contains forbidden characters,Логин содержит запрещенные символы
+KEY_REG_SUC,Successfully registered %s,"Успешно зарегистрирован, %s"
+KEY_PLAY_BT,Play,Играть
+KEY_REGISTRATION,Registration,Зарегистроваться
+KEY_PASSWORD,Password,Пароль
+KEY_MENU_SPLASH,Welcome to the Zombies Must Die!,Добро пожаловать в Zombies Must Die!
+KEY_MENU_SPLASH_LOGED,Welcome back %s!,Добро пожаловать %s!
+KEY_UPDATE_TEXT,"Update is available! Your version : %s, Latest version %s","Доступно обновление! Ваша версия игры : %s, последняя версия игры : %s"
+KEY_UPDATE_TEXT_ERROR,Data cannot be retrieved,Невозможно получить данные
+KEY_UPDATE_CHECKING,Checking for updates...,Проверяю наличие обновлений...
+KEY_UPDATE_UPTODATE,Version : %s (latest),Версия : %s (последняя)
+KEY_UPDATE_IS_AVAILABLE,Update is available!,Доступно обновление!
+KEY_UPDATE_DOWNLOAD,Download,Загрузить
+KEY_AUTH_SUBTITLE,Auth • Statistics,Авторизация • Статистика
+KEY_AUTH,Account,Аккаунт
+KEY_LEVEL_SELECTION,Select location,Выбрать локацию
+KEY_MAX_SCORE,Score record : %s,Рекорд очков : %s
+KEY_EXIT,Exit,Выйти
+KEY_SETTINGS_SUBTITLE,Graphics • Sound • Keybindings,Графика • Звук • Управление
+KEY_SETTINGS,Settings,Настройки
+KEY_CONTINUE,Continue,Продолжить
+KEY_LOADING,Loading...,Загрузка...
+KEY_RESTART,Restart,Перезапуск
+KEY_EXIT_MENU,Exit To Menu,Выйти в меню
+KEY_EXIT_DESKTOP,Exit To Desktop,Выйти на рабочий стол
+KEY_BACK,Back,Назад
+KEY_CLOSE,Close,Закрыть
+KEY_BONUS_INSTANT_KILL,Instant Kill,Мгновенное\n убийство
+KEY_BONUS_DOUBLE_POINT,Double Points,Двойные очки
+KEY_BONUS_NUKE,Nuke,Ядерная бомба
+KEY_BONUS_FULL_REPAIR,Full Repair,Полная починка
+KEY_BONUS_MAX_AMMO,Max Ammo,Полная аммуниция
+KEY_BONUS_COLLECTED,Collected,подобрано
+KEY_WAVE,Wave : %d,Волна : %d
+KEY_OBJECT_MYSTERY_BOX_USE,Mystery Box · 🪙%d,Случайное оружие · 🪙%d
+KEY_OBJECT_MYSTERY_BOX_TAKE,Pick up the weapon (%s),Забрать оружие %s
+KEY_OBJECT_MYSTERY_BOX_MESSAGE,Mystery Box Opened,Мистический ящик открыт
+KEY_OBJECT_WEAPON_BUY_USE,%s · 🪙%s,%s · 🪙%s
+KEY_OBJECT_WEAPON_BUY_AMMO_USE,Ammo %s · 🪙%s,Патроны %s · 🪙%s
+KEY_OBJECT_WEAPON_BUY_AMMO_MESSAGE,Purchased ammo for %s,Куплены патроны для %s
+KEY_OBJECT_WEAPON_BUY_MESSAGE,Purchased %s,Куплено %s
+KEY_OBJECT_POWER_SWITCH_DISABLED,Toggle Power On!,Включить электричество
+KEY_OBJECT_POWER_SWITCH_ENABLED,Power is enabled!,Электричество включено!
+KEY_OBJECT_PACKAPUNCH_USE,Upgrade · 🪙%s,Улучшить оружие · 🪙%s
+KEY_OBJECT_PACKAPUNCH_MESSAGE,Upgraded %s,Улучшено оружие %s
+KEY_OBJECT_PACKAPUNCH_MAX_LVL,Maximum weapon level,Максимальный уровень оружия
+KEY_OBJECT_PACKAPUNCH_SPAWN,[wave][color=red]A mysterious machine has awakened…,[wave][color=red]Таинственная машина пробудилась…
+KEY_OBJECT_GATE,Gate · 🪙%d,Локация · 🪙%d
+KEY_OBJECT_GATE_MESSAGE,Gate Opened!,Локация открыта!
+KEY_OBJECT_BUY_HINT,%s · 🪙%d,%s · 🪙%d
+KEY_OBJECT_BUYED_MESSAGE,Buyed : %s,Куплено: %s
+KEY_OBJECT_ROOT_BEER,Double Tap,Двойное нажатие
+KEY_OBJECT_SPEED_COLA,Fast Reload,Быстрая Кола
+KEY_OBJECT_QUICK_REVIVE,Revive,Возрождение
+KEY_OBJECT_JUGGERNOG,More Health,Больше Здоровья
+KEY_OBJECT_ELECTRIC_TRAP,Electric Trap,Электрическая Ловушка
+KEY_OBJECT_ACTIVE,is active!,Активна!
+KEY_OBJECT_ALREADY_BUYED,Already buyed %s!,Уже куплено %s!
+KEY_OBJECT_ELECTRICITY_HINT,The electricity must be activated first!,Сначала включите электричество!
+KEY_OBJECT_WEAPON_SAFE,Open weapon safe,Открыть оружейный сейф
+KEY_OBJECT_BARIER_HINT,Repair barier,Починить барьер
+KEY_BARIER_REPAIR_MESSAGE,Repaired barier,Восстановлен барьер
+KEY_BARIER_FULL_REPAIR_MESSAGE,Fully repaired barier,Барьер полностью восстановлен
+KEY_SCENE_MANAGER_LOADING,Loading : %s,Загрузка : %s
+KEY_SCENE_MANAGER_LOADING_DONE,Done!,Загрузка завершена!
+KEY_SCENE_MANAGER_LOADING_ERROR,Error. Could not load Resource %s,Ошибка. Не получилось загрузить ресурс : %s
+KEY_ENEMY_KILLED,Killed!,Убит!
+KEY_ENEMY_ZOMBIE,Zombie,Зомби
+KEY_ENEMY_FAST_ZOMBIE,Fast Zombie,Быстрый Зомби
+KEY_ENEMY_EXPLOSIVE_ZOMBIE,Explosive Zombie,Взрывной Зомби
+,,
+KEY_EVENTS_ELECTRICITY_DISABLED,Electricity Switch Has Been Turned Off,Электрический щиток был выключен!
+,,
+KEY_TOUCH_ATTACK,Shot,Выстрел
+KEY_TOUCH_SPRINT,Sprint,Бег
+KEY_TOUCH_CROUCH,Crouch,Сесть
+KEY_TOUCH_PAUSE,Pause,Пауза
+KEY_TOUCH_DEBUG_INFO,Debug Info,Отладка
+KEY_TOUCH_SIGHT,Sight,Прицелиться
+KEY_TOUCH_SWAP_WUP,Switch Weapon Up,Сменить оружие вверх
+KEY_TOUCH_SWAP_WDOWN,Switch Weapon Down,Сменить оружие вниз
+KEY_TOUCH_FLASHLIGHT,Flashlight,Фонарик
+KEY_TOUCH_JUMP,Jump,Прыжок
+KEY_TOUCH_MELEE_ATTACK,Melee Attack,Ближняя атака
+KEY_TOUCH_RELOAD,Reload,Перезарядить
+KEY_TOUCH_INTERACT,Interact,Взаимодействие
+,,
+KEY_STAT_GROUP_MAIN,Main,Основное
+KEY_STAT_GROUP_DAMAGE,Damage,Урон
+KEY_STAT_GROUP_BULLETS,Ammunition,Амуниция
+KEY_STAT_GROUP_RECOIL,Recoil,Отдача
+KEY_STAT_GROUP_AIM,Aim,Прицеливание
+KEY_STAT_GROUP_TRIGGER,Trigger,Триггер
+,,
+KEY_STAT_FIRE_RATE,Rate of Fire,Скорострельность
+KEY_STAT_BURST_FIRE_RATE,Burst Rate of Fire,Скорострельность (burst)
+KEY_STAT_FIRE_MODE,Fire Mode (Default),Режим огня (Стандартный)
+KEY_STAT_AVAILABLE_SHOOTING_MODES,Available Fire Modes,Доступные режимы огня
+KEY_STAT_FIRE_DISTANCE,Range,Дальность
+KEY_STAT_DAMAGE,Damage,Урон
+KEY_STAT_DPS,Damage Per Second,Урон в секунду
+KEY_STAT_CLIP_SIZE,Magazine,Магазин
+KEY_STAT_MAGAZINE_SIZE,Ammo Reserve,Боезапас
+KEY_STAT_RELOAD_PENALTY,Reload Penalty,Потеря патронов при перезарядке
+KEY_STAT_BULLET_IN_CHAMBER,Round in Chamber,Патрон в патроннике
+KEY_STAT_HEAD_MULT,Headshot Multiplier,Множитель в голову
+KEY_STAT_TORSO_MULT,Torso Multiplier,Множитель в тело
+KEY_STAT_LIMBS_MULT,Limbs Multiplier,Множитель в конечности
+KEY_STAT_BULLET_IMPACT_POWER,Penetration Power,Сила пробития
+KEY_STAT_MAX_PENETRATION_COUNT,Max Penetrations,Макс. пробитий
+KEY_STAT_BURST_SIZE,Burst Size,Патронов в очереди
+KEY_STAT_BUCKSHOT_SIZE,Buckshot Count,Дробь (кол-во)
+KEY_STAT_AIM_SPEED,Aim Speed,Скорость прицеливания
+KEY_STAT_AIM_CAMERA_ZOOM,Camera Zoom,Зум камеры
+KEY_STAT_AIM_WEAPON_CAMERA_ZOOM,Weapon Camera Zoom,Зум оружия
+KEY_STAT_MAX_HIP_CAMERA_KICK,Max Hip Recoil,Макс. отдача (бедро)
+KEY_STAT_MIN_HIP_CAMERA_KICK,Min Hip Recoil,Мин. отдача (бедро)
+KEY_STAT_MAX_AIM_CAMERA_KICK,Max ADS Recoil,Макс. отдача (прицел)
+KEY_STAT_MIN_AIM_CAMERA_KICK,Min ADS Recoil,Мин. отдача (прицел)
+KEY_STAT_SNAPPINNES,Recoil Snappiness,Скорость удара отдачи
+KEY_STAT_RETURN_SPEED,Return Speed,Скорость возврата
+KEY_STAT_NON_STOP_MULT_ENABLED,Cumulative Recoil,Накопительная отдача
+KEY_STAT_MAX_NON_STOP_MULT,Max Recoil Multiplier,Макс. множитель отдачи
+KEY_STAT_NON_STOP_INCREASE,Recoil Per Shot,Прирост отдачи за выстрел
+KEY_STAT_RECOIL_SCORE,Recoil Difficulty,Сложность компенсации
+KEY_STAT_NON_STOP_RESET_THRESHOLD,Recoil Reset Delay,Задержка сброса отдачи
+KEY_STAT_TRIGGER_DELAY_ENABLED,Trigger Delay,Задержка триггера
+KEY_STAT_TRIGGER_DELAY,Delay Time,Время задержки
+KEY_STAT_SHOTS_PER_SECOND,Shots Per Second,Выстрелов в секунду
+,,
+KEY_STAT_GIVE_SELECTED_WEAPON,Give selected weapon,Выдать выбранное оружие
+KEY_STAT_UPGRADE_WEAPON,Increase weapon level in hands,Повысить уровень оружия в руке
+,,
+KEY_YES,Yes,Да
+KEY_NO,No,Нет
+KEY_SEARCH,Search...,Поиск...
+KEY_WEAPONS,Weapons,Оружие
+,,
+KEY_PLAYER_REVIVING,[color=blue]Reviving...,[color=blue]Возврождение...
+,,
+KEY_TUTORIAL_1,"Default Controls
+
+You can change the controls in the Input tab of the settings menu.","Стандартные настройки управления
+
+Изменить настройки можно во вкладке «Ввод» в меню настроек."
+KEY_TUTORIAL_2,"Movement
+Move — WASD / Left Stick
+Sprint — Shift / D-Pad Left
+Jump — Space / A (Cross)
+Crouch — Left Ctrl / L3 (Press Left Stick)
+Camera
+Look Around — Mouse / Right Stick","Движение
+Ходьба — WASD / Левый стик
+Бег — Shift / D-Pad Left
+Прыжок — Пробел / A (Cross)
+Присесть — Left Ctrl / L3 (нажатие левого стика)
+Камера
+Осмотр — Мышь / Правый стик"
+KEY_TUTORIAL_3,"Weapons
+Fire — Left Mouse Button / RT
+Aim — Right Mouse Button / LT
+Reload — R / Y (Triangle)
+Switch Fire Mode — V
+Switch Weapon — Mouse Wheel / 1–9 / LB–RB
+Throw Grenade — G
+Melee Attack — Q / R3 (Press Right Stick)
+Inspect Weapon — I","Оружие
+Стрельба — ЛКМ / RT
+Прицеливание — ПКМ / LT
+Перезарядка — R / Y (Triangle)
+Смена режима огня — V
+Переключение оружия — Колёсико мыши / 1–9 / LB–RB
+Граната — G
+Ближний бой — Q / R3 (нажатие правого стика)
+Осмотр оружия — I"
+KEY_TUTORIAL_4,"Interaction
+Interact — E / X (Square)
+Flashlight — F / D-Pad Down
+Pause — Escape / Start
+Miscellaneous
+Screenshot — F12
+Open Screenshot Folder — Alt+P
+Debug Information — F3 / D-Pad Up","Взаимодействие
+Взаимодействие — E / X (Square)
+Фонарик — F / D-Pad Down
+Пауза — Escape / Start
+Прочее
+Скриншот — F12
+Открыть папку со скриншотами — Alt+P
+Отладочная информация — F3 / D-Pad Up"
+KEY_TUTORIAL_5,Weapons can be purchased from wall-buy stations:,Оружие можно купить со стены:
+KEY_TUTORIAL_6,Or you can obtain a random weapon from the Mystery Box:,Или получить случайное оружие из ящика:
+KEY_TUTORIAL_7,"In addition to weapons, you can acquire permanent perks that improve your character.","Помимо оружия, можно получать постоянные перки, улучшающие характеристики игрока."
+KEY_TUTORIAL_8,Weapons can also be upgraded using this machine. Visit the shooting range to view weapon statistics.,Оружие также можно улучшить на этой машине. Для просмотра характеристик посетите стрельбище.
+KEY_TUTORIAL_9,"Some doors on the map, like this one, can be opened with points.","На локациях встречаются двери, подобные этой. Их можно открывать за деньги."
+KEY_TUTORIAL_10,There are also doors that automatically unlock once the power has been turned on.,"Также есть двери, которые автоматически открываются после включения электричества."

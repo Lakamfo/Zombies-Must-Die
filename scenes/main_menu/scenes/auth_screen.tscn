@@ -1,0 +1,81 @@
+[gd_scene format=3 uid="uid://dcawn4ilxtmkd"]
+
+[ext_resource type="Material" uid="uid://bnpldw81w3n46" path="res://shaders/mixed_blur_bg.tres" id="1_5fs6h"]
+[ext_resource type="Script" uid="uid://ci30es3lu8r37" path="res://scenes/main_menu/scripts/auth_screen.gd" id="2_78u70"]
+[ext_resource type="StyleBox" uid="uid://wubim2k6ypnb" path="res://ui/resources/panel_bg_blured_style.tres" id="2_gfm6w"]
+
+[node name="auth_screen" type="Panel" unique_id=1088106195]
+material = ExtResource("1_5fs6h")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = ExtResource("2_gfm6w")
+script = ExtResource("2_78u70")
+
+[node name="margin_container" type="MarginContainer" parent="." unique_id=854410510]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 16.0
+offset_top = 16.0
+offset_right = -16.0
+offset_bottom = -16.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="v_box_container" type="VBoxContainer" parent="margin_container" unique_id=1492884545]
+layout_mode = 2
+
+[node name="h_box_container" type="HBoxContainer" parent="margin_container/v_box_container" unique_id=430554001]
+layout_mode = 2
+alignment = 1
+
+[node name="label" type="Label" parent="margin_container/v_box_container/h_box_container" unique_id=2070752190]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "KEY_LOGIN"
+
+[node name="login_line" type="LineEdit" parent="margin_container/v_box_container/h_box_container" unique_id=1052644824]
+custom_minimum_size = Vector2(256, 0)
+layout_mode = 2
+placeholder_text = "KEY_NOT_EMPTY"
+
+[node name="h_box_container2" type="HBoxContainer" parent="margin_container/v_box_container" unique_id=490288764]
+layout_mode = 2
+alignment = 1
+
+[node name="label" type="Label" parent="margin_container/v_box_container/h_box_container2" unique_id=363953912]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "KEY_PASSWORD"
+
+[node name="password_line" type="LineEdit" parent="margin_container/v_box_container/h_box_container2" unique_id=621557038]
+custom_minimum_size = Vector2(256, 0)
+layout_mode = 2
+placeholder_text = "KEY_NOT_EMPTY"
+secret = true
+
+[node name="label_message" type="Label" parent="margin_container/v_box_container" unique_id=1783147659]
+layout_mode = 2
+horizontal_alignment = 1
+
+[node name="h_box_container3" type="HBoxContainer" parent="margin_container/v_box_container" unique_id=476769012]
+custom_minimum_size = Vector2(0, 48)
+layout_mode = 2
+alignment = 1
+
+[node name="bt_login" type="Button" parent="margin_container/v_box_container/h_box_container3" unique_id=1948356711]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "KEY_LOGIN_BUTTON"
+
+[node name="bt_reg" type="Button" parent="margin_container/v_box_container/h_box_container3" unique_id=287193744]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "KEY_REGISTRATION"
+
+[connection signal="pressed" from="margin_container/v_box_container/h_box_container3/bt_login" to="." method="_on_bt_login_pressed"]
+[connection signal="pressed" from="margin_container/v_box_container/h_box_container3/bt_reg" to="." method="_on_bt_reg_pressed"]

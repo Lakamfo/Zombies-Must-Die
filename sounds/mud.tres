@@ -1,0 +1,23 @@
+[gd_resource type="AudioStreamRandomizer" format=3 uid="uid://bepl74qct2ks8"]
+
+[ext_resource type="AudioStream" uid="uid://ddlu27f7ir7ab" path="res://sounds/mud_footsteps/mud-01.wav" id="1_j5fpi"]
+[ext_resource type="AudioStream" uid="uid://dxayddrae4ayx" path="res://sounds/mud_footsteps/mud-02.wav" id="2_yj2iw"]
+[ext_resource type="AudioStream" uid="uid://x58vh0qpdi5c" path="res://sounds/mud_footsteps/mud-03.wav" id="3_4biel"]
+[ext_resource type="AudioStream" uid="uid://dbw84873jnn8b" path="res://sounds/mud_footsteps/mud-04.wav" id="4_whqfd"]
+[ext_resource type="AudioStream" uid="uid://ccxqr24v5gudn" path="res://sounds/mud_footsteps/mud-05.wav" id="5_27epp"]
+[ext_resource type="AudioStream" uid="uid://dkps1sogn6sd8" path="res://sounds/mud_footsteps/mud-06.wav" id="6_flh1q"]
+[ext_resource type="AudioStream" uid="uid://bb6kh6qfvva4b" path="res://sounds/mud_footsteps/mud-07.wav" id="7_k3jjl"]
+[ext_resource type="AudioStream" uid="uid://bvgv7no18mls8" path="res://sounds/mud_footsteps/mud-08.wav" id="8_tqfr0"]
+[ext_resource type="AudioStream" uid="uid://bjfuxhg5pfdcu" path="res://sounds/mud_footsteps/mud-09.wav" id="9_queku"]
+
+[resource]
+streams_count = 9
+stream_0/stream = ExtResource("1_j5fpi")
+stream_1/stream = ExtResource("2_yj2iw")
+stream_2/stream = ExtResource("3_4biel")
+stream_3/stream = ExtResource("4_whqfd")
+stream_4/stream = ExtResource("5_27epp")
+stream_5/stream = ExtResource("6_flh1q")
+stream_6/stream = ExtResource("7_k3jjl")
+stream_7/stream = ExtResource("8_tqfr0")
+stream_8/stream = ExtResource("9_queku")

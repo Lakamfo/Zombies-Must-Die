@@ -1,0 +1,26 @@
+[gd_scene load_steps=3 format=3 uid="uid://hly0kool4op2"]
+
+[ext_resource type="Texture2D" uid="uid://difc0tc01kalp" path="res://addons/virtual_cursor/assets/cursor_texture.png" id="1_kfwtu"]
+[ext_resource type="Script" uid="uid://polq44y26a7c" path="res://addons/virtual_cursor/cursor_overlay.gd" id="1_u4sua"]
+
+[node name="VirtualCursor" type="CanvasLayer"]
+layer = 128
+script = ExtResource("1_u4sua")
+
+[node name="cursor_pivot" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+mouse_filter = 2
+
+[node name="CursorTexture" type="TextureRect" parent="cursor_pivot"]
+layout_mode = 0
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+pivot_offset = Vector2(20, 20)
+mouse_filter = 2
+texture = ExtResource("1_kfwtu")
+expand_mode = 3

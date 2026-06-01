@@ -1,0 +1,45 @@
+[gd_scene format=3 uid="uid://clubhxsfwyga2"]
+
+[ext_resource type="Script" uid="uid://c3mkflipaonib" path="res://ui/score_label/score_label.gd" id="1_doc65"]
+[ext_resource type="Material" uid="uid://bnpldw81w3n46" path="res://shaders/mixed_blur_bg.tres" id="2_thk3q"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bhkri"]
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[node name="MessageLabel" type="Control" unique_id=123426986]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 103.0
+offset_bottom = 23.0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+script = ExtResource("1_doc65")
+
+[node name="timer" type="Timer" parent="." unique_id=775254817]
+one_shot = true
+
+[node name="text_label" type="RichTextLabel" parent="." unique_id=836109305]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 20.0
+bbcode_enabled = true
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+
+[node name="interactable_panel" type="Panel" parent="text_label" unique_id=1091744465]
+z_index = -1
+material = ExtResource("2_thk3q")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+theme_override_styles/panel = SubResource("StyleBoxFlat_bhkri")
+
+[connection signal="timeout" from="timer" to="." method="_on_timer_timeout"]

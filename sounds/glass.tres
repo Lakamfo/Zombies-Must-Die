@@ -1,0 +1,29 @@
+[gd_resource type="AudioStreamRandomizer" format=3 uid="uid://duut3ms6m2jvr"]
+
+[ext_resource type="AudioStream" uid="uid://xnxal4gr4k5l" path="res://sounds/glass_footsteps/glass-01.wav" id="1_4ts43"]
+[ext_resource type="AudioStream" uid="uid://c6hse2yns6vo2" path="res://sounds/glass_footsteps/glass-02.wav" id="2_wl4yt"]
+[ext_resource type="AudioStream" uid="uid://d4cuv8kfxguex" path="res://sounds/glass_footsteps/glass-03.wav" id="3_t5d2j"]
+[ext_resource type="AudioStream" uid="uid://dnbspduvlfgdv" path="res://sounds/glass_footsteps/glass-04.wav" id="4_7grg3"]
+[ext_resource type="AudioStream" uid="uid://dq0y3uqrnuqrg" path="res://sounds/glass_footsteps/glass-05.wav" id="5_5ywst"]
+[ext_resource type="AudioStream" uid="uid://c8b1663djmmx3" path="res://sounds/glass_footsteps/glass-06.wav" id="6_wp3nt"]
+[ext_resource type="AudioStream" uid="uid://b4ajfk17s7c2s" path="res://sounds/glass_footsteps/glass-07.wav" id="7_xympk"]
+[ext_resource type="AudioStream" uid="uid://c8apn8g0sxnly" path="res://sounds/glass_footsteps/glass-08.wav" id="8_s3wyk"]
+
+[resource]
+streams_count = 8
+stream_0/stream = ExtResource("1_4ts43")
+stream_0/weight = 1.0
+stream_1/stream = ExtResource("2_wl4yt")
+stream_1/weight = 1.0
+stream_2/stream = ExtResource("3_t5d2j")
+stream_2/weight = 1.0
+stream_3/stream = ExtResource("4_7grg3")
+stream_3/weight = 1.0
+stream_4/stream = ExtResource("5_5ywst")
+stream_4/weight = 1.0
+stream_5/stream = ExtResource("6_wp3nt")
+stream_5/weight = 1.0
+stream_6/stream = ExtResource("7_xympk")
+stream_6/weight = 1.0
+stream_7/stream = ExtResource("8_s3wyk")
+stream_7/weight = 1.0

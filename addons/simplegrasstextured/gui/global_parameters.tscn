@@ -1,0 +1,90 @@
+[gd_scene format=3 uid="uid://bbbcb5o176677"]
+
+[ext_resource type="Script" uid="uid://b1ddeyowx86m3" path="res://addons/simplegrasstextured/gui/global_parameters.gd" id="1_f1c1a"]
+
+[node name="SimpleGrassTexturedGlobalParameters" type="AcceptDialog" unique_id=488443568]
+title = "Simple Grass Texture: Global Parameters"
+initial_position = 2
+size = Vector2i(197, 181)
+unresizable = true
+script = ExtResource("1_f1c1a")
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=900332384]
+offset_left = 8.0
+offset_top = 8.0
+offset_right = 441.0
+offset_bottom = 164.0
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="GridContainer" type="GridContainer" parent="MarginContainer" unique_id=1072063289]
+layout_mode = 2
+theme_override_constants/h_separation = 20
+columns = 2
+
+[node name="Label" type="Label" parent="MarginContainer/GridContainer" unique_id=1025438435]
+layout_mode = 2
+text = "Wind direction:"
+
+[node name="WindDirHbox" type="HBoxContainer" parent="MarginContainer/GridContainer" unique_id=1797749862]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="DefaultWindDirButton" type="Button" parent="MarginContainer/GridContainer/WindDirHbox" unique_id=1946406856]
+unique_name_in_owner = true
+layout_mode = 2
+flat = true
+
+[node name="Label2" type="Label" parent="MarginContainer/GridContainer" unique_id=1704045885]
+layout_mode = 2
+text = "Wind strength:"
+
+[node name="WindStrengthHBox" type="HBoxContainer" parent="MarginContainer/GridContainer" unique_id=197534367]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="DefaultWindStrengthButton" type="Button" parent="MarginContainer/GridContainer/WindStrengthHBox" unique_id=1549827481]
+unique_name_in_owner = true
+layout_mode = 2
+flat = true
+
+[node name="Label3" type="Label" parent="MarginContainer/GridContainer" unique_id=814190338]
+layout_mode = 2
+text = "Wind turbulence:"
+
+[node name="WindTurbulenceHBox" type="HBoxContainer" parent="MarginContainer/GridContainer" unique_id=1246008923]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="DefaultWindTurbulenceButton" type="Button" parent="MarginContainer/GridContainer/WindTurbulenceHBox" unique_id=1020165871]
+unique_name_in_owner = true
+layout_mode = 2
+flat = true
+
+[node name="Label4" type="Label" parent="MarginContainer/GridContainer" unique_id=1235389913]
+layout_mode = 2
+text = "Wind pattern:"
+
+[node name="WindPatternHBox" type="HBoxContainer" parent="MarginContainer/GridContainer" unique_id=173502538]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="DefaultWindPatternButton" type="Button" parent="MarginContainer/GridContainer/WindPatternHBox" unique_id=1674707841]
+unique_name_in_owner = true
+layout_mode = 2
+flat = true
+
+[node name="SaveConfigTimer" type="Timer" parent="." unique_id=622984053]
+wait_time = 5.0
+one_shot = true
+
+[connection signal="about_to_popup" from="." to="." method="_on_about_to_popup"]
+[connection signal="canceled" from="." to="." method="_on_canceled"]
+[connection signal="confirmed" from="." to="." method="_on_confirmed"]
+[connection signal="pressed" from="MarginContainer/GridContainer/WindDirHbox/DefaultWindDirButton" to="." method="_on_default_wind_dir_button_pressed"]
+[connection signal="pressed" from="MarginContainer/GridContainer/WindStrengthHBox/DefaultWindStrengthButton" to="." method="_on_default_wind_strength_button_pressed"]
+[connection signal="pressed" from="MarginContainer/GridContainer/WindTurbulenceHBox/DefaultWindTurbulenceButton" to="." method="_on_default_wind_turbulence_button_pressed"]
+[connection signal="pressed" from="MarginContainer/GridContainer/WindPatternHBox/DefaultWindPatternButton" to="." method="_on_default_wind_pattern_button_pressed"]
+[connection signal="timeout" from="SaveConfigTimer" to="." method="_on_save_config_timer_timeout"]

@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="BonusDefinition" format=3 uid="uid://6c8cubi6b60j"]
+
+[ext_resource type="Texture2D" uid="uid://gyr5s2oecekh" path="res://player/ui/perks/quick_revive_icon.png" id="1_tseqg"]
+[ext_resource type="Script" uid="uid://cdy0t3gfdm8i1" path="res://classes/bonuses/bonus_definition.gd" id="2_w2spy"]
+
+[resource]
+script = ExtResource("2_w2spy")
+id = &"quick_revive"
+label = "KEY_OBJECT_QUICK_REVIVE"
+source = 1
+endless = true
+price = 500
+color = Color(0, 0.83137256, 1, 1)
+icon = ExtResource("1_tseqg")
+metadata/_custom_type_script = "uid://cdy0t3gfdm8i1"

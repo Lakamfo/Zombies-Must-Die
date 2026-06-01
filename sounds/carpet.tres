@@ -1,0 +1,30 @@
+[gd_resource type="AudioStreamRandomizer" format=3 uid="uid://baymyy7toiyva"]
+
+[ext_resource type="AudioStream" uid="uid://ci7wxasd6pijg" path="res://sounds/carpet_footsteps/carpet-01.wav" id="1_15tgv"]
+[ext_resource type="AudioStream" uid="uid://d07koo25r0hb8" path="res://sounds/carpet_footsteps/carpet-02.wav" id="2_pca8c"]
+[ext_resource type="AudioStream" uid="uid://cioxgffj1y8lx" path="res://sounds/carpet_footsteps/carpet-03.wav" id="3_dq5tx"]
+[ext_resource type="AudioStream" uid="uid://81xm28p51wad" path="res://sounds/carpet_footsteps/carpet-04.wav" id="4_dqjp5"]
+[ext_resource type="AudioStream" uid="uid://bb0tht23lo6d5" path="res://sounds/carpet_footsteps/carpet-05.wav" id="5_614tq"]
+[ext_resource type="AudioStream" uid="uid://npxi5hrlssk3" path="res://sounds/carpet_footsteps/carpet-06.wav" id="6_kox8i"]
+[ext_resource type="AudioStream" uid="uid://djrnaqaonopy7" path="res://sounds/carpet_footsteps/carpet-07.wav" id="7_6vuio"]
+[ext_resource type="AudioStream" uid="uid://cdkixbucxnxab" path="res://sounds/carpet_footsteps/carpet-08.wav" id="8_rqmo6"]
+
+[resource]
+random_pitch = 1.2
+streams_count = 8
+stream_0/stream = ExtResource("1_15tgv")
+stream_0/weight = 1.0
+stream_1/stream = ExtResource("2_pca8c")
+stream_1/weight = 1.0
+stream_2/stream = ExtResource("3_dq5tx")
+stream_2/weight = 1.0
+stream_3/stream = ExtResource("4_dqjp5")
+stream_3/weight = 1.0
+stream_4/stream = ExtResource("5_614tq")
+stream_4/weight = 1.0
+stream_5/stream = ExtResource("6_kox8i")
+stream_5/weight = 1.0
+stream_6/stream = ExtResource("7_6vuio")
+stream_6/weight = 1.0
+stream_7/stream = ExtResource("8_rqmo6")
+stream_7/weight = 1.0

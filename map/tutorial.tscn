@@ -1,0 +1,175 @@
+[gd_scene format=3 uid="uid://ckp7hhuuptdva"]
+
+[ext_resource type="Script" uid="uid://xaq33wfcalvr" path="res://classes/class_environment.gd" id="1_rg8b3"]
+[ext_resource type="Texture2D" uid="uid://v3er25ywp5it" path="res://addons/kenney_prototype_textures/light/texture_07.png" id="2_ov4k6"]
+[ext_resource type="PackedScene" uid="uid://i21n6eshktur" path="res://player/player.tscn" id="3_nv76t"]
+[ext_resource type="PackedScene" uid="uid://ole3dr4p1g0x" path="res://objects/interactable/weapon_buy/weapon_buy.tscn" id="4_nv76t"]
+[ext_resource type="PackedScene" uid="uid://dnlumh0dr5l6j" path="res://objects/interactable/mystery_box/mystery_box.tscn" id="5_y1x6u"]
+[ext_resource type="PackedScene" uid="uid://dvw4rxql2tkb6" path="res://objects/interactable/weapon_upgrader/weapon_upgrader.tscn" id="6_jdaux"]
+[ext_resource type="PackedScene" uid="uid://dv01ocj4bq6vh" path="res://objects/interactable/vending_machine/vending_machine.tscn" id="7_rhvpa"]
+[ext_resource type="PackedScene" uid="uid://csq8d1c01lmov" path="res://objects/interactable/door/door.tscn" id="8_3spc2"]
+[ext_resource type="PackedScene" uid="uid://b58hewdtmgaq6" path="res://objects/interactable/door/door_electricity.tscn" id="9_rbj0g"]
+[ext_resource type="PackedScene" uid="uid://dto7by2l8v1u6" path="res://objects/interactable/electricity/electricity_switch.tscn" id="10_mrgc4"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_g13kn"]
+sky_top_color = Color(0.909804, 0.901961, 0.898039, 1)
+sky_horizon_color = Color(0.909804, 0.901961, 0.898039, 1)
+sky_cover_modulate = Color(0.909804, 0.901961, 0.898039, 1)
+ground_bottom_color = Color(0.909804, 0.901961, 0.898039, 1)
+ground_horizon_color = Color(0.909804, 0.901961, 0.898039, 1)
+
+[sub_resource type="Sky" id="Sky_08ioy"]
+sky_material = SubResource("ProceduralSkyMaterial_g13kn")
+
+[sub_resource type="Environment" id="Environment_ov4k6"]
+background_mode = 2
+background_color = Color(0.745098, 0.745098, 0.745098, 1)
+sky = SubResource("Sky_08ioy")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bbb6f"]
+albedo_texture = ExtResource("2_ov4k6")
+uv1_triplanar = true
+
+[node name="tutorial" type="Node3D" unique_id=2108316757]
+
+[node name="environment" type="Node" parent="." unique_id=498661206]
+
+[node name="game_environment" type="WorldEnvironment" parent="environment" unique_id=1831896168]
+environment = SubResource("Environment_ov4k6")
+script = ExtResource("1_rg8b3")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="environment" unique_id=2056305004]
+transform = Transform3D(-0.8660253, -0.4330129, 0.2500001, 0, 0.49999994, 0.86602545, -0.50000024, 0.74999994, -0.43301257, 0, 4, 0)
+light_energy = 0.517
+shadow_enabled = true
+
+[node name="player" parent="." unique_id=123616838 instance=ExtResource("3_nv76t")]
+transform = Transform3D(-4.3711392e-08, 0, -1.0000001, 0, 1, 0, 1.0000001, 0, -4.3711392e-08, -1, 1, 0)
+score = 100000
+
+[node name="csg_combiner_3d" type="CSGCombiner3D" parent="." unique_id=835522755]
+material_override = SubResource("StandardMaterial3D_bbb6f")
+use_collision = true
+metadata/material = &"CONCRETE"
+
+[node name="csg_box_3d" type="CSGBox3D" parent="csg_combiner_3d" unique_id=951493687]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 14.5)
+size = Vector3(6, 1, 33)
+
+[node name="basic_input" type="Node3D" parent="." unique_id=1915282443]
+
+[node name="label_3d1" type="Label3D" parent="basic_input" unique_id=871691381]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 3, 2.8000004, -1.5)
+double_sided = false
+text = "KEY_TUTORIAL_1"
+vertical_alignment = 0
+autowrap_trim_flags = 64
+
+[node name="label_3d2" type="Label3D" parent="basic_input" unique_id=738429028]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 3, 2.8000002, 2.1)
+double_sided = false
+text = "KEY_TUTORIAL_2"
+vertical_alignment = 0
+autowrap_trim_flags = 64
+
+[node name="label_3d3" type="Label3D" parent="basic_input" unique_id=1057210610]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 3, 2.8000002, 5.7999997)
+double_sided = false
+text = "KEY_TUTORIAL_3"
+vertical_alignment = 0
+autowrap_trim_flags = 64
+
+[node name="label_3d4" type="Label3D" parent="basic_input" unique_id=111504940]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 3, 3, 9.4)
+double_sided = false
+text = "KEY_TUTORIAL_4"
+vertical_alignment = 0
+autowrap_mode = 1
+autowrap_trim_flags = 64
+
+[node name="WeaponBuy" parent="." unique_id=676146007 instance=ExtResource("4_nv76t")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 3.2148392, 0.8499998, 12.223617)
+weapon_id_list = {
+"FSP45": 1,
+"M4A1": 2,
+"M680": 3,
+"MK14": 4,
+"MP5SD": 0,
+"REVOLVER_6": 5,
+"SG552": 6
+}
+
+[node name="label_3d1" type="Label3D" parent="WeaponBuy" unique_id=1087304796]
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 0, 0.6, 0)
+double_sided = false
+text = "KEY_TUTORIAL_5"
+vertical_alignment = 0
+autowrap_trim_flags = 64
+
+[node name="mystery_box" parent="." unique_id=640526259 instance=ExtResource("5_y1x6u")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 3.462651, 0.25000024, 14.5254)
+
+[node name="label_3d1" type="Label3D" parent="mystery_box" unique_id=1377704387]
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 0, 0.8000001, 0)
+double_sided = false
+text = "KEY_TUTORIAL_6"
+vertical_alignment = 0
+autowrap_mode = 2
+autowrap_trim_flags = 64
+
+[node name="weapon_upgrader" parent="." unique_id=2068008122 instance=ExtResource("6_jdaux")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 3, 0.5, 16.9)
+
+[node name="label_3d1" type="Label3D" parent="weapon_upgrader" unique_id=1168950043]
+transform = Transform3D(1, 0, -1.7484552e-07, 0, 1, 0, 1.7484552e-07, 0, 1, 0, 2.3, 0)
+double_sided = false
+text = "KEY_TUTORIAL_8"
+vertical_alignment = 0
+autowrap_mode = 2
+autowrap_trim_flags = 64
+
+[node name="wending_machine" parent="." unique_id=160072516 instance=ExtResource("7_rhvpa")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 3.5, 1, 20)
+
+[node name="label_3d1" type="Label3D" parent="wending_machine" unique_id=1867548744]
+transform = Transform3D(1, 0, -1.7484552e-07, 0, 1, 0, 1.7484552e-07, 0, 1, -0.02848816, 1.9000001, 0.29999995)
+double_sided = false
+text = "KEY_TUTORIAL_7"
+vertical_alignment = 0
+autowrap_mode = 2
+autowrap_trim_flags = 64
+
+[node name="wending_machine2" parent="." unique_id=9099242 instance=ExtResource("7_rhvpa")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 3.5, 1, 22)
+bonus_id = &"double_tap"
+
+[node name="wending_machine3" parent="." unique_id=662018945 instance=ExtResource("7_rhvpa")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 3.5, 1, 24)
+bonus_id = &"juggernog"
+
+[node name="wending_machine4" parent="." unique_id=1571232722 instance=ExtResource("7_rhvpa")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 3.5, 1, 26)
+bonus_id = &"speed_cola"
+
+[node name="static_body_3d" parent="." unique_id=1525576065 instance=ExtResource("8_3spc2")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -0.13100094, 1.75, 18.96943)
+
+[node name="label_3d1" type="Label3D" parent="static_body_3d" unique_id=1597689189]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -0.20000076, 0, 1.4901161e-08)
+double_sided = false
+text = "KEY_TUTORIAL_9"
+vertical_alignment = 0
+autowrap_trim_flags = 64
+
+[node name="electricity_switch" parent="." unique_id=1763206657 instance=ExtResource("10_mrgc4")]
+transform = Transform3D(-0.50000006, 0, 0.8660254, 0, 1, 0, -0.8660254, 0, -0.50000006, -2.2930672, 0.7999189, 20.134691)
+
+[node name="static_body_3d2" parent="." unique_id=380316260 instance=ExtResource("9_rbj0g")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0.16718286, 1.749999, 21.156136)
+
+[node name="label_3d1" type="Label3D" parent="static_body_3d2" unique_id=51494202]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -0.20000076, 0, 1.4901161e-08)
+double_sided = false
+text = "KEY_TUTORIAL_10"
+vertical_alignment = 0
+autowrap_trim_flags = 64

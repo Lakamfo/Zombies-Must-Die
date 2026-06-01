@@ -1,0 +1,29 @@
+[gd_resource type="Resource" script_class="GraphicsPreset" load_steps=2 format=3 uid="uid://cghb7n40fehwc"]
+
+[ext_resource type="Script" uid="uid://cnrnifjrybncx" path="res://settings/utils/graphics_preset.gd" id="1_fy4n8"]
+
+[resource]
+script = ExtResource("1_fy4n8")
+preset_string = "KEY_SETTINGS_HIGH"
+graphics_preset = 3
+scaling_method = 0
+render_resolution = 100.0
+fsr_sharpness = 0.0
+ssao_preset = 2
+msaa_preset = 1
+main_camera_fov = 75.0
+weapon_camera_fov = 75.0
+shadow_quality = 2
+shaders_quality = 2
+shadows = true
+fxaa = false
+taa = false
+glow = true
+sdfgi = false
+ssil = false
+volumetric_fog = true
+ssr = true
+vfx = true
+single_layer_render = true
+ignore_settings = Array[StringName]([&"main_camera_fov", &"weapon_camera_fov"])
+metadata/_custom_type_script = "uid://cnrnifjrybncx"

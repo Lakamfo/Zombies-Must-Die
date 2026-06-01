@@ -1,0 +1,12 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://cdsrn341jy1oj"]
+
+[ext_resource type="Texture2D" uid="uid://b7wg0ls66q2df" path="res://player/weapons/in_game/model680/textures/Image_0.png" id="1_crm4t"]
+
+[resource]
+resource_name = "material"
+cull_mode = 2
+albedo_texture = ExtResource("1_crm4t")
+metallic = 1.0
+metallic_texture_channel = 2
+roughness_texture_channel = 1
+normal_enabled = true

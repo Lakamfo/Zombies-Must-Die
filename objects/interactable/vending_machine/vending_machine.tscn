@@ -1,0 +1,36 @@
+[gd_scene format=3 uid="uid://dv01ocj4bq6vh"]
+
+[ext_resource type="Script" uid="uid://blrh7khlyyoq2" path="res://objects/interactable/vending_machine/vending_machine.gd" id="1_rcurw"]
+[ext_resource type="Shape3D" uid="uid://qn81qw5e2m0p" path="res://objects/interactable/vending_machine/collisions/quick_revive.tres" id="2_8bhg2"]
+[ext_resource type="PackedScene" uid="uid://cbsyff8t14x7t" path="res://objects/interactable/vending_machine/models/quick_revive_unique.tscn" id="3_t4i2n"]
+[ext_resource type="AudioStream" uid="uid://csn1ccgj40sx0" path="res://objects/interactable/sounds/buy_sound.wav" id="4_w2tey"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_63q2u"]
+size = Vector3(1.5, 2.6, 1.42607)
+
+[node name="wending_machine" type="StaticBody3D" unique_id=160072516]
+collision_layer = 9
+collision_mask = 9
+script = ExtResource("1_rcurw")
+metadata/material = "METAL"
+
+[node name="collision_shape_3d" type="CollisionShape3D" parent="." unique_id=2013595627]
+transform = Transform3D(-4.37114e-08, 1, 4.37114e-08, 0, -4.37114e-08, 1, 1, 4.37114e-08, 1.91069e-15, 0, -1.081, 0)
+shape = ExtResource("2_8bhg2")
+
+[node name="mesh_root" type="Node3D" parent="." unique_id=933571355]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.0805, 0)
+
+[node name="quick_revive_unique" parent="mesh_root" unique_id=157924069 instance=ExtResource("3_t4i2n")]
+
+[node name="player_barier" type="StaticBody3D" parent="." unique_id=639276417]
+collision_layer = 20
+collision_mask = 0
+
+[node name="collision_shape_3d" type="CollisionShape3D" parent="player_barier" unique_id=1569777439]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0500001, 0.3, 0.0130371)
+shape = SubResource("BoxShape3D_63q2u")
+
+[node name="audio_stream_player_3d" type="AudioStreamPlayer3D" parent="." unique_id=198123322]
+stream = ExtResource("4_w2tey")
+bus = &"sfx"

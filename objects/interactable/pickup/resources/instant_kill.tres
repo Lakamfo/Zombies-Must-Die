@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="BonusDefinition" format=3 uid="uid://cykc4lm7er8ju"]
+
+[ext_resource type="Script" uid="uid://cdy0t3gfdm8i1" path="res://classes/bonuses/bonus_definition.gd" id="1_cealu"]
+[ext_resource type="Texture2D" uid="uid://dq5623h4niltu" path="res://objects/interactable/pickup/images/instant_kill.png" id="1_h32ge"]
+[ext_resource type="ArrayMesh" uid="uid://ca80r6tfdvudh" path="res://objects/interactable/pickup/models/meshes/pickups_instant_kill.res" id="2_1cy46"]
+
+[resource]
+script = ExtResource("1_cealu")
+id = &"instant_kill"
+label = "KEY_BONUS_INSTANT_KILL"
+icon = ExtResource("1_h32ge")
+mesh = ExtResource("2_1cy46")
+metadata/_custom_type_script = "uid://cdy0t3gfdm8i1"

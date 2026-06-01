@@ -1,0 +1,162 @@
+[gd_scene format=3 uid="uid://5vghulr4oquy"]
+
+[ext_resource type="Shader" uid="uid://daqaedd6be5x" path="res://shaders/mixed_blur.gdshader" id="1_507ju"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_4xx6l"]
+shader = ExtResource("1_507ju")
+shader_parameter/blur_amount = 1.0000001424999998
+shader_parameter/mix_amount = 0.0
+shader_parameter/color_over = Color(0, 0, 0, 1)
+
+[sub_resource type="Animation" id="Animation_xomcr"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_3g1du"]
+resource_name = "fade_in"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(-2, -2),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_ualf4"]
+resource_name = "fade_out"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(1),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(-2, -2),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_8b85g"]
+_data = {
+&"RESET": SubResource("Animation_xomcr"),
+&"fade_in": SubResource("Animation_3g1du"),
+&"fade_out": SubResource("Animation_ualf4")
+}
+
+[node name="loading_screen" type="Control" unique_id=1406014558]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="color_rect" type="ColorRect" parent="." unique_id=829479543]
+material = SubResource("ShaderMaterial_4xx6l")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="progress_bar" type="ProgressBar" parent="." unique_id=1879500729]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -182.0
+offset_top = -73.0
+offset_right = 182.0
+offset_bottom = -16.0
+grow_horizontal = 2
+grow_vertical = 0
+mouse_filter = 2
+
+[node name="animation_player" type="AnimationPlayer" parent="." unique_id=2143071663]
+libraries/ = SubResource("AnimationLibrary_8b85g")
+
+[node name="v_box_container" type="VBoxContainer" parent="." unique_id=1595243736]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.7875
+anchor_right = 1.0
+anchor_bottom = 0.986111
+offset_bottom = -80.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/separation = 16
+alignment = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="label_resource" type="Label" parent="v_box_container" unique_id=1187873420]
+modulate = Color(1, 1, 1, 0.498039)
+layout_mode = 2
+text = "PICKLES"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="label" type="Label" parent="v_box_container" unique_id=1581524596]
+layout_mode = 2
+text = "PICKLES"
+horizontal_alignment = 1
+vertical_alignment = 1

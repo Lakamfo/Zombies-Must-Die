@@ -1,0 +1,13 @@
+[gd_resource type="AudioStreamRandomizer" format=3 uid="uid://b7lq3d6qcebwd"]
+
+[ext_resource type="AudioStream" uid="uid://cmaryf581yu84" path="res://sounds/wood_impact/wood_impact1.wav" id="1_7ux4t"]
+[ext_resource type="AudioStream" uid="uid://c6udoxoih5b8" path="res://sounds/wood_impact/wood_impact2.wav" id="2_6tvi4"]
+[ext_resource type="AudioStream" uid="uid://2ysdfhjy83f6" path="res://sounds/wood_impact/wood_impact3.wav" id="3_hoodf"]
+[ext_resource type="AudioStream" uid="uid://dc3w52uujs22s" path="res://sounds/wood_impact/wood_impact4.wav" id="4_d5aiu"]
+
+[resource]
+streams_count = 4
+stream_0/stream = ExtResource("1_7ux4t")
+stream_1/stream = ExtResource("2_6tvi4")
+stream_2/stream = ExtResource("3_hoodf")
+stream_3/stream = ExtResource("4_d5aiu")

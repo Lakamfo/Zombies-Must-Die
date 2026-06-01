@@ -1,0 +1,7 @@
+[gd_resource type="ShaderMaterial" format=3 uid="uid://fycod5b3bri5"]
+
+[ext_resource type="Shader" uid="uid://brellka4w2k2s" path="res://addons/simplegrasstextured/shaders/position.gdshader" id="1_v711b"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_v711b")

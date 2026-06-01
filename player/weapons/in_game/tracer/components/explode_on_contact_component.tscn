@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://luh8y0cfuigs"]
+
+[ext_resource type="Script" uid="uid://bn6fd46o1c02f" path="res://player/weapons/in_game/tracer/components/ExplodeOnContactComponent.gd" id="1_o74ai"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_1vskg"]
+
+[node name="ExplodeOnContactComponent" type="Node3D" unique_id=1986219191 node_paths=PackedStringArray("area", "collision_shape_3d")]
+script = ExtResource("1_o74ai")
+area = NodePath("area_3d")
+collision_shape_3d = NodePath("area_3d/collision_shape_3d")
+
+[node name="area_3d" type="Area3D" parent="." unique_id=697416287]
+
+[node name="collision_shape_3d" type="CollisionShape3D" parent="area_3d" unique_id=625795181]
+shape = SubResource("SphereShape3D_1vskg")

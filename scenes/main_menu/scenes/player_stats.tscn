@@ -1,0 +1,79 @@
+[gd_scene format=3 uid="uid://cj7h6asylx6id"]
+
+[ext_resource type="Material" uid="uid://bnpldw81w3n46" path="res://shaders/mixed_blur_bg.tres" id="1_gup0g"]
+[ext_resource type="Script" uid="uid://cr6latfibqnbp" path="res://scenes/main_menu/scripts/player_stats.gd" id="2_nufgb"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vbcws"]
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+
+[node name="player_stats" type="Panel" unique_id=80418771]
+material = ExtResource("1_gup0g")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_vbcws")
+script = ExtResource("2_nufgb")
+
+[node name="margin_container" type="MarginContainer" parent="." unique_id=1409319796]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 16.0
+offset_top = 16.0
+offset_right = -16.0
+offset_bottom = -16.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="v_box_container" type="VBoxContainer" parent="margin_container" unique_id=537902535]
+layout_mode = 2
+
+[node name="enemy_kills_container" type="HBoxContainer" parent="margin_container/v_box_container" unique_id=2072744914]
+layout_mode = 2
+alignment = 1
+
+[node name="label_stat" type="Label" parent="margin_container/v_box_container/enemy_kills_container" unique_id=1450941008]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "KEY_STATS_ENEMIES_KILLED"
+
+[node name="label_value" type="Label" parent="margin_container/v_box_container/enemy_kills_container" unique_id=858061409]
+layout_mode = 2
+text = "0"
+
+[node name="games_played_container" type="HBoxContainer" parent="margin_container/v_box_container" unique_id=234932817]
+layout_mode = 2
+alignment = 1
+
+[node name="label_stat" type="Label" parent="margin_container/v_box_container/games_played_container" unique_id=1698243554]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "KET_STATS_GAMES_PLAYED"
+
+[node name="label_value" type="Label" parent="margin_container/v_box_container/games_played_container" unique_id=575053554]
+layout_mode = 2
+text = "0"
+
+[node name="score_container" type="HBoxContainer" parent="margin_container/v_box_container" unique_id=31987595]
+layout_mode = 2
+alignment = 1
+
+[node name="label_stat" type="Label" parent="margin_container/v_box_container/score_container" unique_id=152531018]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "KEY_STATS_SCORE_OVERALL"
+
+[node name="label_value" type="Label" parent="margin_container/v_box_container/score_container" unique_id=1375293174]
+layout_mode = 2
+text = "0"
+
+[node name="label_message" type="Label" parent="margin_container/v_box_container" unique_id=40771545]
+layout_mode = 2
+horizontal_alignment = 1

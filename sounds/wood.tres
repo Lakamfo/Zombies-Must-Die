@@ -1,0 +1,35 @@
+[gd_resource type="AudioStreamRandomizer" format=3 uid="uid://bt41nhu603wmc"]
+
+[ext_resource type="AudioStream" uid="uid://b3oivmdu12ag" path="res://sounds/wood_footsteps/wood-01.wav" id="1_mm27s"]
+[ext_resource type="AudioStream" uid="uid://pkfh5ntetv4w" path="res://sounds/wood_footsteps/wood-02.wav" id="2_ammmx"]
+[ext_resource type="AudioStream" uid="uid://dcikgjxucmhvt" path="res://sounds/wood_footsteps/wood-11.wav" id="3_yml3g"]
+[ext_resource type="AudioStream" uid="uid://c50tokw83qyjm" path="res://sounds/wood_footsteps/wood-12.wav" id="4_pr2t0"]
+[ext_resource type="AudioStream" uid="uid://dm56t0mmmva7c" path="res://sounds/wood_footsteps/wood-13.wav" id="5_h7jgj"]
+[ext_resource type="AudioStream" uid="uid://bvmtt4s0i1gsv" path="res://sounds/wood_footsteps/wood-14.wav" id="6_ys3ll"]
+[ext_resource type="AudioStream" uid="uid://bncfnsoe6x3jj" path="res://sounds/wood_footsteps/wood-15.wav" id="7_rebvi"]
+[ext_resource type="AudioStream" uid="uid://y7g6aswh720r" path="res://sounds/wood_footsteps/wood-03.wav" id="8_0hst5"]
+[ext_resource type="AudioStream" uid="uid://dks1mgjo67n5b" path="res://sounds/wood_footsteps/wood-04.wav" id="9_t2t8q"]
+[ext_resource type="AudioStream" uid="uid://b87uuc33j3uqn" path="res://sounds/wood_footsteps/wood-05.wav" id="10_omag8"]
+[ext_resource type="AudioStream" uid="uid://bioa1jj55yunx" path="res://sounds/wood_footsteps/wood-06.wav" id="11_l02iq"]
+[ext_resource type="AudioStream" uid="uid://pvhqsgui6nqe" path="res://sounds/wood_footsteps/wood-07.wav" id="12_ardiq"]
+[ext_resource type="AudioStream" uid="uid://ptm00hwaaxvj" path="res://sounds/wood_footsteps/wood-08.wav" id="13_k28d0"]
+[ext_resource type="AudioStream" uid="uid://c3thlp31dgvfu" path="res://sounds/wood_footsteps/wood-09.wav" id="14_852bn"]
+[ext_resource type="AudioStream" uid="uid://b2hcqhmh8i0m0" path="res://sounds/wood_footsteps/wood-10.wav" id="15_iv0ww"]
+
+[resource]
+streams_count = 15
+stream_0/stream = ExtResource("1_mm27s")
+stream_1/stream = ExtResource("2_ammmx")
+stream_2/stream = ExtResource("8_0hst5")
+stream_3/stream = ExtResource("9_t2t8q")
+stream_4/stream = ExtResource("10_omag8")
+stream_5/stream = ExtResource("11_l02iq")
+stream_6/stream = ExtResource("12_ardiq")
+stream_7/stream = ExtResource("13_k28d0")
+stream_8/stream = ExtResource("14_852bn")
+stream_9/stream = ExtResource("15_iv0ww")
+stream_10/stream = ExtResource("3_yml3g")
+stream_11/stream = ExtResource("4_pr2t0")
+stream_12/stream = ExtResource("5_h7jgj")
+stream_13/stream = ExtResource("6_ys3ll")
+stream_14/stream = ExtResource("7_rebvi")

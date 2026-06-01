@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://b58hewdtmgaq6"]
+
+[ext_resource type="Script" uid="uid://cvmvpfvcsr4nx" path="res://objects/interactable/door/door_electricity.gd" id="1_fprjg"]
+[ext_resource type="Texture2D" uid="uid://cqac8aird1nh4" path="res://textures/other/metall_door.jpeg" id="2_8rle4"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_q4m5a"]
+resource_name = "METAL"
+albedo_texture = ExtResource("2_8rle4")
+
+[sub_resource type="BoxMesh" id="BoxMesh_ddeo6"]
+resource_local_to_scene = true
+material = SubResource("StandardMaterial3D_q4m5a")
+size = Vector3(0.2, 3.5, 6.5)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_c03pi"]
+size = Vector3(0.2, 3.5, 6)
+
+[node name="static_body_3d" type="StaticBody3D" unique_id=380316260]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.374056, -0.289679, -0.625458)
+collision_layer = 9
+collision_mask = 24
+script = ExtResource("1_fprjg")
+interactable_text = "KEY_OBJECT_ELECTRICITY_HINT"
+metadata/material = "METAL"
+
+[node name="mesh_instance_3d" type="MeshInstance3D" parent="." unique_id=157189842]
+mesh = SubResource("BoxMesh_ddeo6")
+
+[node name="collision_shape_3d" type="CollisionShape3D" parent="." unique_id=1398887229]
+shape = SubResource("BoxShape3D_c03pi")

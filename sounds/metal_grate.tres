@@ -1,0 +1,35 @@
+[gd_resource type="AudioStreamRandomizer" format=3 uid="uid://dlqogqh1swdgc"]
+
+[ext_resource type="AudioStream" uid="uid://br1r3g4iw3fnb" path="res://sounds/metal_grate_footsteps/metal_grate-01.wav" id="1_omwg0"]
+[ext_resource type="AudioStream" uid="uid://djhj6n5lp0e41" path="res://sounds/metal_grate_footsteps/metal_grate-02.wav" id="2_k5tk0"]
+[ext_resource type="AudioStream" uid="uid://wveq5n1rhyiw" path="res://sounds/metal_grate_footsteps/metal_grate-03.wav" id="3_px6qo"]
+[ext_resource type="AudioStream" uid="uid://17ls0htr31uw" path="res://sounds/metal_grate_footsteps/metal_grate-04.wav" id="4_migd7"]
+[ext_resource type="AudioStream" uid="uid://b2m6uou4o6iyq" path="res://sounds/metal_grate_footsteps/metal_grate-05.wav" id="5_yvgjo"]
+[ext_resource type="AudioStream" uid="uid://bvc000unlvbqt" path="res://sounds/metal_grate_footsteps/metal_grate-06.wav" id="6_yrqa6"]
+[ext_resource type="AudioStream" uid="uid://bh1ps52g2rcgw" path="res://sounds/metal_grate_footsteps/metal_grate-07.wav" id="7_6ggj1"]
+[ext_resource type="AudioStream" uid="uid://bmianpp6xtvd4" path="res://sounds/metal_grate_footsteps/metal_grate-08.wav" id="8_i2kk1"]
+[ext_resource type="AudioStream" uid="uid://bxbb6or7swnob" path="res://sounds/metal_grate_footsteps/metal_grate-09.wav" id="9_ne5ek"]
+[ext_resource type="AudioStream" uid="uid://dcflnyplqx7f3" path="res://sounds/metal_grate_footsteps/metal_grate-10.wav" id="10_sw5ue"]
+
+[resource]
+streams_count = 10
+stream_0/stream = ExtResource("1_omwg0")
+stream_0/weight = 1.0
+stream_1/stream = ExtResource("2_k5tk0")
+stream_1/weight = 1.0
+stream_2/stream = ExtResource("3_px6qo")
+stream_2/weight = 1.0
+stream_3/stream = ExtResource("4_migd7")
+stream_3/weight = 1.0
+stream_4/stream = ExtResource("5_yvgjo")
+stream_4/weight = 1.0
+stream_5/stream = ExtResource("6_yrqa6")
+stream_5/weight = 1.0
+stream_6/stream = ExtResource("7_6ggj1")
+stream_6/weight = 1.0
+stream_7/stream = ExtResource("8_i2kk1")
+stream_7/weight = 1.0
+stream_8/stream = ExtResource("9_ne5ek")
+stream_8/weight = 1.0
+stream_9/stream = ExtResource("10_sw5ue")
+stream_9/weight = 1.0

@@ -1,0 +1,120 @@
+[gd_scene format=3 uid="uid://i07i7qwdbk8p"]
+
+[ext_resource type="Script" uid="uid://c2b766xn7leku" path="res://player/weapon_logic/weapon.gd" id="1_7uj8g"]
+[ext_resource type="Resource" uid="uid://bajgofypqfyfq" path="res://player/weapons/in_game/mp5sd/mp5sd_stats.tres" id="2_e8n8h"]
+[ext_resource type="PackedScene" uid="uid://ww04owyxgaxt" path="res://player/weapons/in_game/mp5sd/mp5sd_reanimate_finale.blend" id="3_85jes"]
+[ext_resource type="AudioStream" uid="uid://cmimw5q3vpbds" path="res://player/weapons/sounds/fire_mode_swich_v2.mp3" id="4_43p7u"]
+[ext_resource type="AudioStream" uid="uid://243jlsbmmljo" path="res://player/weapons/sounds/MP5SD/magpouch.wav" id="7_hkowx"]
+[ext_resource type="AudioStream" uid="uid://du2yosanfcmkr" path="res://player/weapons/sounds/MP5SD/boltslap.wav" id="7_vh4uu"]
+[ext_resource type="AudioStream" uid="uid://o2entqvktop5" path="res://player/weapons/in_game/mp5sd/mp5sd_new_sound.mp3" id="16_ti4as"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pys6k"]
+emission_enabled = true
+emission = Color(0.968627, 0.337255, 0, 1)
+
+[sub_resource type="Curve" id="Curve_gmb5w"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_11n3m"]
+curve = SubResource("Curve_gmb5w")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_btwrm"]
+particle_flag_align_y = true
+particle_flag_rotate_y = true
+emission_shape = 1
+emission_sphere_radius = 0.1
+angle_min = -15.0
+angle_max = 15.0
+direction = Vector3(1, 0, 1)
+initial_velocity_min = 1.0
+initial_velocity_max = 1.0
+angular_velocity_min = 50.0
+angular_velocity_max = 50.0
+radial_velocity_min = 1.0
+radial_velocity_max = 1.0
+gravity = Vector3(0, 0, 10)
+scale_min = 0.2
+scale_curve = SubResource("CurveTexture_11n3m")
+
+[sub_resource type="BoxMesh" id="BoxMesh_isgtw"]
+size = Vector3(0.01, 0.01, 0.1)
+
+[node name="mp5sd" type="Node3D" unique_id=1778606909 node_paths=PackedStringArray("camera_animation", "bullet_pos")]
+script = ExtResource("1_7uj8g")
+weapon_name = "mp5sd"
+weapon_stats = ExtResource("2_e8n8h")
+animation_player = NodePath("model/AnimationPlayer")
+audio_stream_player = NodePath("audio_stream_player_3d")
+audio_fire_mode_switch_stream_player = NodePath("audio_stream_player_switch")
+omni_light = NodePath("model/Bones/Skeleton3D/bone_attachment_3d2/omni_light_3d")
+shell_position = NodePath("model/Bones/Skeleton3D/bone_attachment_3d2/marker_3d")
+gpu_particles = NodePath("model/Bones/Skeleton3D/bone_attachment_3d2/gpu_particles_3d")
+camera_animation = NodePath("model/Bones/Skeleton3D/bone_attachment_3d")
+bullet_pos = NodePath("model/Bones/Skeleton3D/bone_attachment_3d2/bullet_tracer_pos")
+
+[node name="model" parent="." unique_id=280506127 instance=ExtResource("3_85jes")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, -0.708, 0)
+
+[node name="bone_attachment_3d" type="BoneAttachment3D" parent="model/Bones/Skeleton3D" parent_id_path=PackedInt32Array(280506127, 1285816504) index="3" unique_id=471782406]
+transform = Transform3D(1, 1.3520844e-29, 0, 1.3346637e-29, 1, -7.312535e-22, 0, 7.3125997e-22, 1, 1.4038776e-09, 0.8051567, 4.7779416e-09)
+bone_name = "Head"
+bone_idx = 2
+
+[node name="bone_attachment_3d2" type="BoneAttachment3D" parent="model/Bones/Skeleton3D" parent_id_path=PackedInt32Array(280506127, 1285816504) index="4" unique_id=1542194608]
+transform = Transform3D(1, -1.3323389e-06, 6.278328e-07, 6.278328e-07, 0, -1, 1.3323393e-06, 0.99999976, 0, -0.593386, -5.423588, 0.7711101)
+bone_name = "bdy"
+bone_idx = 10
+
+[node name="marker_3d" type="Marker3D" parent="model/Bones/Skeleton3D/bone_attachment_3d2" unique_id=1284785410]
+transform = Transform3D(-2, -2.83375e-06, -1.40835e-06, 2.97831e-06, -1.98643, -0.232614, -1.0692e-06, -0.232614, 1.98643, -0.0542405, 0.872056, -0.0468726)
+gizmo_extents = 0.36
+
+[node name="gpu_particles_3d" type="GPUParticles3D" parent="model/Bones/Skeleton3D/bone_attachment_3d2" unique_id=385213968]
+transform = Transform3D(-2, 1.25567e-06, -2.83952e-06, 2.83952e-06, -1.67297e-12, -2, -1.25567e-06, -2, -1.78275e-12, -0.00739616, 3.08299, 0.0067859)
+material_override = SubResource("StandardMaterial3D_pys6k")
+emitting = false
+amount = 16
+lifetime = 0.5
+visibility_aabb = AABB(-0.179346, -0.28535, -0.221059, 0.358691, 0.5707, 0.442118)
+local_coords = true
+process_material = SubResource("ParticleProcessMaterial_btwrm")
+draw_pass_1 = SubResource("BoxMesh_isgtw")
+
+[node name="omni_light_3d" type="OmniLight3D" parent="model/Bones/Skeleton3D/bone_attachment_3d2" unique_id=955460446]
+transform = Transform3D(-2, 1.25567e-06, -2.83952e-06, 2.83952e-06, -5.96063e-08, -2, -1.25567e-06, -2, 5.96028e-08, 0.165319, 2.8441, 0.0921032)
+visible = false
+layers = 3
+light_energy = 1.292
+omni_range = 3.4531
+
+[node name="bullet_tracer_pos" type="Marker3D" parent="model/Bones/Skeleton3D/bone_attachment_3d2" unique_id=1277394966]
+transform = Transform3D(1, 0, 7.79263e-20, 0, 1, -3.38813e-20, 1.26554e-18, 1.0842e-19, 1, -0.0232841, 2.76019, -0.00377893)
+
+[node name="audio_stream_player_switch" type="AudioStreamPlayer3D" parent="." unique_id=1880271130]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.3, 0, 0)
+stream = ExtResource("4_43p7u")
+max_db = -3.0
+max_polyphony = 2
+bus = &"weapon"
+
+[node name="audio_stream_player_3d" type="AudioStreamPlayer3D" parent="." unique_id=499731716]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.3, 0, 0)
+stream = ExtResource("16_ti4as")
+volume_db = 3.0
+max_db = 6.0
+max_polyphony = 7
+bus = &"weapon"
+
+[node name="take_out" type="AudioStreamPlayer3D" parent="." unique_id=2068070649]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.3, 0, 0)
+stream = ExtResource("7_hkowx")
+bus = &"weapon"
+
+[node name="animations_sound" type="AudioStreamPlayer3D" parent="." unique_id=85006312]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.3, 0, 0)
+stream = ExtResource("7_vh4uu")
+max_polyphony = 3
+bus = &"weapon"
+
+[editable path="model"]

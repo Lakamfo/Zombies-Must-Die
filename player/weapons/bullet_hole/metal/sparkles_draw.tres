@@ -1,0 +1,9 @@
+[gd_resource type="BoxMesh" format=3 uid="uid://drldlvwvxw3co"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qy4jb"]
+emission_enabled = true
+emission = Color(1, 0.717647, 0.262745, 1)
+
+[resource]
+material = SubResource("StandardMaterial3D_qy4jb")
+size = Vector3(0.003, 0.003, 0.1)

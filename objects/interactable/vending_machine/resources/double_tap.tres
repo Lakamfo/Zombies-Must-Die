@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="BonusDefinition" format=3 uid="uid://d0m82l34o4ymw"]
+
+[ext_resource type="Script" uid="uid://cdy0t3gfdm8i1" path="res://classes/bonuses/bonus_definition.gd" id="1_3koec"]
+[ext_resource type="Texture2D" uid="uid://ba0obel22ya3" path="res://player/ui/perks/double_tap_icon.png" id="1_3ydjk"]
+
+[resource]
+script = ExtResource("1_3koec")
+id = &"double_tap"
+label = "KEY_OBJECT_ROOT_BEER"
+source = 1
+endless = true
+price = 500
+color = Color(1, 0.4392157, 0, 1)
+icon = ExtResource("1_3ydjk")
+metadata/_custom_type_script = "uid://cdy0t3gfdm8i1"

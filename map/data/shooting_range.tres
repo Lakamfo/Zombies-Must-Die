@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="LocationData" format=3 uid="uid://30qweipoubls"]
+
+[ext_resource type="Texture2D" uid="uid://bjmum4xorl68y" path="res://map/icons/shooting_range.png" id="1_pkygx"]
+[ext_resource type="Script" uid="uid://d1ru5h6prvuxx" path="res://classes/location_data.gd" id="2_syia1"]
+
+[resource]
+script = ExtResource("2_syia1")
+name = "Shooting Range"
+icon = ExtResource("1_pkygx")
+scene_path = "uid://csg3t68tvac6y"
+metadata/_custom_type_script = "uid://d1ru5h6prvuxx"

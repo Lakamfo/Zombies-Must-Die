@@ -1,0 +1,7 @@
+[gd_resource type="QuadMesh" load_steps=2 format=3 uid="uid://t1ki7vhbxm20"]
+
+[ext_resource type="Material" uid="uid://r2vcr5ujihvy" path="res://player/weapons/bullet_hole/flesh/flesh_material.tres" id="1_yp0vf"]
+
+[resource]
+material = ExtResource("1_yp0vf")
+size = Vector2(2, 2)
