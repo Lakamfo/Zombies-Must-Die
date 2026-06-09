@@ -25,6 +25,8 @@ func _ready() -> void:
 	_setup_player_loadout()
 	_setup_wave_logic()
 	
+	EventBus.player_die.connect(_player_die_handler)
+	
 	MaterialHelper.setup_scene_materials(SceneTreeUtils.get_all_children(self))
 #endregion
 
@@ -60,4 +62,6 @@ func _setup_wave_logic() -> void:
 #endregion
 
 #region Event handlers
+func _player_die_handler() -> void:
+	GameState.save_record()
 #endregion

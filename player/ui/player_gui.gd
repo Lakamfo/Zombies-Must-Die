@@ -319,7 +319,7 @@ func _on_player_die() -> void:
 
 	player_alive = false
 	MouseManager.unlock(&"pause_menu")
-	GameState.save_record()
+	
 	get_tree().paused = true
 
 

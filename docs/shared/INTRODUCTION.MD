@@ -413,7 +413,7 @@ func _process(delta: float) -> void:
 1. Create a weapon scene in player/weapons/gun_name/
 2. Inherit from Weapon
 3. Define weapon_stats (damage, fire rate, magazine)
-4. Add to WeaponManager.all_weapons_list, all_weapons_id_const, all_weapons_string
+4. Add to WeaponManager.WEAPON_REGISTRY
 5. Add model and animations in weapon scene
 
 you can look how other weapons is done.
@@ -464,7 +464,7 @@ Global.bonus_registry.register_bonus(bonus)
 
 2. Set the Blender path with first open or set in: Editor -> Editor Settings -> Blender Path, then point it to the Blender executable (filesystem/import/blender/blender_path).
 
-3. Rename the secret file if needed:
+3. Rename the secret file:
 ```bash
 cp res://classes/secret/secret_example.gd res://classes/secret/secret.gd
 ```
@@ -689,7 +689,7 @@ One instance per object, accessible globally by class name. Used for shared stat
 
 ## Checklist Before You Start
 
-- [ ] Godot 4.6+ is installed
+- [ ] Godot 4.6.3+ is installed
 - [ ] Blender 5.2+ is installed
 - [ ] Project opens without errors
 - [ ] Game runs (F5)
@@ -703,8 +703,8 @@ If everything is checked off, you are ready to start developing.
 
 ---
 
-Documentation version: 0.1
-Last updated: 2026-05-27
-Engine: Godot Engine 4.6.2+
+Documentation version: 0.2
+Last updated: 2026-06-09
+Engine: Godot Engine 4.6.3+
 Language: GDScript, Python, GDSL
 Status: Actively developed

@@ -47,7 +47,7 @@ config/name_localized={
 "ru": "Зомби Должны Умереть"
 }
 config/description="A classic COD : Zombies shooter"
-config/version="Version 2.0 | Stable (in question)"
+config/version="Version 2.0.1 | Stable (in question)"
 config/tags=PackedStringArray("main_project", "wip")
 run/main_scene="res://scenes/main_menu/main_menu.tscn"
 config/features=PackedStringArray("4.6", "GL Compatibility")
