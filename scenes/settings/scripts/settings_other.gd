@@ -11,6 +11,8 @@ extends ScrollContainerMouse
 
 
 func _ready() -> void:
+	super()
+	
 	preload_weapon_button.toggled.connect(preload_weapon)
 	language_option_button.item_selected.connect(language_option_button_item_selected)
 

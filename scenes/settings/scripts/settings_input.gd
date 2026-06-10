@@ -45,6 +45,8 @@ enum JoypadType { XBOX, PLAYSTATION, NINTENDO, GENERIC }
 
 
 func _ready() -> void:
+	super()
+	
 	await owner.locale_loaded
 
 	for action in input_actions.keys():

@@ -126,6 +126,8 @@ var ignore_preset_selection_signal: bool = false
 
 
 func _ready() -> void:
+	super()
+	
 	await owner.locale_loaded
 
 	ignore_graphics_option_timer.one_shot = true

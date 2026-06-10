@@ -11,6 +11,12 @@ var gamepad_enabled: bool = false
 
 var gpad_scroll_hint: TextureRect
 
+func _gpad_hint(state: bool) -> void:
+	gpad_scroll_hint.visible = state
+	gamepad_enabled = state
+	if not gamepad_enabled:
+		gamepad_scroll_dir = 0.0
+
 func _ready() -> void:
 	gpad_scroll_hint = TextureRect.new()
 	gpad_scroll_hint.texture = stick_r_vhint
@@ -24,11 +30,11 @@ func _ready() -> void:
 	
 	get_v_scroll_bar().add_child(gpad_scroll_hint)
 	
+	if Global.gamepad_connected:
+		_gpad_hint(true)
+	
 	Input.joy_connection_changed.connect(func(device: int, connected: bool) -> void:
-		gamepad_enabled = connected
-		if not connected: gamepad_scroll_dir = 0.0
-		
-		gpad_scroll_hint.show()
+		_gpad_hint(Global.gamepad_connected)
 	)
 
 func _input(event: InputEvent) -> void:

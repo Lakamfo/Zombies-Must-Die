@@ -13,8 +13,16 @@ static var runs_count: int = 0:
 signal locale_loaded
 signal close_requested
 
+func _gpad_hint(state: bool) -> void:
+	var gh := $gamepad_hints
+	gh.visible = state
 
 func _ready() -> void:
+	if Global.gamepad_connected:
+		_gpad_hint(true)
+	
+	Input.joy_connection_changed.connect(func(d, c): _gpad_hint(c))
+	
 	init_tabs_tittles()
 	runs_count += 1
 
@@ -23,6 +31,14 @@ func _ready() -> void:
 	await get_tree().create_timer(2.5).timeout
 	locale_loaded.emit()
 
+func _input(event: InputEvent) -> void:
+	if event.is_action_pressed('swap_weapon_left'):
+		if tab_container.current_tab != 1:
+			tab_container.current_tab -= 1
+	elif event.is_action_pressed('swap_weapon_right'):
+		tab_container.current_tab += 1
+	elif event.is_action_pressed('ui_cancel'):
+		close_requested.emit()
 
 func init_tabs_tittles() -> void:
 	tab_container.set_tab_title(1, "KEY_SETTINGS_DISPLAY")
@@ -37,9 +53,20 @@ static func alert(title: String, text: String):
 
 
 func handle_tab_select(_idx: int) -> void:
+	print("SELECTED: ", _idx)
 	match _idx:
 		0:
 			close_requested.emit()
+		1:
+			%display_mode_option_button.grab_focus.call_deferred()
+		2:
+			%graphic_preset_option.grab_focus.call_deferred()
+		3:
+			%master_volume_slider.grab_focus.call_deferred()
+		4:
+			%mouse_sensitivity_slider.grab_focus.call_deferred()
+		5:
+			%language_option_button.grab_focus.call_deferred()
 
 
 func _notification(what: int) -> void:
@@ -47,3 +74,4 @@ func _notification(what: int) -> void:
 		NOTIFICATION_VISIBILITY_CHANGED:
 			if visible and tab_container:
 				tab_container.current_tab = 1
+				get_node('TabContainer/display/margin_container/v_box_container/display_mode_container/display_mode_option_button').grab_focus()

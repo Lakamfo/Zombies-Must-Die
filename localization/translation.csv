@@ -233,6 +233,17 @@ KEY_STAT_SHOTS_PER_SECOND,Shots Per Second,Выстрелов в секунду
 KEY_STAT_GIVE_SELECTED_WEAPON,Give selected weapon,Выдать выбранное оружие
 KEY_STAT_UPGRADE_WEAPON,Increase weapon level in hands,Повысить уровень оружия в руке
 ,,
+KEY_HINT_NAVIGATION,Navigation in menu,Перемещение в меню
+KEY_HINT_ACCEPT,Accept,Подтвердить
+KEY_HINT_MOVEMENT,Move,Перемещение
+KEY_HINT_JUMP,Jump,Прыжок
+KEY_HINT_SHOOT,Shoot,Стрелять
+KEY_HINT_RELOAD,Reload,Перезарядка
+KEY_HINT_AIM,Aim,Прицеливание
+KEY_HINT_PREVGUN,Previous,Предыдущий
+KEY_HINT_NEXTGUN,Next,Следующий
+KEY_HINT_LOOK,Look around,Осмотреться
+,,
 KEY_YES,Yes,Да
 KEY_NO,No,Нет
 KEY_SEARCH,Search...,Поиск...

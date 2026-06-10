@@ -45,6 +45,7 @@ enum DisplayMode { FULLSCREEN, EXCLUSIVE_FULLSCREEN, WINDOWED }
 
 
 func _ready() -> void:
+	super()
 	await owner.locale_loaded
 
 	#Interface scaling based on device DPI

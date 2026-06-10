@@ -72,8 +72,30 @@ var player_alive: bool = true
 var _message_cache: Dictionary[String, MessageLabel] = {}
 #endregion
 
+func _gpad_hint(state: bool) -> void:
+	var hints := [
+		$aspect_ratio_container/margin/gamepad_hints,
+		$aspect_ratio_container/margin/gamepad_hints_gun,
+		$aspect_ratio_container/margin/pause_menu/gamepad_hints
+	]
+
+	for hint in hints:
+		hint.visible = state
+
 #region Lifecycle methods
 func _ready() -> void:
+	# Если джойстик отсоединён, то прерываем игру
+	
+	if Global.gamepad_connected:
+		_gpad_hint(true)
+	
+	Input.joy_connection_changed.connect(func(device: int, connected: bool) -> void:
+		_gpad_hint(Global.gamepad_connected)
+		if Global.gamepad_connected: return
+		
+		button_handler(0)
+	)
+	
 	aspect_ratio_container.modulate.a = 0
 
 	update_interface_ratio()
@@ -121,11 +143,14 @@ func _process(_delta: float) -> void:
 	if is_instance_valid(Global.weapon_manager):
 		_update_crosshair_position()
 
-
 func _unhandled_input(event: InputEvent) -> void:
-	if event.is_action_pressed("pause") and player_alive:
+	if 	(event.is_action_pressed(&"pause") and player_alive) or \
+		(event.is_action_pressed(&"ui_cancel") and get_tree().paused):
 		get_tree().paused = !get_tree().paused
 		pause_menu.visible = get_tree().paused
+		if get_tree().paused:
+			pause_menu.get_node('buttons/bt_cont').grab_focus()
+			
 		_on_close_request()
 
 		if pause_menu.visible:

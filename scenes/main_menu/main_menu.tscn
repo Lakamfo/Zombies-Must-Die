@@ -28,6 +28,8 @@
 [ext_resource type="StyleBox" uid="uid://wubim2k6ypnb" path="res://ui/resources/panel_bg_blured_style.tres" id="13_cbnnd"]
 [ext_resource type="Texture2D" uid="uid://cyiuecet3f3l8" path="res://textures/slate/normal.png" id="13_jjo6v"]
 [ext_resource type="Texture2D" uid="uid://bia0cjbit7jpo" path="res://textures/concrete/reflection.dds" id="14_jkdgb"]
+[ext_resource type="Texture2D" uid="uid://buyl38vvojiu" path="res://addons/kenney-input-prompts/sony_vector/playstation_dpad.svg" id="18_cbnnd"]
+[ext_resource type="Texture2D" uid="uid://1g5dyjtdigjn" path="res://addons/kenney-input-prompts/sony_vector/playstation_button_color_cross.svg" id="19_1tc74"]
 [ext_resource type="PackedScene" uid="uid://moo1pemlgn4r" path="res://classes/camera_indoor_checker/is_camera_indoors.tscn" id="19_s424j"]
 [ext_resource type="Texture2D" uid="uid://cl7ah30laauyu" path="res://addons/AllSkyFree/Skyboxes/AllSkyFree_Sky_OvercastLow_Equirect.png" id="20_lmo0x"]
 [ext_resource type="PackedScene" uid="uid://qrli6t4p2yba" path="res://objects/sand_meshki/sand_meshki.blend" id="23_kgnbx"]
@@ -65,15 +67,15 @@
 [ext_resource type="ArrayMesh" uid="uid://iuj6uap54dd" path="res://entities/enemy/zombie/meshes/r_leg.tres" id="62_nmgfj"]
 [ext_resource type="ArrayMesh" uid="uid://2oftip16d65d" path="res://entities/enemy/zombie/meshes/torso.tres" id="63_41vot"]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7l674"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_cbnnd"]
-
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_1tc74"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_nmgfj"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_41vot"]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_41vot"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_vsplr"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qrddl"]
 bg_color = Color(0, 0, 0, 0.49803922)
 border_width_left = 2
 border_width_top = 2
@@ -87,15 +89,26 @@ corner_radius_bottom_left = 6
 corner_detail = 6
 shadow_color = Color(0.8, 0, 0, 0.12941177)
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_vsplr"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_qrddl"]
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_e0d8q"]
+content_margin_left = 2.0
+content_margin_top = 4.0
+content_margin_right = 0.0
+content_margin_bottom = 4.0
+color = Color(0.5, 0.5, 0.5, 1)
+grow_begin = -8.0
+grow_end = -8.0
+thickness = 2
+vertical = true
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_eqgax"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5g8q8"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0j1fv"]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0j1fv"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_y0f4r"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mjgqk"]
 bg_color = Color(0, 0, 0, 0.49803922)
 border_width_left = 2
 border_width_top = 2
@@ -108,10 +121,6 @@ corner_radius_bottom_right = 6
 corner_radius_bottom_left = 6
 corner_detail = 6
 shadow_color = Color(0.8, 0, 0, 0.12941177)
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_y0f4r"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_mjgqk"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0hok4"]
 
@@ -148,6 +157,26 @@ shadow_color = Color(0.8, 0, 0, 0.12941177)
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ltdhd"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_verpa"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_o3a8r"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_1m66b"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5yn25"]
+bg_color = Color(0.101960786, 0.101960786, 0.101960786, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.18932778, 0.1893278, 0.18932766, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+corner_detail = 4
+
+[sub_resource type="LabelSettings" id="LabelSettings_1tc74"]
+font_size = 24
 
 [sub_resource type="AudioStreamPlaylist" id="AudioStreamPlaylist_unaco"]
 shuffle = true
@@ -522,7 +551,7 @@ shader_parameter/ripple_max_radius = 1.0
 shader_parameter/ripple_scale = 1.0
 shader_parameter/ripple_speed = 0.99999998137332
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_o3a8r"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_5yn25"]
 render_priority = 0
 shader = ExtResource("53_ravls")
 shader_parameter/albedo = Color(1, 1, 1, 1)
@@ -752,17 +781,17 @@ grow_vertical = 0
 custom_minimum_size = Vector2(64, 75)
 layout_mode = 2
 size_flags_horizontal = 3
-theme_override_styles/normal = SubResource("StyleBoxEmpty_7l674")
-theme_override_styles/pressed = SubResource("StyleBoxEmpty_cbnnd")
-theme_override_styles/hover = SubResource("StyleBoxEmpty_1tc74")
-theme_override_styles/focus = SubResource("StyleBoxEmpty_nmgfj")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_1tc74")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_nmgfj")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_41vot")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_vsplr")
 is_primary = false
 title = ""
 subtitle = "Telegram"
 icon_texture = ExtResource("8_7l674")
 
 [node name="panel" parent="Control/h_box_container/bt_telegram" index="1" unique_id=872765688]
-theme_override_styles/panel = SubResource("StyleBoxFlat_41vot")
+theme_override_styles/panel = SubResource("StyleBoxFlat_qrddl")
 
 [node name="texture_rect" parent="Control/h_box_container/bt_telegram/h_box_container/control" parent_id_path=PackedInt32Array(692128142, 1963137840) index="0" unique_id=641672067]
 anchor_left = 0.029000001
@@ -773,6 +802,7 @@ texture = ExtResource("8_7l674")
 
 [node name="v_separator" parent="Control/h_box_container/bt_telegram/h_box_container" parent_id_path=PackedInt32Array(692128142, 345030699) index="1" unique_id=1636286088]
 visible = false
+theme_override_styles/separator = SubResource("StyleBoxLine_e0d8q")
 
 [node name="v_box_container" parent="Control/h_box_container/bt_telegram/h_box_container" parent_id_path=PackedInt32Array(692128142, 345030699) index="2" unique_id=1286320427]
 visible = false
@@ -792,17 +822,17 @@ visible = false
 custom_minimum_size = Vector2(64, 75)
 layout_mode = 2
 size_flags_horizontal = 3
-theme_override_styles/normal = SubResource("StyleBoxEmpty_vsplr")
-theme_override_styles/pressed = SubResource("StyleBoxEmpty_qrddl")
-theme_override_styles/hover = SubResource("StyleBoxEmpty_eqgax")
-theme_override_styles/focus = SubResource("StyleBoxEmpty_5g8q8")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_eqgax")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_5g8q8")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_0j1fv")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_y0f4r")
 is_primary = false
 title = ""
 subtitle = "itch.io"
 icon_texture = ExtResource("9_cbnnd")
 
 [node name="panel" parent="Control/h_box_container/bt_itch_io" index="1" unique_id=872765688]
-theme_override_styles/panel = SubResource("StyleBoxFlat_0j1fv")
+theme_override_styles/panel = SubResource("StyleBoxFlat_mjgqk")
 
 [node name="texture_rect" parent="Control/h_box_container/bt_itch_io/h_box_container/control" parent_id_path=PackedInt32Array(152364351, 1963137840) index="0" unique_id=641672067]
 anchor_left = 0.029000001
@@ -813,6 +843,7 @@ texture = ExtResource("9_cbnnd")
 
 [node name="v_separator" parent="Control/h_box_container/bt_itch_io/h_box_container" parent_id_path=PackedInt32Array(152364351, 345030699) index="1" unique_id=1636286088]
 visible = false
+theme_override_styles/separator = SubResource("StyleBoxLine_e0d8q")
 
 [node name="title" parent="Control/h_box_container/bt_itch_io/h_box_container/v_box_container" parent_id_path=PackedInt32Array(152364351, 1286320427) index="0" unique_id=712998752]
 visible = false
@@ -900,10 +931,10 @@ alignment = 2
 layout_mode = 2
 focus_neighbor_bottom = NodePath("../bt_leadearboard")
 focus_next = NodePath("../bt_leadearboard")
-theme_override_styles/normal = SubResource("StyleBoxEmpty_y0f4r")
-theme_override_styles/pressed = SubResource("StyleBoxEmpty_mjgqk")
-theme_override_styles/hover = SubResource("StyleBoxEmpty_0hok4")
-theme_override_styles/focus = SubResource("StyleBoxEmpty_0q5hc")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_0hok4")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_0q5hc")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_ravls")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_75qda")
 toggle_mode = true
 title = "KEY_PLAY_BT"
 subtitle = "KEY_LEVEL_SELECTION"
@@ -914,10 +945,10 @@ focus_neighbor_top = NodePath("../bt_play")
 focus_neighbor_bottom = NodePath("../bt_login")
 focus_next = NodePath("../bt_login")
 focus_previous = NodePath("../bt_play")
-theme_override_styles/normal = SubResource("StyleBoxEmpty_ravls")
-theme_override_styles/pressed = SubResource("StyleBoxEmpty_75qda")
-theme_override_styles/hover = SubResource("StyleBoxEmpty_e37ct")
-theme_override_styles/focus = SubResource("StyleBoxEmpty_j77l7")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_e37ct")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_j77l7")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_pl2br")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_bwmev")
 toggle_mode = true
 is_primary = false
 title = "KEY_LEADEARBOARD"
@@ -930,10 +961,10 @@ focus_neighbor_top = NodePath("../bt_leadearboard")
 focus_neighbor_bottom = NodePath("../bt_settings")
 focus_next = NodePath("../bt_settings")
 focus_previous = NodePath("../bt_leadearboard")
-theme_override_styles/normal = SubResource("StyleBoxEmpty_pl2br")
-theme_override_styles/pressed = SubResource("StyleBoxEmpty_bwmev")
-theme_override_styles/hover = SubResource("StyleBoxEmpty_1hvne")
-theme_override_styles/focus = SubResource("StyleBoxEmpty_dfg18")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_1hvne")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_dfg18")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_roylu")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_h5kcm")
 toggle_mode = true
 is_primary = false
 title = "KEY_AUTH"
@@ -946,10 +977,10 @@ focus_neighbor_top = NodePath("../bt_login")
 focus_neighbor_bottom = NodePath("../bt_exit")
 focus_next = NodePath("../bt_exit")
 focus_previous = NodePath("../bt_login")
-theme_override_styles/normal = SubResource("StyleBoxEmpty_roylu")
-theme_override_styles/pressed = SubResource("StyleBoxEmpty_h5kcm")
-theme_override_styles/hover = SubResource("StyleBoxEmpty_60h03")
-theme_override_styles/focus = SubResource("StyleBoxEmpty_nehtx")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_60h03")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_nehtx")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_7cwr5")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_8coc6")
 toggle_mode = true
 is_primary = false
 title = "KEY_SETTINGS"
@@ -958,10 +989,10 @@ icon_texture = ExtResource("6_7l674")
 
 [node name="bt_exit" parent="Control/buttons/buttons2" unique_id=1242413543 instance=ExtResource("3_lmo0x")]
 layout_mode = 2
-theme_override_styles/normal = SubResource("StyleBoxEmpty_7cwr5")
-theme_override_styles/pressed = SubResource("StyleBoxEmpty_8coc6")
-theme_override_styles/hover = SubResource("StyleBoxEmpty_ltdhd")
-theme_override_styles/focus = SubResource("StyleBoxEmpty_verpa")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_ltdhd")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_verpa")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_o3a8r")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_1m66b")
 toggle_mode = true
 is_primary = false
 title = "KEY_EXIT"
@@ -1016,6 +1047,61 @@ layout_mode = 1
 visible = false
 layout_mode = 1
 theme_override_styles/panel = ExtResource("13_cbnnd")
+
+[node name="gamepad_hints" type="PanelContainer" parent="Control" unique_id=2090123920]
+visible = false
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -195.0
+offset_bottom = 56.0
+grow_horizontal = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_5yn25")
+
+[node name="margin_container" type="MarginContainer" parent="Control/gamepad_hints" unique_id=1804488611]
+layout_mode = 2
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 4
+
+[node name="v_box_container" type="VBoxContainer" parent="Control/gamepad_hints/margin_container" unique_id=2030273084]
+layout_mode = 2
+
+[node name="nav_hint" type="HBoxContainer" parent="Control/gamepad_hints/margin_container/v_box_container" unique_id=1677434272]
+layout_mode = 2
+
+[node name="texture_rect" type="TextureRect" parent="Control/gamepad_hints/margin_container/v_box_container/nav_hint" unique_id=1073005703]
+layout_mode = 2
+texture = ExtResource("18_cbnnd")
+expand_mode = 2
+
+[node name="v_separator" type="VSeparator" parent="Control/gamepad_hints/margin_container/v_box_container/nav_hint" unique_id=1221863412]
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxLine_e0d8q")
+
+[node name="label" type="Label" parent="Control/gamepad_hints/margin_container/v_box_container/nav_hint" unique_id=1096966946]
+layout_mode = 2
+text = "KEY_HINT_NAVIGATION"
+label_settings = SubResource("LabelSettings_1tc74")
+
+[node name="accp_hint" type="HBoxContainer" parent="Control/gamepad_hints/margin_container/v_box_container" unique_id=543781206]
+layout_mode = 2
+
+[node name="texture_rect2" type="TextureRect" parent="Control/gamepad_hints/margin_container/v_box_container/accp_hint" unique_id=2061308404]
+layout_mode = 2
+texture = ExtResource("19_1tc74")
+expand_mode = 2
+
+[node name="v_separator" type="VSeparator" parent="Control/gamepad_hints/margin_container/v_box_container/accp_hint" unique_id=385694873]
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxLine_e0d8q")
+
+[node name="label" type="Label" parent="Control/gamepad_hints/margin_container/v_box_container/accp_hint" unique_id=290132808]
+layout_mode = 2
+text = "KEY_HINT_ACCEPT"
+label_settings = SubResource("LabelSettings_1tc74")
 
 [node name="audio_stream_player" type="AudioStreamPlayer" parent="." unique_id=1313922572]
 stream = SubResource("AudioStreamPlaylist_unaco")
@@ -1535,7 +1621,7 @@ in_doors_camera_checker = NodePath("../../is_camera_indoors")
 
 [node name="grass_zmd" type="MultiMeshInstance3D" parent="menu_bg/Warehouse" unique_id=214763270]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 37.97101, -1.32023, 11.778576)
-material_override = SubResource("ShaderMaterial_o3a8r")
+material_override = SubResource("ShaderMaterial_5yn25")
 multimesh = SubResource("MultiMesh_k8sh7")
 script = ExtResource("56_j77l7")
 texture_albedo = ExtResource("54_75qda")

@@ -37,10 +37,18 @@ var is_kg_mode := false
 #if event is InputEventKey and event.pressed and event.keycode == KEY_BACK:
 #pass
 
+func _gpad_hint(state: bool) -> void:
+	var gh := $Control/gamepad_hints
+	gh.visible = state
 
 func _ready() -> void:
 	await get_tree().process_frame
 	audio_stream_player.play()
+	
+	if Global.gamepad_connected:
+		_gpad_hint(true)
+	
+	Input.joy_connection_changed.connect(func(d, c): _gpad_hint(c))
 
 	if not OS.has_feature("editor"):
 		check_game_updates()
@@ -56,7 +64,7 @@ func _ready() -> void:
 	
 	MouseManager.lock(&"main_menu")
 	settings_panel.close_requested.connect(
-		settings_panel.hide,
+		func(): settings_panel.hide();  if is_kg_mode: first_activate_button.grab_focus()
 	)
 
 func _input(event: InputEvent) -> void:

@@ -23,6 +23,20 @@
 [ext_resource type="Shader" uid="uid://b4io1fc1n1pex" path="res://shaders/progress_bar_from_center.gdshader" id="13_n7o33"]
 [ext_resource type="Texture2D" uid="uid://6iqyfyjej8nx" path="res://player/ui/pictures/heart.svg" id="13_pyxi2"]
 [ext_resource type="Material" uid="uid://bnpldw81w3n46" path="res://shaders/mixed_blur_bg.tres" id="16_dn3jp"]
+[ext_resource type="Texture2D" uid="uid://buyl38vvojiu" path="res://addons/kenney-input-prompts/sony_vector/playstation_dpad.svg" id="22_d8qab"]
+[ext_resource type="Texture2D" uid="uid://c2sgkfqsdlotr" path="res://addons/kenney-input-prompts/sony_vector/playstation_stick_l.svg" id="23_4ty3v"]
+[ext_resource type="Texture2D" uid="uid://1g5dyjtdigjn" path="res://addons/kenney-input-prompts/sony_vector/playstation_button_color_cross.svg" id="23_qlm1m"]
+[ext_resource type="Script" uid="uid://dvc8mqit386wp" path="res://player/ui/gamepad_hints_def.gd" id="24_04gji"]
+[ext_resource type="Texture2D" uid="uid://dwwe8vgftwyg4" path="res://addons/kenney-input-prompts/sony_vector/playstation_trigger_r2.svg" id="24_4ty3v"]
+[ext_resource type="Texture2D" uid="uid://6ejisg810d1q" path="res://addons/kenney-input-prompts/xbox_vector/xbox_button_color_x.svg" id="24_mwojf"]
+[ext_resource type="Texture2D" uid="uid://bmsv227lx7bc7" path="res://addons/kenney-input-prompts/sony_vector/playstation_trigger_r1_alternative.svg" id="24_qlm1m"]
+[ext_resource type="Texture2D" uid="uid://devfafflgas6n" path="res://addons/kenney-input-prompts/sony_vector/playstation_button_color_triangle.svg" id="25_4ty3v"]
+[ext_resource type="Texture2D" uid="uid://bh8sljpuhqkoa" path="res://addons/kenney-input-prompts/sony_vector/playstation_trigger_l2.svg" id="25_js7y1"]
+[ext_resource type="Texture2D" uid="uid://b44rfducml8a6" path="res://addons/kenney-input-prompts/sony_vector/playstation_stick_r.svg" id="26_53upy"]
+[ext_resource type="Script" uid="uid://b6y2sa0rutx6d" path="res://player/ui/gamepad_hints_gun.gd" id="27_04gji"]
+[ext_resource type="Texture2D" uid="uid://iv2wmmlvc12" path="res://addons/kenney-input-prompts/sony_vector/playstation_button_color_square.svg" id="27_88ubl"]
+[ext_resource type="Texture2D" uid="uid://b2cutkahjuxfq" path="res://addons/kenney-input-prompts/sony_vector/playstation_trigger_l1_alternative.svg" id="27_dl68r"]
+[ext_resource type="Texture2D" uid="uid://blk3laa7aeiuk" path="res://addons/kenney-input-prompts/xbox_vector/xbox_stick_l_press.svg" id="27_po5jx"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_4b1xf"]
 shader = ExtResource("1_2w543")
@@ -397,6 +411,60 @@ corner_radius_top_left = 6
 corner_radius_top_right = 6
 corner_radius_bottom_right = 6
 corner_radius_bottom_left = 6
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_c0wei"]
+bg_color = Color(0.101960786, 0.101960786, 0.101960786, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.18932778, 0.1893278, 0.18932766, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+corner_detail = 4
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_04gji"]
+content_margin_left = 2.0
+content_margin_top = 4.0
+content_margin_right = 0.0
+content_margin_bottom = 4.0
+color = Color(0.5, 0.5, 0.5, 1)
+grow_begin = -8.0
+grow_end = -8.0
+thickness = 2
+vertical = true
+
+[sub_resource type="LabelSettings" id="LabelSettings_po5jx"]
+font_size = 24
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4ty3v"]
+bg_color = Color(0.101960786, 0.101960786, 0.101960786, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.18932778, 0.1893278, 0.18932766, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+corner_detail = 4
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_js7y1"]
+content_margin_left = 2.0
+content_margin_top = 4.0
+content_margin_right = 0.0
+content_margin_bottom = 4.0
+color = Color(0.5, 0.5, 0.5, 1)
+grow_begin = -8.0
+grow_end = -8.0
+thickness = 2
+vertical = true
+
+[sub_resource type="LabelSettings" id="LabelSettings_37dpm"]
+font_size = 24
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tualj"]
 bg_color = Color(0.117647, 0.117647, 0.117647, 0.423529)
@@ -837,6 +905,283 @@ offset_right = 259.0
 [node name="ui_sounds" type="Node" parent="aspect_ratio_container/margin/pause_menu" unique_id=893995852]
 script = ExtResource("11_bpuv5")
 metadata/_custom_type_script = "uid://b8yrrblqu32qa"
+
+[node name="gamepad_hints" type="PanelContainer" parent="aspect_ratio_container/margin/pause_menu" unique_id=1141762711]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -140.5
+offset_top = -284.0
+offset_right = 140.5
+offset_bottom = -208.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_c0wei")
+
+[node name="margin_container" type="MarginContainer" parent="aspect_ratio_container/margin/pause_menu/gamepad_hints" unique_id=1137825330]
+layout_mode = 2
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 4
+
+[node name="v_box_container" type="VBoxContainer" parent="aspect_ratio_container/margin/pause_menu/gamepad_hints/margin_container" unique_id=1521027572]
+layout_mode = 2
+
+[node name="nav_hint" type="HBoxContainer" parent="aspect_ratio_container/margin/pause_menu/gamepad_hints/margin_container/v_box_container" unique_id=1344954006]
+layout_mode = 2
+
+[node name="texture_rect" type="TextureRect" parent="aspect_ratio_container/margin/pause_menu/gamepad_hints/margin_container/v_box_container/nav_hint" unique_id=1915080231]
+layout_mode = 2
+texture = ExtResource("22_d8qab")
+expand_mode = 2
+
+[node name="v_separator" type="VSeparator" parent="aspect_ratio_container/margin/pause_menu/gamepad_hints/margin_container/v_box_container/nav_hint" unique_id=1478355035]
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxLine_04gji")
+
+[node name="label" type="Label" parent="aspect_ratio_container/margin/pause_menu/gamepad_hints/margin_container/v_box_container/nav_hint" unique_id=693109751]
+layout_mode = 2
+text = "KEY_HINT_NAVIGATION"
+label_settings = SubResource("LabelSettings_po5jx")
+
+[node name="accp_hint" type="HBoxContainer" parent="aspect_ratio_container/margin/pause_menu/gamepad_hints/margin_container/v_box_container" unique_id=1535384309]
+layout_mode = 2
+
+[node name="texture_rect2" type="TextureRect" parent="aspect_ratio_container/margin/pause_menu/gamepad_hints/margin_container/v_box_container/accp_hint" unique_id=1494457759]
+layout_mode = 2
+texture = ExtResource("23_qlm1m")
+expand_mode = 2
+
+[node name="v_separator" type="VSeparator" parent="aspect_ratio_container/margin/pause_menu/gamepad_hints/margin_container/v_box_container/accp_hint" unique_id=511418430]
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxLine_04gji")
+
+[node name="label" type="Label" parent="aspect_ratio_container/margin/pause_menu/gamepad_hints/margin_container/v_box_container/accp_hint" unique_id=790390949]
+layout_mode = 2
+text = "KEY_HINT_ACCEPT"
+label_settings = SubResource("LabelSettings_po5jx")
+
+[node name="gamepad_hints" type="PanelContainer" parent="aspect_ratio_container/margin" unique_id=2050745261]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -195.0
+offset_bottom = 56.0
+grow_horizontal = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_4ty3v")
+script = ExtResource("24_04gji")
+
+[node name="margin_container" type="MarginContainer" parent="aspect_ratio_container/margin/gamepad_hints" unique_id=1395397983]
+layout_mode = 2
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 4
+
+[node name="v_box_container" type="VBoxContainer" parent="aspect_ratio_container/margin/gamepad_hints/margin_container" unique_id=128833389]
+layout_mode = 2
+
+[node name="accp_move" type="HBoxContainer" parent="aspect_ratio_container/margin/gamepad_hints/margin_container/v_box_container" unique_id=1871924261]
+layout_mode = 2
+
+[node name="texture_rect" type="TextureRect" parent="aspect_ratio_container/margin/gamepad_hints/margin_container/v_box_container/accp_move" unique_id=1569395006]
+layout_mode = 2
+texture = ExtResource("23_4ty3v")
+expand_mode = 2
+
+[node name="v_separator" type="VSeparator" parent="aspect_ratio_container/margin/gamepad_hints/margin_container/v_box_container/accp_move" unique_id=261658653]
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxLine_js7y1")
+
+[node name="label" type="Label" parent="aspect_ratio_container/margin/gamepad_hints/margin_container/v_box_container/accp_move" unique_id=2105397894]
+layout_mode = 2
+text = "KEY_HINT_MOVEMENT"
+label_settings = SubResource("LabelSettings_37dpm")
+
+[node name="accp_look" type="HBoxContainer" parent="aspect_ratio_container/margin/gamepad_hints/margin_container/v_box_container" unique_id=2042957509]
+layout_mode = 2
+
+[node name="texture_rect" type="TextureRect" parent="aspect_ratio_container/margin/gamepad_hints/margin_container/v_box_container/accp_look" unique_id=257691601]
+layout_mode = 2
+texture = ExtResource("26_53upy")
+expand_mode = 2
+
+[node name="v_separator" type="VSeparator" parent="aspect_ratio_container/margin/gamepad_hints/margin_container/v_box_container/accp_look" unique_id=535103112]
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxLine_js7y1")
+
+[node name="label" type="Label" parent="aspect_ratio_container/margin/gamepad_hints/margin_container/v_box_container/accp_look" unique_id=629532911]
+layout_mode = 2
+text = "KEY_HINT_LOOK"
+label_settings = SubResource("LabelSettings_37dpm")
+
+[node name="accp_use" type="HBoxContainer" parent="aspect_ratio_container/margin/gamepad_hints/margin_container/v_box_container" unique_id=1168830566]
+visible = false
+layout_mode = 2
+
+[node name="texture_rect" type="TextureRect" parent="aspect_ratio_container/margin/gamepad_hints/margin_container/v_box_container/accp_use" unique_id=1434704248]
+layout_mode = 2
+texture = ExtResource("27_88ubl")
+expand_mode = 2
+
+[node name="v_separator" type="VSeparator" parent="aspect_ratio_container/margin/gamepad_hints/margin_container/v_box_container/accp_use" unique_id=718122195]
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxLine_js7y1")
+
+[node name="label" type="Label" parent="aspect_ratio_container/margin/gamepad_hints/margin_container/v_box_container/accp_use" unique_id=1221607227]
+layout_mode = 2
+text = "KEY_TOUCH_INTERACT"
+label_settings = SubResource("LabelSettings_37dpm")
+
+[node name="accp_jump" type="HBoxContainer" parent="aspect_ratio_container/margin/gamepad_hints/margin_container/v_box_container" unique_id=2057944837]
+layout_mode = 2
+
+[node name="texture_rect" type="TextureRect" parent="aspect_ratio_container/margin/gamepad_hints/margin_container/v_box_container/accp_jump" unique_id=1181901722]
+layout_mode = 2
+texture = ExtResource("24_mwojf")
+expand_mode = 2
+
+[node name="v_separator" type="VSeparator" parent="aspect_ratio_container/margin/gamepad_hints/margin_container/v_box_container/accp_jump" unique_id=741866589]
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxLine_js7y1")
+
+[node name="label" type="Label" parent="aspect_ratio_container/margin/gamepad_hints/margin_container/v_box_container/accp_jump" unique_id=1357917322]
+layout_mode = 2
+text = "KEY_HINT_JUMP"
+label_settings = SubResource("LabelSettings_37dpm")
+
+[node name="accp_crouch" type="HBoxContainer" parent="aspect_ratio_container/margin/gamepad_hints/margin_container/v_box_container" unique_id=942303966]
+layout_mode = 2
+
+[node name="texture_rect" type="TextureRect" parent="aspect_ratio_container/margin/gamepad_hints/margin_container/v_box_container/accp_crouch" unique_id=148085613]
+layout_mode = 2
+texture = ExtResource("27_po5jx")
+expand_mode = 2
+
+[node name="v_separator" type="VSeparator" parent="aspect_ratio_container/margin/gamepad_hints/margin_container/v_box_container/accp_crouch" unique_id=216871580]
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxLine_js7y1")
+
+[node name="label" type="Label" parent="aspect_ratio_container/margin/gamepad_hints/margin_container/v_box_container/accp_crouch" unique_id=1906288714]
+layout_mode = 2
+text = "KEY_SETTINGS_MOVE_CROUCH"
+label_settings = SubResource("LabelSettings_37dpm")
+
+[node name="gamepad_hints_gun" type="PanelContainer" parent="aspect_ratio_container/margin" unique_id=2067865264]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -201.0
+offset_top = -179.19403
+offset_bottom = -103.19403
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_4ty3v")
+script = ExtResource("27_04gji")
+
+[node name="margin_container" type="MarginContainer" parent="aspect_ratio_container/margin/gamepad_hints_gun" unique_id=1647285999]
+layout_mode = 2
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 4
+
+[node name="v_box_container" type="VBoxContainer" parent="aspect_ratio_container/margin/gamepad_hints_gun/margin_container" unique_id=2044406329]
+layout_mode = 2
+
+[node name="accp_fire" type="HBoxContainer" parent="aspect_ratio_container/margin/gamepad_hints_gun/margin_container/v_box_container" unique_id=319446132]
+layout_mode = 2
+
+[node name="texture_rect2" type="TextureRect" parent="aspect_ratio_container/margin/gamepad_hints_gun/margin_container/v_box_container/accp_fire" unique_id=596775226]
+layout_mode = 2
+texture = ExtResource("24_4ty3v")
+expand_mode = 2
+
+[node name="v_separator" type="VSeparator" parent="aspect_ratio_container/margin/gamepad_hints_gun/margin_container/v_box_container/accp_fire" unique_id=603070467]
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxLine_js7y1")
+
+[node name="label" type="Label" parent="aspect_ratio_container/margin/gamepad_hints_gun/margin_container/v_box_container/accp_fire" unique_id=1419152108]
+layout_mode = 2
+text = "KEY_HINT_SHOOT"
+label_settings = SubResource("LabelSettings_37dpm")
+
+[node name="accp_aim" type="HBoxContainer" parent="aspect_ratio_container/margin/gamepad_hints_gun/margin_container/v_box_container" unique_id=1120802953]
+layout_mode = 2
+
+[node name="texture_rect2" type="TextureRect" parent="aspect_ratio_container/margin/gamepad_hints_gun/margin_container/v_box_container/accp_aim" unique_id=1720555262]
+layout_mode = 2
+texture = ExtResource("25_js7y1")
+expand_mode = 2
+
+[node name="v_separator" type="VSeparator" parent="aspect_ratio_container/margin/gamepad_hints_gun/margin_container/v_box_container/accp_aim" unique_id=1220450040]
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxLine_js7y1")
+
+[node name="label" type="Label" parent="aspect_ratio_container/margin/gamepad_hints_gun/margin_container/v_box_container/accp_aim" unique_id=747365167]
+layout_mode = 2
+text = "KEY_HINT_AIM"
+label_settings = SubResource("LabelSettings_37dpm")
+
+[node name="accp_reload" type="HBoxContainer" parent="aspect_ratio_container/margin/gamepad_hints_gun/margin_container/v_box_container" unique_id=422411665]
+visible = false
+layout_mode = 2
+
+[node name="texture_rect2" type="TextureRect" parent="aspect_ratio_container/margin/gamepad_hints_gun/margin_container/v_box_container/accp_reload" unique_id=1103097980]
+layout_mode = 2
+texture = ExtResource("25_4ty3v")
+expand_mode = 2
+
+[node name="v_separator" type="VSeparator" parent="aspect_ratio_container/margin/gamepad_hints_gun/margin_container/v_box_container/accp_reload" unique_id=458258846]
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxLine_js7y1")
+
+[node name="label" type="Label" parent="aspect_ratio_container/margin/gamepad_hints_gun/margin_container/v_box_container/accp_reload" unique_id=1528531287]
+layout_mode = 2
+text = "KEY_HINT_RELOAD"
+label_settings = SubResource("LabelSettings_37dpm")
+
+[node name="nav_prev" type="HBoxContainer" parent="aspect_ratio_container/margin/gamepad_hints_gun/margin_container/v_box_container" unique_id=1013512224]
+layout_mode = 2
+
+[node name="texture_rect" type="TextureRect" parent="aspect_ratio_container/margin/gamepad_hints_gun/margin_container/v_box_container/nav_prev" unique_id=1652063922]
+layout_mode = 2
+texture = ExtResource("27_dl68r")
+expand_mode = 2
+
+[node name="v_separator" type="VSeparator" parent="aspect_ratio_container/margin/gamepad_hints_gun/margin_container/v_box_container/nav_prev" unique_id=1487247606]
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxLine_js7y1")
+
+[node name="label" type="Label" parent="aspect_ratio_container/margin/gamepad_hints_gun/margin_container/v_box_container/nav_prev" unique_id=865209386]
+layout_mode = 2
+text = "KEY_HINT_PREVGUN"
+label_settings = SubResource("LabelSettings_37dpm")
+
+[node name="accp_next" type="HBoxContainer" parent="aspect_ratio_container/margin/gamepad_hints_gun/margin_container/v_box_container" unique_id=1971957695]
+layout_mode = 2
+
+[node name="texture_rect2" type="TextureRect" parent="aspect_ratio_container/margin/gamepad_hints_gun/margin_container/v_box_container/accp_next" unique_id=429410334]
+layout_mode = 2
+texture = ExtResource("24_qlm1m")
+expand_mode = 2
+
+[node name="v_separator" type="VSeparator" parent="aspect_ratio_container/margin/gamepad_hints_gun/margin_container/v_box_container/accp_next" unique_id=1173940775]
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxLine_js7y1")
+
+[node name="label" type="Label" parent="aspect_ratio_container/margin/gamepad_hints_gun/margin_container/v_box_container/accp_next" unique_id=676418763]
+layout_mode = 2
+text = "KEY_HINT_NEXTGUN"
+label_settings = SubResource("LabelSettings_37dpm")
 
 [node name="touch_screen" type="Control" parent="." unique_id=1851509445]
 unique_name_in_owner = true
