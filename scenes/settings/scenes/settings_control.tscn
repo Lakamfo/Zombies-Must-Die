@@ -1032,9 +1032,9 @@ tooltip_text = "KEY_SETTINGS_PRELOAD_WEAPONS_SCENES_TOOLTIP"
 [node name="gamepad_hints" type="PanelContainer" parent="." unique_id=974438725]
 layout_mode = 1
 offset_left = 15.0
-offset_top = -91.0
+offset_top = -130.0
 offset_right = 216.0
-offset_bottom = 19.0
+offset_bottom = -20.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_g713s")
 
 [node name="margin_container" type="MarginContainer" parent="gamepad_hints" unique_id=316343111]
