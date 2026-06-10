@@ -16,6 +16,8 @@ extends Control
 
 @onready var buttons_container: VBoxContainer = $Control/buttons/buttons2
 
+@onready var first_activate_button: Button = $Control/buttons/buttons2/bt_play
+
 var game_version = ProjectSettings.get("application/config/version").split(" ")[1].strip_edges()
 
 
@@ -29,6 +31,7 @@ var get_update_try: int = 0
 var get_update_max_try: int = 3
 
 var swindow_scaling: float = 100
+var is_kg_mode := false
 
 #func _unhandled_input(event):
 #if event is InputEventKey and event.pressed and event.keycode == KEY_BACK:
@@ -56,6 +59,13 @@ func _ready() -> void:
 		settings_panel.hide,
 	)
 
+func _input(event: InputEvent) -> void:
+	if event is InputEventKey or event is InputEventJoypadButton and !is_kg_mode:
+		is_kg_mode = true
+		first_activate_button.grab_focus()
+		
+	if event is InputEventMouseMotion:
+		is_kg_mode = false
 
 func init_buttons(buttons_array: Array) -> void:
 	var bt: Array[Button]

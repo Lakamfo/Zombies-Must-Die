@@ -898,6 +898,8 @@ alignment = 2
 
 [node name="bt_play" parent="Control/buttons/buttons2" unique_id=1132224889 instance=ExtResource("3_lmo0x")]
 layout_mode = 2
+focus_neighbor_bottom = NodePath("../bt_leadearboard")
+focus_next = NodePath("../bt_leadearboard")
 theme_override_styles/normal = SubResource("StyleBoxEmpty_y0f4r")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_mjgqk")
 theme_override_styles/hover = SubResource("StyleBoxEmpty_0hok4")
@@ -908,6 +910,10 @@ subtitle = "KEY_LEVEL_SELECTION"
 
 [node name="bt_leadearboard" parent="Control/buttons/buttons2" unique_id=374842464 instance=ExtResource("3_lmo0x")]
 layout_mode = 2
+focus_neighbor_top = NodePath("../bt_play")
+focus_neighbor_bottom = NodePath("../bt_login")
+focus_next = NodePath("../bt_login")
+focus_previous = NodePath("../bt_play")
 theme_override_styles/normal = SubResource("StyleBoxEmpty_ravls")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_75qda")
 theme_override_styles/hover = SubResource("StyleBoxEmpty_e37ct")
@@ -920,6 +926,10 @@ icon_texture = ExtResource("4_kcyhq")
 
 [node name="bt_login" parent="Control/buttons/buttons2" unique_id=1274662531 instance=ExtResource("3_lmo0x")]
 layout_mode = 2
+focus_neighbor_top = NodePath("../bt_leadearboard")
+focus_neighbor_bottom = NodePath("../bt_settings")
+focus_next = NodePath("../bt_settings")
+focus_previous = NodePath("../bt_leadearboard")
 theme_override_styles/normal = SubResource("StyleBoxEmpty_pl2br")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_bwmev")
 theme_override_styles/hover = SubResource("StyleBoxEmpty_1hvne")
@@ -932,6 +942,10 @@ icon_texture = ExtResource("5_bvyqd")
 
 [node name="bt_settings" parent="Control/buttons/buttons2" unique_id=1678187219 instance=ExtResource("3_lmo0x")]
 layout_mode = 2
+focus_neighbor_top = NodePath("../bt_login")
+focus_neighbor_bottom = NodePath("../bt_exit")
+focus_next = NodePath("../bt_exit")
+focus_previous = NodePath("../bt_login")
 theme_override_styles/normal = SubResource("StyleBoxEmpty_roylu")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_h5kcm")
 theme_override_styles/hover = SubResource("StyleBoxEmpty_60h03")
