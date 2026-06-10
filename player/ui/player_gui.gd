@@ -76,7 +76,8 @@ func _gpad_hint(state: bool) -> void:
 	var hints := [
 		$aspect_ratio_container/margin/gamepad_hints,
 		$aspect_ratio_container/margin/gamepad_hints_gun,
-		$aspect_ratio_container/margin/pause_menu/gamepad_hints
+		$aspect_ratio_container/margin/pause_menu/gamepad_hints,
+		$aspect_ratio_container/margin/gamepad_hints2
 	]
 
 	for hint in hints:
@@ -95,6 +96,11 @@ func _ready() -> void:
 		
 		button_handler(0)
 	)
+	
+	if Global.first_hint_counter:
+		Global.first_hint_counter = false
+	else:
+		$aspect_ratio_container/margin/gamepad_hints2.hide()
 	
 	aspect_ratio_container.modulate.a = 0
 
@@ -146,6 +152,7 @@ func _process(_delta: float) -> void:
 func _unhandled_input(event: InputEvent) -> void:
 	if 	(event.is_action_pressed(&"pause") and player_alive) or \
 		(event.is_action_pressed(&"ui_cancel") and get_tree().paused):
+		$aspect_ratio_container/margin/gamepad_hints2.hide()
 		get_tree().paused = !get_tree().paused
 		pause_menu.visible = get_tree().paused
 		if get_tree().paused:
@@ -178,6 +185,7 @@ func button_handler(id: int = -1) -> void:
 			get_tree().paused = !get_tree().paused
 			pause_menu.visible = get_tree().paused
 			MouseManager.unlock(&"pause_menu")
+			$aspect_ratio_container/margin/gamepad_hints2.hide()
 		1:
 			get_tree().paused = !get_tree().paused
 			SceneManager.reload_current_scene()

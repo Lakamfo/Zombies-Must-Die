@@ -114,8 +114,18 @@ const LOWER_IS_BETTER: Dictionary[String, bool] = {
 @onready var ui_sounds: UISounds = %ui_sounds
 #endregion
 
+var first_weapon_button: Button
+
+func _gpad_hint(state: bool) -> void:
+	$gamepad_hints.visible = state
+
 #region Lifecycle methods
 func _ready() -> void:
+	if Global.gamepad_connected:
+		_gpad_hint(true)
+	
+	Input.joy_connection_changed.connect(func(d, c): _gpad_hint(c))
+	
 	bt_close.pressed.connect(close_requested.emit)
 	
 	if owner:
@@ -137,14 +147,14 @@ func _ready() -> void:
 	bt_upgrade_weapon.pressed.connect(_upgrade_selected_weapon)
 	bt_give_weapon.pressed.connect(_give_selected_weapon)
 
-	_build_weapon_list()
-
+	_build_weapon_list()	
 
 func _unhandled_input(event: InputEvent) -> void:
 	if not visible:
 		return
 	
-	if event.is_action_pressed("pause"):
+	if 	event.is_action_pressed("pause") or \
+		event.is_action_pressed("ui_cancel"):
 		close_requested.emit()
 		accept_event()
 #endregion
@@ -198,6 +208,8 @@ func _build_weapon_list() -> void:
 		var bt := slot_prefab.duplicate(DuplicateFlags.DUPLICATE_USE_INSTANTIATION) as Button
 		var texture_rect := bt.get_child(0) as TextureRect
 		var label := bt.get_child(1) as Label
+		
+		first_weapon_button = bt
 
 		bt.button_group = bt_group
 		texture_rect.texture = weapon_icon
@@ -369,4 +381,10 @@ func _on_filter_changed(text: String) -> void:
 func _on_button_toggled(_toggled_on: bool, button: Button) -> void:
 	_current_active_bt = button
 	_update_stats(button.get_meta(&"weapon_id", 0))
+	$margin_container/panel_container/margin_container/h_box_container/v_box_container/h_box_container/bt_give_weapon.grab_focus()
+	
+func _notification(what: int) -> void:
+	match what:
+		NOTIFICATION_VISIBILITY_CHANGED:
+			if visible: first_weapon_button.grab_focus()
 #endregion

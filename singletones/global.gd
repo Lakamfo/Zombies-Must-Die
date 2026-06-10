@@ -25,6 +25,7 @@ var bonus_effects_manager: BonusEffectsManager
 #region GamePad visitor
 
 var gamepad_connected: bool = false
+var first_hint_counter: bool = true
 
 # jo
 func _on_joy_state_changed(device: int, connected: bool) -> void:

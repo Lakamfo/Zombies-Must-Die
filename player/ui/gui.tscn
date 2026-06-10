@@ -37,6 +37,9 @@
 [ext_resource type="Texture2D" uid="uid://iv2wmmlvc12" path="res://addons/kenney-input-prompts/sony_vector/playstation_button_color_square.svg" id="27_88ubl"]
 [ext_resource type="Texture2D" uid="uid://b2cutkahjuxfq" path="res://addons/kenney-input-prompts/sony_vector/playstation_trigger_l1_alternative.svg" id="27_dl68r"]
 [ext_resource type="Texture2D" uid="uid://blk3laa7aeiuk" path="res://addons/kenney-input-prompts/xbox_vector/xbox_stick_l_press.svg" id="27_po5jx"]
+[ext_resource type="Texture2D" uid="uid://bgo3leurxlqfh" path="res://addons/kenney-input-prompts/sony_vector/playstation_dpad_down_outline.svg" id="30_mlifv"]
+[ext_resource type="Texture2D" uid="uid://ckiixt4uww5t4" path="res://addons/kenney-input-prompts/sony_vector/playstation_stick_r_press.svg" id="33_xkx3h"]
+[ext_resource type="Texture2D" uid="uid://bdpoigjmo0ygr" path="res://addons/kenney-input-prompts/sony_vector/playstation5_button_options.svg" id="38_dws00"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_4b1xf"]
 shader = ExtResource("1_2w543")
@@ -464,6 +467,33 @@ thickness = 2
 vertical = true
 
 [sub_resource type="LabelSettings" id="LabelSettings_37dpm"]
+font_size = 24
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xkx3h"]
+bg_color = Color(0.101960786, 0.101960786, 0.101960786, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.18932778, 0.1893278, 0.18932766, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+corner_detail = 4
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_dws00"]
+content_margin_left = 2.0
+content_margin_top = 4.0
+content_margin_right = 0.0
+content_margin_bottom = 4.0
+color = Color(0.5, 0.5, 0.5, 1)
+grow_begin = -8.0
+grow_end = -8.0
+thickness = 2
+vertical = true
+
+[sub_resource type="LabelSettings" id="LabelSettings_ct51f"]
 font_size = 24
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tualj"]
@@ -1072,6 +1102,23 @@ layout_mode = 2
 text = "KEY_SETTINGS_MOVE_CROUCH"
 label_settings = SubResource("LabelSettings_37dpm")
 
+[node name="accp_light" type="HBoxContainer" parent="aspect_ratio_container/margin/gamepad_hints/margin_container/v_box_container" unique_id=551640210]
+layout_mode = 2
+
+[node name="texture_rect" type="TextureRect" parent="aspect_ratio_container/margin/gamepad_hints/margin_container/v_box_container/accp_light" unique_id=776366959]
+layout_mode = 2
+texture = ExtResource("30_mlifv")
+expand_mode = 2
+
+[node name="v_separator" type="VSeparator" parent="aspect_ratio_container/margin/gamepad_hints/margin_container/v_box_container/accp_light" unique_id=402228838]
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxLine_js7y1")
+
+[node name="label" type="Label" parent="aspect_ratio_container/margin/gamepad_hints/margin_container/v_box_container/accp_light" unique_id=1440993275]
+layout_mode = 2
+text = "KEY_SETTINGS_FLASHLIGHT"
+label_settings = SubResource("LabelSettings_37dpm")
+
 [node name="gamepad_hints_gun" type="PanelContainer" parent="aspect_ratio_container/margin" unique_id=2067865264]
 layout_mode = 1
 anchors_preset = 3
@@ -1114,6 +1161,23 @@ layout_mode = 2
 text = "KEY_HINT_SHOOT"
 label_settings = SubResource("LabelSettings_37dpm")
 
+[node name="accp_mattack" type="HBoxContainer" parent="aspect_ratio_container/margin/gamepad_hints_gun/margin_container/v_box_container" unique_id=829666900]
+layout_mode = 2
+
+[node name="texture_rect2" type="TextureRect" parent="aspect_ratio_container/margin/gamepad_hints_gun/margin_container/v_box_container/accp_mattack" unique_id=1730207559]
+layout_mode = 2
+texture = ExtResource("33_xkx3h")
+expand_mode = 2
+
+[node name="v_separator" type="VSeparator" parent="aspect_ratio_container/margin/gamepad_hints_gun/margin_container/v_box_container/accp_mattack" unique_id=1565074689]
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxLine_js7y1")
+
+[node name="label" type="Label" parent="aspect_ratio_container/margin/gamepad_hints_gun/margin_container/v_box_container/accp_mattack" unique_id=1193075166]
+layout_mode = 2
+text = "KEY_TOUCH_MELEE_ATTACK"
+label_settings = SubResource("LabelSettings_37dpm")
+
 [node name="accp_aim" type="HBoxContainer" parent="aspect_ratio_container/margin/gamepad_hints_gun/margin_container/v_box_container" unique_id=1120802953]
 layout_mode = 2
 
@@ -1149,24 +1213,26 @@ layout_mode = 2
 text = "KEY_HINT_RELOAD"
 label_settings = SubResource("LabelSettings_37dpm")
 
-[node name="nav_prev" type="HBoxContainer" parent="aspect_ratio_container/margin/gamepad_hints_gun/margin_container/v_box_container" unique_id=1013512224]
+[node name="accp_prev" type="HBoxContainer" parent="aspect_ratio_container/margin/gamepad_hints_gun/margin_container/v_box_container" unique_id=1013512224]
+visible = false
 layout_mode = 2
 
-[node name="texture_rect" type="TextureRect" parent="aspect_ratio_container/margin/gamepad_hints_gun/margin_container/v_box_container/nav_prev" unique_id=1652063922]
+[node name="texture_rect" type="TextureRect" parent="aspect_ratio_container/margin/gamepad_hints_gun/margin_container/v_box_container/accp_prev" unique_id=1652063922]
 layout_mode = 2
 texture = ExtResource("27_dl68r")
 expand_mode = 2
 
-[node name="v_separator" type="VSeparator" parent="aspect_ratio_container/margin/gamepad_hints_gun/margin_container/v_box_container/nav_prev" unique_id=1487247606]
+[node name="v_separator" type="VSeparator" parent="aspect_ratio_container/margin/gamepad_hints_gun/margin_container/v_box_container/accp_prev" unique_id=1487247606]
 layout_mode = 2
 theme_override_styles/separator = SubResource("StyleBoxLine_js7y1")
 
-[node name="label" type="Label" parent="aspect_ratio_container/margin/gamepad_hints_gun/margin_container/v_box_container/nav_prev" unique_id=865209386]
+[node name="label" type="Label" parent="aspect_ratio_container/margin/gamepad_hints_gun/margin_container/v_box_container/accp_prev" unique_id=865209386]
 layout_mode = 2
 text = "KEY_HINT_PREVGUN"
 label_settings = SubResource("LabelSettings_37dpm")
 
 [node name="accp_next" type="HBoxContainer" parent="aspect_ratio_container/margin/gamepad_hints_gun/margin_container/v_box_container" unique_id=1971957695]
+visible = false
 layout_mode = 2
 
 [node name="texture_rect2" type="TextureRect" parent="aspect_ratio_container/margin/gamepad_hints_gun/margin_container/v_box_container/accp_next" unique_id=429410334]
@@ -1182,6 +1248,45 @@ theme_override_styles/separator = SubResource("StyleBoxLine_js7y1")
 layout_mode = 2
 text = "KEY_HINT_NEXTGUN"
 label_settings = SubResource("LabelSettings_37dpm")
+
+[node name="gamepad_hints2" type="PanelContainer" parent="aspect_ratio_container/margin" unique_id=692019605]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -1575.0
+offset_top = -9.805969
+offset_right = -1428.0
+offset_bottom = 32.19403
+grow_horizontal = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_xkx3h")
+
+[node name="margin_container" type="MarginContainer" parent="aspect_ratio_container/margin/gamepad_hints2" unique_id=1638372293]
+layout_mode = 2
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 4
+
+[node name="v_box_container" type="VBoxContainer" parent="aspect_ratio_container/margin/gamepad_hints2/margin_container" unique_id=114081309]
+layout_mode = 2
+
+[node name="nav_hint" type="HBoxContainer" parent="aspect_ratio_container/margin/gamepad_hints2/margin_container/v_box_container" unique_id=1570432422]
+layout_mode = 2
+
+[node name="texture_rect" type="TextureRect" parent="aspect_ratio_container/margin/gamepad_hints2/margin_container/v_box_container/nav_hint" unique_id=1133343274]
+layout_mode = 2
+texture = ExtResource("38_dws00")
+expand_mode = 2
+
+[node name="v_separator" type="VSeparator" parent="aspect_ratio_container/margin/gamepad_hints2/margin_container/v_box_container/nav_hint" unique_id=297471680]
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxLine_dws00")
+
+[node name="label" type="Label" parent="aspect_ratio_container/margin/gamepad_hints2/margin_container/v_box_container/nav_hint" unique_id=1484950226]
+layout_mode = 2
+text = "KEY_SETTINGS_PAUSE"
+label_settings = SubResource("LabelSettings_ct51f")
 
 [node name="touch_screen" type="Control" parent="." unique_id=1851509445]
 unique_name_in_owner = true
