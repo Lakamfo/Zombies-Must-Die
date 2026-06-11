@@ -47,7 +47,10 @@ func _ready() -> void:
 	audio_stream_player.play()
 	
 	_gpad_hint(Global.gamepad_connected)
-	Input.joy_connection_changed.connect(func(d, c): _gpad_hint(c))
+	Input.joy_connection_changed.connect(func(d, c): 
+		_gpad_hint(c)
+		if c: first_activate_button.grab_focus()
+	)
 	
 	if not OS.has_feature("editor"):
 		check_game_updates()

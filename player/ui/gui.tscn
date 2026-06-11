@@ -25,6 +25,7 @@
 [ext_resource type="Material" uid="uid://bnpldw81w3n46" path="res://shaders/mixed_blur_bg.tres" id="16_dn3jp"]
 [ext_resource type="PackedScene" uid="uid://bl0f1rkned8wv" path="res://scenes/gui/navigation_gamepad_hints.tscn" id="20_37dpm"]
 [ext_resource type="Texture2D" uid="uid://c2sgkfqsdlotr" path="res://addons/kenney-input-prompts/sony_vector/playstation_stick_l.svg" id="23_4ty3v"]
+[ext_resource type="Texture2D" uid="uid://ccqn6mbbai1ji" path="res://addons/kenney-input-prompts/sony_vector/controller_playstation2.svg" id="23_dl68r"]
 [ext_resource type="Script" uid="uid://dvc8mqit386wp" path="res://player/ui/gamepad_hints_def.gd" id="24_04gji"]
 [ext_resource type="Texture2D" uid="uid://b44rfducml8a6" path="res://addons/kenney-input-prompts/sony_vector/playstation_stick_r.svg" id="26_53upy"]
 [ext_resource type="Script" uid="uid://b6y2sa0rutx6d" path="res://player/ui/gamepad_hints_gun.gd" id="27_04gji"]
@@ -992,6 +993,39 @@ offset_right = 259.0
 [node name="ui_sounds" type="Node" parent="aspect_ratio_container/margin/pause_menu" unique_id=893995852]
 script = ExtResource("11_bpuv5")
 metadata/_custom_type_script = "uid://b8yrrblqu32qa"
+
+[node name="gpad_broke" type="PanelContainer" parent="aspect_ratio_container/margin/pause_menu" unique_id=888421566]
+visible = false
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -134.0
+offset_top = 14.5
+offset_right = 141.0
+offset_bottom = 78.5
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="margin_container" type="MarginContainer" parent="aspect_ratio_container/margin/pause_menu/gpad_broke" unique_id=1749051742]
+layout_mode = 2
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_right = 4
+
+[node name="h_box_container" type="HBoxContainer" parent="aspect_ratio_container/margin/pause_menu/gpad_broke/margin_container" unique_id=1941256028]
+layout_mode = 2
+
+[node name="texture_rect" type="TextureRect" parent="aspect_ratio_container/margin/pause_menu/gpad_broke/margin_container/h_box_container" unique_id=1854249072]
+modulate = Color(1, 0, 0, 1)
+layout_mode = 2
+texture = ExtResource("23_dl68r")
+
+[node name="label" type="Label" parent="aspect_ratio_container/margin/pause_menu/gpad_broke/margin_container/h_box_container" unique_id=2096792306]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "KEY_HINT_GAMEPAD_BROKE"
 
 [node name="gamepad_hints" type="PanelContainer" parent="aspect_ratio_container/margin" unique_id=2050745261]
 layout_mode = 1

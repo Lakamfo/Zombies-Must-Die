@@ -243,6 +243,7 @@ KEY_HINT_AIM,Aim,Прицеливание
 KEY_HINT_PREVGUN,Previous,Предыдущий
 KEY_HINT_NEXTGUN,Next,Следующий
 KEY_HINT_LOOK,Look around,Осмотреться
+KEY_HINT_GAMEPAD_BROKE,Gamepad has discconnected!,Геймпад был отключён!
 ,,
 KEY_YES,Yes,Да
 KEY_NO,No,Нет

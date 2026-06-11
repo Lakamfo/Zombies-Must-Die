@@ -91,9 +91,15 @@ func _ready() -> void:
 	
 	Input.joy_connection_changed.connect(func(device: int, connected: bool) -> void:
 		_gpad_hint(Global.gamepad_connected)
-		if Global.gamepad_connected: return
+		if Global.gamepad_connected:
+			if get_tree().paused:
+				$aspect_ratio_container/margin/pause_menu/gpad_broke.hide()
+				bt_cont.grab_focus()
+			return
 		
-		button_handler(0)
+		if not get_tree().paused:
+			button_handler(0)
+			$aspect_ratio_container/margin/pause_menu/gpad_broke.show()
 	)
 	
 	if Global.first_hint_counter:
@@ -156,6 +162,8 @@ func _unhandled_input(event: InputEvent) -> void:
 		pause_menu.visible = get_tree().paused
 		if get_tree().paused:
 			pause_menu.get_node('buttons/bt_cont').grab_focus()
+		else:
+			$aspect_ratio_container/margin/pause_menu/gpad_broke.hide()
 			
 		_on_close_request()
 
@@ -182,6 +190,9 @@ func button_handler(id: int = -1) -> void:
 	match id:
 		0:
 			get_tree().paused = !get_tree().paused
+			if not get_tree().paused:
+				$aspect_ratio_container/margin/pause_menu/gpad_broke.hide()
+				
 			pause_menu.visible = get_tree().paused
 			MouseManager.unlock(&"pause_menu")
 			$aspect_ratio_container/margin/gamepad_hints2.hide()

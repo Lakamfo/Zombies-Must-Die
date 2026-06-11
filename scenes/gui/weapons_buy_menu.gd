@@ -123,7 +123,11 @@ func _gpad_hint(state: bool) -> void:
 func _ready() -> void:
 	_gpad_hint(Global.gamepad_connected)
 	
-	Input.joy_connection_changed.connect(func(d, c): _gpad_hint(c))
+	Input.joy_connection_changed.connect(func(d, c):
+		_gpad_hint(c)
+		
+		if c: first_weapon_button.grab_focus()
+	)
 	
 	bt_close.pressed.connect(close_requested.emit)
 	
