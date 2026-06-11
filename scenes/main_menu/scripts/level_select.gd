@@ -88,6 +88,7 @@ func button_toggled(toggled: bool, bt: Button):
 		for child in modifiers_flex_container.get_children():
 			child.queue_free()
 
+		var first_mod = null
 		for mod in modifiers:
 			if not modifiers[mod]:
 				continue
@@ -98,6 +99,13 @@ func button_toggled(toggled: bool, bt: Button):
 			var label: Label = mod_bt.find_child("label")
 			label.text = ModifiersManager.get_modifier_name(mod)
 			modifiers_flex_container.add_child(mod_bt)
+			
+			if not first_mod: first_mod = mod_bt
+			
+		if first_mod:
+			first_mod.grab_focus()
+		else:
+			bt_play.grab_focus()
 		
 		ServerRequests.get_record(ServerRequests.local_player_id, location)
 

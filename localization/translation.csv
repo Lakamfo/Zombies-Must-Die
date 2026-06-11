@@ -75,6 +75,7 @@ KEY_SETTINGS_OPEN_SCREENSHOTS,Open Screenshots folder,Открыть сними�
 KEY_SETTINGS_TAKE_SCREENSHOT,Take Screenshot,Снимок экрана
 KEY_SETTINGS_JOY_VIBRATION,Vibration,Вибрация
 KEY_SETTINGS_JOY,Gamepad,Геймпад
+KEY_SETTINGS_JOY_HINTS, Gamepad hints, Подсказки для геймпада
 ,,
 KEY_SETTINGS_RELOAD_TO_APPLY,Restart the game to apply the settings.,"Перезапустите игру, чтобы применить настройки."
 KEY_SETTINGS_RELOAD_TO_APPLY_TITLE,Zombies Must Die : Settings Changed,Zombies Must Die : Настройки изменены
@@ -232,6 +233,18 @@ KEY_STAT_SHOTS_PER_SECOND,Shots Per Second,Выстрелов в секунду
 ,,
 KEY_STAT_GIVE_SELECTED_WEAPON,Give selected weapon,Выдать выбранное оружие
 KEY_STAT_UPGRADE_WEAPON,Increase weapon level in hands,Повысить уровень оружия в руке
+,,
+KEY_HINT_NAVIGATION,Navigation in menu,Перемещение в меню
+KEY_HINT_ACCEPT,Accept,Подтвердить
+KEY_HINT_MOVEMENT,Move,Перемещение
+KEY_HINT_JUMP,Jump,Прыжок
+KEY_HINT_SHOOT,Shoot,Стрелять
+KEY_HINT_RELOAD,Reload,Перезарядка
+KEY_HINT_AIM,Aim,Прицеливание
+KEY_HINT_PREVGUN,Previous,Предыдущий
+KEY_HINT_NEXTGUN,Next,Следующий
+KEY_HINT_LOOK,Look around,Осмотреться
+KEY_HINT_GAMEPAD_BROKE,Gamepad has discconnected!,Геймпад был отключён!
 ,,
 KEY_YES,Yes,Да
 KEY_NO,No,Нет

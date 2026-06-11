@@ -22,10 +22,21 @@ var bonus_controller: BonusController
 var bonus_effects_manager: BonusEffectsManager
 #endregion
 
+#region GamePad visitor
+
+var gamepad_connected: bool = false
+var first_hint_counter: bool = true
+
+# joy
+func _on_joy_state_changed(_device: int, _connected: bool) -> void:
+	gamepad_connected = not Input.get_connected_joypads().is_empty()
+
+#endregion
 
 func _ready() -> void:
 	_initialize_bonus_system()
 
+	Input.joy_connection_changed.connect(_on_joy_state_changed)
 
 func _initialize_bonus_system() -> void:
 	bonus_registry = BonusRegistry.new()

@@ -5,9 +5,67 @@
 [ext_resource type="Material" uid="uid://bnpldw81w3n46" path="res://shaders/mixed_blur_bg.tres" id="2_k73q8"]
 [ext_resource type="Texture2D" uid="uid://wr8b3s5af8xp" path="res://player/ui/pictures/item_slot_placeholder.png" id="4_k73q8"]
 [ext_resource type="Script" uid="uid://b8yrrblqu32qa" path="res://classes/ui_sounds.gd" id="4_xot0k"]
+[ext_resource type="Texture2D" uid="uid://buyl38vvojiu" path="res://addons/kenney-input-prompts/sony_vector/playstation_dpad.svg" id="6_21kqj"]
+[ext_resource type="Script" uid="uid://cer03lst4qmnr" path="res://player/ui/gamepad_hints.gd" id="6_mbqff"]
+[ext_resource type="Script" uid="uid://dx5tkcfiup834" path="res://classes/gpad_hint_texture.gd" id="7_mbqff"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_k73q8"]
 bg_color = Color(1, 1, 1, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0x6gf"]
+bg_color = Color(0.101960786, 0.101960786, 0.101960786, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.18932778, 0.1893278, 0.18932766, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+corner_detail = 4
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_vya70"]
+content_margin_left = 2.0
+content_margin_top = 4.0
+content_margin_right = 0.0
+content_margin_bottom = 4.0
+color = Color(0.5, 0.5, 0.5, 1)
+grow_begin = -8.0
+grow_end = -8.0
+thickness = 2
+vertical = true
+
+[sub_resource type="LabelSettings" id="LabelSettings_388bs"]
+font_size = 24
+
+[sub_resource type="Texture2D" id="Texture2D_0x6gf"]
+resource_local_to_scene = false
+resource_name = ""
+script = ExtResource("7_mbqff")
+action = &"ui_accept"
+metadata/_custom_type_script = "uid://dx5tkcfiup834"
+
+[sub_resource type="Texture2D" id="Texture2D_21kqj"]
+resource_local_to_scene = false
+resource_name = ""
+script = ExtResource("7_mbqff")
+action = &"ui_cancel"
+metadata/_custom_type_script = "uid://dx5tkcfiup834"
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_0x6gf"]
+content_margin_left = 2.0
+content_margin_top = 4.0
+content_margin_right = 0.0
+content_margin_bottom = 4.0
+color = Color(0.5, 0.5, 0.5, 1)
+grow_begin = -8.0
+grow_end = -8.0
+thickness = 2
+vertical = true
+
+[sub_resource type="LabelSettings" id="LabelSettings_vya70"]
+font_size = 24
 
 [node name="weapons_buy_menu" type="Control" unique_id=1961144254]
 process_mode = 3
@@ -143,3 +201,76 @@ text = "KEY_STAT_UPGRADE_WEAPON"
 unique_name_in_owner = true
 script = ExtResource("4_xot0k")
 metadata/_custom_type_script = "uid://b8yrrblqu32qa"
+
+[node name="gamepad_hints" type="PanelContainer" parent="." unique_id=906922118]
+unique_name_in_owner = true
+material = ExtResource("2_k73q8")
+layout_mode = 1
+offset_left = 20.0
+offset_top = -123.0
+offset_right = 301.0
+offset_bottom = -13.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_0x6gf")
+script = ExtResource("6_mbqff")
+show_always_with_gamepad = true
+
+[node name="margin_container" type="MarginContainer" parent="gamepad_hints" unique_id=668108923]
+layout_mode = 2
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 4
+
+[node name="v_box_container" type="VBoxContainer" parent="gamepad_hints/margin_container" unique_id=2135485399]
+layout_mode = 2
+
+[node name="nav_hint" type="HBoxContainer" parent="gamepad_hints/margin_container/v_box_container" unique_id=113572180]
+layout_mode = 2
+
+[node name="texture_rect" type="TextureRect" parent="gamepad_hints/margin_container/v_box_container/nav_hint" unique_id=1317782898]
+layout_mode = 2
+texture = ExtResource("6_21kqj")
+expand_mode = 2
+
+[node name="v_separator" type="VSeparator" parent="gamepad_hints/margin_container/v_box_container/nav_hint" unique_id=1620652760]
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxLine_vya70")
+
+[node name="label" type="Label" parent="gamepad_hints/margin_container/v_box_container/nav_hint" unique_id=268832001]
+layout_mode = 2
+text = "KEY_HINT_NAVIGATION"
+label_settings = SubResource("LabelSettings_388bs")
+
+[node name="accp_hint" type="HBoxContainer" parent="gamepad_hints/margin_container/v_box_container" unique_id=2027273504]
+layout_mode = 2
+
+[node name="texture_rect2" type="TextureRect" parent="gamepad_hints/margin_container/v_box_container/accp_hint" unique_id=230335471]
+layout_mode = 2
+texture = SubResource("Texture2D_0x6gf")
+expand_mode = 2
+
+[node name="v_separator" type="VSeparator" parent="gamepad_hints/margin_container/v_box_container/accp_hint" unique_id=676178394]
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxLine_vya70")
+
+[node name="label" type="Label" parent="gamepad_hints/margin_container/v_box_container/accp_hint" unique_id=799929433]
+layout_mode = 2
+text = "KEY_HINT_ACCEPT"
+label_settings = SubResource("LabelSettings_388bs")
+
+[node name="accp_close" type="HBoxContainer" parent="gamepad_hints/margin_container/v_box_container" unique_id=1600847361]
+layout_mode = 2
+
+[node name="texture_rect" type="TextureRect" parent="gamepad_hints/margin_container/v_box_container/accp_close" unique_id=1201665084]
+layout_mode = 2
+texture = SubResource("Texture2D_21kqj")
+expand_mode = 2
+
+[node name="v_separator" type="VSeparator" parent="gamepad_hints/margin_container/v_box_container/accp_close" unique_id=1747776561]
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxLine_0x6gf")
+
+[node name="label" type="Label" parent="gamepad_hints/margin_container/v_box_container/accp_close" unique_id=1544144008]
+layout_mode = 2
+text = "KEY_BACK"
+label_settings = SubResource("LabelSettings_vya70")

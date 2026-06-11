@@ -26,6 +26,8 @@ enum AUDIO_BUS { MASTER, WEAPON, MUSIC, SFX }
 
 
 func _ready() -> void:
+	super()
+	
 	await owner.locale_loaded
 
 	_init_signals()

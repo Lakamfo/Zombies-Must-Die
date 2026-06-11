@@ -3,6 +3,7 @@ extends Node3D
 
 #region Signals
 signal weapon_changed
+signal inventory_changed
 #endregion
 
 #region Exports
@@ -45,7 +46,11 @@ const WEAPON_REGISTRY: Dictionary = {
 	5: ["REVOLVER_6", "res://player/weapons/in_game/revolver_6/revolver_6.tscn"],
 	6: ["SG552", "res://player/weapons/in_game/sg552/sg552_scene.tscn"]
 }
-var inventory_weapons_list: Array[Weapon] = []
+var inventory_weapons_list: Array[Weapon] = []:
+	set(value):
+		inventory_weapons_list = value
+		inventory_changed.emit()
+		EventBus.weapon_inventory_update.emit(value)
 
 const SOUND_SCOPE_IN = preload("res://player/weapons/sounds/scope_in.mp3")
 const SOUND_SCOPE_OUT = preload("res://player/weapons/sounds/scope_out.mp3")
@@ -110,7 +115,8 @@ func add_weapon(weapon_id: int = -1) -> bool:
 
 	inventory_weapons_list.append(weapon_instance)
 	EventBus.weapon_add_ui.emit(weapon_instance.weapon_stats.icon)
-
+	EventBus.weapon_inventory_update.emit(inventory_weapons_list)
+	
 	if is_doubletap_active:
 		weapon_instance.weapon_stats.fire_rate *= double_tap_multiplier 
 		weapon_instance.weapon_stats.burst_fire_rate *= double_tap_multiplier 
@@ -134,6 +140,7 @@ func remove_weapon(weapon_id_inventory: int = -1) -> void:
 	inventory_weapons_list[weapon_id_inventory].queue_free()
 	inventory_weapons_list.remove_at(weapon_id_inventory)
 	EventBus.weapon_remove_ui.emit(weapon_id_inventory)
+	EventBus.weapon_inventory_update.emit(inventory_weapons_list)
 
 
 func get_current_weapon() -> Weapon:

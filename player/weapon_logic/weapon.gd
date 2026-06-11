@@ -67,7 +67,10 @@ var is_haste: bool = false
 var is_tactical_reload: bool = false
 
 # --- Ammo ---
-var clip: int
+var clip: int:
+	set(value):
+		clip = value
+		EventBus.weapon_clip_changed.emit(value)
 var magazine: int:
 	set(value):
 		magazine = value

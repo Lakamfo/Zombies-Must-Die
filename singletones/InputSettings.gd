@@ -10,6 +10,7 @@ var default_fullscreen_window_mode: int = DisplayServer.WINDOW_MODE_FULLSCREEN
 var scaling_mode: int = 0
 
 var joy_vibration : bool = false
+var joy_hints : bool = false
 
 func _ready() -> void:
 	process_mode = Node.PROCESS_MODE_ALWAYS
