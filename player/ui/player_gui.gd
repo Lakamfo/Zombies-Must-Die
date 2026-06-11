@@ -77,7 +77,7 @@ func _gpad_hint(state: bool) -> void:
 		$aspect_ratio_container/margin/gamepad_hints,
 		$aspect_ratio_container/margin/gamepad_hints_gun,
 		$aspect_ratio_container/margin/pause_menu/gamepad_hints,
-		$aspect_ratio_container/margin/gamepad_hints2
+		$aspect_ratio_container/margin/gamepad_hints2,
 	]
 
 	for hint in hints:
@@ -87,8 +87,7 @@ func _gpad_hint(state: bool) -> void:
 func _ready() -> void:
 	# Если джойстик отсоединён, то прерываем игру
 	
-	if Global.gamepad_connected:
-		_gpad_hint(true)
+	_gpad_hint(Global.gamepad_connected)
 	
 	Input.joy_connection_changed.connect(func(device: int, connected: bool) -> void:
 		_gpad_hint(Global.gamepad_connected)

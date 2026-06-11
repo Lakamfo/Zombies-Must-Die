@@ -7,6 +7,7 @@ extends PanelContainer
 @onready var accp_crouch = $margin_container/v_box_container/accp_crouch
 @onready var accp_use = $margin_container/v_box_container/accp_use
 @onready var accp_light = $margin_container/v_box_container/accp_light
+@onready var accp_sprint = $margin_container/v_box_container/accp_sprint
 
 func _ready() -> void:
 	EventBus.ui_update_interactable.connect(func(desc:String): accp_use.visible = desc != "")
@@ -17,6 +18,7 @@ func _ready() -> void:
 		accp_jump.hide()
 		accp_crouch.hide()
 		accp_light.hide()
+		accp_sprint.hide()
 		hide()
 
 func _input(event: InputEvent) -> void:
@@ -40,5 +42,7 @@ func _input(event: InputEvent) -> void:
 		accp_crouch.hide()
 	if event.is_action_pressed("flashlight"):
 		accp_light.hide()
+	if event.is_action_pressed("sprint"):
+		accp_sprint.hide()
 		
-	visible = !( !accp_move.visible and !accp_jump.visible and !accp_crouch.visible and !accp_look.visible and !accp_use.visible and !accp_light.visible)
+	visible = !( !accp_move.visible and !accp_jump.visible and !accp_crouch.visible and !accp_look.visible and !accp_use.visible and !accp_light.visible and !accp_sprint.visible)

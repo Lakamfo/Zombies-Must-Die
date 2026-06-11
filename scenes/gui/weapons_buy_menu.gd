@@ -121,8 +121,7 @@ func _gpad_hint(state: bool) -> void:
 
 #region Lifecycle methods
 func _ready() -> void:
-	if Global.gamepad_connected:
-		_gpad_hint(true)
+	_gpad_hint(Global.gamepad_connected)
 	
 	Input.joy_connection_changed.connect(func(d, c): _gpad_hint(c))
 	

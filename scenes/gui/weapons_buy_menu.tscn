@@ -6,8 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://wr8b3s5af8xp" path="res://player/ui/pictures/item_slot_placeholder.png" id="4_k73q8"]
 [ext_resource type="Script" uid="uid://b8yrrblqu32qa" path="res://classes/ui_sounds.gd" id="4_xot0k"]
 [ext_resource type="Texture2D" uid="uid://buyl38vvojiu" path="res://addons/kenney-input-prompts/sony_vector/playstation_dpad.svg" id="6_21kqj"]
-[ext_resource type="Texture2D" uid="uid://1g5dyjtdigjn" path="res://addons/kenney-input-prompts/sony_vector/playstation_button_color_cross.svg" id="7_mbqff"]
-[ext_resource type="Texture2D" uid="uid://b4qluhrlsf1wy" path="res://addons/kenney-input-prompts/sony_vector/playstation_button_color_circle.svg" id="8_mbqff"]
+[ext_resource type="Script" uid="uid://dx5tkcfiup834" path="res://classes/gpad_hint_texture.gd" id="7_mbqff"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_k73q8"]
 bg_color = Color(1, 1, 1, 1)
@@ -38,6 +37,20 @@ vertical = true
 
 [sub_resource type="LabelSettings" id="LabelSettings_388bs"]
 font_size = 24
+
+[sub_resource type="Texture2D" id="Texture2D_0x6gf"]
+resource_local_to_scene = false
+resource_name = ""
+script = ExtResource("7_mbqff")
+action = &"ui_accept"
+metadata/_custom_type_script = "uid://dx5tkcfiup834"
+
+[sub_resource type="Texture2D" id="Texture2D_21kqj"]
+resource_local_to_scene = false
+resource_name = ""
+script = ExtResource("7_mbqff")
+action = &"ui_cancel"
+metadata/_custom_type_script = "uid://dx5tkcfiup834"
 
 [sub_resource type="StyleBoxLine" id="StyleBoxLine_0x6gf"]
 content_margin_left = 2.0
@@ -228,7 +241,7 @@ layout_mode = 2
 
 [node name="texture_rect2" type="TextureRect" parent="gamepad_hints/margin_container/v_box_container/accp_hint" unique_id=230335471]
 layout_mode = 2
-texture = ExtResource("7_mbqff")
+texture = SubResource("Texture2D_0x6gf")
 expand_mode = 2
 
 [node name="v_separator" type="VSeparator" parent="gamepad_hints/margin_container/v_box_container/accp_hint" unique_id=676178394]
@@ -245,7 +258,7 @@ layout_mode = 2
 
 [node name="texture_rect" type="TextureRect" parent="gamepad_hints/margin_container/v_box_container/accp_close" unique_id=1201665084]
 layout_mode = 2
-texture = ExtResource("8_mbqff")
+texture = SubResource("Texture2D_21kqj")
 expand_mode = 2
 
 [node name="v_separator" type="VSeparator" parent="gamepad_hints/margin_container/v_box_container/accp_close" unique_id=1747776561]

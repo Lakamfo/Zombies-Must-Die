@@ -1,0 +1,91 @@
+[gd_scene format=3 uid="uid://bl0f1rkned8wv"]
+
+[ext_resource type="Texture2D" uid="uid://buyl38vvojiu" path="res://addons/kenney-input-prompts/sony_vector/playstation_dpad.svg" id="1_8tsuk"]
+[ext_resource type="Script" uid="uid://dx5tkcfiup834" path="res://classes/gpad_hint_texture.gd" id="2_li0f6"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5yn25"]
+bg_color = Color(0.101960786, 0.101960786, 0.101960786, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.18932778, 0.1893278, 0.18932766, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+corner_detail = 4
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_e0d8q"]
+content_margin_left = 2.0
+content_margin_top = 4.0
+content_margin_right = 0.0
+content_margin_bottom = 4.0
+color = Color(0.5, 0.5, 0.5, 1)
+grow_begin = -8.0
+grow_end = -8.0
+thickness = 2
+vertical = true
+
+[sub_resource type="LabelSettings" id="LabelSettings_1tc74"]
+font_size = 24
+
+[sub_resource type="Texture2D" id="Texture2D_nmgfj"]
+resource_local_to_scene = false
+resource_name = ""
+script = ExtResource("2_li0f6")
+action = &"ui_accept"
+metadata/_custom_type_script = "uid://dx5tkcfiup834"
+
+[node name="gamepad_hints" type="PanelContainer" unique_id=437758109]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -195.0
+offset_bottom = 56.0
+grow_horizontal = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_5yn25")
+
+[node name="margin_container" type="MarginContainer" parent="." unique_id=1891682547]
+layout_mode = 2
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 4
+
+[node name="v_box_container" type="VBoxContainer" parent="margin_container" unique_id=1338386992]
+layout_mode = 2
+
+[node name="nav_hint" type="HBoxContainer" parent="margin_container/v_box_container" unique_id=723752937]
+layout_mode = 2
+
+[node name="texture_rect" type="TextureRect" parent="margin_container/v_box_container/nav_hint" unique_id=1254487340]
+layout_mode = 2
+texture = ExtResource("1_8tsuk")
+expand_mode = 2
+
+[node name="v_separator" type="VSeparator" parent="margin_container/v_box_container/nav_hint" unique_id=552585845]
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxLine_e0d8q")
+
+[node name="label" type="Label" parent="margin_container/v_box_container/nav_hint" unique_id=1610567971]
+layout_mode = 2
+text = "KEY_HINT_NAVIGATION"
+label_settings = SubResource("LabelSettings_1tc74")
+
+[node name="accp_hint" type="HBoxContainer" parent="margin_container/v_box_container" unique_id=1498243704]
+layout_mode = 2
+
+[node name="texture_rect2" type="TextureRect" parent="margin_container/v_box_container/accp_hint" unique_id=662046488]
+layout_mode = 2
+texture = SubResource("Texture2D_nmgfj")
+expand_mode = 2
+
+[node name="v_separator" type="VSeparator" parent="margin_container/v_box_container/accp_hint" unique_id=1026846977]
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxLine_e0d8q")
+
+[node name="label" type="Label" parent="margin_container/v_box_container/accp_hint" unique_id=1213762564]
+layout_mode = 2
+text = "KEY_HINT_ACCEPT"
+label_settings = SubResource("LabelSettings_1tc74")

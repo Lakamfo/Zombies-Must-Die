@@ -40,16 +40,15 @@ var is_kg_mode := false
 func _gpad_hint(state: bool) -> void:
 	var gh := $Control/gamepad_hints
 	gh.visible = state
+	
 
 func _ready() -> void:
 	await get_tree().process_frame
 	audio_stream_player.play()
 	
-	if Global.gamepad_connected:
-		_gpad_hint(true)
-	
+	_gpad_hint(Global.gamepad_connected)
 	Input.joy_connection_changed.connect(func(d, c): _gpad_hint(c))
-
+	
 	if not OS.has_feature("editor"):
 		check_game_updates()
 	else:

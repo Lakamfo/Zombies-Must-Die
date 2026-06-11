@@ -29,7 +29,7 @@ var first_hint_counter: bool = true
 
 # jo
 func _on_joy_state_changed(device: int, connected: bool) -> void:
-	gamepad_connected = Input.get_connected_joypads().size() != 0
+	gamepad_connected = not Input.get_connected_joypads().is_empty()
 
 #endregion
 

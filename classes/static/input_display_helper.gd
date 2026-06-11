@@ -78,6 +78,7 @@ static func _mouse_button_text(button_index: int) -> String:
 
 static func _get_event_icon_path(event: InputEvent) -> String:
 	var type = _get_joypad_type()
+	
 	if event is InputEventJoypadButton:
 		return _get_button_icon(event.button_index, type)
 	elif event is InputEventJoypadMotion:
@@ -87,11 +88,11 @@ static func _get_event_icon_path(event: InputEvent) -> String:
 static func _get_joypad_type() -> JoypadType:
 	var joypads : Array[int] = Input.get_connected_joypads()
 	if joypads.is_empty():
-		return JoypadType.XBOX
+		return JoypadType.GENERIC
 	var joy_name = Input.get_joy_name(joypads[0]).to_lower()
 	if "xbox" in joy_name or "xinput" in joy_name:
 		return JoypadType.XBOX
-	elif "playstation" in joy_name or "dualshock" in joy_name or "dualsense" in joy_name:
+	elif "playstation" in joy_name or "dualshock" in joy_name or "dualsense" in joy_name or "ps4" in joy_name:
 		return JoypadType.PLAYSTATION
 	elif "nintendo" in joy_name or "switch" in joy_name:
 		return JoypadType.NINTENDO
