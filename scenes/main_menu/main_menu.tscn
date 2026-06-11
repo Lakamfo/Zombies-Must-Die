@@ -1032,6 +1032,7 @@ layout_mode = 1
 theme_override_styles/panel = ExtResource("13_cbnnd")
 
 [node name="gamepad_hints" parent="Control" unique_id=437758109 instance=ExtResource("18_cbnnd")]
+unique_name_in_owner = true
 layout_mode = 1
 offset_left = -281.0
 offset_bottom = 76.0

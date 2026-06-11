@@ -35,4 +35,5 @@ func _input(event: InputEvent) -> void:
 		accp_prev.show()
 		accp_next.show()
 
-	visible = !( !accp_fire.visible and !accp_aim.visible and !accp_reload.visible and !accp_prev.visible and !accp_next.visible and !accp_mattack.visible)
+	visible = !( !accp_fire.visible and !accp_aim.visible and !accp_reload.visible \
+				and !accp_prev.visible and !accp_next.visible and !accp_mattack.visible)

@@ -45,4 +45,6 @@ func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("sprint"):
 		accp_sprint.hide()
 		
-	visible = !( !accp_move.visible and !accp_jump.visible and !accp_crouch.visible and !accp_look.visible and !accp_use.visible and !accp_light.visible and !accp_sprint.visible)
+	visible = !( 	!accp_move.visible and !accp_jump.visible and !accp_crouch.visible \
+					and !accp_look.visible and !accp_use.visible and !accp_light.visible \
+					and !accp_sprint.visible)

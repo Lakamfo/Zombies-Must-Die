@@ -202,6 +202,7 @@ script = ExtResource("4_xot0k")
 metadata/_custom_type_script = "uid://b8yrrblqu32qa"
 
 [node name="gamepad_hints" type="PanelContainer" parent="." unique_id=906922118]
+unique_name_in_owner = true
 layout_mode = 1
 offset_left = 20.0
 offset_top = -123.0

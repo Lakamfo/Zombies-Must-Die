@@ -74,10 +74,10 @@ var _message_cache: Dictionary[String, MessageLabel] = {}
 
 func _gpad_hint(state: bool) -> void:
 	var hints := [
-		$aspect_ratio_container/margin/gamepad_hints,
-		$aspect_ratio_container/margin/gamepad_hints_gun,
-		$aspect_ratio_container/margin/pause_menu/gamepad_hints,
-		$aspect_ratio_container/margin/gamepad_hints2,
+		%gamepad_hints,
+		%gamepad_hints_gun,
+		%gamepad_hints,
+		%gamepad_hints2,
 	]
 
 	for hint in hints:
@@ -85,7 +85,7 @@ func _gpad_hint(state: bool) -> void:
 
 #region Lifecycle methods
 func _ready() -> void:
-	# Если джойстик отсоединён, то прерываем игру
+	# if gpad dissconnected, return to pause
 	
 	_gpad_hint(Global.gamepad_connected)
 	
@@ -93,19 +93,19 @@ func _ready() -> void:
 		_gpad_hint(Global.gamepad_connected)
 		if Global.gamepad_connected:
 			if get_tree().paused:
-				$aspect_ratio_container/margin/pause_menu/gpad_broke.hide()
+				%gpad_broke.hide()
 				bt_cont.grab_focus()
 			return
 		
 		if not get_tree().paused:
 			button_handler(0)
-			$aspect_ratio_container/margin/pause_menu/gpad_broke.show()
+			%gpad_broke.show()
 	)
 	
 	if Global.first_hint_counter:
 		Global.first_hint_counter = false
 	else:
-		$aspect_ratio_container/margin/gamepad_hints2.hide()
+		%gamepad_hints2.hide()
 	
 	aspect_ratio_container.modulate.a = 0
 
@@ -157,13 +157,13 @@ func _process(_delta: float) -> void:
 func _unhandled_input(event: InputEvent) -> void:
 	if 	(event.is_action_pressed(&"pause") and player_alive) or \
 		(event.is_action_pressed(&"ui_cancel") and get_tree().paused):
-		$aspect_ratio_container/margin/gamepad_hints2.hide()
+		%gamepad_hints2.hide()
 		get_tree().paused = !get_tree().paused
 		pause_menu.visible = get_tree().paused
 		if get_tree().paused:
 			pause_menu.get_node('buttons/bt_cont').grab_focus()
 		else:
-			$aspect_ratio_container/margin/pause_menu/gpad_broke.hide()
+			%gpad_broke.hide()
 			
 		_on_close_request()
 
@@ -191,11 +191,11 @@ func button_handler(id: int = -1) -> void:
 		0:
 			get_tree().paused = !get_tree().paused
 			if not get_tree().paused:
-				$aspect_ratio_container/margin/pause_menu/gpad_broke.hide()
+				%gpad_broke.hide()
 				
 			pause_menu.visible = get_tree().paused
 			MouseManager.unlock(&"pause_menu")
-			$aspect_ratio_container/margin/gamepad_hints2.hide()
+			%gamepad_hints2.hide()
 		1:
 			get_tree().paused = !get_tree().paused
 			SceneManager.reload_current_scene()

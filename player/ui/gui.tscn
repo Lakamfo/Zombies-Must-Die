@@ -929,7 +929,8 @@ text = "DEAD"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="gamepad_hints" parent="aspect_ratio_container/margin/pause_menu" unique_id=437758109 instance=ExtResource("20_37dpm")]
+[node name="gamepad_hints_menu" parent="aspect_ratio_container/margin/pause_menu" unique_id=437758109 instance=ExtResource("20_37dpm")]
+unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -995,6 +996,7 @@ script = ExtResource("11_bpuv5")
 metadata/_custom_type_script = "uid://b8yrrblqu32qa"
 
 [node name="gpad_broke" type="PanelContainer" parent="aspect_ratio_container/margin/pause_menu" unique_id=888421566]
+unique_name_in_owner = true
 visible = false
 layout_mode = 1
 anchors_preset = 7
@@ -1028,6 +1030,7 @@ size_flags_horizontal = 3
 text = "KEY_HINT_GAMEPAD_BROKE"
 
 [node name="gamepad_hints" type="PanelContainer" parent="aspect_ratio_container/margin" unique_id=2050745261]
+unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
@@ -1169,6 +1172,7 @@ text = "KEY_TOUCH_SPRINT"
 label_settings = SubResource("LabelSettings_37dpm")
 
 [node name="gamepad_hints_gun" type="PanelContainer" parent="aspect_ratio_container/margin" unique_id=2067865264]
+unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 3
 anchor_left = 1.0
@@ -1299,6 +1303,7 @@ text = "KEY_HINT_NEXTGUN"
 label_settings = SubResource("LabelSettings_37dpm")
 
 [node name="gamepad_hints2" type="PanelContainer" parent="aspect_ratio_container/margin" unique_id=692019605]
+unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0

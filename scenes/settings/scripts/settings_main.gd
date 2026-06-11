@@ -14,7 +14,7 @@ signal locale_loaded
 signal close_requested
 
 func _gpad_hint(state: bool) -> void:
-	var gh := $gamepad_hints_tab
+	var gh := %gamepad_hints_tab
 	gh.visible = state
 
 func _ready() -> void:
@@ -38,7 +38,8 @@ func _input(event: InputEvent) -> void:
 		if tab_container.current_tab != 1:
 			tab_container.current_tab -= 1
 	elif event.is_action_pressed('swap_weapon_right'):
-		tab_container.current_tab += 1
+		if tab_container.current_tab < (tab_container.get_tab_count() - 1):
+			tab_container.current_tab += 1
 	elif event.is_action_pressed('ui_cancel'):
 		close_requested.emit()
 
@@ -75,4 +76,4 @@ func _notification(what: int) -> void:
 		NOTIFICATION_VISIBILITY_CHANGED:
 			if visible and tab_container:
 				tab_container.current_tab = 1
-				get_node('TabContainer/display/margin_container/v_box_container/display_mode_container/display_mode_option_button').grab_focus()
+				%display_mode_option_button.grab_focus()

@@ -38,7 +38,7 @@ var is_kg_mode := false
 #pass
 
 func _gpad_hint(state: bool) -> void:
-	var gh := $Control/gamepad_hints
+	var gh := %gamepad_hints
 	gh.visible = state
 	
 

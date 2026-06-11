@@ -117,7 +117,7 @@ const LOWER_IS_BETTER: Dictionary[String, bool] = {
 var first_weapon_button: Button
 
 func _gpad_hint(state: bool) -> void:
-	$gamepad_hints.visible = state
+	%gamepad_hints.visible = state
 
 #region Lifecycle methods
 func _ready() -> void:
