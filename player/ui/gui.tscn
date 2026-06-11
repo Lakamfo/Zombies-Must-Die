@@ -30,6 +30,7 @@
 [ext_resource type="Texture2D" uid="uid://b44rfducml8a6" path="res://addons/kenney-input-prompts/sony_vector/playstation_stick_r.svg" id="26_53upy"]
 [ext_resource type="Script" uid="uid://b6y2sa0rutx6d" path="res://player/ui/gamepad_hints_gun.gd" id="27_04gji"]
 [ext_resource type="Script" uid="uid://dx5tkcfiup834" path="res://classes/gpad_hint_texture.gd" id="27_dws00"]
+[ext_resource type="Script" uid="uid://cer03lst4qmnr" path="res://player/ui/gamepad_hints.gd" id="29_mwojf"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_4b1xf"]
 shader = ExtResource("1_2w543")
@@ -940,6 +941,7 @@ offset_top = -85.5
 offset_right = 140.5
 offset_bottom = -9.5
 grow_horizontal = 2
+show_always_with_gamepad = true
 
 [node name="buttons" type="VBoxContainer" parent="aspect_ratio_container/margin/pause_menu" unique_id=1231939977]
 layout_mode = 1
@@ -998,6 +1000,7 @@ metadata/_custom_type_script = "uid://b8yrrblqu32qa"
 [node name="gpad_broke" type="PanelContainer" parent="aspect_ratio_container/margin/pause_menu" unique_id=888421566]
 unique_name_in_owner = true
 visible = false
+material = ExtResource("16_dn3jp")
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -1010,6 +1013,7 @@ offset_right = 141.0
 offset_bottom = 78.5
 grow_horizontal = 2
 grow_vertical = 0
+theme_override_styles/panel = ExtResource("11_epdh4")
 
 [node name="margin_container" type="MarginContainer" parent="aspect_ratio_container/margin/pause_menu/gpad_broke" unique_id=1749051742]
 layout_mode = 2
@@ -1031,6 +1035,7 @@ text = "KEY_HINT_GAMEPAD_BROKE"
 
 [node name="gamepad_hints" type="PanelContainer" parent="aspect_ratio_container/margin" unique_id=2050745261]
 unique_name_in_owner = true
+material = ExtResource("16_dn3jp")
 layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
@@ -1050,6 +1055,7 @@ theme_override_constants/margin_bottom = 4
 
 [node name="v_box_container" type="VBoxContainer" parent="aspect_ratio_container/margin/gamepad_hints/margin_container" unique_id=128833389]
 layout_mode = 2
+size_flags_vertical = 4
 
 [node name="accp_move" type="HBoxContainer" parent="aspect_ratio_container/margin/gamepad_hints/margin_container/v_box_container" unique_id=1871924261]
 layout_mode = 2
@@ -1173,14 +1179,15 @@ label_settings = SubResource("LabelSettings_37dpm")
 
 [node name="gamepad_hints_gun" type="PanelContainer" parent="aspect_ratio_container/margin" unique_id=2067865264]
 unique_name_in_owner = true
+material = ExtResource("16_dn3jp")
 layout_mode = 1
 anchors_preset = 3
 anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -201.0
-offset_top = -179.19403
+offset_left = -378.0
+offset_top = -143.19403
 offset_bottom = -103.19403
 grow_horizontal = 0
 grow_vertical = 0
@@ -1196,6 +1203,7 @@ theme_override_constants/margin_bottom = 4
 
 [node name="v_box_container" type="VBoxContainer" parent="aspect_ratio_container/margin/gamepad_hints_gun/margin_container" unique_id=2044406329]
 layout_mode = 2
+size_flags_vertical = 4
 
 [node name="accp_fire" type="HBoxContainer" parent="aspect_ratio_container/margin/gamepad_hints_gun/margin_container/v_box_container" unique_id=319446132]
 layout_mode = 2
@@ -1304,6 +1312,7 @@ label_settings = SubResource("LabelSettings_37dpm")
 
 [node name="gamepad_hints2" type="PanelContainer" parent="aspect_ratio_container/margin" unique_id=692019605]
 unique_name_in_owner = true
+material = ExtResource("16_dn3jp")
 layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
@@ -1314,6 +1323,7 @@ offset_right = -1428.0
 offset_bottom = 32.19403
 grow_horizontal = 0
 theme_override_styles/panel = SubResource("StyleBoxFlat_xkx3h")
+script = ExtResource("29_mwojf")
 
 [node name="margin_container" type="MarginContainer" parent="aspect_ratio_container/margin/gamepad_hints2" unique_id=1638372293]
 layout_mode = 2
@@ -1324,6 +1334,7 @@ theme_override_constants/margin_bottom = 4
 
 [node name="v_box_container" type="VBoxContainer" parent="aspect_ratio_container/margin/gamepad_hints2/margin_container" unique_id=114081309]
 layout_mode = 2
+size_flags_vertical = 4
 
 [node name="nav_hint" type="HBoxContainer" parent="aspect_ratio_container/margin/gamepad_hints2/margin_container/v_box_container" unique_id=1570432422]
 layout_mode = 2

@@ -28,6 +28,9 @@ extends ScrollContainerMouse
 @onready var mouse_sensitivity_label: Label = %mouse_sensitivity_label
 @onready var mouse_sensitivity_slider: HSlider = %mouse_sensitivity_slider
 
+@onready var joy_hints_label: Label = %joy_hints_label
+@onready var joy_hints_button: CheckButton = %joy_hints_button
+
 @onready var joy_vibration_button: CheckButton = %joy_vibration_button
 
 @onready var reset_actions_bt: Button = %reset_actions_bt
@@ -46,8 +49,6 @@ enum JoypadType { XBOX, PLAYSTATION, NINTENDO, GENERIC }
 
 func _ready() -> void:
 	super()
-	
-	await owner.locale_loaded
 
 	for action in input_actions.keys():
 		input_actions_translated[action] = tr(input_actions[action])
@@ -55,10 +56,12 @@ func _ready() -> void:
 	init_keymapping()
 	handle_mouse_sensitivity()
 	handle_joy_vibration()
+	handle_joy_hints()
 
 	Input.joy_connection_changed.connect(func(_device, _connected):
 		_create_action_list()
 	)
+	EventBus.update_settings.emit()
 
 
 func init_keymapping() -> void:
@@ -78,6 +81,26 @@ func handle_joy_vibration() -> void:
 		)
 	
 	joy_vibration_button.set_pressed(restore_value['input']['joy_vibration'])
+
+
+
+func handle_joy_hints() -> void:
+	var restore_value: Dictionary = config_file_handler.config_load_filtered(
+		{ 'input': { 'joy_hints': true } }
+	)
+	InputSettings.joy_hints = restore_value['input']['joy_hints']
+	EventBus.update_settings.emit()
+	
+	joy_hints_button.toggled.connect(func jvh(value : bool) -> void:
+		InputSettings.joy_hints = value
+		config_file_handler.config_save({'input': { 'joy_hints': value }})
+		
+		EventBus.update_settings.emit()
+		)
+	
+	
+	joy_hints_button.set_pressed(restore_value['input']['joy_hints'])
+
 
 
 func handle_mouse_sensitivity() -> void:

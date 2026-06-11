@@ -116,16 +116,10 @@ const LOWER_IS_BETTER: Dictionary[String, bool] = {
 
 var first_weapon_button: Button
 
-func _gpad_hint(state: bool) -> void:
-	%gamepad_hints.visible = state
 
 #region Lifecycle methods
 func _ready() -> void:
-	_gpad_hint(Global.gamepad_connected)
-	
-	Input.joy_connection_changed.connect(func(d, c):
-		_gpad_hint(c)
-		
+	Input.joy_connection_changed.connect(func(_d, c):
 		if c: first_weapon_button.grab_focus()
 	)
 	

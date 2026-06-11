@@ -33,7 +33,7 @@ func _ready() -> void:
 	if Global.gamepad_connected:
 		_gpad_hint(true)
 	
-	Input.joy_connection_changed.connect(func(device: int, connected: bool) -> void:
+	Input.joy_connection_changed.connect(func(_device: int, _connected: bool) -> void:
 		_gpad_hint(Global.gamepad_connected)
 	)
 
@@ -83,7 +83,7 @@ func update_hint_position():
 		v_bar.size.y - gpad_scroll_hint.size.y / 2
 	)
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if not gamepad_enabled:
 		return
 		

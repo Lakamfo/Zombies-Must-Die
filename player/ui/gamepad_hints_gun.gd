@@ -1,39 +1,101 @@
 class_name GamePadHintsGun
 extends PanelContainer
 
-@onready var accp_fire = $margin_container/v_box_container/accp_fire
-@onready var accp_aim = $margin_container/v_box_container/accp_aim
-@onready var accp_reload = $margin_container/v_box_container/accp_reload
-@onready var accp_prev = $margin_container/v_box_container/accp_prev
-@onready var accp_next = $margin_container/v_box_container/accp_next
-@onready var accp_mattack = $margin_container/v_box_container/accp_mattack
+@onready var hints := {
+	&"fire":    $margin_container/v_box_container/accp_fire,
+	&"aim":     $margin_container/v_box_container/accp_aim,
+	&"reload":  $margin_container/v_box_container/accp_reload,
+	&"prev":    $margin_container/v_box_container/accp_prev,
+	&"next":    $margin_container/v_box_container/accp_next,
+	&"mattack": $margin_container/v_box_container/accp_mattack,
+}
+
+var action_map := {
+	&"mouse_1":          &"fire",
+	&"mouse_2":          &"aim",
+	&"melee_attack":     &"mattack",
+	&"swap_weapon_left": &"prev",
+	&"swap_weapon_right":&"next",
+}
 
 func _ready() -> void:
-	if not Global.first_hint_counter:
-		accp_fire.hide()
-		accp_aim.hide()
-		accp_mattack.hide()
-		hide()
+	EventBus.update_settings.connect(_settings_updated)
+	Input.joy_connection_changed.connect(_on_joy_connection_changed)
+	EventBus.weapon_fired.connect(_on_weapon_changed)
+	EventBus.weapon_clip_changed.connect(_on_clip_changed)
+	EventBus.weapon_active_object.connect(_on_weapon_changed)
+	EventBus.weapon_inventory_update.connect(_on_inventory_changed)
+	
+	_settings_updated()
 
-func _input(event: InputEvent) -> void:
-	if not Global.gamepad_connected:
+
+func _refresh_hints_state() -> void:
+	if not Global.first_hint_counter:
+		var gamepad_connected = not Input.get_connected_joypads().is_empty()
+		for key in [&"fire", &"aim", &"mattack"]:
+			hints[key].visible = gamepad_connected
+	else:
+		for hint in hints.values():
+			hint.visible = false
+
+
+func _update_panel_visibility() -> void:
+	if not InputSettings.joy_hints or Input.get_connected_joypads().is_empty():
 		visible = false
 		return
 	
-	if event.is_action_pressed("mouse_1"):
-		accp_fire.hide()
-	if event.is_action_pressed("mouse_2"):
-		accp_aim.hide()
-	if event.is_action_pressed("melee_attack"):
-		accp_mattack.hide()
-		
-	# Context hint: if empty ammo
-	if Global.player.weapon_manager.get_current_weapon() != null:
-		accp_reload.visible = Global.player.weapon_manager.get_current_weapon().clip == 0
-		
-	if Global.player.weapon_manager.inventory_weapons_list.size() > 1:
-		accp_prev.show()
-		accp_next.show()
+	visible = hints.values().any(func(h): return h.visible)
 
-	visible = !( !accp_fire.visible and !accp_aim.visible and !accp_reload.visible \
-				and !accp_prev.visible and !accp_next.visible and !accp_mattack.visible)
+
+func _settings_updated() -> void:
+	_refresh_hints_state()
+	_update_panel_visibility()
+
+
+func _on_joy_connection_changed(_device: int, _connected: bool) -> void:
+	_refresh_hints_state()
+	_update_panel_visibility()
+
+
+func _on_clip_changed(amount: int) -> void:
+	hints[&"reload"].visible = (amount == 0)
+	_update_panel_visibility()
+
+
+
+func _on_weapon_changed(weapon) -> void:
+	hints[&"reload"].visible = (weapon != null and weapon.clip == 0)
+	_update_panel_visibility()
+
+
+
+func _on_inventory_changed(weapons_list: Array) -> void:
+	var show_switch = weapons_list.size() > 1
+	hints[&"prev"].visible = show_switch
+	hints[&"next"].visible = show_switch
+	_update_panel_visibility()
+
+
+
+func _input(event: InputEvent) -> void:
+	if not InputSettings.joy_hints:
+		return
+	if not event is InputEventJoypadButton or not event.is_pressed():
+		return
+	
+	var changed := false
+	for action in action_map.keys():
+		if event.is_action(action):
+			if _hide_hint(action_map[action]):
+				changed = true
+	
+	if changed:
+		_update_panel_visibility()
+
+
+func _hide_hint(key: StringName) -> bool:
+	var hint = hints.get(key)
+	if hint and hint.visible:
+		hint.hide()
+		return true
+	return false

@@ -27,8 +27,8 @@ var bonus_effects_manager: BonusEffectsManager
 var gamepad_connected: bool = false
 var first_hint_counter: bool = true
 
-# jo
-func _on_joy_state_changed(device: int, connected: bool) -> void:
+# joy
+func _on_joy_state_changed(_device: int, _connected: bool) -> void:
 	gamepad_connected = not Input.get_connected_joypads().is_empty()
 
 #endregion

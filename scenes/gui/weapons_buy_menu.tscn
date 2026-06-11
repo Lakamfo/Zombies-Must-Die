@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://wr8b3s5af8xp" path="res://player/ui/pictures/item_slot_placeholder.png" id="4_k73q8"]
 [ext_resource type="Script" uid="uid://b8yrrblqu32qa" path="res://classes/ui_sounds.gd" id="4_xot0k"]
 [ext_resource type="Texture2D" uid="uid://buyl38vvojiu" path="res://addons/kenney-input-prompts/sony_vector/playstation_dpad.svg" id="6_21kqj"]
+[ext_resource type="Script" uid="uid://cer03lst4qmnr" path="res://player/ui/gamepad_hints.gd" id="6_mbqff"]
 [ext_resource type="Script" uid="uid://dx5tkcfiup834" path="res://classes/gpad_hint_texture.gd" id="7_mbqff"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_k73q8"]
@@ -203,12 +204,15 @@ metadata/_custom_type_script = "uid://b8yrrblqu32qa"
 
 [node name="gamepad_hints" type="PanelContainer" parent="." unique_id=906922118]
 unique_name_in_owner = true
+material = ExtResource("2_k73q8")
 layout_mode = 1
 offset_left = 20.0
 offset_top = -123.0
 offset_right = 301.0
 offset_bottom = -13.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_0x6gf")
+script = ExtResource("6_mbqff")
+show_always_with_gamepad = true
 
 [node name="margin_container" type="MarginContainer" parent="gamepad_hints" unique_id=668108923]
 layout_mode = 2

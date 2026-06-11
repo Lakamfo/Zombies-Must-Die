@@ -21,6 +21,7 @@
 [ext_resource type="Resource" uid="uid://cghb7n40fehwc" path="res://scenes/settings/presets/high.tres" id="10_ayxi6"]
 [ext_resource type="Script" uid="uid://dk45ehwrb8k7c" path="res://scenes/settings/scripts/settings_other.gd" id="10_yrusv"]
 [ext_resource type="Script" uid="uid://dx5tkcfiup834" path="res://classes/gpad_hint_texture.gd" id="21_5vkof"]
+[ext_resource type="Script" uid="uid://cer03lst4qmnr" path="res://player/ui/gamepad_hints.gd" id="21_v7b3h"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_m1yla"]
 corner_radius_top_left = 6
@@ -118,7 +119,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxEmpty_ds1x1")
 tab_alignment = 1
-current_tab = 0
+current_tab = 4
 tab_1/icon = ExtResource("4_15jx7")
 tab_2/icon = ExtResource("5_bqt2g")
 tab_3/icon = ExtResource("5_e5ur0")
@@ -126,6 +127,7 @@ tab_4/icon = ExtResource("6_bqt2g")
 tab_5/icon = ExtResource("8_m1yla")
 
 [node name="×" type="Control" parent="TabContainer" unique_id=56017362]
+visible = false
 layout_mode = 2
 metadata/_tab_index = 0
 
@@ -895,7 +897,6 @@ ticks_on_borders = true
 script = ExtResource("7_7hpl2")
 
 [node name="input" type="ScrollContainer" parent="TabContainer" unique_id=561227248 node_paths=PackedStringArray("config_file_handler")]
-visible = false
 layout_mode = 2
 script = ExtResource("9_mytdd")
 config_file_handler = NodePath("../../ConfigFileHandler")
@@ -968,6 +969,20 @@ layout_mode = 2
 text = "KEY_SETTINGS_JOY_VIBRATION"
 
 [node name="joy_vibration_button" type="CheckButton" parent="TabContainer/input/margin_container/v_box_container/joy_vibration" unique_id=792645]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="joy_hints" type="HBoxContainer" parent="TabContainer/input/margin_container/v_box_container" unique_id=948211536]
+custom_minimum_size = Vector2(0, 28)
+layout_mode = 2
+
+[node name="joy_hints_label" type="Label" parent="TabContainer/input/margin_container/v_box_container/joy_hints" unique_id=267032165]
+unique_name_in_owner = true
+layout_mode = 2
+text = "KEY_SETTINGS_JOY_HINTS"
+
+[node name="joy_hints_button" type="CheckButton" parent="TabContainer/input/margin_container/v_box_container/joy_hints" unique_id=1466256215]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
@@ -1050,12 +1065,15 @@ tooltip_text = "KEY_SETTINGS_PRELOAD_WEAPONS_SCENES_TOOLTIP"
 
 [node name="gamepad_hints_tab" type="PanelContainer" parent="." unique_id=974438725]
 unique_name_in_owner = true
+material = ExtResource("4_m1yla")
 layout_mode = 1
 offset_left = 15.0
 offset_top = -130.0
 offset_right = 216.0
 offset_bottom = -20.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_g713s")
+script = ExtResource("21_v7b3h")
+show_always_with_gamepad = true
 
 [node name="margin_container" type="MarginContainer" parent="gamepad_hints_tab" unique_id=316343111]
 layout_mode = 2

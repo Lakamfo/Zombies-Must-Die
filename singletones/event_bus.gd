@@ -16,7 +16,9 @@ signal weapon_hitted(hit_color: Color)
 signal weapon_fire_mode_changed(fire_mode: int)
 signal melee_attack()
 
-signal weapon_add_ammo(ammount: int)
+signal weapon_add_ammo(amount: int)
+signal weapon_inventory_update(weapon_list : Array[Weapon])
+signal weapon_clip_changed(amount: int)
 
 #==== WEAPON STUFF UI RELATED ====#
 signal weapon_remove_ui(weapon_index: int)

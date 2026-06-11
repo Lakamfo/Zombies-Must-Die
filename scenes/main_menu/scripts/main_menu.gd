@@ -33,22 +33,14 @@ var get_update_max_try: int = 3
 var swindow_scaling: float = 100
 var is_kg_mode := false
 
-#func _unhandled_input(event):
-#if event is InputEventKey and event.pressed and event.keycode == KEY_BACK:
-#pass
 
-func _gpad_hint(state: bool) -> void:
-	var gh := %gamepad_hints
-	gh.visible = state
-	
+
 
 func _ready() -> void:
 	await get_tree().process_frame
 	audio_stream_player.play()
 	
-	_gpad_hint(Global.gamepad_connected)
-	Input.joy_connection_changed.connect(func(d, c): 
-		_gpad_hint(c)
+	Input.joy_connection_changed.connect(func(_d, c): 
 		if c: first_activate_button.grab_focus()
 	)
 	

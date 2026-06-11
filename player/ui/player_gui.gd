@@ -62,7 +62,13 @@ const TIME_BONUS_SLOT = preload("uid://dfcjvnew7vpdj")
 @onready var bt_exit: Button = %bt_exit
 @onready var bt_exit_descktop: Button = %bt_exit_descktop
 
+@onready var gpad_broke = %gpad_broke
+
 @onready var death_screen: CanvasLayer = $death_screen
+
+@onready var gamepad_hints: Control = %gamepad_hints
+@onready var gamepad_hints_gun: Control = %gamepad_hints_gun
+@onready var gamepad_hints2: Control = %gamepad_hints2
 #endregion
 
 #region Variables
@@ -72,40 +78,10 @@ var player_alive: bool = true
 var _message_cache: Dictionary[String, MessageLabel] = {}
 #endregion
 
-func _gpad_hint(state: bool) -> void:
-	var hints := [
-		%gamepad_hints,
-		%gamepad_hints_gun,
-		%gamepad_hints,
-		%gamepad_hints2,
-	]
-
-	for hint in hints:
-		hint.visible = state
 
 #region Lifecycle methods
 func _ready() -> void:
-	# if gpad dissconnected, return to pause
-	
-	_gpad_hint(Global.gamepad_connected)
-	
-	Input.joy_connection_changed.connect(func(device: int, connected: bool) -> void:
-		_gpad_hint(Global.gamepad_connected)
-		if Global.gamepad_connected:
-			if get_tree().paused:
-				%gpad_broke.hide()
-				bt_cont.grab_focus()
-			return
-		
-		if not get_tree().paused:
-			button_handler(0)
-			%gpad_broke.show()
-	)
-	
-	if Global.first_hint_counter:
-		Global.first_hint_counter = false
-	else:
-		%gamepad_hints2.hide()
+	_init_gamepad()
 	
 	aspect_ratio_container.modulate.a = 0
 
@@ -155,15 +131,15 @@ func _process(_delta: float) -> void:
 		_update_crosshair_position()
 
 func _unhandled_input(event: InputEvent) -> void:
-	if 	(event.is_action_pressed(&"pause") and player_alive) or \
+	if (event.is_action_pressed(&"pause") and player_alive) or \
 		(event.is_action_pressed(&"ui_cancel") and get_tree().paused):
-		%gamepad_hints2.hide()
+		gamepad_hints2.hide()
 		get_tree().paused = !get_tree().paused
 		pause_menu.visible = get_tree().paused
 		if get_tree().paused:
 			pause_menu.get_node('buttons/bt_cont').grab_focus()
 		else:
-			%gpad_broke.hide()
+			gpad_broke.hide()
 			
 		_on_close_request()
 
@@ -191,11 +167,11 @@ func button_handler(id: int = -1) -> void:
 		0:
 			get_tree().paused = !get_tree().paused
 			if not get_tree().paused:
-				%gpad_broke.hide()
-				
+				gpad_broke.hide()
+			
 			pause_menu.visible = get_tree().paused
 			MouseManager.unlock(&"pause_menu")
-			%gamepad_hints2.hide()
+			gamepad_hints2.hide()
 		1:
 			get_tree().paused = !get_tree().paused
 			SceneManager.reload_current_scene()
@@ -216,6 +192,43 @@ func button_handler(id: int = -1) -> void:
 #endregion
 
 #region Private methods
+func _gpad_hint(state: bool) -> void:
+	var hints := [
+		gamepad_hints,
+		gamepad_hints_gun,
+		gamepad_hints2,
+	]
+
+	for hint in hints:
+		if is_instance_valid(hint):
+			hint.visible = state
+
+
+func _init_gamepad() -> void:
+	# if gpad dissconnected, return to pause
+	
+	_gpad_hint(Global.gamepad_connected)
+	
+	Input.joy_connection_changed.connect(func(_device: int, _connected: bool) -> void:
+		_gpad_hint(Global.gamepad_connected)
+		if Global.gamepad_connected:
+			if get_tree().paused:
+				gpad_broke.hide()
+				bt_cont.grab_focus()
+			return
+		
+		if not get_tree().paused:
+			button_handler(0)
+			MouseManager.lock(&"pause_menu")
+			gpad_broke.show()
+	)
+	
+	if Global.first_hint_counter:
+		Global.first_hint_counter = false
+	else:
+		gamepad_hints2.hide()
+
+
 func _play_ui_reveal_animation() -> void:
 	var tween := get_tree().create_tween()
 	tween.tween_property(aspect_ratio_container, "modulate:a", 1, 1)

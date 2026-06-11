@@ -75,6 +75,7 @@ KEY_SETTINGS_OPEN_SCREENSHOTS,Open Screenshots folder,Открыть сними�
 KEY_SETTINGS_TAKE_SCREENSHOT,Take Screenshot,Снимок экрана
 KEY_SETTINGS_JOY_VIBRATION,Vibration,Вибрация
 KEY_SETTINGS_JOY,Gamepad,Геймпад
+KEY_SETTINGS_JOY_HINTS, Gamepad hints, Подсказки для геймпада
 ,,
 KEY_SETTINGS_RELOAD_TO_APPLY,Restart the game to apply the settings.,"Перезапустите игру, чтобы применить настройки."
 KEY_SETTINGS_RELOAD_TO_APPLY_TITLE,Zombies Must Die : Settings Changed,Zombies Must Die : Настройки изменены
